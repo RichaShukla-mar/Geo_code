@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout>
+                <pattern>%d %p %c{1.} [%t] %m%n</pattern>
+            </PatternLayout>
+        </Console>
+        <RollingFile name="RollingFile"
+                     fileName="logs/geo-publish.log"
+                     filePattern="./logs/$${date:yyyy-MM}/geo-publish-%d{-dd-MMMM-yyyy}-%i.log.gz">
+            <pattern>%d %p %c{1.} [%t] %m%n</pattern>
+            <!--<JsonLayout complete="false" eventEol="true" compact="true" properties="true" stacktraceAsString="true"></JsonLayout>-->
+            <Policies>
+                <OnStartupTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="10 MB" />
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="RollingFile" />
+        </Root>
+        <Logger name="com.maersk.opsmdm.emp" level="debug"></Logger>
+    </Loggers>
+
+</Configuration>

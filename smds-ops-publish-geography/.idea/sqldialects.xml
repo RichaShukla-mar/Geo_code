@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/geo-publish-service/src/main/resources/queries/retrieve_geographyInfo_by_rowid.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/geo-publish-service/src/main/resources/queries/retrieve_geographycountry_by_rowid.sql" dialect="Oracle" />
+  </component>
+</project>
