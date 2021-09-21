@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../GEOService/GEOService.iml" filepath="$PROJECT_DIR$/../GEOService/GEOService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../GEOServiceEJB/GEOServiceEJB.iml" filepath="$PROJECT_DIR$/../GEOServiceEJB/GEOServiceEJB.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/GEOServiceEar.iml" filepath="$PROJECT_DIR$/.idea/GEOServiceEar.iml" />
+    </modules>
+  </component>
+</project>

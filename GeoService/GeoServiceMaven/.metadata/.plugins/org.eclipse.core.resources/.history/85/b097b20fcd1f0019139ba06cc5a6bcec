@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ejb-jar xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/ejb-jar_3_0.xsd" version="3.0">
+  <display-name>GEOServiceEJB </display-name>
+  <enterprise-beans>
+  	<session>
+  		<ejb-name>GeoServiceEJB</ejb-name>
+  		<mapped-name>GeoServiceEJB</mapped-name>
+  		<business-local>net.apmoller.maersk.cmd.geo.ejb.GeoServiceEJBLocal</business-local>
+  		<business-remote>net.apmoller.maersk.cmd.geo.ejb.GeoServiceEJBRemote</business-remote>
+  		<ejb-class>net.apmoller.maersk.cmd.geo.ejb.GeoServiceEJB</ejb-class>
+  		<session-type>Stateless</session-type>
+  		<transaction-type>Container</transaction-type>
+  		<ejb-local-ref>
+  			<ejb-ref-name>GeoServiceEJB</ejb-ref-name>
+  			<local>net.apmoller.maersk.cmd.geo.ejb.GeoServiceEJBLocal</local>
+  			<ejb-link>GeoServiceEJB</ejb-link>
+  		</ejb-local-ref>
+  		<resource-ref>
+  		<res-ref-name>SMDS-WEB-SERVICES</res-ref-name>
+  		<res-auth>Container</res-auth>
+  		<mapped-name>jdbc/SMDS-WEB-SERVICES</mapped-name>
+  		</resource-ref>
+  	</session>
+  </enterprise-beans>
+  <ejb-client-jar>GEOServiceEJBClient.jar</ejb-client-jar>
+  
+</ejb-jar>

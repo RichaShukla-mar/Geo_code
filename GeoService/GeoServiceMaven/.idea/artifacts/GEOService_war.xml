@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="GEOService:war">
+    <output-path>$PROJECT_DIR$/GEOService/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>GEOService</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="GEOService-0.0.1-SNAPSHOT.war">
+      <element id="artifact" artifact-name="GEOService:war exploded" />
+    </root>
+  </artifact>
+</component>

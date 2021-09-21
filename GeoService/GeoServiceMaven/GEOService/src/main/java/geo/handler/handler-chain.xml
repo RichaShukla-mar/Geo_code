@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<handler-chains xmlns="http://java.sun.com/xml/ns/javaee">
+	<handler-chain>
+		<handler>
+			<handler-name>LogHandler</handler-name>
+			<handler-class>net.apmoller.services.cmd.geo.handler.LogHandler</handler-class>
+		</handler>
+	</handler-chain>
+</handler-chains>

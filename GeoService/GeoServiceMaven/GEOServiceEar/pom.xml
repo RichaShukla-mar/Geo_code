@@ -1,0 +1,151 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>GEOServiceEar</groupId>
+    <artifactId>GEOServiceEar</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>ear</packaging>
+    <name>GEOServiceEar</name>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>nexus</id>
+            <name>nexus</name>
+            <url>http://bimdm-hvs5-ci2:8081/content/groups/public/</url>
+            <layout>default</layout>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+        </pluginRepository>
+    </pluginRepositories>
+
+
+    <repositories>
+        <repository> <!-- for javaee:javaee-api -->
+            <id>java.net2</id>
+            <url>http://download.java.net/maven/2/</url>
+        </repository>
+
+        <repository> <!-- for javaee:javaee-api -->
+            <id>nexus</id>
+            <url>http://bimdm-hvs5-ci2:8081/content/groups/public/</url>
+        </repository>
+
+    </repositories>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>2.0.2</version>
+                    <configuration>
+                        <source>1.7</source>
+                        <target>1.7</target>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-ear-plugin</artifactId>
+                    <version>2.6</version>
+                    <configuration>
+                        <version>5</version>
+                        <defaultLibBundleDir>lib</defaultLibBundleDir>
+                        <skinnyWars>true</skinnyWars>
+                        <finalName>GEOServiceEAR</finalName>
+                        <archive>
+                            <manifest>
+                                <addClasspath>true</addClasspath>
+                            </manifest>
+                        </archive>
+
+
+                        <modules>
+                            <!-- <jarModule> -->
+                            <!-- <groupId>search-customer-client</groupId> -->
+                            <!-- <artifactId>client-lib</artifactId> -->
+                            <!-- <bundleFileName>client-lib.jar</bundleFileName> -->
+
+                            <!-- </jarModule> -->
+                            <webModule>
+                                <groupId>GEOService</groupId>
+                                <artifactId>GEOService</artifactId>
+                                <contextRoot>/GeoService</contextRoot>
+                            </webModule>
+                            <ejbModule>
+                                <groupId>GEOServiceEJB</groupId>
+                                <artifactId>GEOServiceEJB</artifactId>
+                            </ejbModule>
+                        </modules>
+                        <displayName>GEOServiceEAR</displayName>
+                        <!-- If I want maven to generate the application.xml, set this to true -->
+                        <generateApplicationXml>true</generateApplicationXml>
+                    </configuration>
+                </plugin>
+                <plugin>
+
+                    <groupId>com.oracle.weblogic</groupId>
+                    <artifactId>weblogic-maven-plugin</artifactId>
+                    <version>10.3.6.0</version>
+
+                    <configuration>
+                        <name>GEOServiceEar</name>
+                        <adminurl>t3://scrbsmddk002093:7001</adminurl>
+                        <user>weblogic</user>
+                        <password>Weblogic2015int</password>
+                        <upload>true</upload>
+                        <action>deploy</action>
+                        <remote>true</remote>
+                        <targets>WSServer</targets>
+                        <verbose>true</verbose>
+                        <source>${project.build.directory}/GEOServiceEar.ear</source>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>100</id>
+                            <phase>install</phase>
+                            <goals>
+                                <!-- 						<goal>stop-app</goal> -->
+                                <goal>undeploy</goal>
+                                <goal>deploy</goal>
+                                <!-- 						<goal>start-app</goal> -->
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <!--
+          <plugin>
+            <artifactId>maven-ear-plugin</artifactId>
+            <version>2.9</version>
+            <configuration>
+              <earSourceDirectory>EarContent</earSourceDirectory>
+              <version>6</version>
+              <defaultLibBundleDir>lib</defaultLibBundleDir>
+            </configuration>
+          </plugin>
+          -->
+            </plugins>
+        </pluginManagement>
+    </build>
+    <dependencies>
+
+        <dependency>
+            <groupId>GEOServiceEJB</groupId>
+            <artifactId>GEOServiceEJB</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <type>ejb</type>
+        </dependency>
+        <dependency>
+            <groupId>GEOService</groupId>
+            <artifactId>GEOService</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <type>war</type>
+        </dependency>
+
+    </dependencies>
+
+</project>

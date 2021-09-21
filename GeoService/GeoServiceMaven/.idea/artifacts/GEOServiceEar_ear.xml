@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="ear" name="GEOServiceEar:ear">
+    <output-path>$PROJECT_DIR$/GEOServiceEar/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>GEOServiceEar</module>
+        <packaging>ear</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="GEOServiceEar-0.0.1-SNAPSHOT.ear">
+      <element id="artifact" artifact-name="GEOServiceEar:ear exploded" />
+    </root>
+  </artifact>
+</component>

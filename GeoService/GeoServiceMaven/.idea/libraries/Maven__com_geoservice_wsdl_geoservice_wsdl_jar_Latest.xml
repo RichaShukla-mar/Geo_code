@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.geoservice.wsdl:geoservice-wsdl-jar:Latest">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/geoservice/wsdl/geoservice-wsdl-jar/Latest/geoservice-wsdl-jar-Latest.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/geoservice/wsdl/geoservice-wsdl-jar/Latest/geoservice-wsdl-jar-Latest-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/geoservice/wsdl/geoservice-wsdl-jar/Latest/geoservice-wsdl-jar-Latest-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

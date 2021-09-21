@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/application_5.xsd" id="Application_ID" version="5">
+  <display-name>GEOServiceEAR</display-name>
+  <module>
+    <web>
+      <web-uri>GEOService-0.0.1-SNAPSHOT.war</web-uri>
+      <context-root>GeoService</context-root>
+    </web>
+  </module>
+    <module>
+    <ejb>GEOServiceEJB-0.0.1-SNAPSHOT.jar</ejb>
+  </module>
+  <library-directory>lib</library-directory>
+</application>

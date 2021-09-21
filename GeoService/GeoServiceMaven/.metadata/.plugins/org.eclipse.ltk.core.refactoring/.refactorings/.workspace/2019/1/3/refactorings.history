@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;GEOServiceWeb&apos; to &apos;GEOService&apos;" description="Rename resource &apos;GEOServiceWeb&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/GEOServiceWeb" name="GEOService" stamp="1547710604137" updateReferences="true"/>
+</session>

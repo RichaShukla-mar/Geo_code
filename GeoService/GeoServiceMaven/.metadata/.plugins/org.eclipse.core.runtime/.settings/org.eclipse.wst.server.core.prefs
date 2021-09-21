@@ -1,0 +1,2 @@
+eclipse.preferences.version=1
+runtimes=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<runtimes>\r\n  <runtime id\="Oracle WebLogic Server 11gR1 (10.3.6)" location\="E\:/Oracle/Middleware/wlserver_10.3" name\="Oracle WebLogic Server 11gR1 (10.3.6)" runtime-type-id\="com.bea.weblogic1036" timestamp\="0"/>\r\n</runtimes>\r\n
