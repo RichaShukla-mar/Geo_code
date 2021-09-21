@@ -1,0 +1,12 @@
+logging:
+  level:
+    root: DEBUG
+    org:
+      springframework:
+        jdbc:
+          core:
+            JdbcTemplate: debug
+
+maersk:
+  deployment:
+    environment: weblogic
