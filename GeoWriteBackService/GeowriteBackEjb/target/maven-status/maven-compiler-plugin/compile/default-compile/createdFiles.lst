@@ -1,0 +1,12 @@
+net\apmoller\maersk\services\fct\geowrite\GeoWriteBackDao.class
+net\apmoller\maersk\services\fct\geowrite\messaging\GeoPublishManagerLocal.class
+net\apmoller\maersk\services\fct\geowrite\DaoConstants.class
+net\apmoller\maersk\services\fct\geowrite\messaging\GeoPublishManagerRemote.class
+net\apmoller\maersk\services\fct\geowrite\GeoRowID.class
+net\apmoller\maersk\services\fct\geowrite\GeoWriteBackDaoLocal.class
+net\apmoller\maersk\services\fct\geowrite\messaging\JmsMessageListener.class
+net\apmoller\maersk\services\fct\geowrite\GeoWriteBackVO.class
+net\apmoller\maersk\services\fct\geowrite\GeoWriteBackHelper.class
+net\apmoller\maersk\services\fct\geowrite\GeoWriteBackDaoRemote.class
+net\apmoller\maersk\services\fct\geowrite\messaging\PropUtil.class
+net\apmoller\maersk\services\fct\geowrite\messaging\GeoPublishManager.class

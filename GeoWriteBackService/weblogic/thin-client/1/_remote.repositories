@@ -1,0 +1,4 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Aug 04 01:19:44 IST 2021
+thin-client-1.jar>proxies-mirror=
+thin-client-1.pom>proxies-mirror=

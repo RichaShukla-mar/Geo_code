@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: infa:informatica-bpm-adapter:1">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/infa/informatica-bpm-adapter/1/informatica-bpm-adapter-1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/infa/informatica-bpm-adapter/1/informatica-bpm-adapter-1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/infa/informatica-bpm-adapter/1/informatica-bpm-adapter-1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

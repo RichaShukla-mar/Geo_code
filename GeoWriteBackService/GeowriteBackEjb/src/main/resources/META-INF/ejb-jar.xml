@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ejb-jar xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/ejb-jar_3_0.xsd" version="3.0">
+  <display-name>GeoServiceEJBs</display-name>
+  <enterprise-beans>
+    <session>
+      <ejb-name>GeoWriteBackDao</ejb-name>
+      <mapped-name>GeoWriteBackDao</mapped-name>
+      <business-local>net.apmoller.maersk.services.fct.geowrite.GeoWriteBackDaoLocal</business-local>
+      <business-remote>net.apmoller.maersk.services.fct.geowrite.GeoWriteBackDaoRemote</business-remote>
+      <ejb-class>net.apmoller.maersk.services.fct.geowrite.GeoWriteBackDao</ejb-class>
+      <session-type>Stateless</session-type>
+      <transaction-type>Container</transaction-type>
+      <ejb-local-ref>
+        <ejb-ref-name>GeoWriteBackDao</ejb-ref-name>
+        <local>net.apmoller.maersk.services.fct.geowrite.GeoWriteBackDaoLocal</local>
+        <ejb-link>GeoWriteBackDao</ejb-link>
+      </ejb-local-ref>
+      <resource-ref>
+        <res-ref-name>MDM_DATASOURCE</res-ref-name>
+        <res-auth>Container</res-auth>
+        <mapped-name>jdbc/SMDS-WEB-SERVICES</mapped-name>
+      </resource-ref>
+    
+    </session>
+    <session>
+      <ejb-name>GeoPublishManager</ejb-name>
+      <mapped-name>GeoPublishManager</mapped-name>
+      <business-local>net.apmoller.maersk.services.fct.geowrite.messaging.GeoPublishManagerLocal</business-local>
+      <ejb-class>net.apmoller.maersk.services.fct.geowrite.messaging.GeoPublishManager</ejb-class>
+      <session-type>Stateless</session-type>
+      <transaction-type>Container</transaction-type>
+      <ejb-local-ref>
+        <ejb-ref-name>GeoPublishManager</ejb-ref-name>
+        <local>net.apmoller.maersk.services.fct.geowrite.messaging.GeoPublishManagerLocal</local>
+        <ejb-link>GeoPublishManager</ejb-link>
+      </ejb-local-ref>
+        </session>
+  </enterprise-beans>
+  <ejb-client-jar>GeoWriteBackEJBClient.jar</ejb-client-jar>
+</ejb-jar>

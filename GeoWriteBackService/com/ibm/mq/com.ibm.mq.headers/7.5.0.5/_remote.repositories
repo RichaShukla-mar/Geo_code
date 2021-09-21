@@ -1,0 +1,4 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Aug 04 19:32:10 IST 2021
+com.ibm.mq.headers-7.5.0.5.jar>proxies-mirror=
+com.ibm.mq.headers-7.5.0.5.pom>proxies-mirror=

@@ -1,0 +1,4 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Aug 04 01:19:44 IST 2021
+javaee-api-5.jar>proxies-mirror=
+javaee-api-5.pom>proxies-mirror=

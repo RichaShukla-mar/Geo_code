@@ -1,0 +1,5 @@
+eclipse.preferences.version=1
+extraProperties=sonar.host.url\=http\://127.0.0.1\:9000\r\nsonar.jdbc.password\=SONAR\r\nsonar.jdbc.url\=jdbc\:oracle\:thin\:@scrbipcdk001154\:1531\:ipctst1\r\nsonar.jdbc.username\=SONAR
+projectKey=com.accenture\:publish-customer-ejb
+serverUrl=http\://localhost\:9000
+version=2

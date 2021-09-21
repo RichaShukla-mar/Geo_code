@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: fct-webservices-client-jar:fct-upsertfacility-webservice-client-jar:8">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/fct-webservices-client-jar/fct-upsertfacility-webservice-client-jar/8/fct-upsertfacility-webservice-client-jar-8.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/fct-webservices-client-jar/fct-upsertfacility-webservice-client-jar/8/fct-upsertfacility-webservice-client-jar-8-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/fct-webservices-client-jar/fct-upsertfacility-webservice-client-jar/8/fct-upsertfacility-webservice-client-jar-8-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

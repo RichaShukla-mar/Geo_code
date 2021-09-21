@@ -1,0 +1,141 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.1.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.1.0 http://maven.apache.org/xsd/settings-1.1.0.xsd">
+	<localRepository />
+	<interactiveMode />
+	<usePluginRegistry />
+	<offline />
+
+	<proxies>
+		<proxy>
+			<id>optional</id>
+			<active>true</active>
+			<protocol>http</protocol>
+			<username>SAC034</username>
+			<password>pasta-23</password>
+			<host>10.255.237.20</host>
+			<port>8887</port>
+			<nonProxyHosts>bimdm-hvs5-ci2/</nonProxyHosts>
+		</proxy>
+	</proxies>
+
+    <profiles>
+        <profile>
+            <id>sonar</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+
+       <!-- EXAMPLE FOR MYSQL -->
+        <sonar.jdbc.url>
+          jdbc:oracle:thin:@scrbipcdk001154:1531:ipctst1
+        </sonar.jdbc.url>
+        <sonar.jdbc.username>SONAR</sonar.jdbc.username>
+        <sonar.jdbc.password>SONAR</sonar.jdbc.password>
+                <!-- Optional URL to server. Default value is http://localhost:9000 -->
+                <sonar.host.url>
+                  http://bimdm-hvs5-ci2:9000/
+                </sonar.host.url>
+            </properties>
+        </profile>
+     </profiles>
+<servers>
+  <server>
+      <id>nexus</id>
+      <username>admin</username>
+      <password>admin123</password>
+    </server>
+</servers>
+
+	<!-- <servers> -->
+	<!-- <server> -->
+	<!-- <username /> -->
+	<!-- <password /> -->
+	<!-- <privateKey /> -->
+	<!-- <passphrase /> -->
+	<!-- <filePermissions /> -->
+	<!-- <directoryPermissions /> -->
+	<!-- <configuration /> -->
+	<!-- <id /> -->
+	<!-- </server> -->
+	<!-- </servers> -->
+
+	<!-- <mirrors> -->
+	<!-- <mirror> -->
+	<!-- <mirrorOf /> -->
+	<!-- <name /> -->
+	<!-- <url /> -->
+	<!-- <layout /> -->
+	<!-- <mirrorOfLayouts /> -->
+	<!-- <id /> -->
+	<!-- </mirror> -->
+	<!-- </mirrors> -->
+
+	<!-- <profiles> -->
+	<!-- <profile> -->
+	<!-- <activation> -->
+	<!-- <activeByDefault /> -->
+	<!-- <jdk /> -->
+	<!-- <os> -->
+	<!-- <name /> -->
+	<!-- <family /> -->
+	<!-- <arch /> -->
+	<!-- <version /> -->
+	<!-- </os> -->
+	<!-- <property> -->
+	<!-- <name /> -->
+	<!-- <value /> -->
+	<!-- </property> -->
+	<!-- <file> -->
+	<!-- <missing /> -->
+	<!-- <exists /> -->
+	<!-- </file> -->
+	<!-- </activation> -->
+	<!-- <properties> -->
+	<!-- <key>value</key> -->
+	<!-- </properties> -->
+
+	<!-- <repositories> -->
+	<!-- <repository> -->
+	<!-- <releases> -->
+	<!-- <enabled /> -->
+	<!-- <updatePolicy /> -->
+	<!-- <checksumPolicy /> -->
+	<!-- </releases> -->
+	<!-- <snapshots> -->
+	<!-- <enabled /> -->
+	<!-- <updatePolicy /> -->
+	<!-- <checksumPolicy /> -->
+	<!-- </snapshots> -->
+	<!-- <id /> -->
+	<!-- <name /> -->
+	<!-- <url /> -->
+	<!-- <layout /> -->
+	<!-- </repository> -->
+	<!-- </repositories> -->
+	<!-- <pluginRepositories> -->
+	<!-- <pluginRepository> -->
+	<!-- <releases> -->
+	<!-- <enabled /> -->
+	<!-- <updatePolicy /> -->
+	<!-- <checksumPolicy /> -->
+	<!-- </releases> -->
+	<!-- <snapshots> -->
+	<!-- <enabled /> -->
+	<!-- <updatePolicy /> -->
+	<!-- <checksumPolicy /> -->
+	<!-- </snapshots> -->
+	<!-- <id /> -->
+	<!-- <name /> -->
+	<!-- <url /> -->
+	<!-- <layout /> -->
+	<!-- </pluginRepository> -->
+	<!-- </pluginRepositories> -->
+	<!-- <id /> -->
+	<!-- </profile> -->
+	<!-- </profiles> -->
+
+	<!-- <activeProfiles /> -->
+	<!-- <pluginGroups /> -->
+</settings>

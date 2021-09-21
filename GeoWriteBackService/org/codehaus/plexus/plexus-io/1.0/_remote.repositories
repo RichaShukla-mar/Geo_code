@@ -1,0 +1,4 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Aug 04 01:27:01 IST 2021
+plexus-io-1.0.jar>proxies-mirror=
+plexus-io-1.0.pom>proxies-mirror=

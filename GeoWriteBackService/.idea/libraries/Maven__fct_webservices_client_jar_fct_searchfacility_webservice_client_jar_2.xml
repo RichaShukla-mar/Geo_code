@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: fct-webservices-client-jar:fct-searchfacility-webservice-client-jar:2">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/fct-webservices-client-jar/fct-searchfacility-webservice-client-jar/2/fct-searchfacility-webservice-client-jar-2.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/fct-webservices-client-jar/fct-searchfacility-webservice-client-jar/2/fct-searchfacility-webservice-client-jar-2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/fct-webservices-client-jar/fct-searchfacility-webservice-client-jar/2/fct-searchfacility-webservice-client-jar-2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/GeoWriteBackService.iml" filepath="$PROJECT_DIR$/GeoWriteBackService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GeoWriteBackServiceEar/GeoWriteBackServiceEar.iml" filepath="$PROJECT_DIR$/GeoWriteBackServiceEar/GeoWriteBackServiceEar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GeoWriteBackWeb/GeoWriteBackWeb.iml" filepath="$PROJECT_DIR$/GeoWriteBackWeb/GeoWriteBackWeb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GeowriteBackEjb/GeowriteBackEjb.iml" filepath="$PROJECT_DIR$/GeowriteBackEjb/GeowriteBackEjb.iml" />
+    </modules>
+  </component>
+</project>

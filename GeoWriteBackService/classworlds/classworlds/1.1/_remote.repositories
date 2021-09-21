@@ -1,0 +1,4 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Aug 04 01:20:39 IST 2021
+classworlds-1.1.jar>proxies-mirror=
+classworlds-1.1.pom>proxies-mirror=
