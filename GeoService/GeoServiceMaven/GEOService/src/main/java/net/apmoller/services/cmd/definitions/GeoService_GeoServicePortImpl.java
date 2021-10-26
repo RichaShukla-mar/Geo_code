@@ -13,7 +13,7 @@ import net.apmoller.maersk.cmd.geo.bo.CityBO;
 import net.apmoller.maersk.cmd.geo.bo.ZipCodeBO;
 import net.apmoller.maersk.cmd.geo.ejb.GeoServiceEJBLocal;
 import net.apmoller.services.cmd.schemas.DataElementArray;
-import net.apmoller.services.cmd.schemas.DataElementArray.DataElement;
+
 import net.apmoller.services.cmd.schemas.DataPayLoad;
 import net.apmoller.services.cmd.schemas.GeoServiceRequest;
 import net.apmoller.services.cmd.schemas.GeoServiceResponse;
@@ -22,7 +22,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpHeaders;
 import org.apache.http.HttpResponse;
 import org.apache.http.ParseException;
-import org.apache.http.client.ClientProtocolException;
+
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.client.methods.RequestBuilder;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -133,6 +133,9 @@ public class GeoService_GeoServicePortImpl
 				}
 				if ("MAERSK_CITY".equals(element.getFieldName())) {
 					cityBo.setmaerskcityind(element.getFieldValue());
+				}
+				if ("HSUD_NAME".equals(element.getFieldName())) {
+					cityBo.sethsudname(element.getFieldValue());
 				}
 				if ("LATITUDE".equals(element.getFieldName())) {
 					cityBo.setLatitude(element.getFieldValue());
@@ -289,7 +292,9 @@ public class GeoService_GeoServicePortImpl
 
 		RequestBuilder reqbuilder = RequestBuilder.post().setHeader(HttpHeaders.CONTENT_TYPE, "application/json");
 
-		File file = new File("/opt/weblogic/mdmpprd/config/applications/smds_pprd/servers/WSServer/GeoEMPBBU/BBUPublish.properties");
+		///opt/weblogic/mdmpprd/config/applications/smds_pprd/servers/WSServer/GeoEMPBBU/BBUPublish.properties
+		///opt/weblogic/mdmsit/config/applications/smds_sit/servers/WSServer/GeoEMPBBU/BBUPublish.properties
+		File file = new File("/opt/weblogic/mdmprod/config/applications/smds_prod/servers/WSServer/GeoEMPBBU/BBUPublish.properties");
 		if(!file.exists())
 		{
 			System.out.println("Property File Does Not Exists in Location");
@@ -346,8 +351,9 @@ public class GeoService_GeoServicePortImpl
 		CloseableHttpClient httpclient = HttpClients.createDefault();
 
 		RequestBuilder reqbuilder = RequestBuilder.post().setHeader(HttpHeaders.CONTENT_TYPE, "application/json");
-
-		File file = new File("/opt/weblogic/mdmpprd/config/applications/smds_pprd/servers/WSServer/GeoEMPBBU/BBUPublish.properties");
+            ///opt/weblogic/mdmpprd/config/applications/smds_pprd/servers/WSServer/GeoEMPBBU/BBUPublish.properties
+		///opt/weblogic/mdmsit/config/applications/smds_sit/servers/WSServer/GeoEMPBBU/BBUPublish.properties
+		File file = new File("/opt/weblogic/mdmprod/config/applications/smds_prod/servers/WSServer/GeoEMPBBU/BBUPublish.properties");
 		if(!file.exists())
 		{
 			System.out.println("Property File Does Not Exists in Location");

@@ -1,0 +1,15 @@
+net\apmoller\maersk\cmd\geo\ejb\GeoServiceEJBRemote.class
+net\apmoller\maersk\cmd\geo\ejb\GeoServiceEJBLocal.class
+net\apmoller\maersk\cmd\geo\vo\ZipCodeVO.class
+net\apmoller\maersk\cmd\geo\bo\GEOBO.class
+net\apmoller\maersk\cmd\geo\dao\CityDAO.class
+net\apmoller\maersk\cmd\geo\vo\GEOVO.class
+net\apmoller\maersk\cmd\geo\dao\ZipCodeDAO.class
+net\apmoller\maersk\cmd\geo\util\GEOConstants.class
+net\apmoller\maersk\cmd\geo\bo\CityBO.class
+net\apmoller\maersk\cmd\geo\util\ServerEnvironmentEnum.class
+net\apmoller\maersk\cmd\geo\dao\SipClientFactory.class
+net\apmoller\maersk\cmd\geo\ejb\GeoServiceEJB.class
+net\apmoller\maersk\cmd\geo\util\GEOUtils.class
+net\apmoller\maersk\cmd\geo\util\PropertiesLoader.class
+net\apmoller\maersk\cmd\geo\bo\ZipCodeBO.class

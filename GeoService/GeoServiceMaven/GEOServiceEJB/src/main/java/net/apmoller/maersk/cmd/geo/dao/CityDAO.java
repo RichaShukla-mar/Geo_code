@@ -333,6 +333,7 @@ public class CityDAO
 					recorddfndCity.setField(new Field("MAERSK_CITY", data.getmaerskcityind()));
 
 
+
 					RecordKey keyGdaCity = new RecordKey();
 
 					keyGdaCity.setSystemName("MULTIUPDATE");
@@ -669,6 +670,8 @@ public class CityDAO
 					recorddfndCity.setField(new Field("GDA_DFND_AREA_ROWID", data.getGDARowid()));
 					recorddfndCity.setField(new Field("PORT_FLAG", data.getPortExists()));
 					recorddfndCity.setField(new Field("OLSON_TZ", data.getOztimezone()));
+					recorddfndCity.setField(new Field("MAERSK_CITY", data.getmaerskcityind()));
+					recorddfndCity.setField(new Field("HSUD_NAME", data.gethsudname()));
 
 					RecordKey keyGdaCity = new RecordKey();
 

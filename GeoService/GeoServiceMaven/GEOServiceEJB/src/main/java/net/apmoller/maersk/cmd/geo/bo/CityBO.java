@@ -7,6 +7,7 @@ public class CityBO extends GEOBO implements Serializable
 	String cityname;
 	String description;
 	String maerskcityind;
+	String hsudname;
 	String city_valid_from;
 	String city_valid_thru;
 	String city_rel_valid_from;
@@ -66,6 +67,14 @@ public class CityBO extends GEOBO implements Serializable
 	public void setmaerskcityind(String maerskcityind) {
 		this.maerskcityind = maerskcityind;
 	}
+
+	public String gethsudname() {
+		return hsudname;
+	}
+	public void sethsudname(String hsudname) {
+		this.hsudname = hsudname;
+	}
+
 	public String getCity_Valid_from() {
 		return city_valid_from;
 	}
@@ -310,6 +319,7 @@ public class CityBO extends GEOBO implements Serializable
 	public String toString() {
 		return "CityBO [cityname=" + cityname + ", description=" + description
 				+ ", maerskcityind=" + maerskcityind
+				+ ", hsudname=" + hsudname
 				+ ", city_valid_from=" + city_valid_from + ", city_valid_thru="
 				+ city_valid_thru + ", city_rel_valid_from="
 				+ city_rel_valid_from + ", city_rel_valid_thru="

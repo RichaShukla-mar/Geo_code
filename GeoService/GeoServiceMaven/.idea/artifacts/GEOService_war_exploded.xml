@@ -36,7 +36,6 @@
           <element id="library" level="project" name="Maven: ibm-mq:jmqi-lib:1.0" />
           <element id="library" level="project" name="Maven: ibm-mq:pcf-lib:1.0" />
           <element id="library" level="project" name="Maven: ibm-mq:mq-jms-lib:1.0" />
-          <element id="library" level="project" name="Maven: ibm-mq:mq-connector-lib:1.0" />
           <element id="library" level="project" name="Maven: ibm-mq:dhbcore-lib:1.0" />
           <element id="library" level="project" name="Maven: org.springframework:spring-core:3.2.3.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-expression:3.2.3.RELEASE" />
@@ -48,6 +47,8 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-tx:3.2.3.RELEASE" />
           <element id="library" level="project" name="Maven: fct-webservices-client-jar:fct-searchfacility-webservice-client-jar:2" />
           <element id="library" level="project" name="Maven: fct-webservices-client-jar:fct-upsertfacility-webservice-client-jar:8" />
+          <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpcore:4.4.13" />
+          <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpclient:4.5.12" />
         </element>
       </element>
       <element id="directory" name="META-INF">

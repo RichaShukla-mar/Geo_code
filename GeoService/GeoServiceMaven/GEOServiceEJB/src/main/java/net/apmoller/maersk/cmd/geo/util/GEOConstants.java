@@ -26,6 +26,7 @@ public class GEOConstants {
 	public static final String GEO_FIELD_CITY_NAME = "CITY_NAME";
 	public static final String GEO_FIELD_CITY_DESCRIPTION = "DESCRIPTION";
 	public static final String GEO_FIELD_MAERSK_CITY = "MAERSK_CITY";
+	public static final String GEO_FIELD_HSUD_NAME = "HSUD_NAME";
 	public static final String GEO_FIELD_CITYGDA_VALID_FROM = "GDA_VALID_FROM";
 	public static final String GEO_FIELD_CITYGDA_VALID_TO = "GDA_VALID_TO";
 	public static final String GEO_FIELD_CITY_LATITUDE = "LATITUDE";

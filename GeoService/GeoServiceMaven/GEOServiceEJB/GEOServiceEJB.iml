@@ -48,8 +48,8 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-jms:3.2.3.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: aopalliance:aopalliance:1.0" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-tx:3.2.3.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: fct-webservices-client-jar:fct-searchfacility-webservice-client-jar:2.0" level="project" />
-    <orderEntry type="library" name="Maven: fct-webservices-client-jar:fct-upsertfacility-webservice-client-jar:8.0" level="project" />
+    <orderEntry type="library" name="Maven: fct-webservices-client-jar:fct-searchfacility-webservice-client-jar:2" level="project" />
+    <orderEntry type="library" name="Maven: fct-webservices-client-jar:fct-upsertfacility-webservice-client-jar:8" level="project" />
     <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpcore:4.4.13" level="project" />
     <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpclient:4.5.12" level="project" />
   </component>
