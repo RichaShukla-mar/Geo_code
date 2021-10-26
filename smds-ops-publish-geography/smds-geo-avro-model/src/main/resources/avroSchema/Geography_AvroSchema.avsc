@@ -53,7 +53,7 @@
                                {"name":"PortFlag", "type":["null","string"]},
                                {"name":"OlsonTimezone",  "type":["null","string"]},
                                {"name":"BDAType", "type":["null","string"]},
-                               {"name":"HSUDName",  "type":["null","string"]},
+                               {"name":"HSUDName",  "type":["null","string"],"default": null},
                                {"name":"GeographyAlternateNames",
 																		"type":[
 																		"null",																		
