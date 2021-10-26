@@ -53,6 +53,7 @@
                                {"name":"PortFlag", "type":["null","string"]},
                                {"name":"OlsonTimezone",  "type":["null","string"]},
                                {"name":"BDAType", "type":["null","string"]},
+                               {"name":"HSUDName",  "type":["null","string"]},
                                {"name":"GeographyAlternateNames",
 																		"type":[
 																		"null",																		
@@ -164,7 +165,7 @@
 																					       {"name":"getParentRowId",  "type":["null","string"]},
 																							   {"name":"Name",       "type":["null","string"]},
 																							   {"name":"Type",  "type":["null","string"]},
-																							   {"name":"BDAType",  "type":["null","string"],"default": null },
+																							   {"name":"BDAType",  "type":["null","string"],"default": null},
 																							   {"name":"GeographyParentAlternateCodeDetails",
 																		"type":[
 																		"null",																		
@@ -205,7 +206,7 @@
 																					           {"name":"getSubCityParentRowId",  "type":["null","string"]},
 																							   {"name":"Name",       "type":["null","string"]},
 																							   {"name":"Type",  "type":["null","string"]},
-																							   {"name":"BDAType",  "type":["null","string"],"default": null },
+																							   {"name":"BDAType",  "type":["null","string"],"default": null},
 																							   {"name":"GeographySubCityParentAlternateCodeDetails",
 																		"type":[
 																		"null",																		
@@ -287,7 +288,7 @@
 																					      {"name":"bdaLocRowid","type":["null","string"]},
 																							   {"name":"Name","type":["null","string"]},
 																							   {"name":"Type", "type":["null","string"]},
-																							   {"name":"Status", "type":["null","string"],"default": null },
+																							   {"name":"Status", "type":["null","string"],"default": null},
 																							   {"name":"GeographyBDALocationAlternateCodeDetails",
 																		"type":[
 																		"null",																		

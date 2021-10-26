@@ -123,6 +123,7 @@ public GeographyMessageData getGeographyMessage(String geoRowID, String eventDet
                     .portFlag(geography.getPortFlag())
                     .olsonTimezone(geography.getOlsonTimezone())
                     .bdaType(geography.getBdaType())
+                    .hsudName(geography.getHsudName())
                     .alternateNames(geoAlternateNamesList)
                     .alternateCodes(geoAlternateCodeList)
                     .fence(geographyFenceList)

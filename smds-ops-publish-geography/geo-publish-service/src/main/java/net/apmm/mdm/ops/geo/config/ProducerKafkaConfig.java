@@ -26,10 +26,6 @@ import java.util.Map;
 import java.util.Properties;
 
 
-/**
- * Configuration for kafka producer
- * @author Ramesh Varma.K
- */
 @Configuration
 @Slf4j
 public class ProducerKafkaConfig {
@@ -148,6 +144,7 @@ public class ProducerKafkaConfig {
         properties.put("schema.registry.ssl.truststore.password", prop.getProperty("kafka.ssl.truststore-password"));
         properties.put("schema.registry.ssl.truststore.location", prop.getProperty("kafka.ssl.truststore-location"));
         properties.put(KafkaAvroDeserializerConfig.AUTO_REGISTER_SCHEMAS,false);
+
     }
     private static void addSaslProperties(Map<String, Object> properties, String mechanism, String loginModule, String username, String password) {
         if (!StringUtils.isEmpty(username)) {

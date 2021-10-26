@@ -39,6 +39,7 @@ public class GeographyData {
     private String portFlag;
     private String olsonTimezone;
     private String bdaType;
+    private String hsudName;
     List<GeographyAlternateNameData> alternateNames;
     List<GeographyAlternateCodesData> alternateCodes;
     List<GeographyFenceData> fence;

@@ -60,7 +60,12 @@ public class PublishGeographyService {
 
         } catch (Exception e) {
             log.debug("Error cause" + e.getCause());
+            log.debug("Error cause1" + e.getMessage());
+            log.debug("Error cause2" + e.getLocalizedMessage());
+            e.getLocalizedMessage();
             e.printStackTrace();
+            e.getMessage();
+
             throw new PublishException("Error while generating & publishing AVRO message :: " + e);
         }
 
@@ -103,6 +108,7 @@ public class PublishGeographyService {
         geographyInfo.setPortFlag(geoMsg.getGeographyEntity().getGeographyData().getPortFlag());
         geographyInfo.setOlsonTimezone(geoMsg.getGeographyEntity().getGeographyData().getOlsonTimezone());
         geographyInfo.setBDAType(geoMsg.getGeographyEntity().getGeographyData().getBdaType());
+        geographyInfo.setHSUDName(geoMsg.getGeographyEntity().getGeographyData().getHsudName());
 
 
         log.info("geographyInfo message Out", geographyInfo);

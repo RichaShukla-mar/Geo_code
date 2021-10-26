@@ -41,6 +41,7 @@ public class GeographyMapper implements RowMapper<GeographyData> {
                 .portFlag(resultSet.getString("portFlag"))
                 .olsonTimezone(resultSet.getString("olsonTimezone"))
                 .bdaType(resultSet.getString("bdaType"))
+                .hsudName(resultSet.getString("hsudName"))
                 .build();
     }
 }

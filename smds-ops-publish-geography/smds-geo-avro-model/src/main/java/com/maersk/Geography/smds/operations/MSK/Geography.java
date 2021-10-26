@@ -14,8 +14,8 @@ import org.apache.avro.message.SchemaStore;
 /** Geography Entity Information Which includes AltNm,AltCd,fence,Country,Parent,BDA and BDALoc  */
 @org.apache.avro.specific.AvroGenerated
 public class Geography extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 159672414501207124L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Geography\",\"namespace\":\"com.maersk.Geography.smds.operations.MSK\",\"doc\":\"Geography Entity Information Which includes AltNm,AltCd,fence,Country,Parent,BDA and BDALoc \",\"fields\":[{\"name\":\"GeoRowID\",\"type\":[\"null\",\"string\"]},{\"name\":\"GeoType\",\"type\":[\"null\",\"string\"]},{\"name\":\"Name\",\"type\":[\"null\",\"string\"]},{\"name\":\"Status\",\"type\":[\"null\",\"string\"]},{\"name\":\"ValidFrom\",\"type\":[\"null\",\"string\"]},{\"name\":\"ValidTo\",\"type\":[\"null\",\"string\"]},{\"name\":\"Longitude\",\"type\":[\"null\",\"string\"]},{\"name\":\"Latitude\",\"type\":[\"null\",\"string\"]},{\"name\":\"TimeZone\",\"type\":[\"null\",\"string\"]},{\"name\":\"DaylightSavingTime\",\"type\":[\"null\",\"string\"]},{\"name\":\"UTCOffsetMinutes\",\"type\":[\"null\",\"string\"]},{\"name\":\"DaylightSavingStart\",\"type\":[\"null\",\"string\"]},{\"name\":\"DaylightSavingEnd\",\"type\":[\"null\",\"string\"]},{\"name\":\"DaylightSavingShiftMinutes\",\"type\":[\"null\",\"string\"]},{\"name\":\"Description\",\"type\":[\"null\",\"string\"]},{\"name\":\"WorkaroundReason\",\"type\":[\"null\",\"string\"]},{\"name\":\"Restricted\",\"type\":[\"null\",\"string\"]},{\"name\":\"SiteType\",\"type\":[\"null\",\"string\"]},{\"name\":\"GPSFlag\",\"type\":[\"null\",\"string\"]},{\"name\":\"GSMFlag\",\"type\":[\"null\",\"string\"]},{\"name\":\"StreetNumber\",\"type\":[\"null\",\"string\"]},{\"name\":\"AddressLine1\",\"type\":[\"null\",\"string\"]},{\"name\":\"AddressLine2\",\"type\":[\"null\",\"string\"]},{\"name\":\"AddressLine3\",\"type\":[\"null\",\"string\"]},{\"name\":\"PostalCode\",\"type\":[\"null\",\"string\"]},{\"name\":\"PostalCodeMandatoryFlag\",\"type\":[\"null\",\"string\"]},{\"name\":\"StateProvienceMandatory\",\"type\":[\"null\",\"string\"]},{\"name\":\"DialingCode\",\"type\":[\"null\",\"string\"]},{\"name\":\"DialingCodedescription\",\"type\":[\"null\",\"string\"]},{\"name\":\"PortFlag\",\"type\":[\"null\",\"string\"]},{\"name\":\"OlsonTimezone\",\"type\":[\"null\",\"string\"]},{\"name\":\"BDAType\",\"type\":[\"null\",\"string\"]},{\"name\":\"GeographyAlternateNames\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"GeographyAlternateNames\",\"doc\":\"Geography AlternateNames details\",\"fields\":[{\"name\":\"Name\",\"type\":[\"null\",\"string\"]},{\"name\":\"Description\",\"type\":[\"null\",\"string\"]},{\"name\":\"Status\",\"type\":[\"null\",\"string\"]}]}}]},{\"name\":\"GeographyAlternateCodes\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"GeographyAlternateCodes\",\"doc\":\"Geography AlternateCodes details\",\"fields\":[{\"name\":\"CodeType\",\"type\":[\"null\",\"string\"]},{\"name\":\"Code\",\"type\":[\"null\",\"string\"]}]}}},{\"name\":\"GeographyFence\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"GeographyFence\",\"doc\":\"Geography Fence details\",\"fields\":[{\"name\":\"Name\",\"type\":[\"null\",\"string\"]},{\"name\":\"GeoFenceType\",\"type\":[\"null\",\"string\"]}]}}]},{\"name\":\"GeographyCountryDetails\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"GeographyCountryDetails\",\"doc\":\"Geography Country details\",\"fields\":[{\"name\":\"countryRowid\",\"type\":[\"null\",\"string\"]},{\"name\":\"Name\",\"type\":[\"null\",\"string\"]},{\"name\":\"Type\",\"type\":[\"null\",\"string\"]},{\"name\":\"GeographyCountryAlternateCodeDetails\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"GeographyCountryAlternateCode\",\"doc\":\"Geography Country AlternateCode details\",\"fields\":[{\"name\":\"CodeType\",\"type\":[\"null\",\"string\"]},{\"name\":\"Code\",\"type\":[\"null\",\"string\"]}]}}]}]}}]},{\"name\":\"GeographyParentDetails\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"GeographyParentDetails\",\"doc\":\"Geography Parent details\",\"fields\":[{\"name\":\"getParentRowId\",\"type\":[\"null\",\"string\"]},{\"name\":\"Name\",\"type\":[\"null\",\"string\"]},{\"name\":\"Type\",\"type\":[\"null\",\"string\"]},{\"name\":\"BDAType\",\"type\":[\"null\",\"string\"]},{\"name\":\"GeographyParentAlternateCodeDetails\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"GeographyParentAlternateCode\",\"doc\":\"Geography Parent AlternateCode details\",\"fields\":[{\"name\":\"CodeType\",\"type\":[\"null\",\"string\"]},{\"name\":\"Code\",\"type\":[\"null\",\"string\"]}]}}]}]}}]},{\"name\":\"GeographySubCityParentDetails\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"GeographySubCityParentDetails\",\"doc\":\"Geography SubCityParent details\",\"fields\":[{\"name\":\"getSubCityParentRowId\",\"type\":[\"null\",\"string\"]},{\"name\":\"Name\",\"type\":[\"null\",\"string\"]},{\"name\":\"Type\",\"type\":[\"null\",\"string\"]},{\"name\":\"BDAType\",\"type\":[\"null\",\"string\"]},{\"name\":\"GeographySubCityParentAlternateCodeDetails\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"GeographySubCityParentAlternateCode\",\"doc\":\"Geography SubCityParent AlternateCode details\",\"fields\":[{\"name\":\"CodeType\",\"type\":[\"null\",\"string\"]},{\"name\":\"Code\",\"type\":[\"null\",\"string\"]}]}}]}]}}]},{\"name\":\"GeographyBDADetails\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"GeographyBDADetails\",\"doc\":\"Geography BDA details\",\"fields\":[{\"name\":\"bdaRowid\",\"type\":[\"null\",\"string\"]},{\"name\":\"Name\",\"type\":[\"null\",\"string\"]},{\"name\":\"Type\",\"type\":[\"null\",\"string\"]},{\"name\":\"BDAType\",\"type\":[\"null\",\"string\"]},{\"name\":\"GeographyBDAAlternateCodeDetails\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"GeographyBDAAlternateCode\",\"doc\":\"Geography BDA AlternateCode details\",\"fields\":[{\"name\":\"CodeType\",\"type\":[\"null\",\"string\"]},{\"name\":\"Code\",\"type\":[\"null\",\"string\"]}]}}]}]}}]},{\"name\":\"GeographyBDALocationsDetails\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"GeographyBDALocationDetails\",\"doc\":\"Geography BDA Location details\",\"fields\":[{\"name\":\"bdaLocRowid\",\"type\":[\"null\",\"string\"]},{\"name\":\"Name\",\"type\":[\"null\",\"string\"]},{\"name\":\"Type\",\"type\":[\"null\",\"string\"]},{\"name\":\"Status\",\"type\":[\"null\",\"string\"]},{\"name\":\"GeographyBDALocationAlternateCodeDetails\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"GeographyBDALocationAlternateCode\",\"doc\":\"Geography BDALocation AlternateCode details\",\"fields\":[{\"name\":\"CodeType\",\"type\":[\"null\",\"string\"]},{\"name\":\"Code\",\"type\":[\"null\",\"string\"]}]}}]}]}}]}]}");
+  private static final long serialVersionUID = 6663897867950164963L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Geography\",\"namespace\":\"com.maersk.Geography.smds.operations.MSK\",\"doc\":\"Geography Entity Information Which includes AltNm,AltCd,fence,Country,Parent,BDA and BDALoc \",\"fields\":[{\"name\":\"GeoRowID\",\"type\":[\"null\",\"string\"]},{\"name\":\"GeoType\",\"type\":[\"null\",\"string\"]},{\"name\":\"Name\",\"type\":[\"null\",\"string\"]},{\"name\":\"Status\",\"type\":[\"null\",\"string\"]},{\"name\":\"ValidFrom\",\"type\":[\"null\",\"string\"]},{\"name\":\"ValidTo\",\"type\":[\"null\",\"string\"]},{\"name\":\"Longitude\",\"type\":[\"null\",\"string\"]},{\"name\":\"Latitude\",\"type\":[\"null\",\"string\"]},{\"name\":\"TimeZone\",\"type\":[\"null\",\"string\"]},{\"name\":\"DaylightSavingTime\",\"type\":[\"null\",\"string\"]},{\"name\":\"UTCOffsetMinutes\",\"type\":[\"null\",\"string\"]},{\"name\":\"DaylightSavingStart\",\"type\":[\"null\",\"string\"]},{\"name\":\"DaylightSavingEnd\",\"type\":[\"null\",\"string\"]},{\"name\":\"DaylightSavingShiftMinutes\",\"type\":[\"null\",\"string\"]},{\"name\":\"Description\",\"type\":[\"null\",\"string\"]},{\"name\":\"WorkaroundReason\",\"type\":[\"null\",\"string\"]},{\"name\":\"Restricted\",\"type\":[\"null\",\"string\"]},{\"name\":\"SiteType\",\"type\":[\"null\",\"string\"]},{\"name\":\"GPSFlag\",\"type\":[\"null\",\"string\"]},{\"name\":\"GSMFlag\",\"type\":[\"null\",\"string\"]},{\"name\":\"StreetNumber\",\"type\":[\"null\",\"string\"]},{\"name\":\"AddressLine1\",\"type\":[\"null\",\"string\"]},{\"name\":\"AddressLine2\",\"type\":[\"null\",\"string\"]},{\"name\":\"AddressLine3\",\"type\":[\"null\",\"string\"]},{\"name\":\"PostalCode\",\"type\":[\"null\",\"string\"]},{\"name\":\"PostalCodeMandatoryFlag\",\"type\":[\"null\",\"string\"]},{\"name\":\"StateProvienceMandatory\",\"type\":[\"null\",\"string\"]},{\"name\":\"DialingCode\",\"type\":[\"null\",\"string\"]},{\"name\":\"DialingCodedescription\",\"type\":[\"null\",\"string\"]},{\"name\":\"PortFlag\",\"type\":[\"null\",\"string\"]},{\"name\":\"OlsonTimezone\",\"type\":[\"null\",\"string\"]},{\"name\":\"BDAType\",\"type\":[\"null\",\"string\"]},{\"name\":\"HSUDName\",\"type\":[\"null\",\"string\"]},{\"name\":\"GeographyAlternateNames\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"GeographyAlternateNames\",\"doc\":\"Geography AlternateNames details\",\"fields\":[{\"name\":\"Name\",\"type\":[\"null\",\"string\"]},{\"name\":\"Description\",\"type\":[\"null\",\"string\"]},{\"name\":\"Status\",\"type\":[\"null\",\"string\"]}]}}]},{\"name\":\"GeographyAlternateCodes\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"GeographyAlternateCodes\",\"doc\":\"Geography AlternateCodes details\",\"fields\":[{\"name\":\"CodeType\",\"type\":[\"null\",\"string\"]},{\"name\":\"Code\",\"type\":[\"null\",\"string\"]}]}}},{\"name\":\"GeographyFence\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"GeographyFence\",\"doc\":\"Geography Fence details\",\"fields\":[{\"name\":\"Name\",\"type\":[\"null\",\"string\"]},{\"name\":\"GeoFenceType\",\"type\":[\"null\",\"string\"]}]}}]},{\"name\":\"GeographyCountryDetails\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"GeographyCountryDetails\",\"doc\":\"Geography Country details\",\"fields\":[{\"name\":\"countryRowid\",\"type\":[\"null\",\"string\"]},{\"name\":\"Name\",\"type\":[\"null\",\"string\"]},{\"name\":\"Type\",\"type\":[\"null\",\"string\"]},{\"name\":\"GeographyCountryAlternateCodeDetails\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"GeographyCountryAlternateCode\",\"doc\":\"Geography Country AlternateCode details\",\"fields\":[{\"name\":\"CodeType\",\"type\":[\"null\",\"string\"]},{\"name\":\"Code\",\"type\":[\"null\",\"string\"]}]}}]}]}}]},{\"name\":\"GeographyParentDetails\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"GeographyParentDetails\",\"doc\":\"Geography Parent details\",\"fields\":[{\"name\":\"getParentRowId\",\"type\":[\"null\",\"string\"]},{\"name\":\"Name\",\"type\":[\"null\",\"string\"]},{\"name\":\"Type\",\"type\":[\"null\",\"string\"]},{\"name\":\"BDAType\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"GeographyParentAlternateCodeDetails\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"GeographyParentAlternateCode\",\"doc\":\"Geography Parent AlternateCode details\",\"fields\":[{\"name\":\"CodeType\",\"type\":[\"null\",\"string\"]},{\"name\":\"Code\",\"type\":[\"null\",\"string\"]}]}}]}]}}]},{\"name\":\"GeographySubCityParentDetails\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"GeographySubCityParentDetails\",\"doc\":\"Geography SubCityParent details\",\"fields\":[{\"name\":\"getSubCityParentRowId\",\"type\":[\"null\",\"string\"]},{\"name\":\"Name\",\"type\":[\"null\",\"string\"]},{\"name\":\"Type\",\"type\":[\"null\",\"string\"]},{\"name\":\"BDAType\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"GeographySubCityParentAlternateCodeDetails\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"GeographySubCityParentAlternateCode\",\"doc\":\"Geography SubCityParent AlternateCode details\",\"fields\":[{\"name\":\"CodeType\",\"type\":[\"null\",\"string\"]},{\"name\":\"Code\",\"type\":[\"null\",\"string\"]}]}}]}]}}]},{\"name\":\"GeographyBDADetails\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"GeographyBDADetails\",\"doc\":\"Geography BDA details\",\"fields\":[{\"name\":\"bdaRowid\",\"type\":[\"null\",\"string\"]},{\"name\":\"Name\",\"type\":[\"null\",\"string\"]},{\"name\":\"Type\",\"type\":[\"null\",\"string\"]},{\"name\":\"BDAType\",\"type\":[\"null\",\"string\"]},{\"name\":\"GeographyBDAAlternateCodeDetails\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"GeographyBDAAlternateCode\",\"doc\":\"Geography BDA AlternateCode details\",\"fields\":[{\"name\":\"CodeType\",\"type\":[\"null\",\"string\"]},{\"name\":\"Code\",\"type\":[\"null\",\"string\"]}]}}]}]}}]},{\"name\":\"GeographyBDALocationsDetails\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"GeographyBDALocationDetails\",\"doc\":\"Geography BDA Location details\",\"fields\":[{\"name\":\"bdaLocRowid\",\"type\":[\"null\",\"string\"]},{\"name\":\"Name\",\"type\":[\"null\",\"string\"]},{\"name\":\"Type\",\"type\":[\"null\",\"string\"]},{\"name\":\"Status\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"GeographyBDALocationAlternateCodeDetails\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"GeographyBDALocationAlternateCode\",\"doc\":\"Geography BDALocation AlternateCode details\",\"fields\":[{\"name\":\"CodeType\",\"type\":[\"null\",\"string\"]},{\"name\":\"Code\",\"type\":[\"null\",\"string\"]}]}}]}]}}]}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -84,6 +84,7 @@ public class Geography extends org.apache.avro.specific.SpecificRecordBase imple
   @Deprecated public java.lang.CharSequence PortFlag;
   @Deprecated public java.lang.CharSequence OlsonTimezone;
   @Deprecated public java.lang.CharSequence BDAType;
+  @Deprecated public java.lang.CharSequence HSUDName;
   @Deprecated public java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyAlternateNames> GeographyAlternateNames;
   @Deprecated public java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyAlternateCodes> GeographyAlternateCodes;
   @Deprecated public java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyFence> GeographyFence;
@@ -134,6 +135,7 @@ public class Geography extends org.apache.avro.specific.SpecificRecordBase imple
    * @param PortFlag The new value for PortFlag
    * @param OlsonTimezone The new value for OlsonTimezone
    * @param BDAType The new value for BDAType
+   * @param HSUDName The new value for HSUDName
    * @param GeographyAlternateNames The new value for GeographyAlternateNames
    * @param GeographyAlternateCodes The new value for GeographyAlternateCodes
    * @param GeographyFence The new value for GeographyFence
@@ -143,7 +145,7 @@ public class Geography extends org.apache.avro.specific.SpecificRecordBase imple
    * @param GeographyBDADetails The new value for GeographyBDADetails
    * @param GeographyBDALocationsDetails The new value for GeographyBDALocationsDetails
    */
-  public Geography(java.lang.CharSequence GeoRowID, java.lang.CharSequence GeoType, java.lang.CharSequence Name, java.lang.CharSequence Status, java.lang.CharSequence ValidFrom, java.lang.CharSequence ValidTo, java.lang.CharSequence Longitude, java.lang.CharSequence Latitude, java.lang.CharSequence TimeZone, java.lang.CharSequence DaylightSavingTime, java.lang.CharSequence UTCOffsetMinutes, java.lang.CharSequence DaylightSavingStart, java.lang.CharSequence DaylightSavingEnd, java.lang.CharSequence DaylightSavingShiftMinutes, java.lang.CharSequence Description, java.lang.CharSequence WorkaroundReason, java.lang.CharSequence Restricted, java.lang.CharSequence SiteType, java.lang.CharSequence GPSFlag, java.lang.CharSequence GSMFlag, java.lang.CharSequence StreetNumber, java.lang.CharSequence AddressLine1, java.lang.CharSequence AddressLine2, java.lang.CharSequence AddressLine3, java.lang.CharSequence PostalCode, java.lang.CharSequence PostalCodeMandatoryFlag, java.lang.CharSequence StateProvienceMandatory, java.lang.CharSequence DialingCode, java.lang.CharSequence DialingCodedescription, java.lang.CharSequence PortFlag, java.lang.CharSequence OlsonTimezone, java.lang.CharSequence BDAType, java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyAlternateNames> GeographyAlternateNames, java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyAlternateCodes> GeographyAlternateCodes, java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyFence> GeographyFence, java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyCountryDetails> GeographyCountryDetails, java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyParentDetails> GeographyParentDetails, java.util.List<com.maersk.Geography.smds.operations.MSK.GeographySubCityParentDetails> GeographySubCityParentDetails, java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyBDADetails> GeographyBDADetails, java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyBDALocationDetails> GeographyBDALocationsDetails) {
+  public Geography(java.lang.CharSequence GeoRowID, java.lang.CharSequence GeoType, java.lang.CharSequence Name, java.lang.CharSequence Status, java.lang.CharSequence ValidFrom, java.lang.CharSequence ValidTo, java.lang.CharSequence Longitude, java.lang.CharSequence Latitude, java.lang.CharSequence TimeZone, java.lang.CharSequence DaylightSavingTime, java.lang.CharSequence UTCOffsetMinutes, java.lang.CharSequence DaylightSavingStart, java.lang.CharSequence DaylightSavingEnd, java.lang.CharSequence DaylightSavingShiftMinutes, java.lang.CharSequence Description, java.lang.CharSequence WorkaroundReason, java.lang.CharSequence Restricted, java.lang.CharSequence SiteType, java.lang.CharSequence GPSFlag, java.lang.CharSequence GSMFlag, java.lang.CharSequence StreetNumber, java.lang.CharSequence AddressLine1, java.lang.CharSequence AddressLine2, java.lang.CharSequence AddressLine3, java.lang.CharSequence PostalCode, java.lang.CharSequence PostalCodeMandatoryFlag, java.lang.CharSequence StateProvienceMandatory, java.lang.CharSequence DialingCode, java.lang.CharSequence DialingCodedescription, java.lang.CharSequence PortFlag, java.lang.CharSequence OlsonTimezone, java.lang.CharSequence BDAType, java.lang.CharSequence HSUDName, java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyAlternateNames> GeographyAlternateNames, java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyAlternateCodes> GeographyAlternateCodes, java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyFence> GeographyFence, java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyCountryDetails> GeographyCountryDetails, java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyParentDetails> GeographyParentDetails, java.util.List<com.maersk.Geography.smds.operations.MSK.GeographySubCityParentDetails> GeographySubCityParentDetails, java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyBDADetails> GeographyBDADetails, java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyBDALocationDetails> GeographyBDALocationsDetails) {
     this.GeoRowID = GeoRowID;
     this.GeoType = GeoType;
     this.Name = Name;
@@ -176,6 +178,7 @@ public class Geography extends org.apache.avro.specific.SpecificRecordBase imple
     this.PortFlag = PortFlag;
     this.OlsonTimezone = OlsonTimezone;
     this.BDAType = BDAType;
+    this.HSUDName = HSUDName;
     this.GeographyAlternateNames = GeographyAlternateNames;
     this.GeographyAlternateCodes = GeographyAlternateCodes;
     this.GeographyFence = GeographyFence;
@@ -222,14 +225,15 @@ public class Geography extends org.apache.avro.specific.SpecificRecordBase imple
     case 29: return PortFlag;
     case 30: return OlsonTimezone;
     case 31: return BDAType;
-    case 32: return GeographyAlternateNames;
-    case 33: return GeographyAlternateCodes;
-    case 34: return GeographyFence;
-    case 35: return GeographyCountryDetails;
-    case 36: return GeographyParentDetails;
-    case 37: return GeographySubCityParentDetails;
-    case 38: return GeographyBDADetails;
-    case 39: return GeographyBDALocationsDetails;
+    case 32: return HSUDName;
+    case 33: return GeographyAlternateNames;
+    case 34: return GeographyAlternateCodes;
+    case 35: return GeographyFence;
+    case 36: return GeographyCountryDetails;
+    case 37: return GeographyParentDetails;
+    case 38: return GeographySubCityParentDetails;
+    case 39: return GeographyBDADetails;
+    case 40: return GeographyBDALocationsDetails;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -270,14 +274,15 @@ public class Geography extends org.apache.avro.specific.SpecificRecordBase imple
     case 29: PortFlag = (java.lang.CharSequence)value$; break;
     case 30: OlsonTimezone = (java.lang.CharSequence)value$; break;
     case 31: BDAType = (java.lang.CharSequence)value$; break;
-    case 32: GeographyAlternateNames = (java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyAlternateNames>)value$; break;
-    case 33: GeographyAlternateCodes = (java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyAlternateCodes>)value$; break;
-    case 34: GeographyFence = (java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyFence>)value$; break;
-    case 35: GeographyCountryDetails = (java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyCountryDetails>)value$; break;
-    case 36: GeographyParentDetails = (java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyParentDetails>)value$; break;
-    case 37: GeographySubCityParentDetails = (java.util.List<com.maersk.Geography.smds.operations.MSK.GeographySubCityParentDetails>)value$; break;
-    case 38: GeographyBDADetails = (java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyBDADetails>)value$; break;
-    case 39: GeographyBDALocationsDetails = (java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyBDALocationDetails>)value$; break;
+    case 32: HSUDName = (java.lang.CharSequence)value$; break;
+    case 33: GeographyAlternateNames = (java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyAlternateNames>)value$; break;
+    case 34: GeographyAlternateCodes = (java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyAlternateCodes>)value$; break;
+    case 35: GeographyFence = (java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyFence>)value$; break;
+    case 36: GeographyCountryDetails = (java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyCountryDetails>)value$; break;
+    case 37: GeographyParentDetails = (java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyParentDetails>)value$; break;
+    case 38: GeographySubCityParentDetails = (java.util.List<com.maersk.Geography.smds.operations.MSK.GeographySubCityParentDetails>)value$; break;
+    case 39: GeographyBDADetails = (java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyBDADetails>)value$; break;
+    case 40: GeographyBDALocationsDetails = (java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyBDALocationDetails>)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -795,6 +800,22 @@ public class Geography extends org.apache.avro.specific.SpecificRecordBase imple
   }
 
   /**
+   * Gets the value of the 'HSUDName' field.
+   * @return The value of the 'HSUDName' field.
+   */
+  public java.lang.CharSequence getHSUDName() {
+    return HSUDName;
+  }
+
+  /**
+   * Sets the value of the 'HSUDName' field.
+   * @param value the value to set.
+   */
+  public void setHSUDName(java.lang.CharSequence value) {
+    this.HSUDName = value;
+  }
+
+  /**
    * Gets the value of the 'GeographyAlternateNames' field.
    * @return The value of the 'GeographyAlternateNames' field.
    */
@@ -986,6 +1007,7 @@ public class Geography extends org.apache.avro.specific.SpecificRecordBase imple
     private java.lang.CharSequence PortFlag;
     private java.lang.CharSequence OlsonTimezone;
     private java.lang.CharSequence BDAType;
+    private java.lang.CharSequence HSUDName;
     private java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyAlternateNames> GeographyAlternateNames;
     private java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyAlternateCodes> GeographyAlternateCodes;
     private java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyFence> GeographyFence;
@@ -1134,37 +1156,41 @@ public class Geography extends org.apache.avro.specific.SpecificRecordBase imple
         this.BDAType = data().deepCopy(fields()[31].schema(), other.BDAType);
         fieldSetFlags()[31] = true;
       }
-      if (isValidValue(fields()[32], other.GeographyAlternateNames)) {
-        this.GeographyAlternateNames = data().deepCopy(fields()[32].schema(), other.GeographyAlternateNames);
+      if (isValidValue(fields()[32], other.HSUDName)) {
+        this.HSUDName = data().deepCopy(fields()[32].schema(), other.HSUDName);
         fieldSetFlags()[32] = true;
       }
-      if (isValidValue(fields()[33], other.GeographyAlternateCodes)) {
-        this.GeographyAlternateCodes = data().deepCopy(fields()[33].schema(), other.GeographyAlternateCodes);
+      if (isValidValue(fields()[33], other.GeographyAlternateNames)) {
+        this.GeographyAlternateNames = data().deepCopy(fields()[33].schema(), other.GeographyAlternateNames);
         fieldSetFlags()[33] = true;
       }
-      if (isValidValue(fields()[34], other.GeographyFence)) {
-        this.GeographyFence = data().deepCopy(fields()[34].schema(), other.GeographyFence);
+      if (isValidValue(fields()[34], other.GeographyAlternateCodes)) {
+        this.GeographyAlternateCodes = data().deepCopy(fields()[34].schema(), other.GeographyAlternateCodes);
         fieldSetFlags()[34] = true;
       }
-      if (isValidValue(fields()[35], other.GeographyCountryDetails)) {
-        this.GeographyCountryDetails = data().deepCopy(fields()[35].schema(), other.GeographyCountryDetails);
+      if (isValidValue(fields()[35], other.GeographyFence)) {
+        this.GeographyFence = data().deepCopy(fields()[35].schema(), other.GeographyFence);
         fieldSetFlags()[35] = true;
       }
-      if (isValidValue(fields()[36], other.GeographyParentDetails)) {
-        this.GeographyParentDetails = data().deepCopy(fields()[36].schema(), other.GeographyParentDetails);
+      if (isValidValue(fields()[36], other.GeographyCountryDetails)) {
+        this.GeographyCountryDetails = data().deepCopy(fields()[36].schema(), other.GeographyCountryDetails);
         fieldSetFlags()[36] = true;
       }
-      if (isValidValue(fields()[37], other.GeographySubCityParentDetails)) {
-        this.GeographySubCityParentDetails = data().deepCopy(fields()[37].schema(), other.GeographySubCityParentDetails);
+      if (isValidValue(fields()[37], other.GeographyParentDetails)) {
+        this.GeographyParentDetails = data().deepCopy(fields()[37].schema(), other.GeographyParentDetails);
         fieldSetFlags()[37] = true;
       }
-      if (isValidValue(fields()[38], other.GeographyBDADetails)) {
-        this.GeographyBDADetails = data().deepCopy(fields()[38].schema(), other.GeographyBDADetails);
+      if (isValidValue(fields()[38], other.GeographySubCityParentDetails)) {
+        this.GeographySubCityParentDetails = data().deepCopy(fields()[38].schema(), other.GeographySubCityParentDetails);
         fieldSetFlags()[38] = true;
       }
-      if (isValidValue(fields()[39], other.GeographyBDALocationsDetails)) {
-        this.GeographyBDALocationsDetails = data().deepCopy(fields()[39].schema(), other.GeographyBDALocationsDetails);
+      if (isValidValue(fields()[39], other.GeographyBDADetails)) {
+        this.GeographyBDADetails = data().deepCopy(fields()[39].schema(), other.GeographyBDADetails);
         fieldSetFlags()[39] = true;
+      }
+      if (isValidValue(fields()[40], other.GeographyBDALocationsDetails)) {
+        this.GeographyBDALocationsDetails = data().deepCopy(fields()[40].schema(), other.GeographyBDALocationsDetails);
+        fieldSetFlags()[40] = true;
       }
     }
 
@@ -1302,37 +1328,41 @@ public class Geography extends org.apache.avro.specific.SpecificRecordBase imple
         this.BDAType = data().deepCopy(fields()[31].schema(), other.BDAType);
         fieldSetFlags()[31] = true;
       }
-      if (isValidValue(fields()[32], other.GeographyAlternateNames)) {
-        this.GeographyAlternateNames = data().deepCopy(fields()[32].schema(), other.GeographyAlternateNames);
+      if (isValidValue(fields()[32], other.HSUDName)) {
+        this.HSUDName = data().deepCopy(fields()[32].schema(), other.HSUDName);
         fieldSetFlags()[32] = true;
       }
-      if (isValidValue(fields()[33], other.GeographyAlternateCodes)) {
-        this.GeographyAlternateCodes = data().deepCopy(fields()[33].schema(), other.GeographyAlternateCodes);
+      if (isValidValue(fields()[33], other.GeographyAlternateNames)) {
+        this.GeographyAlternateNames = data().deepCopy(fields()[33].schema(), other.GeographyAlternateNames);
         fieldSetFlags()[33] = true;
       }
-      if (isValidValue(fields()[34], other.GeographyFence)) {
-        this.GeographyFence = data().deepCopy(fields()[34].schema(), other.GeographyFence);
+      if (isValidValue(fields()[34], other.GeographyAlternateCodes)) {
+        this.GeographyAlternateCodes = data().deepCopy(fields()[34].schema(), other.GeographyAlternateCodes);
         fieldSetFlags()[34] = true;
       }
-      if (isValidValue(fields()[35], other.GeographyCountryDetails)) {
-        this.GeographyCountryDetails = data().deepCopy(fields()[35].schema(), other.GeographyCountryDetails);
+      if (isValidValue(fields()[35], other.GeographyFence)) {
+        this.GeographyFence = data().deepCopy(fields()[35].schema(), other.GeographyFence);
         fieldSetFlags()[35] = true;
       }
-      if (isValidValue(fields()[36], other.GeographyParentDetails)) {
-        this.GeographyParentDetails = data().deepCopy(fields()[36].schema(), other.GeographyParentDetails);
+      if (isValidValue(fields()[36], other.GeographyCountryDetails)) {
+        this.GeographyCountryDetails = data().deepCopy(fields()[36].schema(), other.GeographyCountryDetails);
         fieldSetFlags()[36] = true;
       }
-      if (isValidValue(fields()[37], other.GeographySubCityParentDetails)) {
-        this.GeographySubCityParentDetails = data().deepCopy(fields()[37].schema(), other.GeographySubCityParentDetails);
+      if (isValidValue(fields()[37], other.GeographyParentDetails)) {
+        this.GeographyParentDetails = data().deepCopy(fields()[37].schema(), other.GeographyParentDetails);
         fieldSetFlags()[37] = true;
       }
-      if (isValidValue(fields()[38], other.GeographyBDADetails)) {
-        this.GeographyBDADetails = data().deepCopy(fields()[38].schema(), other.GeographyBDADetails);
+      if (isValidValue(fields()[38], other.GeographySubCityParentDetails)) {
+        this.GeographySubCityParentDetails = data().deepCopy(fields()[38].schema(), other.GeographySubCityParentDetails);
         fieldSetFlags()[38] = true;
       }
-      if (isValidValue(fields()[39], other.GeographyBDALocationsDetails)) {
-        this.GeographyBDALocationsDetails = data().deepCopy(fields()[39].schema(), other.GeographyBDALocationsDetails);
+      if (isValidValue(fields()[39], other.GeographyBDADetails)) {
+        this.GeographyBDADetails = data().deepCopy(fields()[39].schema(), other.GeographyBDADetails);
         fieldSetFlags()[39] = true;
+      }
+      if (isValidValue(fields()[40], other.GeographyBDALocationsDetails)) {
+        this.GeographyBDALocationsDetails = data().deepCopy(fields()[40].schema(), other.GeographyBDALocationsDetails);
+        fieldSetFlags()[40] = true;
       }
     }
 
@@ -2585,6 +2615,45 @@ public class Geography extends org.apache.avro.specific.SpecificRecordBase imple
     }
 
     /**
+      * Gets the value of the 'HSUDName' field.
+      * @return The value.
+      */
+    public java.lang.CharSequence getHSUDName() {
+      return HSUDName;
+    }
+
+    /**
+      * Sets the value of the 'HSUDName' field.
+      * @param value The value of 'HSUDName'.
+      * @return This builder.
+      */
+    public com.maersk.Geography.smds.operations.MSK.Geography.Builder setHSUDName(java.lang.CharSequence value) {
+      validate(fields()[32], value);
+      this.HSUDName = value;
+      fieldSetFlags()[32] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'HSUDName' field has been set.
+      * @return True if the 'HSUDName' field has been set, false otherwise.
+      */
+    public boolean hasHSUDName() {
+      return fieldSetFlags()[32];
+    }
+
+
+    /**
+      * Clears the value of the 'HSUDName' field.
+      * @return This builder.
+      */
+    public com.maersk.Geography.smds.operations.MSK.Geography.Builder clearHSUDName() {
+      HSUDName = null;
+      fieldSetFlags()[32] = false;
+      return this;
+    }
+
+    /**
       * Gets the value of the 'GeographyAlternateNames' field.
       * @return The value.
       */
@@ -2598,9 +2667,9 @@ public class Geography extends org.apache.avro.specific.SpecificRecordBase imple
       * @return This builder.
       */
     public com.maersk.Geography.smds.operations.MSK.Geography.Builder setGeographyAlternateNames(java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyAlternateNames> value) {
-      validate(fields()[32], value);
+      validate(fields()[33], value);
       this.GeographyAlternateNames = value;
-      fieldSetFlags()[32] = true;
+      fieldSetFlags()[33] = true;
       return this;
     }
 
@@ -2609,7 +2678,7 @@ public class Geography extends org.apache.avro.specific.SpecificRecordBase imple
       * @return True if the 'GeographyAlternateNames' field has been set, false otherwise.
       */
     public boolean hasGeographyAlternateNames() {
-      return fieldSetFlags()[32];
+      return fieldSetFlags()[33];
     }
 
 
@@ -2619,7 +2688,7 @@ public class Geography extends org.apache.avro.specific.SpecificRecordBase imple
       */
     public com.maersk.Geography.smds.operations.MSK.Geography.Builder clearGeographyAlternateNames() {
       GeographyAlternateNames = null;
-      fieldSetFlags()[32] = false;
+      fieldSetFlags()[33] = false;
       return this;
     }
 
@@ -2637,9 +2706,9 @@ public class Geography extends org.apache.avro.specific.SpecificRecordBase imple
       * @return This builder.
       */
     public com.maersk.Geography.smds.operations.MSK.Geography.Builder setGeographyAlternateCodes(java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyAlternateCodes> value) {
-      validate(fields()[33], value);
+      validate(fields()[34], value);
       this.GeographyAlternateCodes = value;
-      fieldSetFlags()[33] = true;
+      fieldSetFlags()[34] = true;
       return this;
     }
 
@@ -2648,7 +2717,7 @@ public class Geography extends org.apache.avro.specific.SpecificRecordBase imple
       * @return True if the 'GeographyAlternateCodes' field has been set, false otherwise.
       */
     public boolean hasGeographyAlternateCodes() {
-      return fieldSetFlags()[33];
+      return fieldSetFlags()[34];
     }
 
 
@@ -2658,7 +2727,7 @@ public class Geography extends org.apache.avro.specific.SpecificRecordBase imple
       */
     public com.maersk.Geography.smds.operations.MSK.Geography.Builder clearGeographyAlternateCodes() {
       GeographyAlternateCodes = null;
-      fieldSetFlags()[33] = false;
+      fieldSetFlags()[34] = false;
       return this;
     }
 
@@ -2676,9 +2745,9 @@ public class Geography extends org.apache.avro.specific.SpecificRecordBase imple
       * @return This builder.
       */
     public com.maersk.Geography.smds.operations.MSK.Geography.Builder setGeographyFence(java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyFence> value) {
-      validate(fields()[34], value);
+      validate(fields()[35], value);
       this.GeographyFence = value;
-      fieldSetFlags()[34] = true;
+      fieldSetFlags()[35] = true;
       return this;
     }
 
@@ -2687,7 +2756,7 @@ public class Geography extends org.apache.avro.specific.SpecificRecordBase imple
       * @return True if the 'GeographyFence' field has been set, false otherwise.
       */
     public boolean hasGeographyFence() {
-      return fieldSetFlags()[34];
+      return fieldSetFlags()[35];
     }
 
 
@@ -2697,7 +2766,7 @@ public class Geography extends org.apache.avro.specific.SpecificRecordBase imple
       */
     public com.maersk.Geography.smds.operations.MSK.Geography.Builder clearGeographyFence() {
       GeographyFence = null;
-      fieldSetFlags()[34] = false;
+      fieldSetFlags()[35] = false;
       return this;
     }
 
@@ -2715,9 +2784,9 @@ public class Geography extends org.apache.avro.specific.SpecificRecordBase imple
       * @return This builder.
       */
     public com.maersk.Geography.smds.operations.MSK.Geography.Builder setGeographyCountryDetails(java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyCountryDetails> value) {
-      validate(fields()[35], value);
+      validate(fields()[36], value);
       this.GeographyCountryDetails = value;
-      fieldSetFlags()[35] = true;
+      fieldSetFlags()[36] = true;
       return this;
     }
 
@@ -2726,7 +2795,7 @@ public class Geography extends org.apache.avro.specific.SpecificRecordBase imple
       * @return True if the 'GeographyCountryDetails' field has been set, false otherwise.
       */
     public boolean hasGeographyCountryDetails() {
-      return fieldSetFlags()[35];
+      return fieldSetFlags()[36];
     }
 
 
@@ -2736,7 +2805,7 @@ public class Geography extends org.apache.avro.specific.SpecificRecordBase imple
       */
     public com.maersk.Geography.smds.operations.MSK.Geography.Builder clearGeographyCountryDetails() {
       GeographyCountryDetails = null;
-      fieldSetFlags()[35] = false;
+      fieldSetFlags()[36] = false;
       return this;
     }
 
@@ -2754,9 +2823,9 @@ public class Geography extends org.apache.avro.specific.SpecificRecordBase imple
       * @return This builder.
       */
     public com.maersk.Geography.smds.operations.MSK.Geography.Builder setGeographyParentDetails(java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyParentDetails> value) {
-      validate(fields()[36], value);
+      validate(fields()[37], value);
       this.GeographyParentDetails = value;
-      fieldSetFlags()[36] = true;
+      fieldSetFlags()[37] = true;
       return this;
     }
 
@@ -2765,7 +2834,7 @@ public class Geography extends org.apache.avro.specific.SpecificRecordBase imple
       * @return True if the 'GeographyParentDetails' field has been set, false otherwise.
       */
     public boolean hasGeographyParentDetails() {
-      return fieldSetFlags()[36];
+      return fieldSetFlags()[37];
     }
 
 
@@ -2775,7 +2844,7 @@ public class Geography extends org.apache.avro.specific.SpecificRecordBase imple
       */
     public com.maersk.Geography.smds.operations.MSK.Geography.Builder clearGeographyParentDetails() {
       GeographyParentDetails = null;
-      fieldSetFlags()[36] = false;
+      fieldSetFlags()[37] = false;
       return this;
     }
 
@@ -2793,9 +2862,9 @@ public class Geography extends org.apache.avro.specific.SpecificRecordBase imple
       * @return This builder.
       */
     public com.maersk.Geography.smds.operations.MSK.Geography.Builder setGeographySubCityParentDetails(java.util.List<com.maersk.Geography.smds.operations.MSK.GeographySubCityParentDetails> value) {
-      validate(fields()[37], value);
+      validate(fields()[38], value);
       this.GeographySubCityParentDetails = value;
-      fieldSetFlags()[37] = true;
+      fieldSetFlags()[38] = true;
       return this;
     }
 
@@ -2804,7 +2873,7 @@ public class Geography extends org.apache.avro.specific.SpecificRecordBase imple
       * @return True if the 'GeographySubCityParentDetails' field has been set, false otherwise.
       */
     public boolean hasGeographySubCityParentDetails() {
-      return fieldSetFlags()[37];
+      return fieldSetFlags()[38];
     }
 
 
@@ -2814,7 +2883,7 @@ public class Geography extends org.apache.avro.specific.SpecificRecordBase imple
       */
     public com.maersk.Geography.smds.operations.MSK.Geography.Builder clearGeographySubCityParentDetails() {
       GeographySubCityParentDetails = null;
-      fieldSetFlags()[37] = false;
+      fieldSetFlags()[38] = false;
       return this;
     }
 
@@ -2832,9 +2901,9 @@ public class Geography extends org.apache.avro.specific.SpecificRecordBase imple
       * @return This builder.
       */
     public com.maersk.Geography.smds.operations.MSK.Geography.Builder setGeographyBDADetails(java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyBDADetails> value) {
-      validate(fields()[38], value);
+      validate(fields()[39], value);
       this.GeographyBDADetails = value;
-      fieldSetFlags()[38] = true;
+      fieldSetFlags()[39] = true;
       return this;
     }
 
@@ -2843,7 +2912,7 @@ public class Geography extends org.apache.avro.specific.SpecificRecordBase imple
       * @return True if the 'GeographyBDADetails' field has been set, false otherwise.
       */
     public boolean hasGeographyBDADetails() {
-      return fieldSetFlags()[38];
+      return fieldSetFlags()[39];
     }
 
 
@@ -2853,7 +2922,7 @@ public class Geography extends org.apache.avro.specific.SpecificRecordBase imple
       */
     public com.maersk.Geography.smds.operations.MSK.Geography.Builder clearGeographyBDADetails() {
       GeographyBDADetails = null;
-      fieldSetFlags()[38] = false;
+      fieldSetFlags()[39] = false;
       return this;
     }
 
@@ -2871,9 +2940,9 @@ public class Geography extends org.apache.avro.specific.SpecificRecordBase imple
       * @return This builder.
       */
     public com.maersk.Geography.smds.operations.MSK.Geography.Builder setGeographyBDALocationsDetails(java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyBDALocationDetails> value) {
-      validate(fields()[39], value);
+      validate(fields()[40], value);
       this.GeographyBDALocationsDetails = value;
-      fieldSetFlags()[39] = true;
+      fieldSetFlags()[40] = true;
       return this;
     }
 
@@ -2882,7 +2951,7 @@ public class Geography extends org.apache.avro.specific.SpecificRecordBase imple
       * @return True if the 'GeographyBDALocationsDetails' field has been set, false otherwise.
       */
     public boolean hasGeographyBDALocationsDetails() {
-      return fieldSetFlags()[39];
+      return fieldSetFlags()[40];
     }
 
 
@@ -2892,7 +2961,7 @@ public class Geography extends org.apache.avro.specific.SpecificRecordBase imple
       */
     public com.maersk.Geography.smds.operations.MSK.Geography.Builder clearGeographyBDALocationsDetails() {
       GeographyBDALocationsDetails = null;
-      fieldSetFlags()[39] = false;
+      fieldSetFlags()[40] = false;
       return this;
     }
 
@@ -2933,14 +3002,15 @@ public class Geography extends org.apache.avro.specific.SpecificRecordBase imple
         record.PortFlag = fieldSetFlags()[29] ? this.PortFlag : (java.lang.CharSequence) defaultValue(fields()[29]);
         record.OlsonTimezone = fieldSetFlags()[30] ? this.OlsonTimezone : (java.lang.CharSequence) defaultValue(fields()[30]);
         record.BDAType = fieldSetFlags()[31] ? this.BDAType : (java.lang.CharSequence) defaultValue(fields()[31]);
-        record.GeographyAlternateNames = fieldSetFlags()[32] ? this.GeographyAlternateNames : (java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyAlternateNames>) defaultValue(fields()[32]);
-        record.GeographyAlternateCodes = fieldSetFlags()[33] ? this.GeographyAlternateCodes : (java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyAlternateCodes>) defaultValue(fields()[33]);
-        record.GeographyFence = fieldSetFlags()[34] ? this.GeographyFence : (java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyFence>) defaultValue(fields()[34]);
-        record.GeographyCountryDetails = fieldSetFlags()[35] ? this.GeographyCountryDetails : (java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyCountryDetails>) defaultValue(fields()[35]);
-        record.GeographyParentDetails = fieldSetFlags()[36] ? this.GeographyParentDetails : (java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyParentDetails>) defaultValue(fields()[36]);
-        record.GeographySubCityParentDetails = fieldSetFlags()[37] ? this.GeographySubCityParentDetails : (java.util.List<com.maersk.Geography.smds.operations.MSK.GeographySubCityParentDetails>) defaultValue(fields()[37]);
-        record.GeographyBDADetails = fieldSetFlags()[38] ? this.GeographyBDADetails : (java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyBDADetails>) defaultValue(fields()[38]);
-        record.GeographyBDALocationsDetails = fieldSetFlags()[39] ? this.GeographyBDALocationsDetails : (java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyBDALocationDetails>) defaultValue(fields()[39]);
+        record.HSUDName = fieldSetFlags()[32] ? this.HSUDName : (java.lang.CharSequence) defaultValue(fields()[32]);
+        record.GeographyAlternateNames = fieldSetFlags()[33] ? this.GeographyAlternateNames : (java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyAlternateNames>) defaultValue(fields()[33]);
+        record.GeographyAlternateCodes = fieldSetFlags()[34] ? this.GeographyAlternateCodes : (java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyAlternateCodes>) defaultValue(fields()[34]);
+        record.GeographyFence = fieldSetFlags()[35] ? this.GeographyFence : (java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyFence>) defaultValue(fields()[35]);
+        record.GeographyCountryDetails = fieldSetFlags()[36] ? this.GeographyCountryDetails : (java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyCountryDetails>) defaultValue(fields()[36]);
+        record.GeographyParentDetails = fieldSetFlags()[37] ? this.GeographyParentDetails : (java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyParentDetails>) defaultValue(fields()[37]);
+        record.GeographySubCityParentDetails = fieldSetFlags()[38] ? this.GeographySubCityParentDetails : (java.util.List<com.maersk.Geography.smds.operations.MSK.GeographySubCityParentDetails>) defaultValue(fields()[38]);
+        record.GeographyBDADetails = fieldSetFlags()[39] ? this.GeographyBDADetails : (java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyBDADetails>) defaultValue(fields()[39]);
+        record.GeographyBDALocationsDetails = fieldSetFlags()[40] ? this.GeographyBDALocationsDetails : (java.util.List<com.maersk.Geography.smds.operations.MSK.GeographyBDALocationDetails>) defaultValue(fields()[40]);
         return record;
       } catch (java.lang.Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

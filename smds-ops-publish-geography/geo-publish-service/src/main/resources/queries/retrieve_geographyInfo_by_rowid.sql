@@ -29,7 +29,8 @@ select GEOROWID                   as geoRowID,
        DIALINGCODEDESCRIPTION     as dialingCodeDescription,
        PORTFLAG                   as portFlag,
        OLSONTIMEZONE              as olsonTimezone,
-       BDATYPE                    as bdaType
+       BDATYPE                    as bdaType,
+       HSUDNAME                   as hsudName
 from (select A.rowid_object        as GeoRowID,
             CASE WHEN A.TYP_TYPE_CD ='GDA.CONTINENT' THEN 'Continent'
                  WHEN A.TYP_TYPE_CD ='GDA.COUNTRY' THEN 'Country'
@@ -74,7 +75,8 @@ from (select A.rowid_object        as GeoRowID,
                   WHEN  E.PORT_FLAG='Y' THEN 'Yes'
                   ELSE E.PORT_FLAG end  as PortFlag,
              E.OLSON_TZ            as OlsonTimezone,
-             K.BDA_TYPE_CD         as BDAType
+             K.BDA_TYPE_CD         as BDAType,
+             E.HSUD_NAME as HSUDNAME
       from MDM_INFM_SMDS.C_GDA_DFND_AREA A
                LEFT OUTER JOIN C_TDS_TMZ B ON B.ROWID_OBJECT = A.TDS_TMZ_ROWID AND B.HUB_STATE_IND = 1
                LEFT OUTER JOIN C_TDS_DST C ON C.ROWID_OBJECT = A.TDS_DST_ROWID AND C.HUB_STATE_IND = 1
