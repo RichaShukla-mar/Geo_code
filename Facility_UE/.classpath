@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/main/resources"/>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="lib" path="lib/com.ibm.mq.allclient-9.0.4.0"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/activevos-10.2.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/ae_metro_admin-9.2.4.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/ae_metro-9.2.4.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/ae_rt-9.2.4.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/ae_rtbpel-9.2.4.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/ae_rtbpelsvr-9.2.4.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/ae_rtjaxb-9.2.4.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/antlr-2.7.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/aopalliance-1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/avos-identityservice4j-9.2.4.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/avos-wsht4j-9.2.4.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/axis-1.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/axis-schema-1.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/batik-1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/bcprov-jdk15on-1.54.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/bpm-common-10.2.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/bpm-sdk-10.2.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/castor-xml-1.1.1-xml.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/cglib-nodep-2.1_3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/commonj.sdo-2.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/commons-beanutils-1.8.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/commons-beanutils-bean-collections-1.8.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/commons-beanutils-core-1.8.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/commons-codec-1.10.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/commons-collections-3.2.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/commons-dbcp-1.2.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/commons-digester-1.8.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/commons-discovery-0.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/commons-discovery-0.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/commons-io-2.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/commons-lang-2.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/commons-pool-1.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/commons-validator-1.4.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/cwm-generator-10.2.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/cxf-api-2.7.18.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/cxf-bundle-jaxrs-2.7.18.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/cxf-rt-core-2.7.18.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/cxf-rt-ws-policy-2.7.18.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/ds-gui-api-10.2.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/ds-gui-hmtabtag-10.2.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/ds-gui-jar-10.2.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/ds-gui-sa-co-converter-10.2.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/dsgui-skin-1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/eclipselink-2.6.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/FastInfoset-1.2.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/fastutil-4.4.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/geronimo-javamail_1.4_spec-1.7.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/GraphML-1.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/gson-2.2.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/guava-19.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/h2-1.2.136.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/hibernate-core-3.3.1.GA.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/http-20070405.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/httpclient-4.3.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/httpcore-4.3.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/idssecl-910.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/infinispan-commons-7.2.5.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/infinispan-core-7.2.5.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/informatica-locale-util-10.2.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/informatica-mdm-platform-api-10.2.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/jackson-core-asl-1.9.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/jackson-jaxrs-1.9.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/jackson-mapper-asl-1.9.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/jakarta-regexp-1.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/jasperreports-5.1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/jasperreports-chart-themes-5.1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/javacsv-2.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/javassist-3.4.GA.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/javax.json-1.0.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/javax.ws.rs-api-2.0-m10.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/jaxws-api-2.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/jaxws-rt-2.1.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/jaxws-tools-2.1.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/jboss-logging-3.1.4.GA.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/jboss-marshalling-osgi-1.4.10.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/jcip-annotations-1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/jcommon-1.0.17.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/jetty-continuation-8.1.15.v20140411.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/jetty-http-8.1.15.v20140411.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/jetty-io-8.1.15.v20140411.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/jetty-security-8.1.15.v20140411.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/jetty-util-8.1.15.v20140411.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/jfreechart-1.0.14.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/jgroups-3.6.2.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/jmi-1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/jmiutils-1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/jmxremote-1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/jsf-api-1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/jsf-el-api-1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/jsf-el-ri-1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/jsf-facelets-1.1.13P.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/jsf-impl-1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/jsr181-api-1.0-MR1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/jsr250-api-1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/log4j-1.2.16.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/lucene-core-5.2.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/lucene-queries-5.2.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/lucene-queryparser-5.2.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/lucene-sandbox-5.2.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/mdm-spi-10.2.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/mdm-ue-10.2.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/mdrapi-1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/mimepull-1.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/mof-1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/nbmdr-1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/neethi-3.0.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/nekohtml-0.9.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/openide-util-1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/poi-3.9.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/poi-ooxml-3.9.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/poi-ooxml-schemas-3.9.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/ProductVersion.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/ProductVersion-10.2.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/resolver-20050927.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/richfaces-api-3.3.4.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/richfaces-impl-3.3.4.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/richfaces-ui-3.3.4.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/saaj-api-1.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/saaj-impl-1.3.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/siperian-10.2.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/siperian-api-10.2.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/siperian-common-10.2.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/siperian-server-10.2.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/siperian-server-hash-10.2.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/siperian-server-pkiutil-10.2.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/siperian-sql-10.2.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/siperian-ui-10.2.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/slf4j-api-1.7.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/slf4j-jdk14-1.7.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/spring-aop-3.2.16.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/spring-beans-3.2.16.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/spring-context-3.2.16.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/spring-context-support-3.2.16.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/spring-core-3.2.16.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/spring-expression-3.2.16.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/spring-jdbc-3.2.16.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/spring-orm-3.2.16.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/spring-tx-3.2.16.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/spring-web-3.2.16.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/ssan3-10.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/stax2-api-3.1.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/stax-ex-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/streambuffer-0.8.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/taskdata-csf-core.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/urlrewritefilter-3.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/validation-api-1.1.0.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/WeblogicInjectionProvider-1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/wsdl4j-1.5.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/wsdl4j-1.6.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/wstx-asl-3.2.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/xercesImpl-2.9.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/xmlbeans-2.6.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/xmlschema-core-2.1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/yfiles-2.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/OneDrive - Maersk Group/Documents-file/First Project/siperian-mrm/APP-INF/lib/yfiles-server-1.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/Desktop/VesselDoc/Vessel Role/lib/agent-agent.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/Desktop/VesselDoc/Vessel Role/lib/apache-commons-lang.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/Desktop/VesselDoc/Vessel Role/lib/com.ibm.mq.allclient-9.0.4.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/Desktop/VesselDoc/Vessel Role/lib/com.ibm.mqjms.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/Desktop/VesselDoc/Vessel Role/lib/commons-codec-1.10.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/Desktop/VesselDoc/Vessel Role/lib/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/Desktop/VesselDoc/Vessel Role/lib/httpclient-4.5.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/Desktop/VesselDoc/Vessel Role/lib/httpcore-4.4.10.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/Desktop/VesselDoc/Vessel Role/lib/jackson-annotations-2.10.0.pr3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/Desktop/VesselDoc/Vessel Role/lib/jackson-core-2.10.0.pr3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/Desktop/VesselDoc/Vessel Role/lib/jackson-databind-2.10.0.pr3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/Desktop/VesselDoc/Vessel Role/lib/javax.jms-api-2.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/Desktop/VesselDoc/Vessel Role/lib/javax.servlet-3.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/Desktop/VesselDoc/Vessel Role/lib/jmapper-api-1.2.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/Desktop/VesselDoc/Vessel Role/lib/jmapper-core-1.6.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/Desktop/VesselDoc/Vessel Role/lib/json-20190722.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/Desktop/VesselDoc/Vessel Role/lib/log4j-1.2.16.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/Desktop/VesselDoc/Vessel Role/lib/org.springframework.web-3.0.6.release.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/Desktop/VesselDoc/Vessel Role/lib/siperian-api.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/Desktop/VesselDoc/Vessel Role/lib/siperian-bdd.jar"/>
+	<classpathentry kind="lib" path="C:/Users/RSH296/Desktop/VesselDoc/Vessel Role/lib/siperian-common.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

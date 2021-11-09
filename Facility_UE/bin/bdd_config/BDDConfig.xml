@@ -1,0 +1,881 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<bddApplication xmlns="urn:siperian.dsapp.config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" defaultLocale="en" displayName="Facility" name="Facility" sessionTimeoutMinutes="30" xsi:noNamespaceSchemaLocation="siperian-bdd-config-6.xsd">
+<description/>
+<configSubVersion>2</configSubVersion>
+<help xmlns="" bddHelp="true" customBddHelp="false"/>
+<logicalOrsGroup name="FCT_MDM" sourceSystem="Admin">
+<subjectAreaGroup displayName="Facility" name="Facility" primaryObjectUid="C_FCT_FACILITY" searchOnly="false">
+<subjectArea displayName="Operational Facility" name="Operational" showXREF="false">
+<primaryObject>
+<subTypeQualifier columnUid="C_FCT_FACILITY|CLASS_CD">
+<filter>
+<value>OPS</value>
+</filter>
+</subTypeQualifier>
+<cleanseFunction cleanseFunctionUid="Facility Cleanse Function|FacilityNameValidation">
+<cleanseInput>
+<cleanseColumn columnUid="C_FCT_FACILITY|FACILITY_NAME" parameterName="Facility Name"/>
+</cleanseInput>
+<cleanseOutput>
+<cleanseColumn columnUid="C_FCT_FACILITY|FACILITY_NAME" parameterName="Facility Name"/>
+</cleanseOutput>
+</cleanseFunction>
+<layout columnsNum="3">
+<column xmlns:ns1="urn:siperian.dsapp.config" columnUid="C_FCT_FACILITY|FACILITY_NAME" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns1:showAsHyperlink="false" ns1:showInHMCompactView="false" required="true"/>
+<column xmlns:ns2="urn:siperian.dsapp.config" columnUid="C_FCT_FACILITY|EXT_OWNED" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns2:showAsHyperlink="false" ns2:showInHMCompactView="false" required="true">
+<ns2:columnStaticLookups>
+<ns2:columnStaticLookup code="Y" name="Y"/>
+<ns2:columnStaticLookup code="N" name="N"/>
+</ns2:columnStaticLookups>
+</column>
+<column xmlns:ns3="urn:siperian.dsapp.config" columnUid="C_FCT_FACILITY|STATUS_CD" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns3:showAsHyperlink="false" ns3:showInHMCompactView="false" required="true">
+<ns3:defaultValue value="P">
+<ns3:securityRole roleUid="ROLE.FCT_ADMIN"/>
+<ns3:securityRole roleUid="ROLE.FCT_Customer"/>
+<ns3:securityRole roleUid="ROLE.FCT_OPS"/>
+<ns3:securityRole roleUid="ROLE.FCT_RegulatoryComplianceTeam"/>
+</ns3:defaultValue>
+</column>
+<column xmlns:ns4="urn:siperian.dsapp.config" columnUid="C_FCT_FACILITY|EXT_EXPOSED" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns4:showAsHyperlink="false" ns4:showInHMCompactView="false" required="true">
+<ns4:columnStaticLookups>
+<ns4:columnStaticLookup code="Y" name="Y"/>
+<ns4:columnStaticLookup code="N" name="N"/>
+</ns4:columnStaticLookups>
+</column>
+<column xmlns:ns5="urn:siperian.dsapp.config" columnUid="C_FCT_FACILITY|URL" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns5:showAsHyperlink="false" ns5:showInHMCompactView="false" required="false"/>
+</layout>
+<label existsFormat="{0}" existsNoAttributesFormat="{0}" newFormat="New {0}"/>
+</primaryObject>
+<childPlaceHolder index="9" type="POTENTIAL_MATCHES"/>
+<childPlaceHolder index="10" type="XREF"/>
+<childPlaceHolder index="11" type="RELATIONSHIP"/>
+<childPlaceHolder index="12" nameRef="FacilityType" type="GRANDCHILD"/>
+<one2ManyChild defaultView="table" displayName="Facility Details" expanded="false" hidden="false" index="1" mpcUid="C_MT_PATH_TO_OPS" name="Facility_Details" type="ONE_2_MANY" uid="C_FCT_OPS">
+<layout columnsNum="3">
+<column xmlns:ns6="urn:siperian.dsapp.config" columnUid="C_FCT_OPS|WEIGHT_LMT_CRANE" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns6:showAsHyperlink="false" ns6:showInHMCompactView="false" required="false"/>
+<column xmlns:ns7="urn:siperian.dsapp.config" columnUid="C_FCT_OPS|WEIGHT_LMT_YARD" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns7:showAsHyperlink="false" ns7:showInHMCompactView="false" required="false"/>
+<column xmlns:ns8="urn:siperian.dsapp.config" columnUid="C_FCT_OPS|VESSEL_AGENT" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns8:showAsHyperlink="false" ns8:showInHMCompactView="false" required="false">
+<ns8:columnStaticLookups>
+<ns8:columnStaticLookup code="Y" name="Y"/>
+<ns8:columnStaticLookup code="N" name="N"/>
+</ns8:columnStaticLookups>
+</column>
+<column xmlns:ns9="urn:siperian.dsapp.config" columnUid="C_FCT_OPS|GPS_FLAG" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns9:showAsHyperlink="false" ns9:showInHMCompactView="false" required="false">
+<ns9:columnStaticLookups>
+<ns9:columnStaticLookup code="Y" name="Y"/>
+<ns9:columnStaticLookup code="N" name="N"/>
+</ns9:columnStaticLookups>
+</column>
+<column xmlns:ns10="urn:siperian.dsapp.config" columnUid="C_FCT_OPS|GSM_FLAG" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns10:showAsHyperlink="false" ns10:showInHMCompactView="false" required="false">
+<ns10:columnStaticLookups>
+<ns10:columnStaticLookup code="Y" name="Y"/>
+<ns10:columnStaticLookup code="N" name="N"/>
+</ns10:columnStaticLookups>
+</column>
+<column xmlns:ns11="urn:siperian.dsapp.config" columnUid="C_FCT_OPS|OCE_FRGHT_PR" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns11:showAsHyperlink="false" ns11:showInHMCompactView="false" required="false">
+<ns11:columnStaticLookups>
+<ns11:columnStaticLookup code="Y" name="Y"/>
+<ns11:columnStaticLookup code="N" name="N"/>
+</ns11:columnStaticLookups>
+<ns11:defaultValue value="N">
+<ns11:securityRole roleUid="ROLE.FCT_ADMIN"/>
+<ns11:securityRole roleUid="ROLE.FCT_Customer"/>
+<ns11:securityRole roleUid="ROLE.FCT_OPS"/>
+<ns11:securityRole roleUid="ROLE.FCT_RegulatoryComplianceTeam"/>
+</ns11:defaultValue>
+</column>
+</layout>
+<many2ManyChild defaultView="table" displayName="Facility Type" expanded="false" hidden="false" index="1" mpcUid="C_MT_PATH_TO_TYP_TYPE" name="Facility_Type" type="REFERENCE" uid="C_TYP_TYPE">
+<layout columnsNum="3">
+<column xmlns:ns12="urn:siperian.dsapp.config" columnUid="C_TYP_TYPE|CODE" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns12:showAsHyperlink="false" ns12:showInHMCompactView="false" required="true"/>
+<column xmlns:ns13="urn:siperian.dsapp.config" columnUid="C_TYP_TYPE|NAME" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns13:showAsHyperlink="false" ns13:showInHMCompactView="false" required="true"/>
+<column xmlns:ns14="urn:siperian.dsapp.config" columnUid="C_TYP_TYPE|UNIQUE_VALUES_FLAG" editStyle="FIELD" editable="true" hidden="true" horizontalStyle="MEDIUM" lineBreak="false" ns14:showAsHyperlink="false" ns14:showInHMCompactView="false" required="false"/>
+<column xmlns:ns15="urn:siperian.dsapp.config" columnUid="C_TYP_TYPE|MUST_BE_VALID_FLAG" editStyle="FIELD" editable="true" hidden="true" horizontalStyle="MEDIUM" lineBreak="false" ns15:showAsHyperlink="false" ns15:showInHMCompactView="false" required="false"/>
+<column xmlns:ns16="urn:siperian.dsapp.config" columnUid="C_TYP_TYPE|TYP_MSTR_TYPE_CD" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns16:showAsHyperlink="false" ns16:showInHMCompactView="false" required="true"/>
+<column xmlns:ns17="urn:siperian.dsapp.config" columnUid="C_FCT_OPS_TYP_REL|VALID_THRU_DT" editStyle="CALENDAR" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns17:showAsHyperlink="false" ns17:showInHMCompactView="false" required="true"/>
+</layout>
+</many2ManyChild>
+</one2ManyChild>
+<one2ManyChild defaultView="table" displayName="Alternate Codes" expanded="false" hidden="false" index="2" mpcUid="C_MT_PATH_TO_ALT_CODES" name="Alternate_Codes" type="ONE_2_MANY" uid="C_FCT_ALT_CODES">
+<cleanseFunction cleanseFunctionUid="Facility Cleanse Function|GeoID_Restriction">
+<cleanseInput>
+<cleanseColumn columnUid="C_FCT_ALT_CODES|TYP_TYPE_ROWID" parameterName="Typ Type Code"/>
+</cleanseInput>
+<cleanseOutput>
+<cleanseColumn columnUid="C_FCT_ALT_CODES|TYP_TYPE_ROWID" parameterName="Typ Type Code"/>
+</cleanseOutput>
+</cleanseFunction>
+<layout columnsNum="3">
+<column xmlns:ns18="urn:siperian.dsapp.config" columnUid="C_FCT_ALT_CODES|TYP_TYPE_ROWID" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns18:showAsHyperlink="false" ns18:showInHMCompactView="false" required="true">
+<ns18:columnLookup lookupFKUid="C_TYP_TYPE|ROWID_OBJECT" lookupNameUid="C_TYP_TYPE|NAME">
+<ns18:subTypeQualifier columnUid="C_TYP_TYPE|CODE">
+<ns18:filter>
+<ns18:value>ALT_CODE.RKST</ns18:value>
+<ns18:value>ALT_CODE.RKTS</ns18:value>
+<ns18:value>ALT_CODE.GEOID</ns18:value>
+<ns18:value>ALT_CODE.CUSTOMSLOC</ns18:value>
+</ns18:filter>
+</ns18:subTypeQualifier>
+</ns18:columnLookup>
+</column>
+<column xmlns:ns19="urn:siperian.dsapp.config" columnUid="C_FCT_ALT_CODES|CODE" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns19:showAsHyperlink="false" ns19:showInHMCompactView="false" required="true"/>
+</layout>
+</one2ManyChild>
+<one2ManyChild defaultView="table" displayName="Opening Hours" expanded="false" hidden="false" index="4" mpcUid="C_MT_PATH_TO_OPNH" name="Opening_Hours" type="ONE_2_MANY" uid="C_FCT_OPNH">
+<layout columnsNum="3">
+<column xmlns:ns20="urn:siperian.dsapp.config" columnUid="C_FCT_OPNH|DAY" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns20:showAsHyperlink="false" ns20:showInHMCompactView="false" required="true">
+<ns20:columnStaticLookups>
+<ns20:columnStaticLookup code="Sunday" name="Sunday"/>
+<ns20:columnStaticLookup code="Monday" name="Monday"/>
+<ns20:columnStaticLookup code="Tuesday" name="Tuesday"/>
+<ns20:columnStaticLookup code="Wednesday" name="Wednesday"/>
+<ns20:columnStaticLookup code="Thursday" name="Thursday"/>
+<ns20:columnStaticLookup code="Friday" name="Friday"/>
+<ns20:columnStaticLookup code="Saturday" name="Saturday"/>
+</ns20:columnStaticLookups>
+</column>
+<column xmlns:ns21="urn:siperian.dsapp.config" columnUid="C_FCT_OPNH|OPEN_TIME_HRS" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns21:showAsHyperlink="false" ns21:showInHMCompactView="false" required="true">
+<ns21:columnStaticLookups>
+<ns21:columnStaticLookup code="00" name="00"/>
+<ns21:columnStaticLookup code="01" name="01"/>
+<ns21:columnStaticLookup code="02" name="02"/>
+<ns21:columnStaticLookup code="03" name="03"/>
+<ns21:columnStaticLookup code="04" name="04"/>
+<ns21:columnStaticLookup code="05" name="05"/>
+<ns21:columnStaticLookup code="06" name="06"/>
+<ns21:columnStaticLookup code="07" name="07"/>
+<ns21:columnStaticLookup code="08" name="08"/>
+<ns21:columnStaticLookup code="09" name="09"/>
+<ns21:columnStaticLookup code="10" name="10"/>
+<ns21:columnStaticLookup code="11" name="11"/>
+<ns21:columnStaticLookup code="12" name="12"/>
+<ns21:columnStaticLookup code="13" name="13"/>
+<ns21:columnStaticLookup code="14" name="14"/>
+<ns21:columnStaticLookup code="15" name="15"/>
+<ns21:columnStaticLookup code="16" name="16"/>
+<ns21:columnStaticLookup code="17" name="17"/>
+<ns21:columnStaticLookup code="18" name="18"/>
+<ns21:columnStaticLookup code="19" name="19"/>
+<ns21:columnStaticLookup code="20" name="20"/>
+<ns21:columnStaticLookup code="21" name="21"/>
+<ns21:columnStaticLookup code="22" name="22"/>
+<ns21:columnStaticLookup code="23" name="23"/>
+<ns21:columnStaticLookup code="24" name="24"/>
+</ns21:columnStaticLookups>
+</column>
+<column xmlns:ns22="urn:siperian.dsapp.config" columnUid="C_FCT_OPNH|OPEN_TIME_MINS" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns22:showAsHyperlink="false" ns22:showInHMCompactView="false" required="true">
+<ns22:columnStaticLookups>
+<ns22:columnStaticLookup code="00" name="00"/>
+<ns22:columnStaticLookup code="15" name="15"/>
+<ns22:columnStaticLookup code="30" name="30"/>
+<ns22:columnStaticLookup code="45" name="45"/>
+<ns22:columnStaticLookup code="59" name="59"/>
+</ns22:columnStaticLookups>
+</column>
+<column xmlns:ns23="urn:siperian.dsapp.config" columnUid="C_FCT_OPNH|CLOSE_TIME_HRS" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns23:showAsHyperlink="false" ns23:showInHMCompactView="false" required="true">
+<ns23:columnStaticLookups>
+<ns23:columnStaticLookup code="00" name="00"/>
+<ns23:columnStaticLookup code="01" name="01"/>
+<ns23:columnStaticLookup code="02" name="02"/>
+<ns23:columnStaticLookup code="03" name="03"/>
+<ns23:columnStaticLookup code="04" name="04"/>
+<ns23:columnStaticLookup code="05" name="05"/>
+<ns23:columnStaticLookup code="06" name="06"/>
+<ns23:columnStaticLookup code="07" name="07"/>
+<ns23:columnStaticLookup code="08" name="08"/>
+<ns23:columnStaticLookup code="09" name="09"/>
+<ns23:columnStaticLookup code="10" name="10"/>
+<ns23:columnStaticLookup code="11" name="11"/>
+<ns23:columnStaticLookup code="12" name="12"/>
+<ns23:columnStaticLookup code="13" name="13"/>
+<ns23:columnStaticLookup code="14" name="14"/>
+<ns23:columnStaticLookup code="15" name="15"/>
+<ns23:columnStaticLookup code="16" name="16"/>
+<ns23:columnStaticLookup code="17" name="17"/>
+<ns23:columnStaticLookup code="18" name="18"/>
+<ns23:columnStaticLookup code="19" name="19"/>
+<ns23:columnStaticLookup code="20" name="20"/>
+<ns23:columnStaticLookup code="21" name="21"/>
+<ns23:columnStaticLookup code="22" name="22"/>
+<ns23:columnStaticLookup code="23" name="23"/>
+<ns23:columnStaticLookup code="24" name="24"/>
+</ns23:columnStaticLookups>
+</column>
+<column xmlns:ns24="urn:siperian.dsapp.config" columnUid="C_FCT_OPNH|CLOSE_TIME_MINS" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns24:showAsHyperlink="false" ns24:showInHMCompactView="false" required="true">
+<ns24:columnStaticLookups>
+<ns24:columnStaticLookup code="00" name="00"/>
+<ns24:columnStaticLookup code="15" name="15"/>
+<ns24:columnStaticLookup code="30" name="30"/>
+<ns24:columnStaticLookup code="45" name="45"/>
+<ns24:columnStaticLookup code="59" name="59"/>
+</ns24:columnStaticLookups>
+</column>
+</layout>
+</one2ManyChild>
+<many2ManyChild defaultView="table" displayName="Transport Details" expanded="false" hidden="false" index="5" mpcUid="C_MT_PATH_TO_TRNSP_MODE" name="Transport_Details" type="REFERENCE" uid="C_FCT_TRNSP_MODE">
+<layout columnsNum="3">
+<column xmlns:ns25="urn:siperian.dsapp.config" columnUid="C_FCT_TRNSP_MODE|TRNSP_NAME" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns25:showAsHyperlink="false" ns25:showInHMCompactView="false" required="true"/>
+<column xmlns:ns26="urn:siperian.dsapp.config" columnUid="C_FCT_TRNSP_MODE|TRNSP_CD" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns26:showAsHyperlink="false" ns26:showInHMCompactView="false" required="true"/>
+<column xmlns:ns27="urn:siperian.dsapp.config" columnUid="C_FCT_TRNSP_MODE|TRNSP_DESC" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns27:showAsHyperlink="false" ns27:showInHMCompactView="false" required="true"/>
+<column xmlns:ns28="urn:siperian.dsapp.config" columnUid="C_FCT_TRNSP_REL|VALID_THRU_DT" editStyle="CALENDAR" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns28:showAsHyperlink="false" ns28:showInHMCompactView="false" required="true"/>
+</layout>
+</many2ManyChild>
+<many2ManyChild defaultView="table" displayName="Facility Address" expanded="false" hidden="false" index="0" mpcUid="C_MT_PATH_TO_CTM_ADDR" name="Facility_Address" type="PART_OF" uid="C_CTM_PSTL_ADDR">
+<cleanseFunction cleanseFunctionUid="Facility Cleanse Function|FacilityAddrValidation">
+<cleanseInput>
+<cleanseColumn columnUid="C_CTM_PSTL_ADDR|STREET" parameterName="Street"/>
+<cleanseColumn columnUid="C_CTM_PSTL_ADDR|PO_BOX" parameterName="PO Box"/>
+<cleanseColumn columnUid="C_CTM_PSTL_ADDR|LAT_GEOSPTL" parameterName="Latitude"/>
+<cleanseColumn columnUid="C_CTM_PSTL_ADDR|LNG_GEOSPTL" parameterName="Longitude"/>
+</cleanseInput>
+<cleanseOutput>
+<cleanseColumn columnUid="C_CTM_PSTL_ADDR|STREET" parameterName="Street"/>
+<cleanseColumn columnUid="C_CTM_PSTL_ADDR|PO_BOX" parameterName="PO Box"/>
+<cleanseColumn columnUid="C_CTM_PSTL_ADDR|LAT_GEOSPTL" parameterName="Latitude"/>
+<cleanseColumn columnUid="C_CTM_PSTL_ADDR|LNG_GEOSPTL" parameterName="Longitude"/>
+</cleanseOutput>
+</cleanseFunction>
+<layout columnsNum="3">
+<column xmlns:ns29="urn:siperian.dsapp.config" columnUid="C_CTM_PSTL_ADDR|HOUSE_NUM" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns29:showAsHyperlink="false" ns29:showInHMCompactView="false" required="false"/>
+<column xmlns:ns30="urn:siperian.dsapp.config" columnUid="C_CTM_PSTL_ADDR|STREET" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns30:showAsHyperlink="false" ns30:showInHMCompactView="false" required="false"/>
+<column xmlns:ns31="urn:siperian.dsapp.config" columnUid="C_CTM_PSTL_ADDR|CITY_ROWID" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns31:showAsHyperlink="false" ns31:showInHMCompactView="false" required="true"/>
+<column xmlns:ns32="urn:siperian.dsapp.config" columnUid="C_CTM_PSTL_ADDR|PSTCD" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns32:showAsHyperlink="false" ns32:showInHMCompactView="false" required="false"/>
+<column xmlns:ns33="urn:siperian.dsapp.config" columnUid="C_CTM_PSTL_ADDR|PO_BOX" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns33:showAsHyperlink="false" ns33:showInHMCompactView="false" required="false"/>
+<column xmlns:ns34="urn:siperian.dsapp.config" columnUid="C_CTM_PSTL_ADDR|DSTRCT" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns34:showAsHyperlink="false" ns34:showInHMCompactView="false" required="false"/>
+<column xmlns:ns35="urn:siperian.dsapp.config" columnUid="C_CTM_PSTL_ADDR|TRTY_ROWID" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns35:showAsHyperlink="false" ns35:showInHMCompactView="false" required="false"/>
+<column xmlns:ns36="urn:siperian.dsapp.config" columnUid="C_CTM_PSTL_ADDR|CTRY_ROWID" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns36:showAsHyperlink="false" ns36:showInHMCompactView="false" required="true"/>
+<column xmlns:ns37="urn:siperian.dsapp.config" columnUid="C_CTM_PSTL_ADDR|ADDR_LN_2" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns37:showAsHyperlink="false" ns37:showInHMCompactView="false" required="false"/>
+<column xmlns:ns38="urn:siperian.dsapp.config" columnUid="C_CTM_PSTL_ADDR|ADDR_LN_3" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns38:showAsHyperlink="false" ns38:showInHMCompactView="false" required="false"/>
+<column xmlns:ns39="urn:siperian.dsapp.config" columnUid="C_CTM_PSTL_ADDR|LAT_GEOSPTL" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns39:showAsHyperlink="false" ns39:showInHMCompactView="false" required="false"/>
+<column xmlns:ns40="urn:siperian.dsapp.config" columnUid="C_CTM_PSTL_ADDR|LNG_GEOSPTL" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns40:showAsHyperlink="false" ns40:showInHMCompactView="false" required="false"/>
+<column xmlns:ns41="urn:siperian.dsapp.config" columnUid="C_FCT_ADDR_REL|ADDR_DCTR_IND" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns41:showAsHyperlink="false" ns41:showInHMCompactView="false" required="true">
+<ns41:columnStaticLookups>
+<ns41:columnStaticLookup code="Check" name="Check"/>
+<ns41:columnStaticLookup code="Do not Check" name="Do not Check"/>
+</ns41:columnStaticLookups>
+<ns41:defaultValue value="Check">
+<ns41:securityRole roleUid="ROLE.FCT_ADMIN"/>
+<ns41:securityRole roleUid="ROLE.FCT_Customer"/>
+<ns41:securityRole roleUid="ROLE.FCT_OPS"/>
+<ns41:securityRole roleUid="ROLE.FCT_RegulatoryComplianceTeam"/>
+</ns41:defaultValue>
+</column>
+</layout>
+</many2ManyChild>
+<many2ManyChild defaultView="table" displayName="Facility Services" expanded="false" hidden="false" index="7" mpcUid="C_MT_PATH_TO_FCT_OFF" name="Facility_Services" type="REFERENCE" uid="C_FCT_OFF">
+<layout columnsNum="3">
+<column xmlns:ns42="urn:siperian.dsapp.config" columnUid="C_FCT_OFF|OFF_NAME" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns42:showAsHyperlink="false" ns42:showInHMCompactView="false" required="true"/>
+<column xmlns:ns43="urn:siperian.dsapp.config" columnUid="C_FCT_OFF|OFF_DESC" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns43:showAsHyperlink="false" ns43:showInHMCompactView="false" required="true"/>
+<column xmlns:ns44="urn:siperian.dsapp.config" columnUid="C_FCT_OFF|IS_ACTIVE_IND" editStyle="FIELD" editable="true" hidden="true" horizontalStyle="MEDIUM" lineBreak="false" ns44:showAsHyperlink="false" ns44:showInHMCompactView="false" required="true"/>
+<column xmlns:ns45="urn:siperian.dsapp.config" columnUid="C_FCT_OFF_REL|VALID_THRU_DT" editStyle="CALENDAR" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns45:showAsHyperlink="false" ns45:showInHMCompactView="false" required="true"/>
+</layout>
+</many2ManyChild>
+<many2ManyChild defaultView="table" displayName="Facility Contact Details" expanded="false" hidden="false" index="8" mpcUid="C_MT_PATH_TO_FCT_CONT" name="Facility_Contact_Details" type="PART_OF" uid="C_FCT_CONT">
+<layout columnsNum="3">
+<column xmlns:ns46="urn:siperian.dsapp.config" columnUid="C_FCT_CONT|FRST_NM" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns46:showAsHyperlink="false" ns46:showInHMCompactView="false" required="true"/>
+<column xmlns:ns47="urn:siperian.dsapp.config" columnUid="C_FCT_CONT|LST_NM" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns47:showAsHyperlink="false" ns47:showInHMCompactView="false" required="true"/>
+<column xmlns:ns48="urn:siperian.dsapp.config" columnUid="C_FCT_CONT|JOB_TITLE" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns48:showAsHyperlink="false" ns48:showInHMCompactView="false" required="false"/>
+<column xmlns:ns49="urn:siperian.dsapp.config" columnUid="C_FCT_CONT|DEPT" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns49:showAsHyperlink="false" ns49:showInHMCompactView="false" required="false"/>
+<column xmlns:ns50="urn:siperian.dsapp.config" columnUid="C_FCT_CONT|INTL_DIALNG_ROWID_PH" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns50:showAsHyperlink="false" ns50:showInHMCompactView="false" required="true"/>
+<column xmlns:ns51="urn:siperian.dsapp.config" columnUid="C_FCT_CONT|EXTN" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns51:showAsHyperlink="false" ns51:showInHMCompactView="false" required="false"/>
+<column xmlns:ns52="urn:siperian.dsapp.config" columnUid="C_FCT_CONT|PH_NUM" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns52:showAsHyperlink="false" ns52:showInHMCompactView="false" required="true"/>
+<column xmlns:ns53="urn:siperian.dsapp.config" columnUid="C_FCT_CONT|INTL_DIALNG_ROWID_MOB" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns53:showAsHyperlink="false" ns53:showInHMCompactView="false" required="false"/>
+<column xmlns:ns54="urn:siperian.dsapp.config" columnUid="C_FCT_CONT|MOB_NUM" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns54:showAsHyperlink="false" ns54:showInHMCompactView="false" required="false"/>
+<column xmlns:ns55="urn:siperian.dsapp.config" columnUid="C_FCT_CONT|INTL_DIALNG_ROWID_FAX" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns55:showAsHyperlink="false" ns55:showInHMCompactView="false" required="false"/>
+<column xmlns:ns56="urn:siperian.dsapp.config" columnUid="C_FCT_CONT|FAX" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns56:showAsHyperlink="false" ns56:showInHMCompactView="false" required="false"/>
+<column xmlns:ns57="urn:siperian.dsapp.config" columnUid="C_FCT_CONT|EMAIL" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns57:showAsHyperlink="false" ns57:showInHMCompactView="false" required="false"/>
+<column xmlns:ns58="urn:siperian.dsapp.config" columnUid="C_FCT_CONT_REL|VALID_THRU_DT" editStyle="CALENDAR" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns58:showAsHyperlink="false" ns58:showInHMCompactView="false" required="true"/>
+</layout>
+</many2ManyChild>
+<many2ManyChild defaultView="table" displayName="Denied Facility List" expanded="false" hidden="false" index="13" mpcUid="C_MT_IDD_FCT_MTCH_WTCS" name="WTCSFacilityMatch" type="PART_OF" uid="C_WTCS_SANCTION_DETAILS">
+<layout columnsNum="3">
+<column xmlns:ns59="urn:siperian.dsapp.config" columnUid="C_WTCS_SANCTION_DETAILS|NAME1" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns59:showAsHyperlink="false" ns59:showInHMCompactView="false" required="false"/>
+<column xmlns:ns60="urn:siperian.dsapp.config" columnUid="C_WTCS_SANCTION_DETAILS|ADDR_LN_1" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns60:showAsHyperlink="false" ns60:showInHMCompactView="false" required="false"/>
+<column xmlns:ns61="urn:siperian.dsapp.config" columnUid="C_WTCS_SANCTION_DETAILS|CITY_NAME" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns61:showAsHyperlink="false" ns61:showInHMCompactView="false" required="false"/>
+<column xmlns:ns62="urn:siperian.dsapp.config" columnUid="C_WTCS_SANCTION_DETAILS|DISTRICT_NAME" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns62:showAsHyperlink="false" ns62:showInHMCompactView="false" required="false"/>
+<column xmlns:ns63="urn:siperian.dsapp.config" columnUid="C_WTCS_SANCTION_DETAILS|POST_CODE" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns63:showAsHyperlink="false" ns63:showInHMCompactView="false" required="false"/>
+<column xmlns:ns64="urn:siperian.dsapp.config" columnUid="C_WTCS_SANCTION_DETAILS|COUNTRY_CODE" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns64:showAsHyperlink="false" ns64:showInHMCompactView="false" required="false"/>
+<column xmlns:ns65="urn:siperian.dsapp.config" columnUid="C_WTCS_SANCTION_DETAILS|COUNTRY_NAME" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns65:showAsHyperlink="false" ns65:showInHMCompactView="false" required="false"/>
+<column xmlns:ns66="urn:siperian.dsapp.config" columnUid="C_WTCS_SANCTION_DETAILS|SUBJECT_AREA" editStyle="FIELD" editable="true" hidden="true" horizontalStyle="MEDIUM" lineBreak="false" ns66:showAsHyperlink="false" ns66:showInHMCompactView="false" required="true"/>
+<column xmlns:ns67="urn:siperian.dsapp.config" columnUid="C_WTCS_SANCTION_DETAILS|INTRFC_RUN_ID" editStyle="FIELD" editable="true" hidden="true" horizontalStyle="MEDIUM" lineBreak="false" ns67:showAsHyperlink="false" ns67:showInHMCompactView="false" required="true"/>
+<column xmlns:ns68="urn:siperian.dsapp.config" columnUid="C_WTCS_SANCTION_DETAILS|CTGRY" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns68:showAsHyperlink="false" ns68:showInHMCompactView="false" required="false"/>
+<column xmlns:ns69="urn:siperian.dsapp.config" columnUid="C_WTCS_SANCTION_DETAILS|PROGRM" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns69:showAsHyperlink="false" ns69:showInHMCompactView="false" required="false"/>
+</layout>
+</many2ManyChild>
+<search displayPackageUid="PKG_DISP_FACILITY" frozenColumns="0"/>
+<match>
+<matchRuleSet type="BOTH" uid="C_FCT_FACILITY|Facility_OPS"/>
+<matchColumns>
+<matchColumn matchColumnUid="C_FCT_FACILITY|CLASS_CD"/>
+<matchColumn matchColumnUid="C_FCT_FACILITY|Organization_Name"/>
+<matchColumn matchColumnUid="C_FCT_FACILITY|TYP_TYPE_CD"/>
+<matchColumn matchColumnUid="C_FCT_FACILITY|STATUS"/>
+<matchColumn matchColumnUid="C_FCT_FACILITY|TRTY_ROWID"/>
+<matchColumn matchColumnUid="C_FCT_FACILITY|Address_Part1"/>
+<matchColumn matchColumnUid="C_FCT_FACILITY|CTRY_ROWID"/>
+<matchColumn matchColumnUid="C_FCT_FACILITY|CITY_ROWID"/>
+</matchColumns>
+</match>
+<taskAssignmentConfig task="AVOSBeFinalReview">
+<securityRole roleUid="FCT_ADMIN"/>
+<securityRole roleUid="FCT_OPS"/>
+</taskAssignmentConfig>
+<taskAssignmentConfig task="AVOSBeNotification">
+<securityRole roleUid="FCT_ADMIN"/>
+<securityRole roleUid="FCT_OPS"/>
+</taskAssignmentConfig>
+<userExits className="com.siperian.bdd.userexits.sample.SaveHandler"/>
+<userExits className="com.siperian.bdd.userexits.sample.SendForApprovalHandler"/>
+<userExits className="com.siperian.bdd.userexits.sample.TaskActionHandler"/>
+</subjectArea>
+<subjectArea displayName="Customer Facility" name="Customer" showXREF="false">
+<primaryObject>
+<subTypeQualifier columnUid="C_FCT_FACILITY|CLASS_CD">
+<filter>
+<value>CUST</value>
+</filter>
+</subTypeQualifier>
+<layout columnsNum="3">
+<column xmlns:ns70="urn:siperian.dsapp.config" columnUid="C_FCT_FACILITY|FACILITY_NAME" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns70:showAsHyperlink="false" ns70:showInHMCompactView="false" required="true"/>
+<column xmlns:ns71="urn:siperian.dsapp.config" columnUid="C_FCT_FACILITY|EXT_OWNED" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns71:showAsHyperlink="false" ns71:showInHMCompactView="false" required="true"/>
+<column xmlns:ns72="urn:siperian.dsapp.config" columnUid="C_FCT_FACILITY|STATUS_CD" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns72:showAsHyperlink="false" ns72:showInHMCompactView="false" required="true"/>
+<column xmlns:ns73="urn:siperian.dsapp.config" columnUid="C_FCT_FACILITY|EXT_EXPOSED" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns73:showAsHyperlink="false" ns73:showInHMCompactView="false" required="true"/>
+<column xmlns:ns74="urn:siperian.dsapp.config" columnUid="C_FCT_FACILITY|URL" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns74:showAsHyperlink="false" ns74:showInHMCompactView="false" required="false"/>
+<column xmlns:ns75="urn:siperian.dsapp.config" columnUid="C_FCT_FACILITY|DODAAC" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns75:showAsHyperlink="false" ns75:showInHMCompactView="false" required="false"/>
+</layout>
+<label existsFormat="{0}" existsNoAttributesFormat="{0}" newFormat="New {0}"/>
+</primaryObject>
+<childPlaceHolder index="3" type="POTENTIAL_MATCHES"/>
+<childPlaceHolder index="4" type="XREF"/>
+<childPlaceHolder index="5" type="RELATIONSHIP"/>
+<one2ManyChild defaultView="table" displayName="Alternate Codes" expanded="false" hidden="false" index="1" mpcUid="C_MT_PATH_TO_ALT_CODES" name="Alternate_Codes" type="ONE_2_MANY" uid="C_FCT_ALT_CODES">
+<layout columnsNum="3">
+<column xmlns:ns76="urn:siperian.dsapp.config" columnUid="C_FCT_ALT_CODES|TYP_TYPE_ROWID" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns76:showAsHyperlink="false" ns76:showInHMCompactView="false" required="true"/>
+<column xmlns:ns77="urn:siperian.dsapp.config" columnUid="C_FCT_ALT_CODES|CODE" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns77:showAsHyperlink="false" ns77:showInHMCompactView="false" required="true"/>
+</layout>
+</one2ManyChild>
+<many2ManyChild defaultView="table" displayName="Facility Address" expanded="false" hidden="false" index="0" mpcUid="C_MT_PATH_TO_CTM_ADDR" name="Facility_Address" type="PART_OF" uid="C_CTM_PSTL_ADDR">
+<layout columnsNum="3">
+<column xmlns:ns78="urn:siperian.dsapp.config" columnUid="C_CTM_PSTL_ADDR|HOUSE_NUM" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns78:showAsHyperlink="false" ns78:showInHMCompactView="false" required="false"/>
+<column xmlns:ns79="urn:siperian.dsapp.config" columnUid="C_CTM_PSTL_ADDR|STREET" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns79:showAsHyperlink="false" ns79:showInHMCompactView="false" required="false"/>
+<column xmlns:ns80="urn:siperian.dsapp.config" columnUid="C_CTM_PSTL_ADDR|CITY_ROWID" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns80:showAsHyperlink="false" ns80:showInHMCompactView="false" required="true"/>
+<column xmlns:ns81="urn:siperian.dsapp.config" columnUid="C_CTM_PSTL_ADDR|PSTCD" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns81:showAsHyperlink="false" ns81:showInHMCompactView="false" required="false"/>
+<column xmlns:ns82="urn:siperian.dsapp.config" columnUid="C_CTM_PSTL_ADDR|PO_BOX" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns82:showAsHyperlink="false" ns82:showInHMCompactView="false" required="false"/>
+<column xmlns:ns83="urn:siperian.dsapp.config" columnUid="C_CTM_PSTL_ADDR|DSTRCT" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns83:showAsHyperlink="false" ns83:showInHMCompactView="false" required="false"/>
+<column xmlns:ns84="urn:siperian.dsapp.config" columnUid="C_CTM_PSTL_ADDR|TRTY_ROWID" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns84:showAsHyperlink="false" ns84:showInHMCompactView="false" required="false"/>
+<column xmlns:ns85="urn:siperian.dsapp.config" columnUid="C_CTM_PSTL_ADDR|CTRY_ROWID" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns85:showAsHyperlink="false" ns85:showInHMCompactView="false" required="true"/>
+<column xmlns:ns86="urn:siperian.dsapp.config" columnUid="C_CTM_PSTL_ADDR|ADDR_LN_2" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns86:showAsHyperlink="false" ns86:showInHMCompactView="false" required="false"/>
+<column xmlns:ns87="urn:siperian.dsapp.config" columnUid="C_CTM_PSTL_ADDR|ADDR_LN_3" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns87:showAsHyperlink="false" ns87:showInHMCompactView="false" required="false"/>
+<column xmlns:ns88="urn:siperian.dsapp.config" columnUid="C_CTM_PSTL_ADDR|LAT_GEOSPTL" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns88:showAsHyperlink="false" ns88:showInHMCompactView="false" required="false"/>
+<column xmlns:ns89="urn:siperian.dsapp.config" columnUid="C_CTM_PSTL_ADDR|LNG_GEOSPTL" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns89:showAsHyperlink="false" ns89:showInHMCompactView="false" required="false"/>
+<column xmlns:ns90="urn:siperian.dsapp.config" columnUid="C_FCT_ADDR_REL|VALID_THRU_DT" editStyle="CALENDAR" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns90:showAsHyperlink="false" ns90:showInHMCompactView="false" required="true"/>
+</layout>
+</many2ManyChild>
+<many2ManyChild defaultView="table" displayName="Facility Contact Details" expanded="false" hidden="false" index="2" mpcUid="C_MT_PATH_TO_FCT_CONT" name="Facility_Contact_Details" type="PART_OF" uid="C_FCT_CONT">
+<layout columnsNum="3">
+<column xmlns:ns91="urn:siperian.dsapp.config" columnUid="C_FCT_CONT|FRST_NM" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns91:showAsHyperlink="false" ns91:showInHMCompactView="false" required="true"/>
+<column xmlns:ns92="urn:siperian.dsapp.config" columnUid="C_FCT_CONT|LST_NM" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns92:showAsHyperlink="false" ns92:showInHMCompactView="false" required="true"/>
+<column xmlns:ns93="urn:siperian.dsapp.config" columnUid="C_FCT_CONT|JOB_TITLE" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns93:showAsHyperlink="false" ns93:showInHMCompactView="false" required="false"/>
+<column xmlns:ns94="urn:siperian.dsapp.config" columnUid="C_FCT_CONT|DEPT" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns94:showAsHyperlink="false" ns94:showInHMCompactView="false" required="false"/>
+<column xmlns:ns95="urn:siperian.dsapp.config" columnUid="C_FCT_CONT|INTL_DIALNG_ROWID_PH" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns95:showAsHyperlink="false" ns95:showInHMCompactView="false" required="false"/>
+<column xmlns:ns96="urn:siperian.dsapp.config" columnUid="C_FCT_CONT|EXTN" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns96:showAsHyperlink="false" ns96:showInHMCompactView="false" required="false"/>
+<column xmlns:ns97="urn:siperian.dsapp.config" columnUid="C_FCT_CONT|PH_NUM" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns97:showAsHyperlink="false" ns97:showInHMCompactView="false" required="false"/>
+<column xmlns:ns98="urn:siperian.dsapp.config" columnUid="C_FCT_CONT|INTL_DIALNG_ROWID_MOB" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns98:showAsHyperlink="false" ns98:showInHMCompactView="false" required="false"/>
+<column xmlns:ns99="urn:siperian.dsapp.config" columnUid="C_FCT_CONT|MOB_NUM" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns99:showAsHyperlink="false" ns99:showInHMCompactView="false" required="false"/>
+<column xmlns:ns100="urn:siperian.dsapp.config" columnUid="C_FCT_CONT|INTL_DIALNG_ROWID_FAX" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns100:showAsHyperlink="false" ns100:showInHMCompactView="false" required="false"/>
+<column xmlns:ns101="urn:siperian.dsapp.config" columnUid="C_FCT_CONT|FAX" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns101:showAsHyperlink="false" ns101:showInHMCompactView="false" required="false"/>
+<column xmlns:ns102="urn:siperian.dsapp.config" columnUid="C_FCT_CONT|EMAIL" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns102:showAsHyperlink="false" ns102:showInHMCompactView="false" required="false"/>
+<column xmlns:ns103="urn:siperian.dsapp.config" columnUid="C_FCT_CONT_REL|VALID_THRU_DT" editStyle="CALENDAR" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns103:showAsHyperlink="false" ns103:showInHMCompactView="false" required="true"/>
+</layout>
+</many2ManyChild>
+<many2ManyChild defaultView="table" displayName="Denied Facility List" expanded="false" hidden="false" index="7" mpcUid="C_MT_IDD_FCT_MTCH_WTCS" name="WTCSFacilityMatch" type="PART_OF" uid="C_WTCS_SANCTION_DETAILS">
+<layout columnsNum="3">
+<column xmlns:ns104="urn:siperian.dsapp.config" columnUid="C_WTCS_SANCTION_DETAILS|NAME1" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns104:showAsHyperlink="false" ns104:showInHMCompactView="false" required="false"/>
+<column xmlns:ns105="urn:siperian.dsapp.config" columnUid="C_WTCS_SANCTION_DETAILS|ADDR_LN_1" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns105:showAsHyperlink="false" ns105:showInHMCompactView="false" required="false"/>
+<column xmlns:ns106="urn:siperian.dsapp.config" columnUid="C_WTCS_SANCTION_DETAILS|CITY_NAME" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns106:showAsHyperlink="false" ns106:showInHMCompactView="false" required="false"/>
+<column xmlns:ns107="urn:siperian.dsapp.config" columnUid="C_WTCS_SANCTION_DETAILS|DISTRICT_NAME" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns107:showAsHyperlink="false" ns107:showInHMCompactView="false" required="false"/>
+<column xmlns:ns108="urn:siperian.dsapp.config" columnUid="C_WTCS_SANCTION_DETAILS|POST_CODE" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns108:showAsHyperlink="false" ns108:showInHMCompactView="false" required="false"/>
+<column xmlns:ns109="urn:siperian.dsapp.config" columnUid="C_WTCS_SANCTION_DETAILS|COUNTRY_CODE" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns109:showAsHyperlink="false" ns109:showInHMCompactView="false" required="false"/>
+<column xmlns:ns110="urn:siperian.dsapp.config" columnUid="C_WTCS_SANCTION_DETAILS|COUNTRY_NAME" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns110:showAsHyperlink="false" ns110:showInHMCompactView="false" required="false"/>
+<column xmlns:ns111="urn:siperian.dsapp.config" columnUid="C_WTCS_SANCTION_DETAILS|SUBJECT_AREA" editStyle="FIELD" editable="false" hidden="true" horizontalStyle="MEDIUM" lineBreak="false" ns111:showAsHyperlink="false" ns111:showInHMCompactView="false" required="true"/>
+<column xmlns:ns112="urn:siperian.dsapp.config" columnUid="C_WTCS_SANCTION_DETAILS|INTRFC_RUN_ID" editStyle="FIELD" editable="false" hidden="true" horizontalStyle="MEDIUM" lineBreak="false" ns112:showAsHyperlink="false" ns112:showInHMCompactView="false" required="true"/>
+<column xmlns:ns113="urn:siperian.dsapp.config" columnUid="C_WTCS_SANCTION_DETAILS|CTGRY" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns113:showAsHyperlink="false" ns113:showInHMCompactView="false" required="false"/>
+<column xmlns:ns114="urn:siperian.dsapp.config" columnUid="C_WTCS_SANCTION_DETAILS|PROGRM" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns114:showAsHyperlink="false" ns114:showInHMCompactView="false" required="false"/>
+</layout>
+</many2ManyChild>
+<search displayPackageUid="PKG_DISP_FCT_CUST_FACILITY" frozenColumns="0"/>
+</subjectArea>
+<subjectArea displayName="Commercial Facility" name="Commercial" showXREF="false">
+<primaryObject>
+<subTypeQualifier columnUid="C_FCT_FACILITY|CLASS_CD">
+<filter>
+<value>COMM</value>
+</filter>
+</subTypeQualifier>
+<cleanseFunction cleanseFunctionUid="Facility Cleanse Function|FacilityNameValidation">
+<cleanseInput>
+<cleanseColumn columnUid="C_FCT_FACILITY|FACILITY_NAME" parameterName="Facility Name"/>
+</cleanseInput>
+<cleanseOutput>
+<cleanseColumn columnUid="C_FCT_FACILITY|FACILITY_NAME" parameterName="Facility Name"/>
+</cleanseOutput>
+</cleanseFunction>
+<layout columnsNum="3">
+<column xmlns:ns115="urn:siperian.dsapp.config" columnUid="C_FCT_FACILITY|FACILITY_NAME" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns115:showAsHyperlink="false" ns115:showInHMCompactView="false" required="true"/>
+<column xmlns:ns116="urn:siperian.dsapp.config" columnUid="C_FCT_FACILITY|EXT_OWNED" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns116:showAsHyperlink="false" ns116:showInHMCompactView="false" required="true">
+<ns116:columnStaticLookups>
+<ns116:columnStaticLookup code="Y" name="Y"/>
+<ns116:columnStaticLookup code="N" name="N"/>
+</ns116:columnStaticLookups>
+</column>
+<column xmlns:ns117="urn:siperian.dsapp.config" columnUid="C_FCT_FACILITY|STATUS_CD" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns117:showAsHyperlink="false" ns117:showInHMCompactView="false" required="true">
+<ns117:defaultValue value="P">
+<ns117:securityRole roleUid="ROLE.FCT_Commercial"/>
+<ns117:securityRole roleUid="ROLE.FCT_ADMIN"/>
+<ns117:securityRole roleUid="ROLE.FCT_RegulatoryComplianceTeam"/>
+</ns117:defaultValue>
+</column>
+<column xmlns:ns118="urn:siperian.dsapp.config" columnUid="C_FCT_FACILITY|EXT_EXPOSED" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns118:showAsHyperlink="false" ns118:showInHMCompactView="false" required="true">
+<ns118:columnStaticLookups>
+<ns118:columnStaticLookup code="Y" name="Y"/>
+<ns118:columnStaticLookup code="N" name="N"/>
+</ns118:columnStaticLookups>
+</column>
+<column xmlns:ns119="urn:siperian.dsapp.config" columnUid="C_FCT_FACILITY|URL" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns119:showAsHyperlink="false" ns119:showInHMCompactView="false" required="false"/>
+</layout>
+<label existsFormat="{0}" existsNoAttributesFormat="{0}" newFormat="New {0}"/>
+</primaryObject>
+<childPlaceHolder index="6" type="POTENTIAL_MATCHES"/>
+<childPlaceHolder index="7" type="XREF"/>
+<childPlaceHolder index="8" type="RELATIONSHIP"/>
+<one2ManyChild defaultView="table" displayName="Alternate Codes" expanded="false" hidden="false" index="2" mpcUid="C_MT_PATH_TO_ALT_CODES" name="Alternate_Codes" type="ONE_2_MANY" uid="C_FCT_ALT_CODES">
+<cleanseFunction cleanseFunctionUid="Facility Cleanse Function|GeoID_Restriction">
+<cleanseInput>
+<cleanseColumn columnUid="C_FCT_ALT_CODES|TYP_TYPE_ROWID" parameterName="Typ Type Code"/>
+</cleanseInput>
+<cleanseOutput>
+<cleanseColumn columnUid="C_FCT_ALT_CODES|TYP_TYPE_ROWID" parameterName="Typ Type Code"/>
+</cleanseOutput>
+</cleanseFunction>
+<layout columnsNum="3">
+<column xmlns:ns120="urn:siperian.dsapp.config" columnUid="C_FCT_ALT_CODES|TYP_TYPE_ROWID" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns120:showAsHyperlink="false" ns120:showInHMCompactView="false" required="true">
+<ns120:columnLookup lookupFKUid="C_TYP_TYPE|ROWID_OBJECT" lookupNameUid="C_TYP_TYPE|NAME">
+<ns120:subTypeQualifier columnUid="C_TYP_TYPE|CODE">
+<ns120:filter>
+<ns120:value>ALT_CODE.GEOID</ns120:value>
+<ns120:value>ALT_CODE_BUID</ns120:value>
+</ns120:filter>
+</ns120:subTypeQualifier>
+</ns120:columnLookup>
+</column>
+<column xmlns:ns121="urn:siperian.dsapp.config" columnUid="C_FCT_ALT_CODES|CODE" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns121:showAsHyperlink="false" ns121:showInHMCompactView="false" required="true"/>
+</layout>
+</one2ManyChild>
+<one2ManyChild defaultView="table" displayName="Opening Hours" expanded="false" hidden="false" index="3" mpcUid="C_MT_PATH_TO_OPNH" name="Opening_Hours" type="ONE_2_MANY" uid="C_FCT_OPNH">
+<layout columnsNum="3">
+<column xmlns:ns122="urn:siperian.dsapp.config" columnUid="C_FCT_OPNH|DAY" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns122:showAsHyperlink="false" ns122:showInHMCompactView="false" required="true">
+<ns122:columnStaticLookups>
+<ns122:columnStaticLookup code="Sunday" name="Sunday"/>
+<ns122:columnStaticLookup code="Monday" name="Monday"/>
+<ns122:columnStaticLookup code="Tuesday" name="Tuesday"/>
+<ns122:columnStaticLookup code="Wednesday" name="Wednesday"/>
+<ns122:columnStaticLookup code="Thursday" name="Thursday"/>
+<ns122:columnStaticLookup code="Friday" name="Friday"/>
+<ns122:columnStaticLookup code="Saturday" name="Saturday"/>
+</ns122:columnStaticLookups>
+</column>
+<column xmlns:ns123="urn:siperian.dsapp.config" columnUid="C_FCT_OPNH|OPEN_TIME_HRS" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns123:showAsHyperlink="false" ns123:showInHMCompactView="false" required="true">
+<ns123:columnStaticLookups>
+<ns123:columnStaticLookup code="00" name="00"/>
+<ns123:columnStaticLookup code="01" name="01"/>
+<ns123:columnStaticLookup code="02" name="02"/>
+<ns123:columnStaticLookup code="03" name="03"/>
+<ns123:columnStaticLookup code="04" name="04"/>
+<ns123:columnStaticLookup code="05" name="05"/>
+<ns123:columnStaticLookup code="06" name="06"/>
+<ns123:columnStaticLookup code="07" name="07"/>
+<ns123:columnStaticLookup code="08" name="08"/>
+<ns123:columnStaticLookup code="09" name="09"/>
+<ns123:columnStaticLookup code="10" name="10"/>
+<ns123:columnStaticLookup code="11" name="11"/>
+<ns123:columnStaticLookup code="12" name="12"/>
+<ns123:columnStaticLookup code="13" name="13"/>
+<ns123:columnStaticLookup code="14" name="14"/>
+<ns123:columnStaticLookup code="15" name="15"/>
+<ns123:columnStaticLookup code="16" name="16"/>
+<ns123:columnStaticLookup code="17" name="17"/>
+<ns123:columnStaticLookup code="18" name="18"/>
+<ns123:columnStaticLookup code="19" name="19"/>
+<ns123:columnStaticLookup code="20" name="20"/>
+<ns123:columnStaticLookup code="21" name="21"/>
+<ns123:columnStaticLookup code="22" name="22"/>
+<ns123:columnStaticLookup code="23" name="23"/>
+<ns123:columnStaticLookup code="24" name="24"/>
+</ns123:columnStaticLookups>
+</column>
+<column xmlns:ns124="urn:siperian.dsapp.config" columnUid="C_FCT_OPNH|OPEN_TIME_MINS" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns124:showAsHyperlink="false" ns124:showInHMCompactView="false" required="true">
+<ns124:columnStaticLookups>
+<ns124:columnStaticLookup code="00" name="00"/>
+<ns124:columnStaticLookup code="15" name="15"/>
+<ns124:columnStaticLookup code="30" name="30"/>
+<ns124:columnStaticLookup code="45" name="45"/>
+<ns124:columnStaticLookup code="59" name="59"/>
+</ns124:columnStaticLookups>
+</column>
+<column xmlns:ns125="urn:siperian.dsapp.config" columnUid="C_FCT_OPNH|CLOSE_TIME_HRS" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns125:showAsHyperlink="false" ns125:showInHMCompactView="false" required="true">
+<ns125:columnStaticLookups>
+<ns125:columnStaticLookup code="00" name="00"/>
+<ns125:columnStaticLookup code="01" name="01"/>
+<ns125:columnStaticLookup code="02" name="02"/>
+<ns125:columnStaticLookup code="03" name="03"/>
+<ns125:columnStaticLookup code="04" name="04"/>
+<ns125:columnStaticLookup code="05" name="05"/>
+<ns125:columnStaticLookup code="06" name="06"/>
+<ns125:columnStaticLookup code="07" name="07"/>
+<ns125:columnStaticLookup code="08" name="08"/>
+<ns125:columnStaticLookup code="09" name="09"/>
+<ns125:columnStaticLookup code="10" name="10"/>
+<ns125:columnStaticLookup code="11" name="11"/>
+<ns125:columnStaticLookup code="12" name="12"/>
+<ns125:columnStaticLookup code="13" name="13"/>
+<ns125:columnStaticLookup code="14" name="14"/>
+<ns125:columnStaticLookup code="15" name="15"/>
+<ns125:columnStaticLookup code="16" name="16"/>
+<ns125:columnStaticLookup code="17" name="17"/>
+<ns125:columnStaticLookup code="18" name="18"/>
+<ns125:columnStaticLookup code="19" name="19"/>
+<ns125:columnStaticLookup code="20" name="20"/>
+<ns125:columnStaticLookup code="21" name="21"/>
+<ns125:columnStaticLookup code="22" name="22"/>
+<ns125:columnStaticLookup code="23" name="23"/>
+<ns125:columnStaticLookup code="24" name="24"/>
+</ns125:columnStaticLookups>
+</column>
+<column xmlns:ns126="urn:siperian.dsapp.config" columnUid="C_FCT_OPNH|CLOSE_TIME_MINS" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns126:showAsHyperlink="false" ns126:showInHMCompactView="false" required="true">
+<ns126:columnStaticLookups>
+<ns126:columnStaticLookup code="00" name="00"/>
+<ns126:columnStaticLookup code="15" name="15"/>
+<ns126:columnStaticLookup code="30" name="30"/>
+<ns126:columnStaticLookup code="45" name="45"/>
+<ns126:columnStaticLookup code="59" name="59"/>
+</ns126:columnStaticLookups>
+</column>
+</layout>
+</one2ManyChild>
+<one2ManyChild defaultView="table" displayName="Facility Details" expanded="false" hidden="false" index="1" mpcUid="C_MT_PATH_TO_COMM" name="Facility_Details" type="ONE_2_MANY" uid="C_FCT_COM">
+<cleanseFunction cleanseFunctionUid="Facility Cleanse Function|TelephoneEmailValidation">
+<cleanseInput>
+<cleanseColumn columnUid="C_FCT_COM|TELECOM_NUM" parameterName="Telephone Number"/>
+<cleanseColumn columnUid="C_FCT_COM|IMP_MAIL" parameterName="Import Enquiries email"/>
+<cleanseColumn columnUid="C_FCT_COM|EXP_MAIL" parameterName="Export Enquiries email"/>
+<cleanseColumn columnUid="C_FCT_COM|INTL_DIALING_ROWID" parameterName="International Dialing Code"/>
+</cleanseInput>
+<cleanseOutput>
+<cleanseColumn columnUid="C_FCT_COM|TELECOM_NUM" parameterName="Telephone Number"/>
+<cleanseColumn columnUid="C_FCT_COM|IMP_MAIL" parameterName="Import Enquiries email"/>
+<cleanseColumn columnUid="C_FCT_COM|EXP_MAIL" parameterName="Export Enquiries email"/>
+<cleanseColumn columnUid="C_FCT_COM|INTL_DIALING_ROWID" parameterName="International Dialing Code"/>
+</cleanseOutput>
+</cleanseFunction>
+<layout columnsNum="3">
+<column xmlns:ns127="urn:siperian.dsapp.config" columnUid="C_FCT_COM|FCT_BRAND_ROWID" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns127:showAsHyperlink="false" ns127:showInHMCompactView="false" required="false"/>
+<column xmlns:ns128="urn:siperian.dsapp.config" columnUid="C_FCT_COM|TYP_TYPE_ROWID" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns128:showAsHyperlink="false" ns128:showInHMCompactView="false" required="true">
+<ns128:columnLookup lookupFKUid="C_TYP_TYPE|ROWID_OBJECT" lookupNameUid="C_TYP_TYPE|NAME">
+<ns128:subTypeQualifier columnUid="C_TYP_TYPE|TYP_MSTR_TYPE_CD">
+<ns128:filter>
+<ns128:value>FCT_COM_TYPE</ns128:value>
+</ns128:filter>
+</ns128:subTypeQualifier>
+</ns128:columnLookup>
+</column>
+<column xmlns:ns129="urn:siperian.dsapp.config" columnUid="C_FCT_COM|EXP_MAIL" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns129:showAsHyperlink="false" ns129:showInHMCompactView="false" required="false"/>
+<column xmlns:ns130="urn:siperian.dsapp.config" columnUid="C_FCT_COM|IMP_MAIL" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns130:showAsHyperlink="false" ns130:showInHMCompactView="false" required="false"/>
+<column xmlns:ns131="urn:siperian.dsapp.config" columnUid="C_FCT_COM|COMM_FUNC_ROWID" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns131:showAsHyperlink="false" ns131:showInHMCompactView="false" required="true"/>
+<column xmlns:ns132="urn:siperian.dsapp.config" columnUid="C_FCT_COM|INTL_DIALING_ROWID" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns132:showAsHyperlink="false" ns132:showInHMCompactView="false" required="false"/>
+<column xmlns:ns133="urn:siperian.dsapp.config" columnUid="C_FCT_COM|TELECOM_NUM" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns133:showAsHyperlink="false" ns133:showInHMCompactView="false" required="false"/>
+</layout>
+</one2ManyChild>
+<many2ManyChild defaultView="table" displayName="Facility Address" expanded="false" hidden="false" index="0" mpcUid="C_MT_PATH_TO_CTM_ADDR" name="Facility_Address" type="PART_OF" uid="C_CTM_PSTL_ADDR">
+<cleanseFunction cleanseFunctionUid="Facility Cleanse Function|FacilityAddrValidation">
+<cleanseInput>
+<cleanseColumn columnUid="C_CTM_PSTL_ADDR|STREET" parameterName="Street"/>
+<cleanseColumn columnUid="C_CTM_PSTL_ADDR|PO_BOX" parameterName="PO Box"/>
+<cleanseColumn columnUid="C_CTM_PSTL_ADDR|LAT_GEOSPTL" parameterName="Latitude"/>
+<cleanseColumn columnUid="C_CTM_PSTL_ADDR|LNG_GEOSPTL" parameterName="Longitude"/>
+</cleanseInput>
+<cleanseOutput>
+<cleanseColumn columnUid="C_CTM_PSTL_ADDR|STREET" parameterName="Street"/>
+<cleanseColumn columnUid="C_CTM_PSTL_ADDR|PO_BOX" parameterName="PO Box"/>
+<cleanseColumn columnUid="C_CTM_PSTL_ADDR|LAT_GEOSPTL" parameterName="Latitude"/>
+<cleanseColumn columnUid="C_CTM_PSTL_ADDR|LNG_GEOSPTL" parameterName="Longitude"/>
+</cleanseOutput>
+</cleanseFunction>
+<layout columnsNum="3">
+<column xmlns:ns134="urn:siperian.dsapp.config" columnUid="C_CTM_PSTL_ADDR|HOUSE_NUM" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns134:showAsHyperlink="false" ns134:showInHMCompactView="false" required="false"/>
+<column xmlns:ns135="urn:siperian.dsapp.config" columnUid="C_CTM_PSTL_ADDR|STREET" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns135:showAsHyperlink="false" ns135:showInHMCompactView="false" required="false"/>
+<column xmlns:ns136="urn:siperian.dsapp.config" columnUid="C_CTM_PSTL_ADDR|CITY_ROWID" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns136:showAsHyperlink="false" ns136:showInHMCompactView="false" required="true"/>
+<column xmlns:ns137="urn:siperian.dsapp.config" columnUid="C_CTM_PSTL_ADDR|PSTCD" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns137:showAsHyperlink="false" ns137:showInHMCompactView="false" required="false"/>
+<column xmlns:ns138="urn:siperian.dsapp.config" columnUid="C_CTM_PSTL_ADDR|PO_BOX" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns138:showAsHyperlink="false" ns138:showInHMCompactView="false" required="false"/>
+<column xmlns:ns139="urn:siperian.dsapp.config" columnUid="C_CTM_PSTL_ADDR|DSTRCT" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns139:showAsHyperlink="false" ns139:showInHMCompactView="false" required="false"/>
+<column xmlns:ns140="urn:siperian.dsapp.config" columnUid="C_CTM_PSTL_ADDR|TRTY_ROWID" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns140:showAsHyperlink="false" ns140:showInHMCompactView="false" required="false"/>
+<column xmlns:ns141="urn:siperian.dsapp.config" columnUid="C_CTM_PSTL_ADDR|CTRY_ROWID" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns141:showAsHyperlink="false" ns141:showInHMCompactView="false" required="true"/>
+<column xmlns:ns142="urn:siperian.dsapp.config" columnUid="C_CTM_PSTL_ADDR|ADDR_LN_2" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns142:showAsHyperlink="false" ns142:showInHMCompactView="false" required="false"/>
+<column xmlns:ns143="urn:siperian.dsapp.config" columnUid="C_CTM_PSTL_ADDR|ADDR_LN_3" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns143:showAsHyperlink="false" ns143:showInHMCompactView="false" required="false"/>
+<column xmlns:ns144="urn:siperian.dsapp.config" columnUid="C_CTM_PSTL_ADDR|LAT_GEOSPTL" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns144:showAsHyperlink="false" ns144:showInHMCompactView="false" required="false"/>
+<column xmlns:ns145="urn:siperian.dsapp.config" columnUid="C_CTM_PSTL_ADDR|LNG_GEOSPTL" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns145:showAsHyperlink="false" ns145:showInHMCompactView="false" required="false"/>
+<column xmlns:ns146="urn:siperian.dsapp.config" columnUid="C_FCT_ADDR_REL|ADDR_DCTR_IND" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns146:showAsHyperlink="false" ns146:showInHMCompactView="false" required="true">
+<ns146:columnStaticLookups>
+<ns146:columnStaticLookup code="Check" name="Check"/>
+<ns146:columnStaticLookup code="Do not Check" name="Do not Check"/>
+</ns146:columnStaticLookups>
+<ns146:defaultValue value="Check">
+<ns146:securityRole roleUid="ROLE.FCT_Commercial"/>
+<ns146:securityRole roleUid="ROLE.FCT_ADMIN"/>
+<ns146:securityRole roleUid="ROLE.FCT_RegulatoryComplianceTeam"/>
+</ns146:defaultValue>
+</column>
+</layout>
+</many2ManyChild>
+<many2ManyChild defaultView="table" displayName="Facility Services" expanded="false" hidden="false" index="4" mpcUid="C_MT_PATH_TO_FCT_OFF" name="Facility_Services" type="REFERENCE" uid="C_FCT_OFF">
+<layout columnsNum="3">
+<column xmlns:ns147="urn:siperian.dsapp.config" columnUid="C_FCT_OFF|OFF_NAME" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns147:showAsHyperlink="false" ns147:showInHMCompactView="false" required="true"/>
+<column xmlns:ns148="urn:siperian.dsapp.config" columnUid="C_FCT_OFF|OFF_DESC" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns148:showAsHyperlink="false" ns148:showInHMCompactView="false" required="true"/>
+<column xmlns:ns149="urn:siperian.dsapp.config" columnUid="C_FCT_OFF|IS_ACTIVE_IND" editStyle="FIELD" editable="true" hidden="true" horizontalStyle="MEDIUM" lineBreak="false" ns149:showAsHyperlink="false" ns149:showInHMCompactView="false" required="true"/>
+<column xmlns:ns150="urn:siperian.dsapp.config" columnUid="C_FCT_OFF_REL|VALID_THRU_DT" editStyle="CALENDAR" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns150:showAsHyperlink="false" ns150:showInHMCompactView="false" required="true"/>
+</layout>
+</many2ManyChild>
+<many2ManyChild defaultView="table" displayName="Denied Facility List" expanded="false" hidden="false" index="5" mpcUid="C_MT_IDD_FCT_MTCH_WTCS" name="WTCSFacilityMatch" type="PART_OF" uid="C_WTCS_SANCTION_DETAILS">
+<layout columnsNum="3">
+<column xmlns:ns151="urn:siperian.dsapp.config" columnUid="C_WTCS_SANCTION_DETAILS|NAME1" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns151:showAsHyperlink="false" ns151:showInHMCompactView="false" required="false"/>
+<column xmlns:ns152="urn:siperian.dsapp.config" columnUid="C_WTCS_SANCTION_DETAILS|ADDR_LN_1" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns152:showAsHyperlink="false" ns152:showInHMCompactView="false" required="false"/>
+<column xmlns:ns153="urn:siperian.dsapp.config" columnUid="C_WTCS_SANCTION_DETAILS|CITY_NAME" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns153:showAsHyperlink="false" ns153:showInHMCompactView="false" required="false"/>
+<column xmlns:ns154="urn:siperian.dsapp.config" columnUid="C_WTCS_SANCTION_DETAILS|DISTRICT_NAME" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns154:showAsHyperlink="false" ns154:showInHMCompactView="false" required="false"/>
+<column xmlns:ns155="urn:siperian.dsapp.config" columnUid="C_WTCS_SANCTION_DETAILS|POST_CODE" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns155:showAsHyperlink="false" ns155:showInHMCompactView="false" required="false"/>
+<column xmlns:ns156="urn:siperian.dsapp.config" columnUid="C_WTCS_SANCTION_DETAILS|COUNTRY_CODE" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns156:showAsHyperlink="false" ns156:showInHMCompactView="false" required="false"/>
+<column xmlns:ns157="urn:siperian.dsapp.config" columnUid="C_WTCS_SANCTION_DETAILS|COUNTRY_NAME" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns157:showAsHyperlink="false" ns157:showInHMCompactView="false" required="false"/>
+<column xmlns:ns158="urn:siperian.dsapp.config" columnUid="C_WTCS_SANCTION_DETAILS|SUBJECT_AREA" editStyle="FIELD" editable="true" hidden="true" horizontalStyle="MEDIUM" lineBreak="false" ns158:showAsHyperlink="false" ns158:showInHMCompactView="false" required="true"/>
+<column xmlns:ns159="urn:siperian.dsapp.config" columnUid="C_WTCS_SANCTION_DETAILS|INTRFC_RUN_ID" editStyle="FIELD" editable="true" hidden="true" horizontalStyle="MEDIUM" lineBreak="false" ns159:showAsHyperlink="false" ns159:showInHMCompactView="false" required="true"/>
+<column xmlns:ns160="urn:siperian.dsapp.config" columnUid="C_WTCS_SANCTION_DETAILS|ENTITY_TYPE" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns160:showAsHyperlink="false" ns160:showInHMCompactView="false" required="false"/>
+<column xmlns:ns161="urn:siperian.dsapp.config" columnUid="C_WTCS_SANCTION_DETAILS|SOURCE_ID" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns161:showAsHyperlink="false" ns161:showInHMCompactView="false" required="false"/>
+<column xmlns:ns162="urn:siperian.dsapp.config" columnUid="C_WTCS_SANCTION_DETAILS|PROGRM" editStyle="FIELD" editable="false" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns162:showAsHyperlink="false" ns162:showInHMCompactView="false" required="false"/>
+</layout>
+</many2ManyChild>
+<search displayPackageUid="PKG_DISP_FACILITY" frozenColumns="0"/>
+<match>
+<matchRuleSet type="BOTH" uid="C_FCT_FACILITY|Facility_COM"/>
+<matchColumns>
+<matchColumn matchColumnUid="C_FCT_FACILITY|CLASS_CD"/>
+<matchColumn matchColumnUid="C_FCT_FACILITY|Organization_Name"/>
+<matchColumn matchColumnUid="C_FCT_FACILITY|STATUS"/>
+<matchColumn matchColumnUid="C_FCT_FACILITY|TRTY_ROWID"/>
+<matchColumn matchColumnUid="C_FCT_FACILITY|Address_Part1"/>
+<matchColumn matchColumnUid="C_FCT_FACILITY|CTRY_ROWID"/>
+<matchColumn matchColumnUid="C_FCT_FACILITY|CITY_ROWID"/>
+<matchColumn matchColumnUid="C_FCT_FACILITY|COM_TYP_TYPE"/>
+</matchColumns>
+</match>
+<taskAssignmentConfig task="AVOSBeFinalReview">
+<securityRole roleUid="FCT_Commercial"/>
+<securityRole roleUid="FCT_ADMIN"/>
+</taskAssignmentConfig>
+<taskAssignmentConfig task="AVOSBeNotification">
+<securityRole roleUid="FCT_Commercial"/>
+<securityRole roleUid="FCT_ADMIN"/>
+</taskAssignmentConfig>
+<userExits className="comm.siperian.bdd.userexits.sample.SaveHandler"/>
+<userExits className="comm.siperian.bdd.userexits.sample.SendForApprovalHandler"/>
+<userExits className="comm.siperian.bdd.userexits.sample.TaskActionHandler"/>
+</subjectArea>
+</subjectAreaGroup>
+<subjectAreaGroup displayName="Gda Defined Area" name="Gda_Defined_Area" primaryObjectUid="C_GDA_DFND_AREA" searchOnly="true">
+<subjectArea displayName="Gda Defined Area" name="Gda_Defined_Area" showXREF="false">
+<primaryObject>
+<layout columnsNum="3">
+<column xmlns:ns163="urn:siperian.dsapp.config" columnUid="C_GDA_DFND_AREA|NAME" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns163:showAsHyperlink="false" ns163:showInHMCompactView="false" required="true"/>
+<column xmlns:ns164="urn:siperian.dsapp.config" columnUid="C_GDA_DFND_AREA|DESCRIPTION" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns164:showAsHyperlink="false" ns164:showInHMCompactView="false" required="false"/>
+<column xmlns:ns165="urn:siperian.dsapp.config" columnUid="C_GDA_DFND_AREA|TDS_TMZ_ROWID" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns165:showAsHyperlink="false" ns165:showInHMCompactView="false" required="false"/>
+<column xmlns:ns166="urn:siperian.dsapp.config" columnUid="C_GDA_DFND_AREA|TDS_DST_ROWID" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns166:showAsHyperlink="false" ns166:showInHMCompactView="false" required="false"/>
+<column xmlns:ns167="urn:siperian.dsapp.config" columnUid="C_GDA_DFND_AREA|LAT_GEOSPTL" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns167:showAsHyperlink="false" ns167:showInHMCompactView="false" required="false"/>
+<column xmlns:ns168="urn:siperian.dsapp.config" columnUid="C_GDA_DFND_AREA|LNG_GEOSPTL" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns168:showAsHyperlink="false" ns168:showInHMCompactView="false" required="false"/>
+<column xmlns:ns169="urn:siperian.dsapp.config" columnUid="C_GDA_DFND_AREA|TYP_TYPE_CD" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns169:showAsHyperlink="false" ns169:showInHMCompactView="false" required="true"/>
+<column xmlns:ns170="urn:siperian.dsapp.config" columnUid="C_GDA_DFND_AREA|VALID_FROM_DT" editStyle="CALENDAR" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns170:showAsHyperlink="false" ns170:showInHMCompactView="false" required="true"/>
+<column xmlns:ns171="urn:siperian.dsapp.config" columnUid="C_GDA_DFND_AREA|VALID_THRU_DT" editStyle="CALENDAR" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns171:showAsHyperlink="false" ns171:showInHMCompactView="false" required="true"/>
+<column xmlns:ns172="urn:siperian.dsapp.config" columnUid="C_GDA_DFND_AREA|ACTIVE_FLAG" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns172:showAsHyperlink="false" ns172:showInHMCompactView="false" required="true">
+<ns172:columnStaticLookups>
+<ns172:columnStaticLookup code="Y" name="Y"/>
+<ns172:columnStaticLookup code="N" name="N"/>
+</ns172:columnStaticLookups>
+</column>
+<column xmlns:ns173="urn:siperian.dsapp.config" columnUid="C_GDA_DFND_AREA|OPN_IND" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns173:showAsHyperlink="false" ns173:showInHMCompactView="false" required="false"/>
+</layout>
+<label existsFormat="{0}" existsNoAttributesFormat="{0}" newFormat="New {0}"/>
+</primaryObject>
+<childPlaceHolder index="1000" type="POTENTIAL_MATCHES"/>
+<childPlaceHolder index="1000" type="XREF"/>
+<childPlaceHolder index="1000" type="RELATIONSHIP"/>
+<search displayPackageUid="PKG_DISP_CITY_COUNTRY" frozenColumns="0"/>
+</subjectArea>
+<subjectArea displayName="Territory" name="Territory" showXREF="false">
+<primaryObject>
+<layout columnsNum="3">
+<column xmlns:ns174="urn:siperian.dsapp.config" columnUid="C_GDA_DFND_AREA|NAME" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns174:showAsHyperlink="false" ns174:showInHMCompactView="false" required="true"/>
+<column xmlns:ns175="urn:siperian.dsapp.config" columnUid="C_GDA_DFND_AREA|DESCRIPTION" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns175:showAsHyperlink="false" ns175:showInHMCompactView="false" required="false"/>
+<column xmlns:ns176="urn:siperian.dsapp.config" columnUid="C_GDA_DFND_AREA|TDS_TMZ_ROWID" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns176:showAsHyperlink="false" ns176:showInHMCompactView="false" required="false"/>
+<column xmlns:ns177="urn:siperian.dsapp.config" columnUid="C_GDA_DFND_AREA|TDS_DST_ROWID" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns177:showAsHyperlink="false" ns177:showInHMCompactView="false" required="false"/>
+<column xmlns:ns178="urn:siperian.dsapp.config" columnUid="C_GDA_DFND_AREA|LAT_GEOSPTL" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns178:showAsHyperlink="false" ns178:showInHMCompactView="false" required="false"/>
+<column xmlns:ns179="urn:siperian.dsapp.config" columnUid="C_GDA_DFND_AREA|LNG_GEOSPTL" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns179:showAsHyperlink="false" ns179:showInHMCompactView="false" required="false"/>
+<column xmlns:ns180="urn:siperian.dsapp.config" columnUid="C_GDA_DFND_AREA|TYP_TYPE_CD" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns180:showAsHyperlink="false" ns180:showInHMCompactView="false" required="true"/>
+<column xmlns:ns181="urn:siperian.dsapp.config" columnUid="C_GDA_DFND_AREA|VALID_FROM_DT" editStyle="CALENDAR" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns181:showAsHyperlink="false" ns181:showInHMCompactView="false" required="true"/>
+<column xmlns:ns182="urn:siperian.dsapp.config" columnUid="C_GDA_DFND_AREA|VALID_THRU_DT" editStyle="CALENDAR" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns182:showAsHyperlink="false" ns182:showInHMCompactView="false" required="true"/>
+<column xmlns:ns183="urn:siperian.dsapp.config" columnUid="C_GDA_DFND_AREA|ACTIVE_FLAG" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns183:showAsHyperlink="false" ns183:showInHMCompactView="false" required="true">
+<ns183:columnStaticLookups>
+<ns183:columnStaticLookup code="Y" name="Y"/>
+<ns183:columnStaticLookup code="N" name="N"/>
+</ns183:columnStaticLookups>
+</column>
+<column xmlns:ns184="urn:siperian.dsapp.config" columnUid="C_GDA_DFND_AREA|OPN_IND" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns184:showAsHyperlink="false" ns184:showInHMCompactView="false" required="false"/>
+</layout>
+<label existsFormat="{0}" existsNoAttributesFormat="{0}" newFormat="New {0}"/>
+</primaryObject>
+<childPlaceHolder index="1000" type="POTENTIAL_MATCHES"/>
+<childPlaceHolder index="1000" type="XREF"/>
+<childPlaceHolder index="1000" type="RELATIONSHIP"/>
+<search displayPackageUid="PKG_DISP_TERRITORY" frozenColumns="0"/>
+</subjectArea>
+</subjectAreaGroup>
+<subjectAreaGroup displayName="Facility Services" name="Facility_Services" primaryObjectUid="C_FCT_OFF" searchOnly="false">
+<subjectArea displayName="Services" name="Services" showXREF="false">
+<primaryObject>
+<layout columnsNum="3">
+<column xmlns:ns185="urn:siperian.dsapp.config" columnUid="C_FCT_OFF|OFF_NAME" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns185:showAsHyperlink="false" ns185:showInHMCompactView="false" required="true"/>
+<column xmlns:ns186="urn:siperian.dsapp.config" columnUid="C_FCT_OFF|OFF_DESC" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns186:showAsHyperlink="false" ns186:showInHMCompactView="false" required="true"/>
+<column xmlns:ns187="urn:siperian.dsapp.config" columnUid="C_FCT_OFF|VAS_CD" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns187:showAsHyperlink="false" ns187:showInHMCompactView="false" required="false"/>
+<column xmlns:ns188="urn:siperian.dsapp.config" columnUid="C_FCT_OFF|GRP_CD" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns188:showAsHyperlink="false" ns188:showInHMCompactView="false" required="true"/>
+<column xmlns:ns189="urn:siperian.dsapp.config" columnUid="C_FCT_OFF|IS_ACTIVE_IND" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns189:showAsHyperlink="false" ns189:showInHMCompactView="false" required="true">
+<ns189:columnStaticLookups>
+<ns189:columnStaticLookup code="Y" name="Y"/>
+<ns189:columnStaticLookup code="N" name="N"/>
+</ns189:columnStaticLookups>
+</column>
+</layout>
+<label existsFormat="{0}" existsNoAttributesFormat="{0}" newFormat="New {0}"/>
+</primaryObject>
+<childPlaceHolder index="1000" type="POTENTIAL_MATCHES"/>
+<childPlaceHolder index="1000" type="XREF"/>
+<childPlaceHolder index="1000" type="RELATIONSHIP"/>
+<search displayPackageUid="PKG_DISP_FCT_OFF" frozenColumns="0"/>
+<userExits className="com.siperian.bdd.userexits.sample.SaveHandler"/>
+<userExits className="com.siperian.bdd.userexits.sample.SendForApprovalHandler"/>
+</subjectArea>
+</subjectAreaGroup>
+<subjectAreaGroup displayName="Facility Services Group" name="Facility_Services_Group" primaryObjectUid="C_FCT_OFF_GRP" searchOnly="false">
+<subjectArea displayName="Services Group" name="Services_Group" showXREF="false">
+<primaryObject>
+<cleanseFunction cleanseFunctionUid="Facility Cleanse Function|ConvertToUpper">
+<cleanseInput>
+<cleanseColumn columnUid="C_FCT_OFF_GRP|GRP_CD" parameterName="Group Code"/>
+<cleanseColumn columnUid="C_FCT_OFF_GRP|GRP_NAME" parameterName="Group Name"/>
+</cleanseInput>
+<cleanseOutput>
+<cleanseColumn columnUid="C_FCT_OFF_GRP|GRP_CD" parameterName="Group Code"/>
+<cleanseColumn columnUid="C_FCT_OFF_GRP|GRP_NAME" parameterName="Group Name"/>
+</cleanseOutput>
+</cleanseFunction>
+<layout columnsNum="3">
+<column xmlns:ns190="urn:siperian.dsapp.config" columnUid="C_FCT_OFF_GRP|GRP_NAME" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns190:showAsHyperlink="false" ns190:showInHMCompactView="false" required="true"/>
+<column xmlns:ns191="urn:siperian.dsapp.config" columnUid="C_FCT_OFF_GRP|GRP_DESC" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns191:showAsHyperlink="false" ns191:showInHMCompactView="false" required="true"/>
+<column xmlns:ns192="urn:siperian.dsapp.config" columnUid="C_FCT_OFF_GRP|GRP_CD" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns192:showAsHyperlink="false" ns192:showInHMCompactView="false" required="true"/>
+<column xmlns:ns193="urn:siperian.dsapp.config" columnUid="C_FCT_OFF_GRP|CLASS_CD" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns193:showAsHyperlink="false" ns193:showInHMCompactView="false" required="true">
+<ns193:columnLookup lookupFKUid="C_FCT_CLASS|CODE" lookupNameUid="C_FCT_CLASS|NAME">
+<ns193:subTypeQualifier columnUid="C_FCT_CLASS|CODE">
+<ns193:filter>
+<ns193:value>OPS</ns193:value>
+<ns193:value>COMM</ns193:value>
+</ns193:filter>
+</ns193:subTypeQualifier>
+</ns193:columnLookup>
+</column>
+<column xmlns:ns194="urn:siperian.dsapp.config" columnUid="C_FCT_OFF_GRP|IS_ACTIVE_IND" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns194:showAsHyperlink="false" ns194:showInHMCompactView="false" required="true">
+<ns194:columnStaticLookups>
+<ns194:columnStaticLookup code="Y" name="Y"/>
+<ns194:columnStaticLookup code="N" name="N"/>
+</ns194:columnStaticLookups>
+</column>
+</layout>
+<label existsFormat="{0}" existsNoAttributesFormat="{0}" newFormat="New {0}"/>
+</primaryObject>
+<childPlaceHolder index="1000" type="POTENTIAL_MATCHES"/>
+<childPlaceHolder index="1000" type="XREF"/>
+<childPlaceHolder index="1000" type="RELATIONSHIP"/>
+<search displayPackageUid="PKG_DISP_FCT_OFF_GRP" frozenColumns="0"/>
+<userExits className="com.siperian.bdd.userexits.sample.SendForApprovalHandler"/>
+</subjectArea>
+</subjectAreaGroup>
+<subjectAreaGroup displayName="Facility Type" name="Typ_Type_Code" primaryObjectUid="C_TYP_TYPE" searchOnly="true">
+<subjectArea displayName="Facility Type" name="Typ_Type_Code" showXREF="false">
+<primaryObject>
+<layout columnsNum="3">
+<column xmlns:ns195="urn:siperian.dsapp.config" columnUid="C_TYP_TYPE|CODE" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns195:showAsHyperlink="false" ns195:showInHMCompactView="false" required="true"/>
+<column xmlns:ns196="urn:siperian.dsapp.config" columnUid="C_TYP_TYPE|NAME" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns196:showAsHyperlink="false" ns196:showInHMCompactView="false" required="true"/>
+<column xmlns:ns197="urn:siperian.dsapp.config" columnUid="C_TYP_TYPE|UNIQUE_VALUES_FLAG" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns197:showAsHyperlink="false" ns197:showInHMCompactView="false" required="false"/>
+<column xmlns:ns198="urn:siperian.dsapp.config" columnUid="C_TYP_TYPE|MUST_BE_VALID_FLAG" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns198:showAsHyperlink="false" ns198:showInHMCompactView="false" required="false"/>
+<column xmlns:ns199="urn:siperian.dsapp.config" columnUid="C_TYP_TYPE|TYP_MSTR_TYPE_CD" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns199:showAsHyperlink="false" ns199:showInHMCompactView="false" required="true">
+<ns199:columnLookup lookupFKUid="C_TYP_MSTR_TYPE|CODE" lookupNameUid="C_TYP_MSTR_TYPE|NAME">
+<ns199:subTypeQualifier columnUid="C_TYP_MSTR_TYPE|CODE">
+<ns199:filter>
+<ns199:value>FCT_TYPE</ns199:value>
+</ns199:filter>
+</ns199:subTypeQualifier>
+</ns199:columnLookup>
+</column>
+</layout>
+<label existsFormat="{0}" existsNoAttributesFormat="{0}" newFormat="New {0}"/>
+</primaryObject>
+<childPlaceHolder index="1000" type="POTENTIAL_MATCHES"/>
+<childPlaceHolder index="1000" type="XREF"/>
+<childPlaceHolder index="1000" type="RELATIONSHIP"/>
+<search displayPackageUid="PKG_DISP_FCT_OPS_TYPE_REL" frozenColumns="0"/>
+</subjectArea>
+</subjectAreaGroup>
+<subjectAreaGroup displayName="Transport Details" name="Transport_Details" primaryObjectUid="C_FCT_TRNSP_MODE" searchOnly="true">
+<subjectArea displayName="Transport Details" name="Transport_Details" showXREF="false">
+<primaryObject>
+<layout columnsNum="3">
+<column xmlns:ns200="urn:siperian.dsapp.config" columnUid="C_FCT_TRNSP_MODE|TRNSP_NAME" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns200:showAsHyperlink="false" ns200:showInHMCompactView="false" required="true"/>
+<column xmlns:ns201="urn:siperian.dsapp.config" columnUid="C_FCT_TRNSP_MODE|TRNSP_CD" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns201:showAsHyperlink="false" ns201:showInHMCompactView="false" required="true"/>
+<column xmlns:ns202="urn:siperian.dsapp.config" columnUid="C_FCT_TRNSP_MODE|TRNSP_DESC" editStyle="FIELD" editable="true" hidden="false" horizontalStyle="MEDIUM" lineBreak="false" ns202:showAsHyperlink="false" ns202:showInHMCompactView="false" required="true"/>
+</layout>
+<label existsFormat="{0}" existsNoAttributesFormat="{0}" newFormat="New {0}"/>
+</primaryObject>
+<childPlaceHolder index="1000" type="POTENTIAL_MATCHES"/>
+<childPlaceHolder index="1000" type="XREF"/>
+<childPlaceHolder index="1000" type="RELATIONSHIP"/>
+<search displayPackageUid="PKG_DISP_FCT_TRANSP_MODE" frozenColumns="0"/>
+</subjectArea>
+</subjectAreaGroup>
+<versioning xmlns:ns203="urn:siperian.dsapp.config" ns203:alwaysUseBVT="false"/>
+</logicalOrsGroup>
+<tasks includeUnassignedTasks="true">
+<taskType creationType="MERGE" dataUpdateType="ACTIVE" defaultApproval="false" displayName="Merge" displayType="NORMAL" name="AVOSBeMerge" pendingBVT="true" taskTypeId="BeMergeTask">
+<description>Merge two records together.</description>
+</taskType>
+<taskType creationType="UNMERGE" dataUpdateType="ACTIVE" defaultApproval="false" displayName="Unmerge" displayType="NORMAL" name="AVOSBeUnmerge" pendingBVT="true" taskTypeId="BeUnmergeTask">
+<description>Unmerge an XREF record from a Base Object record.</description>
+</taskType>
+<taskType creationType="NONE" dataUpdateType="ACTIVE" defaultApproval="true" displayName="Final review" displayType="NORMAL" name="AVOSBeFinalReview" pendingBVT="true" taskTypeId="BeOneStepApprovalTask">
+<description>Update a record and require the user to go through an approval process before completing the task.</description>
+</taskType>
+<taskType creationType="NONE" dataUpdateType="ACTIVE" defaultApproval="false" displayName="Update Rejected Record" displayType="NORMAL" name="AVOSBeUpdateRejectedRecord" pendingBVT="true" taskTypeId="BeUpdateRejectedRecord">
+<description>Review a change and either escalate or reject it. This task does not provide an Approve option and requires at least one other person to review the changes as well.</description>
+</taskType>
+<taskType creationType="NONE" dataUpdateType="ACTIVE" defaultApproval="false" displayName="Notification" displayType="NORMAL" name="AVOSBeNotification" pendingBVT="true" taskTypeId="">
+<description>Notification step in the workflow</description>
+</taskType>
+<taskType creationType="NONE" dataUpdateType="ACTIVE" defaultApproval="false" displayName="Review no approve" displayType="NORMAL" name="AVOSBeReviewNoApprove" pendingBVT="true" taskTypeId="BeTwoStepApprovalTask">
+<description>Update a record and require the user to go through an approval process before completing the task.</description>
+</taskType>
+<taskType creationType="NONE" dataUpdateType="ACTIVE" defaultApproval="false" displayName="Update" displayType="NORMAL" name="AVOSBeUpdate" pendingBVT="true" taskTypeId="BeUpdateWithApprovalTask">
+<description>Update a record and do not require the user to go through an approval process before completing the task. The approval step is optional.</description>
+</taskType>
+</tasks>
+</bddApplication>

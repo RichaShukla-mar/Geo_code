@@ -1,0 +1,30 @@
+# %Z% %W% %I% %E% %U%
+#
+#   <copyright 
+#   notice="oco-source" 
+#   pids="5724-H72,5655-R36,5655-L82,5724-L26," 
+#   years="2008,2012" 
+#   crc="2690781749" > 
+#   IBM Confidential 
+#    
+#   OCO Source Materials 
+#    
+#   5724-H72,5655-R36,5655-L82,5724-L26, 
+#    
+#   (C) Copyright IBM Corp. 2008, 2012 
+#    
+#   The source code for the program is not published 
+#   or otherwise divested of its trade secrets, 
+#   irrespective of what has been deposited with the 
+#   U.S. Copyright Office. 
+#   </copyright> 
+#
+# A list of MQ provided Charset implementations
+#
+com.ibm.mq.jmqi.internal.charset.HP1051Charset
+com.ibm.mq.jmqi.internal.charset.IBM37Charset
+com.ibm.mq.jmqi.internal.charset.IBM437Charset
+com.ibm.mq.jmqi.internal.charset.IBM500Charset
+com.ibm.mq.jmqi.internal.charset.IBM850Charset
+com.ibm.mq.jmqi.internal.charset.IBM866Charset
+com.ibm.mq.jmqi.internal.charset.IBM930Charset
