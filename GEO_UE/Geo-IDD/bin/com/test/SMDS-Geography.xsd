@@ -1,0 +1,1019 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://services.apmoller.net/Geography"
+	elementFormDefault="qualified" attributeFormDefault="unqualified"
+	version="1.0">
+	<xsd:simpleType name="LengthRestriction">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="10" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="NumberRestriction">
+		<xsd:restriction base="xsd:integer">
+			<xsd:pattern value="[0-9]{10}" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:annotation>
+		<xsd:appinfo>
+			<Metadata>
+				<Audience />
+				<Creator>Anil Jaguri
+				</Creator>
+				<Updated>
+					<UpdatedBy>Deepika</UpdatedBy>
+					<UpdatedOn>2020-07-16</UpdatedOn>
+					<Description>UserStory 200293: Add the Alternate COde to the parent
+						of each elements</Description>
+				</Updated>
+				<Date>
+					<Created>2020-05-15</Created>
+				</Date>
+				<Description>
+					<Abstract>"DO NOT GENERATE/CHANGE THIS SCHEMA. PLEASE CONTACT
+						Operations Team"</Abstract>
+				</Description>
+				<Rights>
+					<Copyright>Maersk 2020</Copyright>
+				</Rights>
+				<Title>Geography Master Data Service Schema</Title>
+			</Metadata>
+		</xsd:appinfo>
+	</xsd:annotation>
+	<xsd:element name="Geography">
+		<xsd:annotation>
+			<xsd:documentation>Geography</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Continent" minOccurs="1"
+					maxOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>Continent General Details like Name, Status
+							etc.
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="Name" type="xsd:string"
+								minOccurs="1" maxOccurs="1"></xsd:element>
+							<xsd:element name="Status" type="xsd:string"
+								minOccurs="1" maxOccurs="1"></xsd:element>
+							<xsd:element name="ValidFrom" type="xsd:date"
+								minOccurs="1" maxOccurs="1"></xsd:element>
+							<xsd:element name="ValidTo" type="xsd:date"
+								minOccurs="1" maxOccurs="1"></xsd:element>
+							<xsd:element name="Description" type="xsd:string"
+								minOccurs="0" maxOccurs="1"></xsd:element>
+							<xsd:element name="WorkaroundReason"
+								type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+							<xsd:element name="AlternateNames" minOccurs="0"
+								maxOccurs="1">
+								<xsd:annotation>
+									<xsd:documentation>Alternate Name details for continent.
+									</xsd:documentation>
+								</xsd:annotation>
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="AlternateName" minOccurs="1"
+											maxOccurs="unbounded">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="Name" type="xsd:string"
+														minOccurs="1" maxOccurs="1"></xsd:element>
+													<xsd:element name="Description"
+														type="xsd:string" minOccurs="1" maxOccurs="1"></xsd:element>
+													<xsd:element name="Status" type="xsd:string"
+														minOccurs="1" maxOccurs="1"></xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="AlternateCodes" minOccurs="1"
+								maxOccurs="1">
+								<xsd:annotation>
+									<xsd:documentation>Alternate Code details for continent.
+									</xsd:documentation>
+								</xsd:annotation>
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="AlternateCode" minOccurs="1"
+											maxOccurs="unbounded">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="CodeType" type="xsd:string"
+														minOccurs="1"></xsd:element>
+													<xsd:element name="Code" type="xsd:string"
+														minOccurs="1" maxOccurs="1"></xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="Country" minOccurs="0" maxOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>Country General Details like Name, Status etc.
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="Name" type="xsd:string"
+								minOccurs="1" maxOccurs="1"></xsd:element>
+							<xsd:element name="Status" type="xsd:string"
+								minOccurs="1" maxOccurs="1"></xsd:element>
+							<xsd:element name="ValidFrom" type="xsd:date"
+								minOccurs="1" maxOccurs="1"></xsd:element>
+							<xsd:element name="ValidTo" type="xsd:date"
+								minOccurs="1" maxOccurs="1"></xsd:element>
+							<xsd:element name="TimeZone" type="xsd:string"
+								minOccurs="0" maxOccurs="1"></xsd:element>
+							<xsd:element name="DaylightSavingTime"
+								type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+							<xsd:element name="Description" type="xsd:string"
+								minOccurs="0" maxOccurs="1"></xsd:element>
+							<xsd:element name="WorkaroundReason"
+								type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+							<xsd:element name="Restricted" type="xsd:string"
+								minOccurs="1" maxOccurs="1"></xsd:element>
+							<xsd:element name="PostalCodeMandatoryFlag"
+								type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+							<xsd:element name="StateProvienceMandatory"
+								type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+							<xsd:element name="DialingCode" type="xsd:string"
+								minOccurs="1" maxOccurs="1"></xsd:element>
+							<xsd:element name="DialingCodedescription"
+								type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+							<xsd:element name="AlternateNames" minOccurs="0"
+								maxOccurs="1">
+								<xsd:annotation>
+									<xsd:documentation>Alternate Name details for Country.
+									</xsd:documentation>
+								</xsd:annotation>
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="AlternateName" minOccurs="1"
+											maxOccurs="unbounded">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="Name" type="xsd:string"
+														minOccurs="1" maxOccurs="1"></xsd:element>
+													<xsd:element name="Description"
+														type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+													<xsd:element name="Status" type="xsd:string"
+														minOccurs="1" maxOccurs="1"></xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="AlternateCodes" minOccurs="1"
+								maxOccurs="1">
+								<xsd:annotation>
+									<xsd:documentation>Alternate Code deails for Country.
+									</xsd:documentation>
+								</xsd:annotation>
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="AlternateCode" minOccurs="1"
+											maxOccurs="unbounded">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="CodeType" type="xsd:string"
+														minOccurs="1" maxOccurs="1"></xsd:element>
+													<xsd:element name="Code" type="xsd:string"
+														minOccurs="1" maxOccurs="1"></xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="Parent" minOccurs="1"
+								maxOccurs="1">
+								<xsd:annotation>
+									<xsd:documentation>Parent details for Country.
+									</xsd:documentation>
+								</xsd:annotation>
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="Name" type="xsd:string"
+											minOccurs="1" maxOccurs="1"></xsd:element>
+										<xsd:element name="Type" type="xsd:string"
+											minOccurs="1" maxOccurs="1"></xsd:element>
+										<!-- 200293 -->
+										<xsd:element name="AlternateCodes" minOccurs="1"
+											maxOccurs="1">
+											<xsd:annotation>
+												<xsd:documentation>Alternate Code of Parent.
+												</xsd:documentation>
+											</xsd:annotation>
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="AlternateCode" minOccurs="1"
+														maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:sequence>
+																<xsd:element name="CodeType"
+																	type="xsd:string" minOccurs="1"></xsd:element>
+																<xsd:element name="Code" type="xsd:string"
+																	minOccurs="1" maxOccurs="1"></xsd:element>
+															</xsd:sequence>
+														</xsd:complexType>
+													</xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="BDA" minOccurs="0" maxOccurs="1">
+								<xsd:annotation>
+									<xsd:documentation>BDA deatils for Country.
+									</xsd:documentation>
+								</xsd:annotation>
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="BDAType" minOccurs="1"
+											maxOccurs="unbounded">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="Name" type="xsd:string"
+														minOccurs="1" maxOccurs="1"></xsd:element>
+													<xsd:element name="Type" type="xsd:string"
+														minOccurs="1" maxOccurs="1"></xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="StateProvience" minOccurs="0"
+					maxOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>State or Provience General Details like Name,
+							Status etc.
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="Name" type="xsd:string"
+								minOccurs="1" maxOccurs="1"></xsd:element>
+							<xsd:element name="Status" type="xsd:string"
+								minOccurs="1" maxOccurs="1"></xsd:element>
+							<xsd:element name="ValidFrom" type="xsd:date"
+								minOccurs="1" maxOccurs="1"></xsd:element>
+							<xsd:element name="ValidTo" type="xsd:date"
+								minOccurs="1" maxOccurs="1"></xsd:element>
+							<xsd:element name="TimeZone" type="xsd:string"
+								minOccurs="0" maxOccurs="1"></xsd:element>
+							<xsd:element name="DaylightSavingTime"
+								type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+							<xsd:element name="Description" type="xsd:string"
+								minOccurs="0" maxOccurs="1"></xsd:element>
+							<xsd:element name="WorkaroundReason"
+								type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+							<xsd:element name="AlternateNames" minOccurs="0"
+								maxOccurs="1">
+								<xsd:annotation>
+									<xsd:documentation>Alternate Name deatils for State or
+										Provience.
+									</xsd:documentation>
+								</xsd:annotation>
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="AlternateName" minOccurs="1"
+											maxOccurs="unbounded">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="Name" type="xsd:string"
+														minOccurs="1" maxOccurs="1"></xsd:element>
+													<xsd:element name="Description"
+														type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+													<xsd:element name="Status" type="xsd:string"
+														minOccurs="1" maxOccurs="1"></xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="AlternateCodes" minOccurs="1"
+								maxOccurs="1">
+								<xsd:annotation>
+									<xsd:documentation>Alternate Code details for State or
+										Provience.
+									</xsd:documentation>
+								</xsd:annotation>
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="AlternateCode" minOccurs="1"
+											maxOccurs="unbounded">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="CodeType" type="xsd:string"
+														minOccurs="1" maxOccurs="1"></xsd:element>
+													<xsd:element name="Code" type="xsd:string"
+														minOccurs="1" maxOccurs="1"></xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="Parent" minOccurs="1"
+								maxOccurs="1">
+								<xsd:annotation>
+									<xsd:documentation>Parent details for State or Provience.
+									</xsd:documentation>
+								</xsd:annotation>
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="Name" type="xsd:string"
+											minOccurs="1" maxOccurs="1"></xsd:element>
+										<xsd:element name="Type" type="xsd:string"
+											minOccurs="1" maxOccurs="1"></xsd:element>
+										<!-- 200293 -->
+										<xsd:element name="AlternateCodes" minOccurs="1"
+											maxOccurs="1">
+											<xsd:annotation>
+												<xsd:documentation>Alternate Code of Parent.
+												</xsd:documentation>
+											</xsd:annotation>
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="AlternateCode" minOccurs="1"
+														maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:sequence>
+																<xsd:element name="CodeType"
+																	type="xsd:string" minOccurs="1"></xsd:element>
+																<xsd:element name="Code" type="xsd:string"
+																	minOccurs="1" maxOccurs="1"></xsd:element>
+															</xsd:sequence>
+														</xsd:complexType>
+													</xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="BDA" minOccurs="0" maxOccurs="1">
+								<xsd:annotation>
+									<xsd:documentation>BDA deatils for State or Provience.
+									</xsd:documentation>
+								</xsd:annotation>
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="BDAType" minOccurs="1"
+											maxOccurs="unbounded">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="Name" type="xsd:string"
+														minOccurs="1" maxOccurs="1"></xsd:element>
+													<xsd:element name="Type" type="xsd:string"
+														minOccurs="1" maxOccurs="1"></xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="City" minOccurs="0" maxOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>City General Details like Name, Status etc.
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="Name" type="xsd:string"
+								minOccurs="1" maxOccurs="1"></xsd:element>
+							<xsd:element name="Status" type="xsd:string"
+								minOccurs="1" maxOccurs="1"></xsd:element>
+							<xsd:element name="ValidFrom" type="xsd:date"
+								minOccurs="1" maxOccurs="1"></xsd:element>
+							<xsd:element name="ValidTo" type="xsd:date"
+								minOccurs="1" maxOccurs="1"></xsd:element>
+							<xsd:element name="Longitude" type="xsd:string"
+								minOccurs="1" maxOccurs="1"></xsd:element>
+							<xsd:element name="Latitude" type="xsd:string"
+								minOccurs="1" maxOccurs="1"></xsd:element>
+							<xsd:element name="TimeZone" type="xsd:string"
+								minOccurs="0" maxOccurs="1"></xsd:element>
+							<xsd:element name="DaylightSavingTime"
+								type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+							<xsd:element name="Description" type="xsd:string"
+								minOccurs="0" maxOccurs="1"></xsd:element>
+							<xsd:element name="WorkaroundReason"
+								type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+							<xsd:element name="PortFlag" type="xsd:string"
+								minOccurs="1" maxOccurs="1"></xsd:element>
+							<xsd:element name="OlsonTimezone" type="xsd:string"
+								minOccurs="0" maxOccurs="1"></xsd:element>
+							<xsd:element name="AlternateNames" minOccurs="0"
+								maxOccurs="1">
+								<xsd:annotation>
+									<xsd:documentation>Alternate Name deatils for City.
+									</xsd:documentation>
+								</xsd:annotation>
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="AlternateName" minOccurs="1"
+											maxOccurs="unbounded">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="Name" type="xsd:string"
+														minOccurs="1" maxOccurs="1"></xsd:element>
+													<xsd:element name="Description"
+														type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+													<xsd:element name="Status" type="xsd:string"
+														minOccurs="1" maxOccurs="1"></xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="AlternateCodes" minOccurs="1"
+								maxOccurs="1">
+								<xsd:annotation>
+									<xsd:documentation>Alternate Code details for City.
+									</xsd:documentation>
+								</xsd:annotation>
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="AlternateCode" minOccurs="1"
+											maxOccurs="unbounded">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="CodeType" type="xsd:string"
+														minOccurs="1" maxOccurs="1"></xsd:element>
+													<xsd:element name="Code" type="xsd:string"
+														minOccurs="1" maxOccurs="1"></xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<!-- 200293 -->
+							<xsd:element name="Country" minOccurs="1"
+								maxOccurs="1">
+								<xsd:annotation>
+									<xsd:documentation>Country Details
+									</xsd:documentation>
+								</xsd:annotation>
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="Name" type="xsd:string"
+											minOccurs="1" maxOccurs="1"></xsd:element>
+										<xsd:element name="AlternateCodes" minOccurs="1"
+											maxOccurs="1">
+											<xsd:annotation>
+												<xsd:documentation>Alternate Code of Country.
+												</xsd:documentation>
+											</xsd:annotation>
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="AlternateCode" minOccurs="1"
+														maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:sequence>
+																<xsd:element name="CodeType"
+																	type="xsd:string" minOccurs="1"></xsd:element>
+																<xsd:element name="Code" type="xsd:string"
+																	minOccurs="1" maxOccurs="1"></xsd:element>
+															</xsd:sequence>
+														</xsd:complexType>
+													</xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="Parent" minOccurs="1"
+								maxOccurs="1">
+								<xsd:annotation>
+									<xsd:documentation>Parent deatils for City.
+									</xsd:documentation>
+								</xsd:annotation>
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="Name" type="xsd:string"
+											minOccurs="1" maxOccurs="1"></xsd:element>
+										<xsd:element name="Type" type="xsd:string"
+											minOccurs="1" maxOccurs="1"></xsd:element>
+										<!-- 200293 -->
+										<xsd:element name="AlternateCodes" minOccurs="1"
+											maxOccurs="1">
+											<xsd:annotation>
+												<xsd:documentation>Alternate Code of Parent.
+												</xsd:documentation>
+											</xsd:annotation>
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="AlternateCode" minOccurs="1"
+														maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:sequence>
+																<xsd:element name="CodeType"
+																	type="xsd:string" minOccurs="1"></xsd:element>
+																<xsd:element name="Code" type="xsd:string"
+																	minOccurs="1" maxOccurs="1"></xsd:element>
+															</xsd:sequence>
+														</xsd:complexType>
+													</xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="BDA" minOccurs="0" maxOccurs="1">
+								<xsd:annotation>
+									<xsd:documentation>BDA deatils for City.
+									</xsd:documentation>
+								</xsd:annotation>
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="BDAType" minOccurs="1"
+											maxOccurs="unbounded">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="Name" type="xsd:string"
+														minOccurs="1" maxOccurs="1"></xsd:element>
+													<xsd:element name="Type" type="xsd:string"
+														minOccurs="1" maxOccurs="1"></xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="Site" minOccurs="0" maxOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>Site General Details like Name, Status etc.
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="Name" type="xsd:string"
+								minOccurs="1" maxOccurs="1"></xsd:element>
+							<xsd:element name="Status" type="xsd:string"
+								minOccurs="1" maxOccurs="1"></xsd:element>
+							<xsd:element name="ValidFrom" type="xsd:date"
+								minOccurs="1" maxOccurs="1"></xsd:element>
+							<xsd:element name="ValidTo" type="xsd:date"
+								minOccurs="1" maxOccurs="1"></xsd:element>
+							<xsd:element name="Longitude" type="xsd:string"
+								minOccurs="1" maxOccurs="1"></xsd:element>
+							<xsd:element name="Latitude" type="xsd:string"
+								minOccurs="1" maxOccurs="1"></xsd:element>
+							<xsd:element name="Description" type="xsd:string"
+								minOccurs="0" maxOccurs="1"></xsd:element>
+							<xsd:element name="WorkaroundReason"
+								type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+							<xsd:element name="SiteType" type="xsd:string"
+								minOccurs="1" maxOccurs="1"></xsd:element>
+							<xsd:element name="GPSFlag" type="xsd:string"
+								minOccurs="0" maxOccurs="1"></xsd:element>
+							<xsd:element name="GSMFlag" type="xsd:string"
+								minOccurs="1" maxOccurs="1"></xsd:element>
+							<xsd:element name="StreetNumber" type="xsd:string"
+								minOccurs="0" maxOccurs="1"></xsd:element>
+							<xsd:element name="AddressLine1" type="xsd:string"
+								minOccurs="0" maxOccurs="1"></xsd:element>
+							<xsd:element name="AddressLine2" type="xsd:string"
+								minOccurs="0" maxOccurs="1"></xsd:element>
+							<xsd:element name="AddressLine3" type="xsd:string"
+								minOccurs="0" maxOccurs="1"></xsd:element>
+							<xsd:element name="PostalCode" type="xsd:string"
+								minOccurs="0" maxOccurs="1"></xsd:element>
+							<xsd:element name="AlternateNames" minOccurs="0"
+								maxOccurs="1">
+								<xsd:annotation>
+									<xsd:documentation>Alternate Name deatils for Site.
+									</xsd:documentation>
+								</xsd:annotation>
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="AlternateName" minOccurs="1"
+											maxOccurs="unbounded">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="Name" type="xsd:string"
+														minOccurs="1" maxOccurs="1"></xsd:element>
+													<xsd:element name="Description"
+														type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+													<xsd:element name="Status" type="xsd:string"
+														minOccurs="1" maxOccurs="1"></xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="AlternateCodes" minOccurs="1"
+								maxOccurs="1">
+								<xsd:annotation>
+									<xsd:documentation>Alternate Code details for Site.
+									</xsd:documentation>
+								</xsd:annotation>
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="AlternateCode" minOccurs="1"
+											maxOccurs="unbounded">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="CodeType" type="xsd:string"
+														minOccurs="1" maxOccurs="1"></xsd:element>
+													<xsd:element name="Code" type="xsd:string"
+														minOccurs="1" maxOccurs="1"></xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="GeoFence" minOccurs="1"
+								maxOccurs="1">
+								<xsd:annotation>
+									<xsd:documentation>GeoFence details for Site.
+									</xsd:documentation>
+								</xsd:annotation>
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="GeoFenceTypes" minOccurs="1"
+											maxOccurs="unbounded">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="Name" type="xsd:string"
+														minOccurs="1" maxOccurs="1"></xsd:element>
+													<xsd:element name="GeoFenceType"
+														type="xsd:string" minOccurs="1" maxOccurs="1"></xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<!-- 200293 -->
+							<xsd:element name="Country" minOccurs="1"
+								maxOccurs="1">
+								<xsd:annotation>
+									<xsd:documentation>Country Details
+									</xsd:documentation>
+								</xsd:annotation>
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="Name" type="xsd:string"
+											minOccurs="1" maxOccurs="1"></xsd:element>
+										<xsd:element name="AlternateCodes" minOccurs="1"
+											maxOccurs="1">
+											<xsd:annotation>
+												<xsd:documentation>Alternate Code of Country.
+												</xsd:documentation>
+											</xsd:annotation>
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="AlternateCode" minOccurs="1"
+														maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:sequence>
+																<xsd:element name="CodeType"
+																	type="xsd:string" minOccurs="1"></xsd:element>
+																<xsd:element name="Code" type="xsd:string"
+																	minOccurs="1" maxOccurs="1"></xsd:element>
+															</xsd:sequence>
+														</xsd:complexType>
+													</xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="Parent" minOccurs="1"
+								maxOccurs="1">
+								<xsd:annotation>
+									<xsd:documentation>Parent deatils for Site.
+									</xsd:documentation>
+								</xsd:annotation>
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="Name" type="xsd:string"
+											minOccurs="1" maxOccurs="1"></xsd:element>
+										<xsd:element name="Type" type="xsd:string"
+											minOccurs="1" maxOccurs="1"></xsd:element>
+										<!-- 200293 -->
+										<xsd:element name="AlternateCodes" minOccurs="1"
+											maxOccurs="1">
+											<xsd:annotation>
+												<xsd:documentation>Alternate Code of Parent.
+												</xsd:documentation>
+											</xsd:annotation>
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="AlternateCode" minOccurs="1"
+														maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:sequence>
+																<xsd:element name="CodeType"
+																	type="xsd:string" minOccurs="1"></xsd:element>
+																<xsd:element name="Code" type="xsd:string"
+																	minOccurs="1" maxOccurs="1"></xsd:element>
+															</xsd:sequence>
+														</xsd:complexType>
+													</xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="BDA" minOccurs="0" maxOccurs="1">
+								<xsd:annotation>
+									<xsd:documentation>BDA deatils for Site.
+									</xsd:documentation>
+								</xsd:annotation>
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="BDAType" minOccurs="1"
+											maxOccurs="unbounded">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="Name" type="xsd:string"
+														minOccurs="1" maxOccurs="1"></xsd:element>
+													<xsd:element name="Type" type="xsd:string"
+														minOccurs="1" maxOccurs="1"></xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="PostalCode" minOccurs="0"
+					maxOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>PostalCode General Details like Name, Status
+							etc.
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="Name" type="xsd:string"
+								minOccurs="1" maxOccurs="1"></xsd:element>
+							<xsd:element name="Status" type="xsd:string"
+								minOccurs="1" maxOccurs="1"></xsd:element>
+							<xsd:element name="ValidFrom" type="xsd:date"
+								minOccurs="1" maxOccurs="1"></xsd:element>
+							<xsd:element name="ValidTo" type="xsd:date"
+								minOccurs="1" maxOccurs="1"></xsd:element>
+							<xsd:element name="Description" type="xsd:string"
+								minOccurs="0" maxOccurs="1"></xsd:element>
+							<xsd:element name="AlternateCodes" minOccurs="0"
+								maxOccurs="1">
+								<xsd:annotation>
+									<xsd:documentation>Alternate Code details for PostalCode.
+									</xsd:documentation>
+								</xsd:annotation>
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="AlternateCode" minOccurs="1"
+											maxOccurs="unbounded">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="CodeType" type="xsd:string"
+														minOccurs="1" maxOccurs="1"></xsd:element>
+													<xsd:element name="Code" type="xsd:string"
+														minOccurs="1" maxOccurs="1"></xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<!-- 200293 -->
+							<xsd:element name="Country" minOccurs="1"
+								maxOccurs="1">
+								<xsd:annotation>
+									<xsd:documentation>Country Details
+									</xsd:documentation>
+								</xsd:annotation>
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="Name" type="xsd:string"
+											minOccurs="1" maxOccurs="1"></xsd:element>
+										<xsd:element name="AlternateCodes" minOccurs="1"
+											maxOccurs="1">
+											<xsd:annotation>
+												<xsd:documentation>Alternate Code of Country.
+												</xsd:documentation>
+											</xsd:annotation>
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="AlternateCode" minOccurs="1"
+														maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:sequence>
+																<xsd:element name="CodeType"
+																	type="xsd:string" minOccurs="1"></xsd:element>
+																<xsd:element name="Code" type="xsd:string"
+																	minOccurs="1" maxOccurs="1"></xsd:element>
+															</xsd:sequence>
+														</xsd:complexType>
+													</xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="Parent" minOccurs="1"
+								maxOccurs="1">
+								<xsd:annotation>
+									<xsd:documentation>Parent deatils for PostalCode.
+									</xsd:documentation>
+								</xsd:annotation>
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="Name" type="xsd:string"
+											minOccurs="1" maxOccurs="1"></xsd:element>
+										<xsd:element name="Type" type="xsd:string"
+											minOccurs="1" maxOccurs="1"></xsd:element>
+										<!-- 200293 -->
+										<xsd:element name="AlternateCodes" minOccurs="1"
+											maxOccurs="1">
+											<xsd:annotation>
+												<xsd:documentation>Alternate Code of Parent.
+												</xsd:documentation>
+											</xsd:annotation>
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="AlternateCode" minOccurs="1"
+														maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:sequence>
+																<xsd:element name="CodeType"
+																	type="xsd:string" minOccurs="1"></xsd:element>
+																<xsd:element name="Code" type="xsd:string"
+																	minOccurs="1" maxOccurs="1"></xsd:element>
+															</xsd:sequence>
+														</xsd:complexType>
+													</xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="BDA" minOccurs="0" maxOccurs="1">
+								<xsd:annotation>
+									<xsd:documentation>BDA deatils for PostalCode.
+									</xsd:documentation>
+								</xsd:annotation>
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="BDAType" minOccurs="1"
+											maxOccurs="unbounded">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="Name" type="xsd:string"
+														minOccurs="1" maxOccurs="1"></xsd:element>
+													<xsd:element name="Type" type="xsd:string"
+														minOccurs="1" maxOccurs="1"></xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="BusinessDefinedArea" minOccurs="0"
+					maxOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>Business Defined Area General Details like
+							Name, Status etc.
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="Name" type="xsd:string"
+								minOccurs="1" maxOccurs="1"></xsd:element>
+							<xsd:element name="Status" type="xsd:string"
+								minOccurs="1" maxOccurs="1"></xsd:element>
+							<xsd:element name="ValidFrom" type="xsd:date"
+								minOccurs="1" maxOccurs="1"></xsd:element>
+							<xsd:element name="ValidTo" type="xsd:date"
+								minOccurs="1" maxOccurs="1"></xsd:element>
+							<xsd:element name="BDAType" type="xsd:string"
+								minOccurs="1" maxOccurs="1"></xsd:element>
+							<xsd:element name="AlternateCodes" minOccurs="1"
+								maxOccurs="1">
+								<xsd:annotation>
+									<xsd:documentation>Alternate Code details for Business Defined
+										Area.
+									</xsd:documentation>
+								</xsd:annotation>
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="AlternateCode" minOccurs="1"
+											maxOccurs="unbounded">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="CodeType" type="xsd:string"
+														minOccurs="1" maxOccurs="1"></xsd:element>
+													<xsd:element name="Code" type="xsd:string"
+														minOccurs="1" maxOccurs="1"></xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="ParentBDA" minOccurs="0"
+								maxOccurs="1">
+								<xsd:annotation>
+									<xsd:documentation>ParentBDA details for Business Defined Area.
+									</xsd:documentation>
+								</xsd:annotation>
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="Name" type="xsd:string"
+											minOccurs="1" maxOccurs="1"></xsd:element>
+										<!-- 200293 -->
+										<xsd:element name="AlternateCodes" minOccurs="1"
+											maxOccurs="1">
+											<xsd:annotation>
+												<xsd:documentation>Alternate Code of Parent.
+												</xsd:documentation>
+											</xsd:annotation>
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="AlternateCode" minOccurs="1"
+														maxOccurs="unbounded">
+														<xsd:complexType>
+															<xsd:sequence>
+																<xsd:element name="CodeType"
+																	type="xsd:string" minOccurs="1"></xsd:element>
+																<xsd:element name="Code" type="xsd:string"
+																	minOccurs="1" maxOccurs="1"></xsd:element>
+															</xsd:sequence>
+														</xsd:complexType>
+													</xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="Locations" minOccurs="0"
+								maxOccurs="1">
+								<xsd:annotation>
+									<xsd:documentation>Locations deatils for Business Defined Area.
+									</xsd:documentation>
+								</xsd:annotation>
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="Location" minOccurs="1"
+											maxOccurs="unbounded">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="Name" type="xsd:string"
+														minOccurs="1" maxOccurs="1"></xsd:element>
+													<xsd:element name="Type" type="xsd:string"
+														minOccurs="1" maxOccurs="1"></xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

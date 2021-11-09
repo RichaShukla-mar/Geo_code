@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="resources"/>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/lib"/>
+	<classpathentry kind="lib" path="C:/Users/DKA138/Documents/Java Project/XQUERY/XQUERY/jaxb-xjc-2.2.jar/jaxb-xjc-2.2.jar"/>
+	<classpathentry kind="lib" path="C:/GIT/smds-geography/Geo-IDD/lib/javax.jms-3.1.2.2.jar/javax.jms-3.1.2.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/DKA138/Documents/Java Project/JavaCleanseFunction/ds-gui-jar-10.2.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="lib/com.ibm.mq.allclient-9.0.4.0"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
