@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://services.apmoller.net/cmd/definitions"
+	xmlns:schema="http://services.apmoller.net/cmd/schemas"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://services.apmoller.net/cmd/definitions"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+
+	
+	<wsdl:import location="./SearchFacilityService_Abstract.wsdl" namespace="http://services.apmoller.net/cmd/definitions"/>
+	
+	<wsdl:binding name="SearchFacilityBinding" type="tns:SearchFacility">
+
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="searchFacility">
+
+			<soap:operation
+				soapAction="http://services.apmoller.net/cmd/definitions/searchFacility" />
+			<wsdl:input>
+
+				<soap:body use="literal" />
+				<soap:header use="literal" message="tns:searchFacilityHeader"
+					part="header" />
+			</wsdl:input>
+			<wsdl:output>
+
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+
+				<soap:fault use="literal" name="fault" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="searchDuplicateFacility">
+
+			<soap:operation
+				soapAction="http://services.apmoller.net/cmd/definitions/searchDuplicateFacility" />
+			<wsdl:input>
+
+				<soap:body use="literal" />
+				<soap:header use="literal" message="tns:searchFacilityHeader"
+					part="header" />
+			</wsdl:input>
+			<wsdl:output>
+
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+
+				<soap:fault use="literal" name="fault" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="retrieveFacility">
+
+			<soap:operation
+				soapAction="http://services.apmoller.net/cmd/definitions/retrieveFacility" />
+			<wsdl:input>
+
+				<soap:body use="literal" />
+				<soap:header use="literal" message="tns:searchFacilityHeader"
+					part="header" />
+			</wsdl:input>
+			<wsdl:output>
+
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+
+				<soap:fault use="literal" name="fault" />
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="FacilitySearchService">
+		<wsdl:port name="SearchFacilityPort" binding="tns:SearchFacilityBinding">
+			<soap:address
+				location="http://scrbipcdk001152:7001/Search/FacilitySearchService" />
+		</wsdl:port>
+	</wsdl:service>
+	
+</wsdl:definitions>

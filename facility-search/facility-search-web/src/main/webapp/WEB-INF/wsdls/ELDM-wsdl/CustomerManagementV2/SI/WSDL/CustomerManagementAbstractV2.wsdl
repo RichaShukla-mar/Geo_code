@@ -1,0 +1,624 @@
+<wsdl:definitions name="CustomerManagementAbstract"
+	targetNamespace="http://services.apmoller.net/AMM/CustomerManagementAbstract/v2" 
+	
+	xmlns:service="http://services.apmoller.net/AMM/CustomerManagement/v2"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	xmlns="http://services.apmoller.net/AMM/CustomerManagementAbstract/v2"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+	xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+	xmlns:frexcp="http://services.apmoller.net/ManagementFramework/ServiceException/v2">
+
+<!-- DON'T REMOVE -->
+    
+        <wsdl:documentation>Abstract WSDL that is used/imported by Business
+			Service(s) and Proxy Service(s)</wsdl:documentation> 
+    <xsd:annotation>
+        <xsd:appinfo>
+            <Metadata xmlns="http://services.apmoller.net/AMM/v2/meta">
+                <Creator>CMD Solution Ankababu</Creator>
+                <Version>1.0.1</Version>
+                <LastUpdateDate>12/10/2016</LastUpdateDate>
+            </Metadata>
+        </xsd:appinfo>
+    </xsd:annotation>
+
+	<wsdl:types>
+		<xsd:schema>
+                <xsd:import namespace="http://services.apmoller.net/AMM/CustomerManagement/v2"
+               schemaLocation="../XSD/CustomerManagementV2.xsd"/>
+              
+        </xsd:schema>
+            
+		<xsd:schema targetNamespace="http://services.apmoller.net/ManagementFramework/ServiceException/v2">
+			<xsd:include schemaLocation="../../../SharedInterfaceResources/ManagementFramework/Fault/v2/ServiceExceptionV2.xsd" />   
+		</xsd:schema>
+		
+	</wsdl:types>
+
+	<!--AddressManagement  message -->
+	<wsdl:message name="RetrieveCountryRulesRequest">
+		<wsdl:part name="Payload" element="service:RetrieveCountryRulesRequest"/>
+	</wsdl:message>
+	<wsdl:message name="RetrieveCountryRulesResponse">
+		<wsdl:part name="Payload" element="service:RetrieveCountryRulesResponse"/>
+        </wsdl:message>
+      <wsdl:message name="FaultMessage">
+		<wsdl:part name="Payload" element="frexcp:ServiceException" />
+	</wsdl:message>
+        
+	<wsdl:message name="RetrieveCustomerRequest">
+		<wsdl:part name="Payload" element="service:RetrieveCustomerRequest"/>
+	</wsdl:message>
+	<wsdl:message name="RetrieveCustomerResponse">
+		<wsdl:part name="Payload" element="service:RetrieveCustomerResponse"/>
+        </wsdl:message>
+       <wsdl:message name="RetrieveCustomerFaultMessage">
+		<wsdl:part name="Payload" element="frexcp:ServiceException" />
+	</wsdl:message>
+        
+        <wsdl:message name="RetrieveCustomerStatusReasonRequest">
+		<wsdl:part name="Payload" element="service:RetrieveCustomerStatusReasonRequest"/>
+	</wsdl:message>
+	<wsdl:message name="RetrieveCustomerStatusReasonResponse">
+		<wsdl:part name="Payload" element="service:RetrieveCustomerStatusReasonResponse"/>
+        </wsdl:message>
+       <wsdl:message name="RetrieveCustomerStatusReasonFaultMessage">
+		<wsdl:part name="Payload" element="frexcp:ServiceException" />
+	</wsdl:message>
+        
+        <wsdl:message name="RetrieveCustomerStatusRequest">
+		<wsdl:part name="Payload" element="service:RetrieveCustomerStatusRequest"/>
+	</wsdl:message>
+	<wsdl:message name="RetrieveCustomerStatusResponse">
+		<wsdl:part name="Payload" element="service:RetrieveCustomerStatusResponse"/>
+        </wsdl:message>
+       <wsdl:message name="RetrieveCustomerStatusFaultMessage">
+		<wsdl:part name="Payload" element="frexcp:ServiceException" />
+	</wsdl:message>
+	
+        <wsdl:message name="RetrieveCustomerTypeRequest">
+		<wsdl:part name="Payload" element="service:RetrieveCustomerTypeRequest"/>
+	</wsdl:message>
+	<wsdl:message name="RetrieveCustomerTypeResponse">
+		<wsdl:part name="Payload" element="service:RetrieveCustomerTypeResponse"/>
+        </wsdl:message>
+       <wsdl:message name="RetrieveCustomerTypeFaultMessage">
+		<wsdl:part name="Payload" element="frexcp:ServiceException" />
+	</wsdl:message>
+        
+        <wsdl:message name="RetrieveReferenceNumberCodesRequest">
+		<wsdl:part name="Payload" element="service:RetrieveReferenceNumberCodesRequest"/>
+	</wsdl:message>
+	<wsdl:message name="RetrieveReferenceNumberCodesResponse">
+		<wsdl:part name="Payload" element="service:RetrieveReferenceNumberCodesResponse"/>
+        </wsdl:message>
+       <wsdl:message name="RetrieveReferenceNumberCodeseFaultMessage">
+		<wsdl:part name="Payload" element="frexcp:ServiceException" />
+	</wsdl:message>
+        
+        <wsdl:message name="RetrieveTaxNumberCodesRequest">
+		<wsdl:part name="Payload" element="service:RetrieveTaxNumberCodesRequest"/>
+	</wsdl:message>
+	<wsdl:message name="RetrieveTaxNumberCodesResponse">
+		<wsdl:part name="Payload" element="service:RetrieveTaxNumberCodesResponse"/>
+        </wsdl:message>
+       <wsdl:message name="RetrieveTaxNumberCodeseFaultMessage">
+		<wsdl:part name="Payload" element="frexcp:ServiceException" />
+	</wsdl:message>
+	
+	 <wsdl:message name="RetrieveCityRequest">
+		<wsdl:part name="Payload" element="service:RetrieveCityRequest"/>
+	</wsdl:message>
+	<wsdl:message name="RetrieveCityResponse">
+		<wsdl:part name="Payload" element="service:RetrieveCityResponse"/>
+        </wsdl:message>
+       <wsdl:message name="RetrieveCityFaultMessage">
+		<wsdl:part name="Payload" element="frexcp:ServiceException" />
+	</wsdl:message>
+	
+	<wsdl:message name="RetrieveCountryRequest">
+		<wsdl:part name="Payload" element="service:RetrieveCountryRequest"/>
+	</wsdl:message>
+	<wsdl:message name="RetrieveCountryResponse">
+		<wsdl:part name="Payload" element="service:RetrieveCountryResponse"/>
+        </wsdl:message>
+       <wsdl:message name="RetrieveCountryFaultMessage">
+		<wsdl:part name="Payload" element="frexcp:ServiceException" />
+	</wsdl:message>
+	
+	
+	<wsdl:message name="RetrieveSegmentationRequest">
+		<wsdl:part name="Payload" element="service:RetrieveSegmentationRequest"/>
+	</wsdl:message>
+	<wsdl:message name="RetrieveSegmentationResponse">
+		<wsdl:part name="Payload" element="service:RetrieveSegmentationResponse"/>
+        </wsdl:message>
+       <wsdl:message name="RetrieveSegmentationFaultMessage">
+		<wsdl:part name="Payload" element="frexcp:ServiceException" />
+	</wsdl:message>
+	
+	<wsdl:message name="AssignCustomerSegmentsRequest">
+		<wsdl:part name="Payload" element="service:AssignCustomerSegmentsRequest"/>
+	</wsdl:message>
+	<wsdl:message name="AssignCustomerSegmentsResponse">
+		<wsdl:part name="Payload" element="service:AssignCustomerSegmentsResponse"/>
+        </wsdl:message>
+       <wsdl:message name="AssignCustomerSegmentsFaultMessage">
+		<wsdl:part name="Payload" element="frexcp:ServiceException" />
+	</wsdl:message>
+	
+	<wsdl:message name="AssignCustomerRelationsRequest">
+		<wsdl:part name="Payload" element="service:AssignCustomerRelationsRequest"/>
+	</wsdl:message>
+	<wsdl:message name="AssignCustomerRelationsResponse">
+		<wsdl:part name="Payload" element="service:AssignCustomerRelationsResponse"/>
+        </wsdl:message>
+       <wsdl:message name="AssignCustomerRelationsFaultMessage">
+		<wsdl:part name="Payload" element="frexcp:ServiceException" />
+	</wsdl:message>
+	
+	<wsdl:message name="RetrievePrimaryContactSalutationRequest">
+		<wsdl:part name="Payload" element="service:RetrievePrimaryContactSalutationRequest"/>
+	</wsdl:message>
+	<wsdl:message name="RetrievePrimaryContactSalutationResponse">
+		<wsdl:part name="Payload" element="service:RetrievePrimaryContactSalutationResponse"/>
+        </wsdl:message>
+       <wsdl:message name="RetrievePrimaryContactSalutationFaultMessage">
+		<wsdl:part name="Payload" element="frexcp:ServiceException" />
+	</wsdl:message>
+	
+	<wsdl:message name="RetrieveInternationalContactSalutionRequest">
+		<wsdl:part name="Payload" element="service:RetrieveInternationalContactSalutionRequest"/>
+	</wsdl:message>
+	<wsdl:message name="RetrieveInternationalContactSalutionResponse">
+		<wsdl:part name="Payload" element="service:RetrieveInternationalContactSalutionResponse"/>
+        </wsdl:message>
+       <wsdl:message name="RetrieveInternationalContactSalutionFaultMessage">
+		<wsdl:part name="Payload" element="frexcp:ServiceException" />
+	</wsdl:message>
+	
+        
+        <wsdl:message name="SearchCustomerRequest">
+		<wsdl:part name="Payload" element="service:SearchCustomerRequest"/>
+	</wsdl:message>
+	<wsdl:message name="SearchCustomerResponse">
+		<wsdl:part name="Payload" element="service:SearchCustomerResponse"/>
+        </wsdl:message>
+       <wsdl:message name="SearchCustomerFaultMessage">
+		<wsdl:part name="Payload" element="frexcp:ServiceException" />
+	</wsdl:message>
+        
+        <wsdl:message name="SearchDuplicateCustomerRequest">
+		<wsdl:part name="Payload" element="service:SearchDuplicateCustomerRequest"/>
+	</wsdl:message>
+	<wsdl:message name="SearchDuplicateCustomerResponse">
+		<wsdl:part name="Payload" element="service:SearchDuplicateCustomerResponse"/>
+        </wsdl:message>
+       <wsdl:message name="SearchDuplicateCustomerFaultMessage">
+		<wsdl:part name="Payload" element="frexcp:ServiceException" />
+	</wsdl:message>
+        
+           <wsdl:message name="UpsertCustomerRequest">
+		<wsdl:part name="Payload" element="service:UpsertCustomerRequest"/>
+	</wsdl:message>
+	<wsdl:message name="UpsertCustomerResponse">
+		<wsdl:part name="Payload" element="service:UpsertCustomerResponse"/>
+        </wsdl:message>
+       <wsdl:message name="UpsertCustomerFaultMessage">
+		<wsdl:part name="Payload" element="frexcp:ServiceException" />
+	</wsdl:message>
+        
+        <wsdl:message name="ValidateCountryRulesRequest">
+		<wsdl:part name="Payload" element="service:ValidateCountryRulesRequest"/>
+	</wsdl:message>
+	<wsdl:message name="ValidateCountryRulesResponse">
+		<wsdl:part name="Payload" element="service:ValidateCountryRulesResponse"/>
+        </wsdl:message>
+       <wsdl:message name="ValidateCountryRulesFaultMessage">
+		<wsdl:part name="Payload" element="frexcp:ServiceException" />
+	</wsdl:message>
+    
+    <wsdl:message name="ValidateTaxNumberRequest">
+		<wsdl:part name="Payload" element="service:ValidateTaxNumberRequest"/>
+	</wsdl:message>
+	<wsdl:message name="ValidateTaxNumberResponse">
+		<wsdl:part name="Payload" element="service:ValidateTaxNumberResponse"/>
+        </wsdl:message>
+      <wsdl:message name="ValidateTaxNumber">
+		<wsdl:part name="Payload" element="frexcp:ServiceException" />
+	</wsdl:message>    
+	
+	
+	<wsdl:message name="RetrieveTaxTypeLocalNameRequest">
+		<wsdl:part name="Payload" element="service:RetrieveTaxTypeLocalNameRequest"/>
+	</wsdl:message>
+	<wsdl:message name="RetrieveTaxTypeLocalNameResponse">
+		<wsdl:part name="Payload" element="service:RetrieveTaxTypeLocalNameResponse"/>
+        </wsdl:message>
+      <wsdl:message name="RetrieveTaxTypeLocalName">
+		<wsdl:part name="Payload" element="frexcp:ServiceException" />
+	</wsdl:message>    
+
+    <wsdl:message name="UpsertCustomerContactRequest">
+		<wsdl:part name="Payload" element="service:UpsertCustomerContactRequest"/>
+	</wsdl:message>
+	<wsdl:message name="UpsertCustomerContactResponse">
+		<wsdl:part name="Payload" element="service:UpsertCustomerContactResponse"/>
+        </wsdl:message>
+       <wsdl:message name="UpsertCustomerContactFaultMessage">
+		<wsdl:part name="Payload" element="frexcp:ServiceException" />
+	</wsdl:message>
+    
+	<wsdl:message name="RetrieveCustomerContactRequest">
+		<wsdl:part name="Payload" element="service:RetrieveCustomerContactRequest"/>
+	</wsdl:message>
+	<wsdl:message name="RetrieveCustomerContactResponse">
+		<wsdl:part name="Payload" element="service:RetrieveCustomerContactResponse"/>
+        </wsdl:message>
+       <wsdl:message name="RetrieveCustomerContactFaultMessage">
+		<wsdl:part name="Payload" element="frexcp:ServiceException" />
+	</wsdl:message>    
+    
+    <wsdl:message name="SearchCustomerContactRequest">
+		<wsdl:part name="Payload" element="service:SearchCustomerContactRequest"/>
+	</wsdl:message>
+	<wsdl:message name="SearchCustomerContactResponse">
+		<wsdl:part name="Payload" element="service:SearchCustomerContactResponse"/>
+        </wsdl:message>
+       <wsdl:message name="SearchCustomerContactFaultMessage">
+		<wsdl:part name="Payload" element="frexcp:ServiceException" />
+	</wsdl:message>    
+        
+        <wsdl:message name="SearchDuplicateContactRequest">
+		<wsdl:part name="Payload" element="service:SearchDuplicateContactRequest"/>
+	</wsdl:message>
+	<wsdl:message name="SearchDuplicateContactResponse">
+		<wsdl:part name="Payload" element="service:SearchDuplicateContactResponse"/>
+        </wsdl:message>
+       <wsdl:message name="SearchDuplicateContactFaultMessage">
+		<wsdl:part name="Payload" element="frexcp:ServiceException" />
+	</wsdl:message>  
+        
+        <wsdl:message name="RetrieveCustomerContactTypesRequest">
+		<wsdl:part name="Payload" element="service:RetrieveCustomerContactTypesRequest"/>
+	</wsdl:message>
+	<wsdl:message name="RetrieveCustomerContactTypesResponse">
+		<wsdl:part name="Payload" element="service:RetrieveCustomerContactTypesResponse"/>
+        </wsdl:message>
+       <wsdl:message name="RetrieveCustomerContactTypesFaultMessage">
+		<wsdl:part name="Payload" element="frexcp:ServiceException" />
+	</wsdl:message>  
+        
+        <wsdl:message name="RetrieveISOLanguagesRequest">
+		<wsdl:part name="Payload" element="service:RetrieveISOLanguagesRequest"/>
+	</wsdl:message>
+	<wsdl:message name="RetrieveISOLanguagesResponse">
+		<wsdl:part name="Payload" element="service:RetrieveISOLanguagesResponse"/>
+        </wsdl:message>
+       <wsdl:message name="RetrieveISOLanguagesFaultMessage">
+		<wsdl:part name="Payload" element="frexcp:ServiceException" />
+	</wsdl:message>
+	
+	<wsdl:message name="RetrieveInvoiceISOLanguagesRequest">
+		<wsdl:part name="Payload" element="service:RetrieveInvoiceISOLanguagesRequest"/>
+	</wsdl:message>
+	<wsdl:message name="RetrieveInvoiceISOLanguagesResponse">
+		<wsdl:part name="Payload" element="service:RetrieveInvoiceISOLanguagesResponse"/>
+        </wsdl:message>
+       <wsdl:message name="RetrieveInvoiceISOLanguagesFaultMessage">
+		<wsdl:part name="Payload" element="frexcp:ServiceException" />
+	</wsdl:message>
+	
+	<wsdl:message name="RetrieveRegionsRequest">
+		<wsdl:part name="Payload" element="service:RetrieveRegionsRequest"/>
+	</wsdl:message>
+	<wsdl:message name="RetrieveRegionsResponse">
+		<wsdl:part name="Payload" element="service:RetrieveRegionsResponse"/>
+        </wsdl:message>
+       <wsdl:message name="RetrieveRegionsFaultMessage">
+		<wsdl:part name="Payload" element="frexcp:ServiceException" />
+	</wsdl:message>
+	
+	<wsdl:message name="RetrieveSegmentTypesRequest">
+		<wsdl:part name="Payload" element="service:RetrieveSegmentTypesRequest"/>
+	</wsdl:message>
+	<wsdl:message name="RetrieveSegmentTypesResponse">
+		<wsdl:part name="Payload" element="service:RetrieveSegmentTypesResponse"/>
+        </wsdl:message>
+       <wsdl:message name="RetrieveSegmentTypesFaultMessage">
+		<wsdl:part name="Payload" element="frexcp:ServiceException" />
+	</wsdl:message>
+        
+        <wsdl:message name="RetrieveInternationalDiallingPrefixRequest">
+		<wsdl:part name="Payload" element="service:RetrieveInternationalDiallingPrefixRequest"/>
+	</wsdl:message>
+	<wsdl:message name="RetrieveInternationalDiallingPrefixResponse">
+		<wsdl:part name="Payload" element="service:RetrieveInternationalDiallingPrefixResponse"/>
+        </wsdl:message>
+       <wsdl:message name="RetrieveInternationalDiallingPrefixFaultMessage">
+		<wsdl:part name="Payload" element="frexcp:ServiceException" />
+	</wsdl:message>    
+        
+ 	<wsdl:message name="RetrieveRelationshipsRequest">
+		<wsdl:part name="Payload" element="service:RetrieveRelationshipsRequest"/>
+	</wsdl:message>
+	<wsdl:message name="RetrieveRelationshipsResponse">
+		<wsdl:part name="Payload" element="service:RetrieveRelationshipsResponse"/>
+        </wsdl:message>
+       <wsdl:message name="RetrieveRelationshipsFaultMessage">
+		<wsdl:part name="Payload" element="frexcp:ServiceException" />
+	</wsdl:message>         
+	
+	<wsdl:message name="RetrieveConcernRequest">
+		<wsdl:part name="Payload" element="service:RetrieveConcernCodesRequest"/>
+	</wsdl:message>
+	<wsdl:message name="RetrieveConcernResponse">
+		<wsdl:part name="Payload" element="service:RetrieveConcernCodesResponse"/>
+        </wsdl:message>
+       <wsdl:message name="RetrieveConcernFaultMessage">
+		<wsdl:part name="Payload" element="frexcp:ServiceException" />
+	</wsdl:message>
+	
+	<wsdl:message name="RetrieveBrandsRequest">
+		<wsdl:part name="Payload" element="service:RetrieveBrandsRequest"/>
+	</wsdl:message>
+	<wsdl:message name="RetrieveBrandsResponse">
+		<wsdl:part name="Payload" element="service:RetrieveBrandsResponse"/>
+        </wsdl:message>
+       <wsdl:message name="RetrieveBrandsFaultMessage">
+		<wsdl:part name="Payload" element="frexcp:ServiceException" />
+	</wsdl:message>
+	
+    <wsdl:message name="RetrieveCommPrefTypesRequest">
+		<wsdl:part name="Payload" element="service:RetrieveCommPrefTypesRequest"/>
+	</wsdl:message>
+	<wsdl:message name="RetrieveCommPrefTypesResponse">
+		<wsdl:part name="Payload" element="service:RetrieveCommPrefTypesResponse"/>
+        </wsdl:message>
+       <wsdl:message name="RetrieveCommPrefTypesFaultMessage">
+		<wsdl:part name="Payload" element="frexcp:ServiceException" />
+	</wsdl:message>
+	
+	<wsdl:message name="RetrieveDocumentTypesRequest">
+		<wsdl:part name="Payload" element="service:RetrieveDocumentTypesRequest"/>
+	</wsdl:message>
+	<wsdl:message name="RetrieveDocumentTypesResponse">
+		<wsdl:part name="Payload" element="service:RetrieveDocumentTypesResponse"/>
+        </wsdl:message>
+       <wsdl:message name="RetrieveDocumentTypesFaultMessage">
+		<wsdl:part name="Payload" element="frexcp:ServiceException" />
+	</wsdl:message>
+	
+	<wsdl:message name="RetrieveRelationshipTypesRequest">
+		<wsdl:part name="Payload" element="service:RetrieveRelationshipTypesRequest"/>
+	</wsdl:message>
+	<wsdl:message name="RetrieveRelationshipTypesResponse">
+		<wsdl:part name="Payload" element="service:RetrieveRelationshipTypesResponse"/>
+        </wsdl:message>
+       <wsdl:message name="RetrieveRelationshipTypesFaultMessage">
+		<wsdl:part name="Payload" element="frexcp:ServiceException" />
+	</wsdl:message>    
+	<!-- AddressManagement portType -->
+	<wsdl:portType name="CustomerManagementPort">
+        
+                <wsdl:operation name="RetrieveCountryRules">
+			<wsdl:input message="RetrieveCountryRulesRequest" />
+			<wsdl:output message="RetrieveCountryRulesResponse" />
+			<wsdl:fault name="Fault" message="FaultMessage" />
+	         </wsdl:operation>
+        
+		<wsdl:operation name="RetrieveCustomer">
+			<wsdl:input message="RetrieveCustomerRequest" />
+			<wsdl:output message="RetrieveCustomerResponse" />
+			<wsdl:fault name="Fault" message="FaultMessage" />
+	         </wsdl:operation>
+                 
+                 <wsdl:operation name="RetrieveCustomerStatusReason">
+			<wsdl:input message="RetrieveCustomerStatusReasonRequest" />
+			<wsdl:output message="RetrieveCustomerStatusReasonResponse" />
+			<wsdl:fault name="Fault" message="FaultMessage" />
+	         </wsdl:operation>
+                 
+                 <wsdl:operation name="RetrieveCustomerStatus">
+			<wsdl:input message="RetrieveCustomerStatusRequest" />
+			<wsdl:output message="RetrieveCustomerStatusResponse" />
+			<wsdl:fault name="Fault" message="FaultMessage" />
+	         </wsdl:operation>
+                 
+                  <wsdl:operation name="RetrieveCustomerType">
+			<wsdl:input message="RetrieveCustomerTypeRequest" />
+			<wsdl:output message="RetrieveCustomerTypeResponse" />
+			<wsdl:fault name="Fault" message="FaultMessage" />
+	          </wsdl:operation>
+                  
+                  <wsdl:operation name="RetrieveReferenceNumberCodes">
+			<wsdl:input message="RetrieveReferenceNumberCodesRequest" />
+			<wsdl:output message="RetrieveReferenceNumberCodesResponse" />
+			<wsdl:fault name="Fault" message="FaultMessage" />
+	          </wsdl:operation>
+                  
+                   <wsdl:operation name="RetrieveCity">
+			<wsdl:input message="RetrieveCityRequest" />
+			<wsdl:output message="RetrieveCityResponse" />
+			<wsdl:fault name="Fault" message="FaultMessage" />
+	          </wsdl:operation>
+	          
+	           <wsdl:operation name="RetrieveCountry">
+			<wsdl:input message="RetrieveCountryRequest" />
+			<wsdl:output message="RetrieveCountryResponse" />
+			<wsdl:fault name="Fault" message="FaultMessage" />
+	          </wsdl:operation>
+	          
+	           <wsdl:operation name="RetrieveTaxNumberCodes">
+			<wsdl:input message="RetrieveTaxNumberCodesRequest" />
+			<wsdl:output message="RetrieveTaxNumberCodesResponse" />
+			<wsdl:fault name="Fault" message="FaultMessage" />
+	          </wsdl:operation>
+	          	          
+	           <wsdl:operation name="RetrieveSegmentation">
+			<wsdl:input message="RetrieveSegmentationRequest" />
+			<wsdl:output message="RetrieveSegmentationResponse" />
+			<wsdl:fault name="Fault" message="FaultMessage" />
+	          </wsdl:operation>
+	          
+	          <wsdl:operation name="AssignCustomerSegments">
+			<wsdl:input message="AssignCustomerSegmentsRequest" />
+			<wsdl:output message="AssignCustomerSegmentsResponse" />
+			<wsdl:fault name="Fault" message="FaultMessage" />
+	          </wsdl:operation>
+	          
+	          
+	          <wsdl:operation name="AssignCustomerRelations">
+			<wsdl:input message="AssignCustomerRelationsRequest" />
+			<wsdl:output message="AssignCustomerRelationsResponse" />
+			<wsdl:fault name="Fault" message="FaultMessage" />
+	          </wsdl:operation>
+	          
+	           <wsdl:operation name="RetrievePrimaryContactSalutation">
+			<wsdl:input message="RetrievePrimaryContactSalutationRequest" />
+			<wsdl:output message="RetrievePrimaryContactSalutationResponse" />
+			<wsdl:fault name="Fault" message="FaultMessage" />
+	          </wsdl:operation>
+	          
+	           <wsdl:operation name="RetrieveInternationalContactSalution">
+			<wsdl:input message="RetrieveInternationalContactSalutionRequest" />
+			<wsdl:output message="RetrieveInternationalContactSalutionResponse" />
+			<wsdl:fault name="Fault" message="FaultMessage" />
+	          </wsdl:operation>
+                  
+                  <wsdl:operation name="SearchCustomer">
+			<wsdl:input message="SearchCustomerRequest" />
+			<wsdl:output message="SearchCustomerResponse" />
+			<wsdl:fault name="Fault" message="FaultMessage" />
+	          </wsdl:operation>
+                 
+                 <wsdl:operation name="SearchDuplicateCustomer">
+			<wsdl:input message="SearchDuplicateCustomerRequest" />
+			<wsdl:output message="SearchDuplicateCustomerResponse" />
+			<wsdl:fault name="Fault" message="FaultMessage" />
+	          </wsdl:operation>
+                  
+                  <wsdl:operation name="UpsertCustomer">
+			<wsdl:input message="UpsertCustomerRequest" />
+			<wsdl:output message="UpsertCustomerResponse" />
+			<wsdl:fault name="Fault" message="FaultMessage" />
+	          </wsdl:operation>
+                  
+                  <wsdl:operation name="ValidateCountryRules">
+			<wsdl:input message="ValidateCountryRulesRequest" />
+			<wsdl:output message="ValidateCountryRulesResponse" />
+			<wsdl:fault name="Fault" message="FaultMessage" />
+	          </wsdl:operation>
+	          
+	           <wsdl:operation name="ValidateTaxNumber">
+			<wsdl:input message="ValidateTaxNumberRequest" />
+			<wsdl:output message="ValidateTaxNumberResponse" />
+			<wsdl:fault name="Fault" message="FaultMessage" />
+	          </wsdl:operation>
+	          
+	          <wsdl:operation name="RetrieveTaxTypeLocalNamer">
+			<wsdl:input message="RetrieveTaxTypeLocalNameRequest" />
+			<wsdl:output message="RetrieveTaxTypeLocalNameResponse" />
+			<wsdl:fault name="Fault" message="FaultMessage" />
+	          </wsdl:operation>
+		
+			<wsdl:operation name="UpsertCustomerContact">
+			<wsdl:input message="UpsertCustomerContactRequest" />
+			<wsdl:output message="UpsertCustomerContactResponse" />
+			<wsdl:fault name="Fault" message="FaultMessage" />
+	        </wsdl:operation>
+	         
+		  	<wsdl:operation name="RetrieveCustomerContact">
+			<wsdl:input message="RetrieveCustomerContactRequest" />
+			<wsdl:output message="RetrieveCustomerContactResponse" />
+			<wsdl:fault name="Fault" message="FaultMessage" />
+	         </wsdl:operation>
+                 
+                 <wsdl:operation name="SearchCustomerContact">
+			<wsdl:input message="SearchCustomerContactRequest" />
+			<wsdl:output message="SearchCustomerContactResponse" />
+			<wsdl:fault name="Fault" message="FaultMessage" />
+	         </wsdl:operation>
+		
+                <wsdl:operation name="SearchDuplicateContact">
+			<wsdl:input message="SearchDuplicateContactRequest" />
+			<wsdl:output message="SearchDuplicateContactResponse" />
+			<wsdl:fault name="Fault" message="FaultMessage" />
+	         </wsdl:operation>
+                 
+                  <wsdl:operation name="RetrieveCustomerContactTypes">
+			<wsdl:input message="RetrieveCustomerContactTypesRequest" />
+			<wsdl:output message="RetrieveCustomerContactTypesResponse" />
+			<wsdl:fault name="Fault" message="FaultMessage" />
+	         </wsdl:operation>
+                 
+                  <wsdl:operation name="RetrieveISOLanguages">
+			<wsdl:input message="RetrieveISOLanguagesRequest" />
+			<wsdl:output message="RetrieveISOLanguagesResponse" />
+			<wsdl:fault name="Fault" message="FaultMessage" />
+	         </wsdl:operation>
+	         
+	              <wsdl:operation name="RetrieveInvoiceISOLanguages">
+			<wsdl:input message="RetrieveInvoiceISOLanguagesRequest" />
+			<wsdl:output message="RetrieveInvoiceISOLanguagesResponse" />
+			<wsdl:fault name="Fault" message="FaultMessage" />
+	         </wsdl:operation>
+	         
+	              <wsdl:operation name="RetrieveRegions">
+			<wsdl:input message="RetrieveRegionsRequest" />
+			<wsdl:output message="RetrieveRegionsResponse" />
+			<wsdl:fault name="Fault" message="FaultMessage" />
+	         </wsdl:operation>
+	         
+	         <wsdl:operation name="RetrieveSegmentTypes">
+			<wsdl:input message="RetrieveSegmentTypesRequest" />
+			<wsdl:output message="RetrieveSegmentTypesResponse" />
+			<wsdl:fault name="Fault" message="FaultMessage" />
+	         </wsdl:operation>
+                 
+                  <wsdl:operation name="RetrieveInternationalDiallingPrefix">
+			<wsdl:input message="RetrieveInternationalDiallingPrefixRequest" />
+			<wsdl:output message="RetrieveInternationalDiallingPrefixResponse" />
+			<wsdl:fault name="Fault" message="FaultMessage" />
+	         </wsdl:operation>
+	         
+	        <wsdl:operation name="RetrieveRelationships">
+			<wsdl:input message="RetrieveRelationshipsRequest" />
+			<wsdl:output message="RetrieveRelationshipsResponse" />
+			<wsdl:fault name="Fault" message="FaultMessage" />
+	         </wsdl:operation>
+		
+			<wsdl:operation name="RetrieveConcern">
+			<wsdl:input message="RetrieveConcernRequest" />
+			<wsdl:output message="RetrieveConcernResponse" />
+			<wsdl:fault name="Fault" message="FaultMessage" />
+	         </wsdl:operation>
+
+			<wsdl:operation name="RetrieveBrands">
+			<wsdl:input message="RetrieveBrandsRequest" />
+			<wsdl:output message="RetrieveBrandsResponse" />
+			<wsdl:fault name="Fault" message="FaultMessage" />
+	         </wsdl:operation>
+	         	         
+			<wsdl:operation name="RetrieveCommPrefTypes">
+			<wsdl:input message="RetrieveCommPrefTypesRequest" />
+			<wsdl:output message="RetrieveCommPrefTypesResponse" />
+			<wsdl:fault name="Fault" message="FaultMessage" />
+	         </wsdl:operation>
+	         
+			<wsdl:operation name="RetrieveDocumentTypes">
+			<wsdl:input message="RetrieveDocumentTypesRequest" />
+			<wsdl:output message="RetrieveDocumentTypesResponse" />
+			<wsdl:fault name="Fault" message="FaultMessage" />
+	         </wsdl:operation>
+	         
+	         <wsdl:operation name="RetrieveRelationshipTypes">
+			<wsdl:input message="RetrieveRelationshipTypesRequest" />
+			<wsdl:output message="RetrieveRelationshipTypesResponse" />
+			<wsdl:fault name="Fault" message="FaultMessage" />
+	         </wsdl:operation>	 	         	         	         
+		
+		
+	</wsdl:portType>
+	
+</wsdl:definitions>

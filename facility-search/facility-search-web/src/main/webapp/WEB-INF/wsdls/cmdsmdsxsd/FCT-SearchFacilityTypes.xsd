@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:cmd="http://services.apmoller.net/cmd/schemas"
+	elementFormDefault="qualified" targetNamespace="http://services.apmoller.net/cmd/schemas">
+	<xs:include schemaLocation="FCT-CommonFacilityTypes.xsd" />
+	<xs:element name="SearchFacilityRequest">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Search active facility based on
+					different
+					criteria(Coordinates,facility name,offerings and facility address
+					fields)
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element ref="cmd:FacilityName" minOccurs="0" />
+				<xs:element name="FacilityCategory" type="cmd:FacilityCategoryEnum"
+					minOccurs="0" maxOccurs="1" />
+				<xs:element name="FacilityTypes" type="cmd:FacilityCategoryTypeForSearch"
+					minOccurs="0" maxOccurs="1" />
+				<xs:element name="CommercialFacilityType" type="xs:string" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="Brand" type="xs:string" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="Function" type="xs:string" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="Offerings" type="cmd:Offerings"
+					minOccurs="0" maxOccurs="1" />
+				<xs:element name="CityDetails" type="cmd:CityDetailsForSearch" minOccurs="0" maxOccurs="1"/>
+      			<xs:element name="RegionDetails" type="cmd:RegionDetails" minOccurs="0" maxOccurs="1"/>
+      			<xs:element name="CountryDetails" type="cmd:CountryDetailsForSearch" minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="cmd:FacilityLifecycleStatus" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="cmd:HouseNo" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="cmd:StreetName" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="cmd:PostalCode" minOccurs="0" maxOccurs="1" />
+				<xs:element name="Latitude" type="cmd:latitudeType" minOccurs="0" />
+				<xs:element name="Longitude" type="cmd:longitudeType" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SearchFacilityResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Return results of the facility search,
+					including
+					full address,name,status,coordinates,Web site URL,Opening hours,
+					Weight Limitation on cranes/yards and all other details.
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="Facilities" type="cmd:FacilitiesType"
+					minOccurs="0" maxOccurs="1" />
+					<xs:element name="SearchFacilityStatus" type="cmd:StatusResponseType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="FacilitiesType">
+		<xs:sequence>
+			<xs:element name="Facility" type="cmd:FacilityType"
+				minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="DupFacilitiesType">
+		<xs:sequence>
+			<xs:element name="Facility" type="cmd:DupFacilityType"
+				minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="FacilityType">
+		<xs:sequence>
+			<xs:element name="FacilityIDs" type="cmd:FacilityIDsType"
+				minOccurs="1" maxOccurs="1" />
+			<xs:element ref="cmd:FacilityName" minOccurs="0" />
+			<xs:element name="FacilityCategory" type="cmd:FacilityCategoryEnum"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="FacilityTypes" type="cmd:FacilityCategoryTypeForSearch"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="CommercialFacilityType" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Brand" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Function" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="FacilityOfferings" type="cmd:FacilityOfferings"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element ref="cmd:FacilityLifecycleStatus" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="FacilityAddress" type="cmd:FacilityAddressForSearchType"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="DupFacilityType">
+		<xs:sequence>
+			<xs:element name="FacilityIDs" type="cmd:FacilityIDsType"
+				minOccurs="1" maxOccurs="1" />
+			<xs:element ref="cmd:FacilityName" minOccurs="0" />
+			<xs:element name="FacilityCategory" type="cmd:FacilityCategoryEnum"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element ref="cmd:FacilityLifecycleStatus" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="FacilityAddress" type="cmd:FacilityAddressType"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="RetrieveFacilityRequest">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Retrieve Facility with a given Facility unique
+					codes
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="FacilityIDs" type="cmd:RetrieveRequestFacilityIDsType"
+					minOccurs="1" maxOccurs="1" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RetrieveFacilityResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Response
+					of retrieve
+					Facility for
+					a given Facility
+					unique code
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="Facility" type="cmd:FacilityDetailsType"
+					minOccurs="0" />
+				<xs:element name="FacilityAttributes" type="cmd:OperationalFacilityDetailsType"
+					minOccurs="0" />
+				<xs:element name="CommercialFacilityAttributes" type="cmd:CommercialFacilityDetailsType"
+					minOccurs="0" />
+				<xs:element name="FacilityAddress" type="cmd:FCTAddressType"
+					minOccurs="0" />
+					<xs:element name="RetrieveFacilityStatus" type="cmd:StatusResponseType"/>
+			</xs:sequence>
+		</xs:complexType>
+
+	</xs:element>
+
+	<xs:element name="SearchFacilityFault" type="cmd:ServiceFaultType" />
+	<xs:element name="SearchDuplicateFacilityFault" type="cmd:ServiceFaultType" />
+	<xs:element name="RetrieveFacilityFault" type="cmd:ServiceFaultType" />
+
+	<xs:element name="SearchDuplicateFacilityRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="cmd:FacilityName" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="FacilityCategory" type="cmd:FacilityCategoryEnum" minOccurs="1" maxOccurs="1" />
+				<xs:element ref="cmd:FacilityLifecycleStatus" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="cmd:StreetName" minOccurs="0"/>
+				<xs:element ref="cmd:Region" minOccurs="0"/>
+				<xs:element ref="cmd:City" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="ISOCountryCode" type="cmd:ISOCountryCode"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="SearchDuplicateFacilityResponse">
+		<xs:complexType>
+			<xs:sequence>
+
+					<xs:element name="Facilities" type="cmd:DupFacilitiesType"
+					minOccurs="0" maxOccurs="1" />
+
+					<xs:element name="DuplicateFacilityStatus" type="cmd:StatusResponseType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

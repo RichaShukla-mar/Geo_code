@@ -1,0 +1,51 @@
+<wsdl:definitions name="CustomerAbstract"
+	targetNamespace="http://services.apmoller.net/AMM/Customer/v1" 
+	xmlns="http://services.apmoller.net/AMM/Customer/v1"
+	xmlns:service="http://services.apmoller.net/AMM/Customer/v1"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	xmlns:schema="http://services.apmoller.net/cmd/schemas"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+	xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+	xmlns:frexcp="http://services.apmoller.net/ManagementFramework/ServiceException/v2">
+
+	<!-- DON'T REMOVE -->
+	<wsdl:documentation>
+		<wsdl:documentation>Abstract WSDL that is used/imported by Business
+			Service(s) and Proxy Service(s) - please replace "ServiceName" and
+			"version" with concrete values</wsdl:documentation>
+		<wsdl:documentation>Project Template 4</wsdl:documentation>
+	</wsdl:documentation>
+
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://services.apmoller.net/AMM/Customer/v1">
+			<xsd:import namespace="http://services.apmoller.net/cmd/schemas"
+				schemaLocation="../XSD/AllComplexTypes.xsd" />
+		</xsd:schema>
+		<xsd:schema
+			targetNamespace="http://services.apmoller.net/ManagementFramework/ServiceException/v2">
+			<xsd:include
+				schemaLocation="../../../SharedInterfaceResources/ManagementFramework/Fault/v2/ServiceExceptionV2.xsd" />
+		</xsd:schema>
+	</wsdl:types>
+
+	<!-- Customer message -->
+	<wsdl:message name="UpsertCustomerRequest">
+		<wsdl:part name="Payload" element="schema:UpsertCustomer" />
+	</wsdl:message>
+	<wsdl:message name="UpsertCustomerResponse">
+		<wsdl:part name="Payload" element="schema:UpsertCustomerResponse" />
+	</wsdl:message>
+	<wsdl:message name="UpsertCustomerFault">
+		<wsdl:part name="Payload" element="schema:UpsertCustomerFault" />
+	</wsdl:message>
+	
+	<!-- Customer portType -->
+	<wsdl:portType name="CustomerPort">
+		<wsdl:operation name="UpsertCustomer">
+			<wsdl:input message="UpsertCustomerRequest" />
+			<wsdl:output message="UpsertCustomerResponse" />
+			<wsdl:fault name="Fault" message="UpsertCustomerFault" />
+		</wsdl:operation>
+	</wsdl:portType>
+
+</wsdl:definitions>

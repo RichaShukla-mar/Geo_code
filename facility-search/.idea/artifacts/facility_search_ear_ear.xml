@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="ear" name="facility-search-ear:ear">
+    <output-path>$PROJECT_DIR$/facility-search-ear/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>facility-search-ear</module>
+        <packaging>ear</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="facility-search-ear-1.0-SNAPSHOT.ear">
+      <element id="artifact" artifact-name="facility-search-ear:ear exploded" />
+    </root>
+  </artifact>
+</component>

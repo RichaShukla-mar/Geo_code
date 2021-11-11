@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://services.apmoller.net/cmd/definitions"
+	xmlns:schema="http://services.apmoller.net/cmd/schemas"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://services.apmoller.net/cmd/definitions"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:osb="http://services.apmoller.net/ManagementFramework/CommonIdentifier/v2">
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:import namespace="http://services.apmoller.net/cmd/schemas"
+				schemaLocation="./cmdsmdsxsd/FCT-SearchFacilityTypes.xsd" />     
+			<xsd:import namespace="http://services.apmoller.net/ManagementFramework/CommonIdentifier/v2"
+				schemaLocation="./osbxsd/CommonIdentifierV1.xsd" />
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="searchFacilityHeader">   
+		<wsdl:part name="header" element="osb:CommonIdentifierRequest">
+		</wsdl:part>
+	</wsdl:message> 
+	   
+	<wsdl:message name="searchFacilityRequest">         
+		<wsdl:part name="parameters" element="schema:SearchFacilityRequest">         
+		</wsdl:part>       
+	</wsdl:message>    
+	<wsdl:message name="searchFacilityResponse">
+		<wsdl:part name="parameters" element="schema:SearchFacilityResponse">
+		</wsdl:part>    
+	</wsdl:message>  
+	<wsdl:message name="searchDuplicateFacilityRequest">
+		<wsdl:part name="parameters" element="schema:SearchDuplicateFacilityRequest">                     
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="searchDuplicateFacilityResponse">
+		<wsdl:part name="parameters" element="schema:SearchDuplicateFacilityResponse">  
+		</wsdl:part>
+	</wsdl:message>     
+	<wsdl:message name="retrieveFacilityRequest">
+		<wsdl:part name="parameters" element="schema:RetrieveFacilityRequest"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="retrieveFacilityResponse">
+		<wsdl:part name="parameters" element="schema:RetrieveFacilityResponse"></wsdl:part>
+	</wsdl:message>  
+	<wsdl:message name="searchFacilityFault">
+		<wsdl:part name="parameters" element="schema:SearchFacilityFault"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="searchDuplicateFacilityFault">
+		<wsdl:part name="parameters" element="schema:SearchDuplicateFacilityFault"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="retrieveFacilityFault">
+		<wsdl:part name="parameters" element="schema:RetrieveFacilityFault"></wsdl:part>
+	</wsdl:message>   
+	<wsdl:portType name="SearchFacility">
+		<wsdl:operation name="searchFacility">
+			<wsdl:documentation></wsdl:documentation>
+			<wsdl:input message="tns:searchFacilityRequest">
+			</wsdl:input>
+			<wsdl:output message="tns:searchFacilityResponse">
+			</wsdl:output>
+			<wsdl:fault name="fault" message="tns:searchFacilityFault"></wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="searchDuplicateFacility">
+			<wsdl:input message="tns:searchDuplicateFacilityRequest">
+			</wsdl:input>
+			<wsdl:output message="tns:searchDuplicateFacilityResponse">
+			</wsdl:output>
+			<wsdl:fault name="fault" message="tns:searchDuplicateFacilityFault"></wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="retrieveFacility">
+			<wsdl:input message="tns:retrieveFacilityRequest"></wsdl:input>
+			<wsdl:output message="tns:retrieveFacilityResponse"></wsdl:output>
+			<wsdl:fault name="fault" message="tns:retrieveFacilityFault"></wsdl:fault>
+		</wsdl:operation>
+	</wsdl:portType>
+
+	
+</wsdl:definitions>

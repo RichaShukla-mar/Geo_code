@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://services.apmoller.net/cmd/definitions"
+	xmlns:p="http://www.w3.org/2001/XMLSchema" xmlns:schema="http://services.apmoller.net/cmd/schemas"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://services.apmoller.net/cmd/definitions"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:osb="http://services.apmoller.net/ManagementFramework/CommonIdentifier/v2">
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:import namespace="http://services.apmoller.net/cmd/schemas"
+				schemaLocation="./cmdsmdsxsd/SMDS-SearchContactTypes.xsd" />
+			<xsd:import namespace="http://services.apmoller.net/ManagementFramework/CommonIdentifier/v2"
+				schemaLocation="./osbxsd/CommonIdentifierV1.xsd" />
+		</xsd:schema>
+	</wsdl:types>
+
+	<wsdl:message name="searchContactHeader">
+		<wsdl:part name="header" element="osb:CommonIdentifierRequest">
+		</wsdl:part>
+	</wsdl:message>
+
+	<wsdl:message name="searchContactRequest">
+		<wsdl:part name="parameters" element="schema:SearchContactRequest">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="searchContactResponse">
+		<wsdl:part name="parameters" element="schema:SearchContactResponse">
+		</wsdl:part>
+	</wsdl:message>
+
+	<wsdl:message name="searchDuplicateContactRequest">
+		<wsdl:part name="parameters" element="schema:SearchDuplicateContactRequest">
+		</wsdl:part>
+	</wsdl:message>
+
+	<wsdl:message name="searchDuplicateContactResponse">
+		<wsdl:part name="parameters" element="schema:SearchDuplicateContactResponse">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="retrieveContactRequest">
+		<wsdl:part name="parameters" element="schema:RetrieveContactRequest"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="retrieveContactResponse">
+		<wsdl:part name="parameters" element="schema:RetrieveContactResponse"></wsdl:part>
+	</wsdl:message>
+
+
+
+	<wsdl:message name="searchContactFault">
+		<wsdl:part name="parameters" element="schema:SearchContactFault"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="searchDuplicateContactFault">
+		<wsdl:part name="parameters" element="schema:SearchDuplicateContactFault"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="retrieveContactFault">
+		<wsdl:part name="parameters" element="schema:RetrieveContactFault"></wsdl:part>
+	</wsdl:message>
+
+
+
+	<wsdl:portType name="SearchContact">
+		<wsdl:operation name="searchContact">
+			<wsdl:documentation></wsdl:documentation>
+			<wsdl:input message="tns:searchContactRequest">
+			</wsdl:input>
+			<wsdl:output message="tns:searchContactResponse">
+			</wsdl:output>
+			<wsdl:fault name="fault" message="tns:searchContactFault"></wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="searchDuplicateContact">
+			<wsdl:input message="tns:searchDuplicateContactRequest">
+			</wsdl:input>
+			<wsdl:output message="tns:searchDuplicateContactResponse">
+			</wsdl:output>
+			<wsdl:fault name="fault" message="tns:searchDuplicateContactFault"></wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="retrieveContact">
+			<wsdl:input message="tns:retrieveContactRequest"></wsdl:input>
+			<wsdl:output message="tns:retrieveContactResponse"></wsdl:output>
+			<wsdl:fault name="fault" message="tns:retrieveContactFault"></wsdl:fault>
+		</wsdl:operation>
+	</wsdl:portType>
+	
+</wsdl:definitions>

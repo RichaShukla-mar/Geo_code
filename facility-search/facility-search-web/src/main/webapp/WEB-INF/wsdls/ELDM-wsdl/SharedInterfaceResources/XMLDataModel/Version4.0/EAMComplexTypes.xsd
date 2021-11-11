@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns="http://services.apmoller.net/AMM/v4" xmlns:AMM="http://services.apmoller.net/AMM/v4" xmlns:amm="http://services.apmoller.net/AMM/v4" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://services.apmoller.net/AMM/v4" elementFormDefault="qualified" attributeFormDefault="unqualified" version="4.0.0" id="EAMComplexTypes">
+	<xsd:annotation>
+		<xsd:appinfo>
+			<Metadata xmlns="http://services.apmoller.net/AMM/v4/meta">
+				<Identifier>EAMComplexStructures</Identifier>
+				<Title>Maersk Enterprise Service Modelling (ESM) Complex Types Schema</Title>
+				<Language>[ISO 639-2/T] ENG</Language>
+				<Audience/>
+				<Creator/>
+				<Publisher/>
+				<Date>
+					<Created>2013-09-18</Created>
+					<Modified>2013-09-18</Modified>
+				</Date>
+				<Description>EAM Complex Types Schema</Description>
+				<Relation>
+					<IsPartOf/>
+				</Relation>
+				<Rights>
+					<Copyright>Maersk Copyright 2010</Copyright>
+					<ProtectiveMarking>Not Protectively Marked</ProtectiveMarking>
+				</Rights>
+				<Subject>
+					<Category/>
+					<Project/>
+				</Subject>
+				<Type>W3C XML Schema</Type>
+			</Metadata>
+		</xsd:appinfo>
+	</xsd:annotation>
+	<!-- XSD Schema Includes -->
+	<xsd:include schemaLocation="EAMSimpleTypes.xsd"/>
+	<!-- XSD Complex Type Definitions -->
+	<xsd:complexType name="CountryStructure">
+		<xsd:sequence>
+			<xsd:element ref="CountryId" minOccurs="1" maxOccurs="1"/>
+			<xsd:element ref="CountryCode" minOccurs="1" maxOccurs="1"/>
+			<xsd:element ref="CountryName" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!-- XSD Element Definitions -->
+	<xsd:element name="Country" type="CountryStructure"/>	
+</xsd:schema>

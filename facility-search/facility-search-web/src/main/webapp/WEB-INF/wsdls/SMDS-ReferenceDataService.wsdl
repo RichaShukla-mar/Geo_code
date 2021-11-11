@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://services.apmoller.net/cmd/definitions/v2"
+	xmlns:schema="http://services.apmoller.net/cmd/schemas"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://services.apmoller.net/cmd/definitions/v2"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+
+	
+	<wsdl:import location="SMDS-ReferenceDataService_Abstract.wsdl" namespace="http://services.apmoller.net/cmd/definitions/v2"/>
+
+	
+	<wsdl:binding name="SMDSReferenceDataBinding"
+		type="tns:SMDSReferenceData">
+
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		
+		<wsdl:operation name="retrieveCountries">
+
+			<soap:operation
+				soapAction="http://services.apmoller.net/cmd/definitions/v2/retrieveCountries" />
+			<wsdl:input>
+
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+
+				<soap:fault use="literal" name="fault" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="retrieveCities">
+
+			<soap:operation
+				soapAction="http://services.apmoller.net/cmd/definitions/v2/retrieveCities" />
+			<wsdl:input>
+
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+
+				<soap:fault use="literal" name="fault" />
+			</wsdl:fault>
+		</wsdl:operation>
+
+
+		
+		
+	<wsdl:operation name="retrievePrimaryContactSalutation">
+
+			<soap:operation
+				soapAction="http://services.apmoller.net/cmd/definitions/v2/retrievePrimaryContactSalutation" />
+			<wsdl:input>
+
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+
+				<soap:fault use="literal" name="fault" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="retrieveInternationalContactSalution">
+
+			<soap:operation
+				soapAction="http://services.apmoller.net/cmd/definitions/v2/retrieveInternationalContactSalution" />
+			<wsdl:input>
+
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+
+				<soap:fault use="literal" name="fault" />
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		<wsdl:operation name="retrieveInvoiceISOLanguages">
+
+			<soap:operation
+				soapAction="http://services.apmoller.net/cmd/definitions/v2/retrieveInvoiceISOLanguages" />
+			<wsdl:input>
+
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+
+				<soap:fault use="literal" name="fault" />
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		<wsdl:operation name="retrieveISOLanguages">
+
+			<soap:operation
+				soapAction="http://services.apmoller.net/cmd/definitions/v2/retrieveISOLanguages" />
+			<wsdl:input>
+
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+
+				<soap:fault use="literal" name="fault" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="retrieveRegions">
+			<soap:operation
+				soapAction="http://services.apmoller.net/cmd/definitions/v2/retrieveRegions" />
+			<wsdl:input>
+				<soap:body use="literal" />   
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault use="literal" name="fault" />
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		
+		<wsdl:operation name="retrieveInternationalDiallingPrefix">
+
+			<soap:operation
+				soapAction="http://services.apmoller.net/cmd/definitions/v2/retrieveInternationalDiallingPrefix" />
+			<wsdl:input>
+
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+
+				<soap:fault use="literal" name="fault" />
+			</wsdl:fault>
+		</wsdl:operation>
+
+	</wsdl:binding>
+	<wsdl:service name="SMDSReferenceDataService">
+		<wsdl:port name="SMDSReferenceDataPort" binding="tns:SMDSReferenceDataBinding">
+			<soap:address
+				location="http://scrbipcdk001152:37001/ReferenceDataWebservices/v2/SMDSReferenceDataService" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

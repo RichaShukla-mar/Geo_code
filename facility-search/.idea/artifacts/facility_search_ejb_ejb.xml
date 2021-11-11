@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="ejb-jar" name="facility-search-ejb:ejb">
+    <output-path>$PROJECT_DIR$/facility-search-ejb/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>facility-search-ejb</module>
+        <packaging>ejb</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="facility-search-ejb-1.0-SNAPSHOT.jar">
+      <element id="artifact" artifact-name="facility-search-ejb:ejb exploded" />
+    </root>
+  </artifact>
+</component>

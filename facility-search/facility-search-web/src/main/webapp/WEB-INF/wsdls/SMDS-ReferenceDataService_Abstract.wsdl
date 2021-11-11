@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://services.apmoller.net/cmd/definitions/v2"
+	xmlns:schema="http://services.apmoller.net/cmd/schemas"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://services.apmoller.net/cmd/definitions/v2"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:import namespace="http://services.apmoller.net/cmd/schemas"
+				schemaLocation="./cmdsmdsxsd/SMDS-ReferenceDataTypes.xsd" />
+
+		</xsd:schema>
+	</wsdl:types>
+
+	
+	<wsdl:message name="retrieveCountryRequest">
+		<wsdl:part name="parameters" element="schema:RetrieveCountryRequest" />
+	</wsdl:message>
+	<wsdl:message name="retrieveCityRequest">
+		<wsdl:part name="parameters" element="schema:RetrieveCityRequest" />
+	</wsdl:message>
+
+	<wsdl:message name="retrieveCountryResponse">
+		<wsdl:part name="parameters" element="schema:RetrieveCountryResponse" />
+	</wsdl:message>
+	<wsdl:message name="retrieveCityResponse">
+		<wsdl:part name="parameters" element="schema:RetrieveCityResponse" />
+	</wsdl:message>
+	
+	
+	<wsdl:message name="retrieveCountryFault">
+		<wsdl:part name="parameters" element="schema:RetrieveCountryFault"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="retrieveCityFault">
+		<wsdl:part name="parameters" element="schema:RetrieveCityFault"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="retrievePrimaryContactSalutationRequest">
+		<wsdl:part name="parameters"
+			element="schema:RetrievePrimaryContactSalutationRequest"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="retrievePrimaryContactSalutationResponse">
+		<wsdl:part name="parameters"
+			element="schema:RetrievePrimaryContactSalutationResponse"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="retrievePrimaryContactSalutationFault">
+		<wsdl:part name="parameters"
+			element="schema:RetrievePrimaryContactSalutationFault"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="retrieveInternationalContactSalutionRequest">
+		<wsdl:part name="parameters"
+			element="schema:RetrieveInternationalContactSalutionRequest"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="retrieveInternationalContactSalutionResponse">
+		<wsdl:part name="parameters"
+			element="schema:RetrieveInternationalContactSalutionResponse"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="retrieveInternationalContactSalutionFault">
+		<wsdl:part name="parameters"
+			element="schema:RetrieveInternationalContactSalutionFault"></wsdl:part>
+	</wsdl:message>
+	
+	
+	<wsdl:message name="retrieveISOLanguagesRequest">
+		<wsdl:part name="parameters"
+			element="schema:RetrieveISOLanguagesRequest"></wsdl:part>   
+	</wsdl:message>
+	<wsdl:message name="retrieveISOLanguagesResponse">
+		<wsdl:part name="parameters"
+			element="schema:RetrieveISOLanguagesResponse"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="retrieveISOLanguagesFault">
+		<wsdl:part name="parameters"
+			element="schema:RetrieveISOLanguagesFault"></wsdl:part>
+	</wsdl:message>
+	
+	<wsdl:message name="retrieveInvoiceISOLanguagesRequest">
+		<wsdl:part name="parameters"
+			element="schema:RetrieveInvoiceISOLanguagesRequest"></wsdl:part>   
+	</wsdl:message>
+	<wsdl:message name="retrieveInvoiceISOLanguagesResponse">
+		<wsdl:part name="parameters"
+			element="schema:RetrieveInvoiceISOLanguagesResponse"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="retrieveInvoiceISOLanguagesFault">
+		<wsdl:part name="parameters"
+			element="schema:RetrieveInvoiceISOLanguagesFault"></wsdl:part>
+	</wsdl:message>
+	
+	<wsdl:message name="retrieveRegionsRequest">
+		<wsdl:part name="parameters"
+			element="schema:RetrieveRegionsRequest"></wsdl:part>   
+	</wsdl:message>
+	<wsdl:message name="retrieveRegionsResponse">
+		<wsdl:part name="parameters"
+			element="schema:RetrieveRegionsResponse"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="retrieveRegionsFault">
+		<wsdl:part name="parameters"
+			element="schema:RetrieveRegionsFault"></wsdl:part>
+	</wsdl:message>
+	
+	
+	<wsdl:message name="retrieveInternationalDiallingPrefixRequest">
+		<wsdl:part name="parameters"
+			element="schema:RetrieveInternationalDiallingPrefixRequest"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="retrieveInternationalDiallingPrefixResponse">
+		<wsdl:part name="parameters"
+			element="schema:RetrieveInternationalDiallingPrefixResponse"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="retrieveInternationalDiallingPrefixFault">
+		<wsdl:part name="parameters"
+			element="schema:RetrieveInternationalDiallingPrefixFault"></wsdl:part>
+	</wsdl:message>
+	
+	
+	
+	<wsdl:portType name="SMDSReferenceData">
+
+		<wsdl:operation name="retrieveCountries">
+			<wsdl:input message="tns:retrieveCountryRequest"></wsdl:input>
+			<wsdl:output message="tns:retrieveCountryResponse">
+			</wsdl:output>
+			<wsdl:fault name="fault" message="tns:retrieveCountryFault"></wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="retrieveCities">
+			<wsdl:input message="tns:retrieveCityRequest"></wsdl:input>
+			<wsdl:output message="tns:retrieveCityResponse">
+			</wsdl:output>
+			<wsdl:fault name="fault" message="tns:retrieveCityFault"></wsdl:fault>
+		</wsdl:operation>
+
+
+		<wsdl:operation name="retrievePrimaryContactSalutation">
+			<wsdl:input message="tns:retrievePrimaryContactSalutationRequest"></wsdl:input>
+			<wsdl:output message="tns:retrievePrimaryContactSalutationResponse"></wsdl:output>
+			<wsdl:fault name="fault"
+				message="tns:retrievePrimaryContactSalutationFault"></wsdl:fault>
+		</wsdl:operation>
+
+		<wsdl:operation name="retrieveInternationalContactSalution">
+			<wsdl:input message="tns:retrieveInternationalContactSalutionRequest"></wsdl:input>
+			<wsdl:output message="tns:retrieveInternationalContactSalutionResponse"></wsdl:output>
+			<wsdl:fault name="fault"
+				message="tns:retrieveInternationalContactSalutionFault"></wsdl:fault>
+		</wsdl:operation>
+		
+		<wsdl:operation name="retrieveISOLanguages">
+			<wsdl:input message="tns:retrieveISOLanguagesRequest"></wsdl:input>
+			<wsdl:output message="tns:retrieveISOLanguagesResponse"></wsdl:output>
+			<wsdl:fault name="fault"
+				message="tns:retrieveISOLanguagesFault"></wsdl:fault>
+		</wsdl:operation>
+		
+		<wsdl:operation name="retrieveInvoiceISOLanguages">
+			<wsdl:input message="tns:retrieveInvoiceISOLanguagesRequest"></wsdl:input>
+			<wsdl:output message="tns:retrieveInvoiceISOLanguagesResponse"></wsdl:output>
+			<wsdl:fault name="fault"
+				message="tns:retrieveInvoiceISOLanguagesFault"></wsdl:fault>
+		</wsdl:operation>
+		
+		<wsdl:operation name="retrieveRegions">
+			<wsdl:input message="tns:retrieveRegionsRequest"></wsdl:input>
+			<wsdl:output message="tns:retrieveRegionsResponse"></wsdl:output>
+			<wsdl:fault name="fault"
+				message="tns:retrieveRegionsFault"></wsdl:fault>
+		</wsdl:operation>
+		
+		<wsdl:operation name="retrieveInternationalDiallingPrefix">
+			<wsdl:input message="tns:retrieveInternationalDiallingPrefixRequest"></wsdl:input>
+			<wsdl:output message="tns:retrieveInternationalDiallingPrefixResponse"></wsdl:output>
+			<wsdl:fault name="fault"
+				message="tns:retrieveInternationalDiallingPrefixFault"></wsdl:fault>
+		</wsdl:operation>
+	
+</wsdl:portType>	
+
+</wsdl:definitions>

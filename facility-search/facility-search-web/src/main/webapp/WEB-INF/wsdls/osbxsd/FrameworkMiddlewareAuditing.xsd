@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="http://www.maerskline.com/SOA/1.0/FrameworkMiddlewareAuditing" 
+xmlns="http://www.maerskline.com/SOA/1.0/FrameworkMiddlewareAuditing" elementFormDefault="qualified">
+
+	<xs:element name="middlewareAuditing">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="reportName" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>
+				<xs:element name="reportType" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>
+				<!-- <xs:element name="clientType" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>  -->
+				<!-- <xs:element name="mwGroupMessageId" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>  -->
+				<xs:element name="messageId" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>
+				<xs:element name="serviceName" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>
+				<xs:element name="operationName" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>
+				<xs:element name="tsStartedProcessing" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>
+				<!-- 
+				<xs:element name="user" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>
+				<xs:element name="applicationDescriptor" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>
+				<xs:element name="applicationIdentifier" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>
+				<xs:element name="primaryPersonalIdentity" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>
+				<xs:element name="onBehalfOfPersonalIdentity" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>
+				 -->
+				<xs:element name="soaCode" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>
+				<xs:element name="originatingCode" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>
+				<xs:element name="originatingResourceName" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>
+				<xs:element name="originatingErrorDescription" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>
+				<xs:element name="errorDescription" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>
+				<!-- <xs:element name="clientTransactionID" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>  -->
+				<xs:element name="clientAddress" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>
+				<xs:element name="clientAddressXForwardedFor" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>
+				<xs:element name="messageHeader" type="xs:anyType" maxOccurs="1" minOccurs="0"></xs:element>
+				
+				<xs:element name="IdentifierList" maxOccurs="1" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Identifier" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="IdentifierType" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>				
+										<xs:element name="IdentifierValue" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>												
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

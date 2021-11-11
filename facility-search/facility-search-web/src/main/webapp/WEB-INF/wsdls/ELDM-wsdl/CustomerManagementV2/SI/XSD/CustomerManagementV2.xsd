@@ -1,0 +1,1793 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://services.apmoller.net/AMM/CustomerManagement/v2" xmlns:AMM="http://services.apmoller.net/AMM/v4" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://services.apmoller.net/AMM/CustomerManagement/v2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1.1">
+	<xsd:annotation>
+		<xsd:appinfo>
+			<Metadata xmlns="http://services.apmoller.net/AMM/v2/meta">
+				<Audience/>
+				<Creator>Srikant Telikepalli			
+				</Creator>
+				<Date>
+					<Created>2016-01-20</Created>
+					<Modified>2016-10-12</Modified>
+				</Date>
+				<Description>
+					<Abstract>"DO NOT GENERATE/CHANGE THIS SCHEMA. PLEASE CONTACT ESM</Abstract>
+				</Description>
+				<Rights>
+					<Copyright>Maersk 2016</Copyright>
+				</Rights>
+				<Title>Maersk Enterprise Service Modelling (ESM) Service Schema</Title>
+			</Metadata>
+		</xsd:appinfo>
+	</xsd:annotation>
+	<!-- DON'T REMOVE -->
+	<xsd:annotation>
+		<xsd:documentation>Project Template 4</xsd:documentation>
+	</xsd:annotation>
+	<xsd:import namespace="http://services.apmoller.net/AMM/v4"
+             schemaLocation="../../../SharedInterfaceResources/XMLDataModel/Version4.0/EAMBaseTypes.xsd"/>
+	<xsd:complexType name="AlternativeCodeStructure">
+		<xsd:annotation>
+			<xsd:documentation>Reference table for alternative codes that objects can have in other places. Examples include:
+* UN location code (UN/LOCODE)
+* RKST code
+* RKTS code
+* GEO ID
+* IATA code
+* Business Unit Id e.g. DZALGMSL1
+
+Party roles' code aliases are stored in this entity, e.g. an organization' acting as a supplier which has a SCV number would be stored here together with the alias type of 'SCV Code'.
+
+Vessel code alias can also be stored in this entity, e.g.: 'Lloyd Code', 'Official Registration Number'</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+		
+			<xsd:element name="AlternativeCodeVal" type="AMM:String50NonNullType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="SCVCode" type="AMM:String50Type" minOccurs="0" maxOccurs="1"/>
+			
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ContactAddressStructure">
+		<xsd:annotation>
+			<xsd:documentation>Supertype contact mechanism that has several subtypes e.g.:
+Postal Address
+Electronic Address
+Telecommunications Number</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ContactAddressType" type="ContactAddressTypeStructure" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ContactAddressTypeStructure">
+		<xsd:annotation>
+			<xsd:documentation>A Type of Contact Address. Examples Include:
+Phone number (land line)
+Phone number (mobile)
+Email address
+Web URL
+Postal address
+</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ContactAddressTypeName" type="AMM:String100Type" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CountryRuleStructure">
+		<xsd:annotation>
+			<xsd:documentation>Reference table for alternative codes that objects can have in other places. Examples include:
+* UN location code (UN/LOCODE)
+* RKST code
+* RKTS code
+* GEO ID
+* IATA code
+* Business Unit Id e.g. DZALGMSL1
+
+Party roles' code aliases are stored in this entity, e.g. an organization' acting as a supplier which has a SCV number would be stored here together with the alias type of 'SCV Code'.
+
+Vessel code alias can also be stored in this entity, e.g.: 'Lloyd Code', 'Official Registration Number'</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ISOCountry" type="ISOCountryStructure"/>
+			<xsd:element name="FieldName" type="AMM:String100NonNullType"/>
+			<xsd:element name="RegularExpression" type="AMM:String1000Type" minOccurs="0"/>
+			<xsd:element name="MandatoryIndicator" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="ValidationMessage" type="AMM:String4000NonNullType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CountryRulesValidationRequestStructure">
+		<xsd:annotation>
+			<xsd:documentation>Reference table for alternative codes that objects can have in other places. Examples include:
+* UN location code (UN/LOCODE)
+* RKST code
+* RKTS code
+* GEO ID
+* IATA code
+* Business Unit Id e.g. DZALGMSL1
+
+Party roles' code aliases are stored in this entity, e.g. an organization' acting as a supplier which has a SCV number would be stored here together with the alias type of 'SCV Code'.
+
+Vessel code alias can also be stored in this entity, e.g.: 'Lloyd Code', 'Official Registration Number'</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ISOCountry" type="ISOCountryStructure"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CountryRulesValidationResultStructure">
+		<xsd:annotation>
+			<xsd:documentation>Reference table for alternative codes that objects can have in other places. Examples include:
+* UN location code (UN/LOCODE)
+* RKST code
+* RKTS code
+* GEO ID
+* IATA code
+* Business Unit Id e.g. DZALGMSL1
+
+Party roles' code aliases are stored in this entity, e.g. an organization' acting as a supplier which has a SCV number would be stored here together with the alias type of 'SCV Code'.
+
+Vessel code alias can also be stored in this entity, e.g.: 'Lloyd Code', 'Official Registration Number'</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ValidationField" type="ValidationFieldStructure"/>
+			<xsd:element name="ValidationStatus" type="ValidationStatusStructure"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CustomerAddressStructure">
+		<xsd:sequence>
+			<xsd:element name="PostalAddressDetailHouseNum" type="AMM:String50Type" minOccurs="0"/>
+			<xsd:element name="PostalAddressDetailStreetName" type="AMM:String100Type" minOccurs="0"/>
+			<xsd:element name="PostalAddressDetailMailBoxNum" type="AMM:String50Type" minOccurs="0"/>
+			<xsd:element name="PostalAddressDetailBuildingNum" type="AMM:String50Type" minOccurs="0"/>
+			<xsd:element name="Suburb" type="AMM:String100Type" minOccurs="0"/>
+			<xsd:element name="District" type="AMM:String100Type" minOccurs="0"/>
+			<xsd:element name="City" type="AMM:String100NonNullType"/>
+			<xsd:element name="Region" type="AMM:String100Type" minOccurs="0"/>
+			<xsd:element name="ISOCountry" type="ISOCountryStructure"/>
+			<xsd:element name="PostalCd" type="AMM:String50Type" minOccurs="0"/>
+			<xsd:element name="TaxJurisdictionCode" type="AMM:Integer10Type" minOccurs="0"/>
+			<xsd:element name="AddressAuditData" type="CustomerAuditDataStructure" minOccurs="0"/>
+			<xsd:element name="AddressWorkflowIndicator" type="AMM:String50Type" minOccurs="0"/>
+			<xsd:element name="AddressMailabilityScore" type="AddressMailabilityScoreType" minOccurs="0"/>
+      		<xsd:element name="AddressMatchScore" type="AddressMatchScoreType" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="Language" type="ISOLanguageCode" default="en">
+      <xsd:annotation>
+        <xsd:documentation> Attribute for setting the language of language specific entities
+          (primarily address fields) Defaults to english </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+	</xsd:complexType>
+	<xsd:simpleType name="ISOLanguageCode">
+		<xsd:annotation>
+			<xsd:documentation>Language code in ISO 2-digit format (ISO 639-1) </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="[a-zA-Z0-9]{2}"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="AddressMailabilityScoreType">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="0"/>
+			<xsd:maxInclusive value="5"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="AddressMatchScoreType">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="[A-Z][A-Z0-9]"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="CustomerAuditDataStructure">
+		<xsd:sequence>
+			<xsd:element name="CreationDate" type="AMM:DateTimeType"/>
+			<xsd:element name="CreationUser" type="AMM:String200Type"/>
+			<xsd:element name="LastUpdateDate" type="AMM:DateTimeType"/>
+			<xsd:element name="LastUpdateUser" type="AMM:String200Type"/>
+			<xsd:element name="LastUpdateSourceSystem" type="AMM:String200Type" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CustomerComboStructure">
+		<xsd:sequence>
+			<xsd:element name="Customer" type="PartyCustomUpsertRequestStructure"/>
+			<xsd:element name="IsWorkflowPending" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="WorkflowInformation" type="AMM:String100Type" minOccurs="0"/>
+			<xsd:element name="CustomerTaxNumbers" type="CustomerTaxNumbersStructure" minOccurs="0"/>
+			<xsd:element name="CustomerReferenceNumbers" type="CustomerReferenceNumbersStructure" minOccurs="0"/>
+			<xsd:element name="CustomerBVDInformation" type="BVDInformationStructure" minOccurs="0"/>
+			<xsd:element name="CustomerSegments" type="SegmentationsStructure" minOccurs="0"/>
+			<xsd:element name="RelationShips" type="CustomerRelationshipsType" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BVDInformationStructure">
+		<xsd:sequence>
+			<xsd:element name="MarketCap" type="AMM:String50Type" minOccurs="0"/>
+			<xsd:element name="MajorSector" type="AMM:String50Type" minOccurs="0"/>
+			<xsd:element name="OperatingRevenueTurnOver" type="AMM:String50Type" minOccurs="0"/>
+			<xsd:element name="DateOfAccount" type="AMM:DateType" minOccurs="0"/>
+			<xsd:element name="ProfitMarginPercentage" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="CreditRating" type="AMM:String50Type" minOccurs="0"/>
+			<xsd:element name="RecommendedCreditLimit" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="BVDGUOCustomerCode" type="AMM:String100Type" maxOccurs="1" minOccurs="0"/>
+			<xsd:element name="BVDGUOLegalName" type="AMM:String200Type" maxOccurs="1" minOccurs="0"/>
+			<xsd:element name="BVDHQCustomerCode" type="AMM:String100Type" maxOccurs="1" minOccurs="0"/>
+			<xsd:element name="BVDHQLegalName" type="AMM:String200Type" maxOccurs="1" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SegmentationsStructure">
+		<xsd:sequence maxOccurs="unbounded">
+			<xsd:element name="Segements" type="SegmentStructure" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SegmentStructure">
+		<xsd:sequence maxOccurs="unbounded" minOccurs="1">
+			<xsd:element name="Brand" type="OperatorTypeEnum" />
+			<xsd:element maxOccurs="unbounded" minOccurs="0" name="SegmentClassification" type="SegmentClassificationStructure" />
+			<xsd:element minOccurs="0" name="UnassignSegmentFlag" type="xsd:boolean"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SegmentClassificationStructure">
+    	<xsd:sequence>
+      		<xsd:element name="SegmentClassificationCode" type="SegmentClassificationString"/>
+      		<xsd:element name="SegmentClassificationValue"  type="SegmentClassificationValueString"/>
+      		<xsd:element minOccurs="0" name="SegmentClassificationName"  type="AMM:String100Type"/>
+      		<xsd:element minOccurs="0" name="SegmentClassificationDescription"  type="AMM:String4000Type"/>    
+    	</xsd:sequence>
+  </xsd:complexType>
+	<xsd:complexType name="CustomerReferenceNumbersStructure">
+		<xsd:sequence>
+			<xsd:element name="CustomerReferenceNumber" type="CustomerReferenceNumberStructure" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CustomerReferenceNumberStructure">
+		<xsd:sequence>
+			<xsd:element name="ReferenceTypeCd" type="AMM:String50NonNullType"/>
+			<xsd:element name="ReferenceTypeNumber" type="AMM:String50Type" minOccurs="0"/>
+			<!--  <xsd:element name="AddressMailabilityScore" type="AMM:String50Type" minOccurs="0"/>
+			<xsd:element name="AddressMatchScore" type="AMM:String50Type" minOccurs="0"/> -->
+			<xsd:element ref="DeleteFlag" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Set to 1 to completly delete the tax number
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="ReferenceActiveIndicator" type="xsd:boolean"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CustomerSearchStatusStructure">
+		<xsd:sequence>
+			<xsd:element name="Cd" type="AMM:String50NonNullType"/>
+			<xsd:element name="Status" type="AMM:String100NonNullType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CustomerStatusStructure">
+		<xsd:sequence>
+			<xsd:element name="Cd" type="AMM:String50Type" minOccurs="0"/>
+			<xsd:element name="ReasonTypeCd" type="AMM:String50Type" minOccurs="0"/>
+			<xsd:element name="ReasonCd" type="AMM:Integer10Type" minOccurs="0"/>
+			<xsd:element name="ReasonName" type="AMM:String100Type" minOccurs="0"/>
+			<xsd:element name="ReasonDescription" type="AMM:String4000Type" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CustomerStructure">
+		<xsd:annotation>
+			<xsd:documentation>A buyer (or potential buyer) of a Product offered by the Enterprise. A Customer may be an Organisation or a Person acting on behalf of an Organisation.
+Exclusion: A buyer of an Asset is not a Customer</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="PartyRoleStructure"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="CustomerTaxNumbersStructure">
+		<xsd:sequence>
+			<xsd:element name="CustomerTaxNumber" type="CustomerTaxNumberStructure" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CustomerTaxNumberStructure">
+		<xsd:sequence>
+			<xsd:element name="TaxNumber" type="AMM:String50NonNullType"/>
+			<xsd:element name="TaxTypeCd" type="AMM:String50NonNullType"/>
+			<xsd:element name="ISOCountry" type="ISOCountryStructure"/>
+			<xsd:element name="TaxTypeLocalName" type="AMM:String100Type" maxOccurs="1" minOccurs="0"/>
+			<xsd:element ref="DeleteFlag" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CustomerValidationStatusStructure">
+		<xsd:sequence>
+			<xsd:element name="FieldName" type="AMM:String100NonNullType"/>
+			<xsd:element name="ValidationErrorDetail" type="AMM:String4000NonNullType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DefinedAreaStructure">
+		<xsd:annotation>
+			<xsd:documentation>The supertype entity to all geographic and other kinds of areas such as Business Defined Areas (which still have a geographic aspect to their definition).  Some areas are 'point', have specific geographical coordinates (e.g. the "city Centre" point) while other have a geographic boundary (defined perimeter) enclosing an area such as a Continent, Country, City or Site.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="DefinedAreaName" type="AMM:String100Type" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ElectronicAddressStructure">
+		<xsd:annotation>
+			<xsd:documentation>An address that can be used for contact through the Internet or other electronic service. Examples include:
+Email address (Internet or otherwise)
+Web address (URL). Can be Internet or Intranet
+EDI Address</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="ContactAddressStructure">
+				<xsd:sequence>
+					<xsd:element name="ElectronicAddressName" type="AMM:String100Type" minOccurs="0" maxOccurs="1"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="ISOCountryStructure">
+		<xsd:annotation>
+			<xsd:documentation>International Standard Organization information about a country. 
+This is kep in seperate table as there might be countries used in the enterprise which are not recognized by UN and therefore not in the ISU standard list.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ISOCountryFullName" type="AMM:String100Type" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="ISOCountryAlpha-2Cd" type="AMM:String50NonNullType" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PartyRoleClassStructure">
+		<xsd:annotation>
+			<xsd:documentation>A category into which the Enterprise classifies Parties. Includes market segments such as 'Key Client' 'Direct Sales'</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="PartyRoleClassCd" type="AMM:String50Type" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PartyRoleClassificationStructure">
+		<xsd:sequence>
+			<xsd:element name="PartyRoleClass" type="PartyRoleClassStructure" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PartyRoleContactAddressStructure">
+		<xsd:sequence>
+			<xsd:element name="CommentTxt" type="AMM:String1000Type" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="ValidFromDt" type="AMM:DateType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="ValidThruDt" type="AMM:DateType" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PartyRoleRelationshipStructure">
+		<xsd:sequence>
+			<xsd:element name="PartyRoleClassification" type="PartyRoleClassificationStructure" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PartyRoleStructure">
+		<xsd:annotation>
+			<xsd:documentation>A role that a particular Party may play in the context of the Enterprise's business environment. Party Role defines how a Party can act in this environment.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="CustomerCode" type="AlternativeCodeStructure" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="CustomerRoleRelationship" type="PartyRoleRelationshipStructure" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PartyRoleTypeStructure">
+		<xsd:annotation>
+			<xsd:documentation>A type of role that a Party may play in the context of the Enterprise's business environment. Examples include:
+* Customer
+* Supplier
+* Statutory Authority
+* Owner
+
+Party Roles can also apply to internal Maersk organisations or people, such as:
+* Cost Centre
+* Profit Centre
+* String Manager
+* Team
+* Department
+
+Party Roles can also exist at a more granular level. Examples include:
+* Booked By Customer
+* Contractual Customer
+* Shipper
+* Consignee
+* Notify Party
+* Invoice Party
+* Credit Party
+* Dangerous Cargo Emergency Contact Person
+* NVOCC
+* Carrier
+* Freight Forwarder</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="PartyRoleTypeCd" type="AMM:String50Type" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="PartyRoleTypeName" type="AMM:String100Type" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PartyCustomDuplicateSearchRequestStructure">
+		<xsd:annotation>
+			<xsd:documentation>An Organisation or Person in which the Enterprise has an interest.
+Versioned: Yes</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="LegalName" type="AMM:String200Type"/>
+			<xsd:element name="TradingName" type="AMM:String200Type"/>
+			<xsd:element name="CustomerTypes" type="AMM:String100Type"/>
+			<xsd:element name="CustomerStatus" type="CustomerStatusStructure"/>
+			<xsd:element name="Url" type="AMM:String400Type" minOccurs="0"/>
+			<xsd:element name="TelecommunicationsNumber" type="TelecommunicationsNumberStructure" minOccurs="0"/>
+			<xsd:element name="InvoiceLanguagePreference" type="AMM:String200Type"/>
+			<xsd:element name="Brokerage" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="ForwardersCompensation" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="CustomerWorkflowIndicator" type="AMM:String50NonNullType"/>
+			<xsd:element name="CustomerAuditData" type="CustomerAuditDataStructure"/>
+			<xsd:element name="CustomerAddress" type="CustomerAddressStructure"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PartyCustomDuplicateSearchResponseStructure">
+		<xsd:annotation>
+			<xsd:documentation>An Organisation or Person in which the Enterprise has an interest.
+Versioned: Yes</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="CustomerCd" type="AlternativeCodeStructure"/>
+			<xsd:element name="LegalName" type="AMM:String200Type" minOccurs="0"/>
+			<xsd:element name="TradingName" type="AMM:String200Type"/>
+			<xsd:element name="Status" type="AMM:String100NonNullType"/>
+			<xsd:element name="Address" type="CustomerAddressStructure"/>
+			<xsd:element name="AddressMailabilityScore" type="AMM:String50Type" minOccurs="0"/>
+			<xsd:element name="AddressMatchScore" type="AMM:String50Type" minOccurs="0"/>
+			<xsd:element name="CustomerTaxNumbers" type="CustomerTaxNumbersStructure" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PartyCustomSearchRequestStructure">
+		<xsd:annotation>
+			<xsd:documentation>An Organisation or Person in which the Enterprise has an interest.
+Versioned: Yes</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="LegalName" type="AMM:String200Type" minOccurs="0"/>
+			<xsd:element name="TradingName" type="AMM:String200Type" minOccurs="0"/>
+			<xsd:element name="ISOCountry" type="ISOCountryStructure" minOccurs="0"/>
+			<xsd:element name="City" type="AMM:String100Type" minOccurs="0"/>
+			<xsd:element name="Status" type="AMM:String200Type" minOccurs="0"/>
+			<xsd:element name="PostalAddressDetailHouseNum" type="AMM:String50Type" minOccurs="0"/>
+			<xsd:element name="PostalAddressDetailStreetName" type="AMM:String100Type" minOccurs="0"/>
+			<xsd:element name="Region" type="AMM:String100Type" minOccurs="0"/>
+			<xsd:element name="PostalAddressDetailMailBoxNum" type="AMM:String50Type" minOccurs="0"/>
+			<xsd:element name="PostalCd" type="AMM:String50Type" minOccurs="0"/>
+			<xsd:element name="TaxNumber" maxOccurs="1" minOccurs="0" type="AMM:String50Type"/>
+			<xsd:element name="ReferenceNum" type="ReferenceNumberStructure" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="ReferenceNumberStructure">
+    <xsd:sequence>
+      <xsd:annotation>
+        <xsd:documentation> Any types of customer reference numbers identified by the
+					reference type </xsd:documentation>
+      </xsd:annotation>
+      <xsd:element name="ReferenceTypeCode" type="ReferenceTypeEnum"/>
+      <xsd:element name="ReferenceTypeNumber" type="AMM:String50NonNullType"/>
+      <xsd:element minOccurs="0" ref="DeleteFlag"/>
+      <xsd:element minOccurs="0" name="ReferenceActiveIndicator" type="xsd:boolean"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+	
+	<xsd:complexType name="PartyCustomSearchResponseStructure">
+		<xsd:annotation>
+			<xsd:documentation>An Organisation or Person in which the Enterprise has an interest.
+Versioned: Yes</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="CustomerCd" type="AlternativeCodeStructure"/>
+			<xsd:element name="LegalName" type="AMM:String200Type" minOccurs="0"/>
+			<xsd:element name="TradingName" type="AMM:String200Type"/>
+			<xsd:element name="CustomerStatus" type="CustomerStatusStructure"/>
+			<xsd:element name="CustomerTypes" type="AMM:String100Type"/>
+			<xsd:element name="PostalAddressDetailStreetName" type="AMM:String100Type" minOccurs="0"/>
+			<xsd:element name="PostalAddressDetailHouseNum" type="AMM:String50Type" minOccurs="0"/>
+			<xsd:element name="PostalAddressDetailBuildingNum" type="AMM:String50Type" minOccurs="0"/>
+			<xsd:element name="Suburb" type="AMM:String100Type" minOccurs="0"/>
+			<xsd:element name="District" type="AMM:String100Type" minOccurs="0"/>
+			<xsd:element name="PostalAddressDetailMailBoxNum" type="AMM:String50Type" minOccurs="0"/>
+			<xsd:element name="PostalCd" type="AMM:String50Type" minOccurs="0"/>
+			<xsd:element name="Region" type="AMM:String100Type" minOccurs="0"/>
+			<xsd:element name="City" type="AMM:String100NonNullType"/>
+			<xsd:element name="ISOCountry" type="ISOCountryStructure"/>
+			<xsd:element name="CustomerTaxNumbers" type="CustomerTaxNumbersStructure" maxOccurs="1" minOccurs="0"/>
+			<xsd:element name="ReferenceNum" type="ReferenceNumberStructure" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PartyCustomUpsertRequestStructure">
+		<xsd:annotation>
+			<xsd:documentation>An Organisation or Person in which the Enterprise has an interest.
+Versioned: Yes</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="CustomerCode" type="AMM:String50Type" minOccurs="0"/>
+			<xsd:element name="SCVCode" type="AMM:String50Type" minOccurs="0"/>
+			<xsd:element name="LegalName" type="AMM:String200Type" minOccurs="0"/>
+			<xsd:element name="TradingName" type="AMM:String200Type"/>
+			<xsd:element name="CustomerTypes" type="AMM:String100Type" minOccurs="0"/>
+			<xsd:element name="CustomerStatus" type="CustomerStatusStructure" minOccurs="0"/>
+			<xsd:element name="Url" type="AMM:String400Type" minOccurs="0"/>
+			<xsd:element name="TelecommunicationsNumber" type="TelecommunicationsNumberStructure" minOccurs="0"/>
+			<xsd:element name="InvoiceLanguagePreference" type="AMM:String200Type" minOccurs="0"/>
+			<xsd:element name="Brokerage" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="ForwardersCompensation" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="CustomerWorkflowIndicator" type="AMM:String50Type" minOccurs="0"/>
+			<xsd:element name="SoleProprietor" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="CustomerAuditData" type="CustomerAuditDataStructure" minOccurs="0"/>
+			<xsd:element name="CustomerAddress" type="CustomerAddressStructure"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PartyCustomContactUpsertRequestStructure">
+		<xsd:annotation>
+			<xsd:documentation>A Contact in which the Enterprise has an interest.
+Versioned: Yes</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="CustomerIds" type="AlternativeCodeStructure" minOccurs="1"/>
+			<xsd:element name="ContactCd" type="AMM:String50Type" minOccurs="0"/>
+        	<xsd:element name="ContactSCVCd" type="AMM:String50Type" minOccurs="0"/>
+			<xsd:element name="FirstName" type="AMM:String200Type" minOccurs="0"/>
+			<xsd:element name="LastName" type="AMM:String200Type" minOccurs="0"/>
+			<xsd:element name="InternationalFirstName" type="AMM:String200Type" minOccurs="0" />
+			<xsd:element name="InternationalLastName" type="AMM:String200Type" minOccurs="0" />	
+			<xsd:element name="PrimaryEmailId" type="AMM:String200Type" minOccurs="0"/>
+			<xsd:element name="SecondaryEmailId" type="AMM:String200Type" minOccurs="0"/>
+			<xsd:element name="ContactLifeCycleStatusCd" type="ContactLifeCycleStatusEnum" minOccurs="0"/>
+			<xsd:element name="InternationalSalutationCd" type="AMM:String200Type" minOccurs="0"/>
+			<xsd:element name="PrimarySalutationCd" type="AMM:String200Type" minOccurs="0"/>
+			<xsd:element name="PhoneNumber" type="TelecommunicationsNumberStructure" minOccurs="0"/>
+			<xsd:element name="MobileNumber" type="TelecommunicationsNumberStructure" minOccurs="0"/>
+			<xsd:element name="FaxNumber" type="TelecommunicationsNumberStructure" minOccurs="0"/>
+			<xsd:element name="GroupContactIndicatorFlag" type="xsd:boolean" minOccurs="1" />	
+			<xsd:element name="ContactJobTitle" type="AMM:String100Type" minOccurs="0"/>
+			<xsd:element name="ContactDepartment" type="AMM:String200Type" minOccurs="0"/>
+			<xsd:element name="ContactRole" type="AMM:String50Type" minOccurs="0"/>
+			<xsd:element name="LanguagePreference" type="AMM:String200Type" minOccurs="0"/>
+			<xsd:element name="ContactType" type="ContactTypeStructure" minOccurs="0"/>
+			<xsd:element name="DocumentPreference" type="DocumentPreferencesType" minOccurs="0" maxOccurs="1"></xsd:element>
+			<xsd:element name="ContactAuditData" type="CustomerAuditDataStructure" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="ContactIDsType">
+  	<xsd:sequence>
+  		<xsd:element name="ContactCd" type="AMM:String50Type" minOccurs="0"/>
+        <xsd:element name="ContactSCVCd" type="AMM:String50Type" minOccurs="0"/>
+  	</xsd:sequence>
+  	</xsd:complexType>
+	<xsd:complexType name="DocumentPreferencesType">
+    <xsd:sequence>
+      <xsd:element name="DocumentPreferences" type="DocumentPreferenceType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="DocumentPreferenceType">
+    <xsd:sequence>
+      <xsd:element name="Brand" type="OperatorTypeEnum" minOccurs="1"/>
+      <xsd:element name="DocumentType" minOccurs="1" type="AMM:String200Type">
+      
+      </xsd:element>
+      <xsd:element name="CommunicationPreference" type="CommunicationPreferenceValueType" minOccurs="1" maxOccurs="unbounded"/>
+      
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CommunicationPreferenceValueType">
+    <xsd:sequence>
+    <xsd:choice>
+      <xsd:element name="TeleCommunicationValue" type="TelecommunicationsNumberStructure" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="Email" type="AMM:String200Type" minOccurs="0" maxOccurs="1"/>
+      </xsd:choice>
+      <xsd:element ref="DeleteFlag" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Set to 1 to completely delete the contact Type
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="PreferenceType" type="AMM:String100Type" >
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:simpleType name="CommPreferenceTypeEnum">
+    <xsd:restriction base="AMM:String50Type">
+      <xsd:enumeration value="Telephone"/>
+      <xsd:enumeration value="Email"/>
+      <xsd:enumeration value="Fax"/>
+      <xsd:enumeration value="Do not send"/>
+      <xsd:enumeration value="Print"/>
+      <xsd:enumeration value="Web"/>
+    </xsd:restriction>
+    </xsd:simpleType>
+	<xsd:simpleType name="ContactLifeCycleStatusEnum">
+    <xsd:annotation>
+      <xsd:documentation> A Active I Inactive S Suspended </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="A"/>
+      <xsd:enumeration value="I"/>
+      <!-- <xsd:enumeration value="S"/> -->
+    </xsd:restriction>
+  </xsd:simpleType>
+	<xsd:complexType name="ContactTypeStructure">
+		<xsd:sequence>
+            <xsd:element name="CustomerContactCategory" type="CustomerContactCategoryStructure" minOccurs="0" maxOccurs="unbounded"/>
+      
+    </xsd:sequence>
+	</xsd:complexType>
+
+   <xsd:complexType name="CustomerContactCategoryStructure">
+    <xsd:sequence>
+      <xsd:annotation>
+        <xsd:documentation> Any types of customer contact type </xsd:documentation>
+      </xsd:annotation>
+      <xsd:element name="CustomerContactTypeName" type="AMM:String200Type" minOccurs="0"/>
+      <xsd:element name="CustomerContactTypeCode" type="AMM:String100Type"/>
+      <xsd:element ref="DeleteFlag" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Set to 1 to completely delete the contact Type
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+	
+	
+	<xsd:complexType name="PartyStructure">
+		<xsd:annotation>
+			<xsd:documentation>An Organisation or Person in which the Enterprise has an interest.
+Versioned: Yes</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="CustomerRole" type="PartyRoleStructure" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="PartyName" type="AMM:String100Type" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PostalAddressAreaStructure">
+		<xsd:annotation>
+			<xsd:documentation>Allows for a postal address to be associated with e.g. a Postal Code, a City and a Country.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ISOCountry" type="ISOCountryStructure" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PostalAddressDetailStructure">
+		<xsd:sequence>
+			<xsd:element name="PostalAddressArea" type="PostalAddressAreaStructure" minOccurs="1" maxOccurs="unbounded"/>
+			<xsd:element name="PostalAddressDetailBuildingNum" type="AMM:String50Type" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="PostalAddressDetailHouseModifierValueNum" type="AMM:String50Type" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="PostalAddressDetailMailBoxNum" type="AMM:String50Type" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="PostalAddressDetailMailDeliveryTm" type="AMM:TimeType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="PostalAddressDetailMailPickupTm" type="AMM:TimeType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="PostalAddressDetailMailStopNum" type="AMM:String50Type" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="PostalAddressDetailRouteNum" type="AMM:String50Type" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="PostalAddressDetailStreetName" type="AMM:String100Type" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="PostalAddressDetailStreetNum" type="AMM:String50Type" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="PostalAddressDetailStreetSuffixCd" type="AMM:String50Type" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="PostalAddressDetailWorkspaceNum" type="AMM:String50Type" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PostalAddressStructure">
+		<xsd:annotation>
+			<xsd:documentation>Holds information about postal addresses. Street name and number, directions etc. will be stored here.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="ContactAddressStructure">
+				<xsd:sequence>
+					<xsd:element name="AddressLine1" type="AMM:String100Type" minOccurs="0" maxOccurs="1"/>
+					<xsd:element name="AddressLine2" type="AMM:String100Type" minOccurs="0" maxOccurs="1"/>
+					<xsd:element name="AddressLine3" type="AMM:String100Type" minOccurs="0" maxOccurs="1"/>
+					<xsd:element name="AddressLine4" type="AMM:String100Type" minOccurs="0" maxOccurs="1"/>
+					<xsd:element name="GeographicCoordinateId" type="AMM:Integer13Type" minOccurs="0" maxOccurs="1"/>
+					<xsd:element name="PostalAddressDetail" type="PostalAddressDetailStructure" minOccurs="0" maxOccurs="1"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="PostalCodeStructure">
+		<xsd:annotation>
+			<xsd:documentation>Postal codes and their prefix and/or suffixes are maintained in this entity. Also known in some countries as a Zip-code.  Can be to different levels of granularity, referring to a whole town, or to small areas within a town, down to an individual property.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="DefinedAreaStructure">
+				<xsd:sequence>
+					<xsd:element name="PostalCd" type="AMM:String50Type" minOccurs="0" maxOccurs="1"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="ReferenceDataStructure">
+		<xsd:sequence>
+			<xsd:element name="Cd" type="AMM:String50NonNullType"/>
+			<xsd:element name="Name" type="AMM:String100NonNullType"/>
+			<xsd:element name="Description" type="AMM:String200Type" minOccurs="0"/>
+			<xsd:element name="GenericData1" type="AMM:String4000Type" minOccurs="0"/>
+			<xsd:element name="GenericData2" type="AMM:String4000Type" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TelecommunicationsNumberStructure">
+		<xsd:annotation>
+			<xsd:documentation>A number that can be used for contact via a telecommunications system. Examples include:-
+Phone number (land line)
+Mobile or cell phone number
+Fax number
+Pager number</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="PhoneNumberType" type="PhoneNumberTypeEnum" default="TEL"  minOccurs="0"/>
+			<xsd:element name="ISOCountry" type="ISOCountryStructure"/>
+			<xsd:element name="InternationalDialingCode">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:pattern value="[0-9]{1,4}"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+      			</xsd:element>
+			<xsd:element name="TelecommunicationAreaCode" type="AMM:String50Type" minOccurs="0"/>
+			<xsd:element name="TelecommunicationExtensionNum" type="AMM:String50Type" minOccurs="0"/>
+			<xsd:element name="TelecommunicationsNum">
+		       	<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+				       	<xsd:pattern value="[0-9]{1,20}"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ValidationFieldStructure">
+		<xsd:sequence>
+			<xsd:element name="ISOCountry" type="ISOCountryStructure"/>
+			<xsd:element name="FieldName" type="AMM:String50NonNullType"/>
+			<xsd:element name="FieldValue" type="AMM:String4000Type" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	
+	<xsd:complexType name="ValidationStatusStructure">
+		<xsd:sequence>
+			<xsd:element name="Code" type="AMM:String50NonNullType"/>
+			<xsd:element name="Status" type="AMM:String200Type"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CustomerCodeListype">
+		<xsd:sequence>
+			<xsd:element name="CustomerCode" type="AlternativeCodeStructure" maxOccurs="100"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CustomerListType">
+		<xsd:sequence>
+			<xsd:element name="Customer" type="PartyStructure" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CustomerContactType">
+		<xsd:sequence>
+			<xsd:element name="PartyName" type="AMM:String100Type" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="CustomerNumber" type="AlternativeCodeStructure" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CustomerContactListType">
+		<xsd:sequence>
+			<xsd:element name="CustomerContact" type="CustomerContactType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SearchCustomerRequestType">
+		<xsd:sequence>
+			<xsd:element name="Customer" type="PartyCustomSearchRequestStructure"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="SearchCustomerRequest" type="SearchCustomerRequestType"/>
+	<xsd:complexType name="SearchCustomerResponseType">
+		<xsd:sequence>
+			<xsd:element name="CustomerSearchStatus" type="CustomerSearchStatusStructure"/>
+			<xsd:element name="Customer" type="PartyCustomSearchResponseStructure" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="SearchCustomerResponse" type="SearchCustomerResponseType"/>
+	<xsd:complexType name="SearchDuplicateCustomerRequestType">
+		<xsd:sequence>
+			<xsd:element name="CustomerEntity" type="CustomerComboStructure"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="SearchDuplicateCustomerRequest" type="SearchDuplicateCustomerRequestType"/>
+	<xsd:complexType name="SearchDuplicateCustomerResponseType">
+		<xsd:sequence>
+			<xsd:element name="SearchDuplicateCustomerStatus" type="CustomerSearchStatusStructure"/>
+			<xsd:element name="DuplicateCustomer" type="PartyCustomDuplicateSearchResponseStructure" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="SearchDuplicateCustomerResponse" type="SearchDuplicateCustomerResponseType"/>
+	<xsd:complexType name="RetrieveCustomerRequestType">
+		<xsd:sequence>
+			<xsd:element name="CustomerCd" type="AlternativeCodeStructure"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="RetrieveCustomerRequest" type="RetrieveCustomerRequestType"/>
+	<xsd:complexType name="RetrieveCustomerResponseType">
+		<xsd:sequence>
+			<xsd:element name="CustomerEntity" type="CustomerComboStructure" minOccurs="0"/>
+			<xsd:element ref="RetrieveCustomerStatusResponse" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="RetrieveCustomerResponse" type="RetrieveCustomerResponseType"/>
+	<xsd:complexType name="UpsertCustomerRequestType">
+		<xsd:sequence>
+			<xsd:element name="CustomerEntity" type="CustomerComboStructure"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="UpsertCustomerRequest" type="UpsertCustomerRequestType"/>
+	<xsd:complexType name="UpsertCustomerResponseType">
+		<xsd:sequence>
+			<xsd:element name="CustomerCd" type="AlternativeCodeStructure" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="UpsertCustomerStatus" type="CustomerSearchStatusStructure"/>
+			<xsd:element name="UpsertCustomerValidationStatus" type="CustomerValidationStatusStructure" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="UpsertCustomerResponse" type="UpsertCustomerResponseType"/>
+	
+	<xsd:complexType name="RetrieveSegmentationRequestType">
+	<xsd:sequence>
+				<xsd:element name="SegmentTypeCode" type="AMM:String50Type"
+					minOccurs="0" maxOccurs="1" />
+			</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="RetrieveSegmentationRequest" type="RetrieveSegmentationRequestType"/>
+	
+	
+	<xsd:complexType name="RetrieveSegmentationResponseType">
+		<xsd:sequence>
+			<xsd:element name="ReferenceData" type="ReferenceDataStructure" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="RetrieveSegmentationResponse" type="RetrieveSegmentationResponseType"/>
+	
+	
+	<xsd:complexType name="RetrievePrimaryContactSalutationRequestType"/>
+	<xsd:element name="RetrievePrimaryContactSalutationRequest" type="RetrievePrimaryContactSalutationRequestType"/>
+	
+	
+	<xsd:complexType name="RetrievePrimaryContactSalutationResponseType">
+		<xsd:sequence>
+			<xsd:element name="ReferenceData" type="ReferenceDataStructure" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="RetrievePrimaryContactSalutationResponse" type="RetrievePrimaryContactSalutationResponseType"/>
+	
+	
+	<xsd:complexType name="RetrieveInternationalContactSalutionRequestType"/>
+	<xsd:element name="RetrieveInternationalContactSalutionRequest" type="RetrieveInternationalContactSalutionRequestType"/>
+	
+	
+	<xsd:complexType name="RetrieveInternationalContactSalutionResponseType">
+		<xsd:sequence>
+			<xsd:element name="ReferenceData" type="ReferenceDataStructure" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="RetrieveInternationalContactSalutionResponse" type="RetrieveInternationalContactSalutionResponseType"/>
+	
+	
+	<xsd:complexType name="RetrieveCustomerTypeRequestType"/>
+	<xsd:element name="RetrieveCustomerTypeRequest" type="RetrieveCustomerTypeRequestType"/>
+	<xsd:complexType name="RetrieveCustomerTypeResponseType">
+		<xsd:sequence>
+			<xsd:element name="ReferenceData" type="ReferenceDataStructure" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="RetrieveCustomerTypeResponse" type="RetrieveCustomerTypeResponseType"/>
+	<xsd:complexType name="RetrieveCustomerStatusRequestType"/>
+	<xsd:element name="RetrieveCustomerStatusRequest" type="RetrieveCustomerStatusRequestType"/>
+	<xsd:complexType name="RetrieveCustomerStatusResponseType">
+		<xsd:sequence>
+			<xsd:element name="ReferenceData" type="ReferenceDataStructure" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="RetrieveCustomerStatusResponse" type="RetrieveCustomerStatusResponseType"/>
+	<xsd:complexType name="RetrieveCustomerStatusReasonRequestType"/>
+	<xsd:element name="RetrieveCustomerStatusReasonRequest" type="RetrieveCustomerStatusReasonRequestType"/>
+	<xsd:complexType name="RetrieveCustomerStatusReasonResponseType">
+		<xsd:sequence>
+			<xsd:element name="ReferenceData" type="ReferenceDataStructure" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="RetrieveCustomerStatusReasonResponse" type="RetrieveCustomerStatusReasonResponseType"/>
+	<xsd:complexType name="RetrieveReferenceNumberCodesRequestType"/>
+	<xsd:element name="RetrieveReferenceNumberCodesRequest" type="RetrieveReferenceNumberCodesRequestType"/>
+	<xsd:complexType name="RetrieveReferenceNumberCodesResponseType">
+		<xsd:sequence>
+			<xsd:element name="ReferenceData" type="ReferenceDataStructure" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="RetrieveReferenceNumberCodesResponse" type="RetrieveReferenceNumberCodesResponseType"/>
+	<xsd:complexType name="RetrieveTaxNumberCodesRequestType"/>
+	<xsd:element name="RetrieveTaxNumberCodesRequest" type="RetrieveTaxNumberCodesRequestType"/>
+	<xsd:complexType name="RetrieveTaxNumberCodesResponseType">
+		<xsd:sequence>
+			<xsd:element name="ReferenceData" type="ReferenceDataStructure" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="RetrieveTaxNumberCodesResponse" type="RetrieveTaxNumberCodesResponseType"/>
+    <xsd:complexType name="RetrieveCountryRequestType"/>
+    <xsd:element name="RetrieveCountryRequest" type="RetrieveCountryRequestType"/>
+	
+	<xsd:complexType name="RetrieveCountryResponseType">
+		<xsd:sequence>
+			<xsd:element name="ReferenceData" type="ReferenceDataStructure" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="RetrieveCountryResponse" type="RetrieveCountryResponseType"/>
+	
+	<xsd:complexType name="RetrieveCityRequestType">
+		<xsd:sequence>
+			<xsd:element name="Country" type="ISOCountryStructure" />
+			<xsd:element ref="City" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:element name="RetrieveCityRequest" type="RetrieveCityRequestType"/>
+	
+	<xsd:complexType name="RetrieveCityResponseType">
+		<xsd:sequence>
+			<xsd:element ref="City" />
+			<xsd:element name="RegionCode" type="AMM:String50Type" minOccurs="0" maxOccurs="1" />
+			<xsd:element name="RegionName" type="AMM:String100Type" minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+		
+	<xsd:element name="RetrieveCityResponse">
+	<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Cities" type="RetrieveCityResponseType" minOccurs="0" maxOccurs="unbounded" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+
+        
+	<xsd:complexType name="ValidateCountryRulesRequestType">
+		<xsd:sequence>
+			<xsd:element name="CountryRulesValidationRequest" type="CountryRulesValidationRequestStructure" maxOccurs="unbounded"/>
+			<xsd:element name="FieldName" type="AMM:String50NonNullType"/>
+			<xsd:element name="FieldValue" type="AMM:String4000Type" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:element name="ValidateCountryRulesRequest" type="ValidateCountryRulesRequestType"/>
+	<xsd:complexType name="ValidateCountryRulesResponseType">
+		<xsd:sequence>
+			<xsd:element name="CountryRulesValidationResult" type="CountryRulesValidationResultStructure" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="ValidateCountryRulesResponse" type="ValidateCountryRulesResponseType"/>
+	<xsd:complexType name="RetrieveCountryRulesRequestType">
+		<xsd:sequence>
+			<xsd:element name="ISOCountry" type="ISOCountryStructure"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="RetrieveCountryRulesRequest" type="RetrieveCountryRulesRequestType"/>
+	<xsd:complexType name="RetrieveCountryRulesResponseType">
+		<xsd:sequence>
+			<xsd:element name="CountryRule" type="CountryRuleStructure" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="RetrieveCountryRulesResponse" type="RetrieveCountryRulesResponseType"/>
+
+	
+ <xsd:complexType name="UpsertCustomerContactRequestType">
+  	<xsd:sequence>
+   <xsd:element name="CustomerContactEntity"
+                type="PartyCustomContactUpsertRequestStructure" minOccurs="0"
+                maxOccurs="unbounded"/>
+   <xsd:element name="ContactStatus" type="CustomerSearchStatusStructure"
+                minOccurs="0"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:element name="UpsertCustomerContactRequest"
+              type="UpsertCustomerContactRequestType"/>
+ <xsd:complexType name="UpsertCustomerContactResponseType">
+  <xsd:sequence>
+   <xsd:element name="ContactIDs" type="ContactIDsType" maxOccurs="unbounded" minOccurs="0"/>   
+   <xsd:element name="Contact" type="DuplicateContactResponseType" minOccurs="0"
+                maxOccurs="unbounded"/>
+   <xsd:element name="UpsertCustomerContactValidationStatus" type="CustomerValidationStatusStructure" minOccurs="0" maxOccurs="unbounded"/>
+   <xsd:element name="ContactStatus" type="CustomerSearchStatusStructure"
+                minOccurs="0"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:element name="UpsertCustomerContactResponse"
+              type="UpsertCustomerContactResponseType"/>
+
+
+	 <xsd:complexType name="RetrieveCustomerContactRequestType">
+  	<xsd:sequence>
+   <xsd:element name="ContactCd" type="AMM:String50NonNullType" minOccurs="0"
+                maxOccurs="unbounded"/>
+   <xsd:element name="SCVCd" type="AMM:String50NonNullType" minOccurs="0"
+                maxOccurs="unbounded"/>
+    <xsd:element name="RetrieveDocPrefFlag" type="xsd:boolean" minOccurs="0"
+                maxOccurs="1"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:element name="RetrieveCustomerContactRequest"
+              type="RetrieveCustomerContactRequestType"/>
+ <xsd:complexType name="RetrieveCustomerContactResponseType">
+  <xsd:sequence>
+   <xsd:element name="CustomerContactEntity"
+                type="PartyCustomContactUpsertRequestStructure" minOccurs="0"
+                maxOccurs="unbounded"/>
+   <xsd:element name="ContactStatus" type="CustomerSearchStatusStructure"
+                minOccurs="0"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:element name="RetrieveCustomerContactResponse"
+              type="RetrieveCustomerContactResponseType"/>
+ <xsd:complexType name="SearchCustomerContactRequestType">
+  <xsd:sequence>
+   <!--<xsd:element name="ContactCd" type="AMM:String50NonNullType" minOccurs="1" maxOccurs="unbounded"/>-->
+   <xsd:element name="CustomerCd" minOccurs="0" maxOccurs="1">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:minLength value="3"></xsd:minLength>
+      <xsd:whiteSpace value="collapse"></xsd:whiteSpace>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CustomerName" minOccurs="0" maxOccurs="1"
+                type="AMM:String200Type"></xsd:element>
+   <xsd:element name="PrimaryEmailId" minOccurs="0" maxOccurs="1">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:pattern value="[^@]+@[^\.]+\..+"></xsd:pattern>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="SecondEmailId" minOccurs="0" maxOccurs="1">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:pattern value="[^@]+@[^\.]+\..+"></xsd:pattern>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="FirstName" minOccurs="0" maxOccurs="1"
+                type="AMM:String200Type"></xsd:element>
+   <xsd:element name="LastName" minOccurs="0" maxOccurs="1"
+                type="AMM:String200Type"></xsd:element>
+   <xsd:element name="PhoneNumber" type="TelecommunicationsNumberStructure"
+                minOccurs="0" maxOccurs="1"></xsd:element>
+   <xsd:element name="MobileNumber" type="TelecommunicationsNumberStructure"
+                minOccurs="0" maxOccurs="1"></xsd:element>
+   <xsd:element name="ContactLifeCycleStatusCd" maxOccurs="1" minOccurs="0"
+                type="ContactLifeCycleStatusEnum"></xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:element name="SearchCustomerContactRequest"
+              type="SearchCustomerContactRequestType"/>
+ <xsd:complexType name="SearchCustomerContactResponseType">
+  <xsd:sequence>
+   <xsd:element name="SearchContactStatus"
+                type="CustomerSearchStatusStructure"/>
+   <xsd:element name="Contact" type="SearchContactResponseType" minOccurs="0"
+                maxOccurs="unbounded"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:element name="SearchCustomerContactResponse"
+              type="SearchCustomerContactResponseType"/>
+ <xsd:complexType name="SearchContactResponseType">
+  <xsd:sequence>
+   <xsd:element name="ContactCd" type="AMM:String50NonNullType" minOccurs="1"/>
+   <xsd:element name="ContactSCVCd" type="AMM:String50NonNullType" minOccurs="1"/>
+   <xsd:element name="CustomerCd" minOccurs="0" maxOccurs="1">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:minLength value="3"></xsd:minLength>
+      <xsd:whiteSpace value="collapse"></xsd:whiteSpace>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element maxOccurs="1" minOccurs="0" name="PrimaryEmailId">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:pattern value="[^@]+@[^\.]+\..+"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element maxOccurs="1" minOccurs="0" name="SecondaryEmailId">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:pattern value="[^@]+@[^\.]+\..+"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="FirstName" minOccurs="0" maxOccurs="1"
+                type="AMM:String200Type"></xsd:element>
+   <xsd:element name="LastName" minOccurs="0" maxOccurs="1"
+                type="AMM:String200Type"></xsd:element>
+   <xsd:element name="PhoneNumber" type="TelecommunicationsNumberStructure"
+                minOccurs="0" maxOccurs="1"></xsd:element>
+   <xsd:element name="MobileNumber" type="TelecommunicationsNumberStructure"
+                minOccurs="0" maxOccurs="1"></xsd:element>
+   <xsd:element name="ContactLifeCycleStatusCd" maxOccurs="1" minOccurs="0"
+                type="ContactLifeCycleStatusEnum"></xsd:element>
+   <xsd:element name="CustomerName" type="AMM:String200Type" minOccurs="0"
+                maxOccurs="1"></xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:element name="SearchDuplicateContactRequest"
+              type="SearchDuplicateContactRequestType"/>
+ <xsd:complexType name="SearchDuplicateContactRequestType">
+  <xsd:sequence>
+   <xsd:element name="PrimaryEmailId" minOccurs="0" maxOccurs="1">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:pattern value="[^@]+@[^\.]+\..+"></xsd:pattern>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="SecondEmailId" minOccurs="0" maxOccurs="1">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:pattern value="[^@]+@[^\.]+\..+"></xsd:pattern>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="FirstName" minOccurs="0" maxOccurs="1"
+                type="AMM:String200Type"></xsd:element>
+   <xsd:element name="LastName" minOccurs="0" maxOccurs="1"
+                type="AMM:String200Type"></xsd:element>
+   <xsd:element name="PhoneNumber" type="TelecommunicationsNumberStructure"
+                minOccurs="0" maxOccurs="1"></xsd:element>
+   <xsd:element name="MobileNumber" type="TelecommunicationsNumberStructure"
+                minOccurs="0" maxOccurs="1"></xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:element name="SearchDuplicateContactResponse"
+              type="SearchDuplicateContactResponseType"/>
+ <xsd:complexType name="SearchDuplicateContactResponseType">
+  <xsd:sequence>
+   <xsd:element name="SearchContactStatus"
+                type="CustomerSearchStatusStructure"/>
+   <xsd:element name="Contact" type="DuplicateContactResponseType" minOccurs="0"
+                maxOccurs="unbounded"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="DuplicateContactResponseType">
+  <xsd:sequence>
+   <xsd:element name="ContactCd" type="AMM:String50NonNullType" minOccurs="0"/>
+   <xsd:element name="ContactSCVCd" type="AMM:String50NonNullType" minOccurs="0"/>
+   <xsd:element name="CustomerCd" minOccurs="0" maxOccurs="1">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:minLength value="3"></xsd:minLength>
+      <xsd:whiteSpace value="collapse"></xsd:whiteSpace>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element maxOccurs="1" minOccurs="0" name="PrimaryEmailId">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:pattern value="[^@]+@[^\.]+\..+"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element maxOccurs="1" minOccurs="0" name="SecondaryEmailId">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:pattern value="[^@]+@[^\.]+\..+"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="FirstName" minOccurs="0" maxOccurs="1"
+                type="AMM:String200Type"></xsd:element>
+   <xsd:element name="LastName" minOccurs="0" maxOccurs="1"
+                type="AMM:String200Type"></xsd:element>
+   <xsd:element name="PhoneNumber" type="TelecommunicationsNumberStructure"
+                minOccurs="0" maxOccurs="1"></xsd:element>
+   <xsd:element name="MobileNumber" type="TelecommunicationsNumberStructure"
+                minOccurs="0" maxOccurs="1"></xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ 
+        
+<xsd:complexType name="RetrieveCustomerContactTypesRequestType"/>
+ <xsd:element name="RetrieveCustomerContactTypesRequest" type="RetrieveCustomerContactTypesRequestType"/>
+
+ <xsd:complexType name="RetrieveCustomerContactTypesResponseType">
+  <xsd:sequence>
+   <xsd:element name="ReferenceData" type="ReferenceDataStructure" minOccurs="0"
+                maxOccurs="unbounded"/>
+  </xsd:sequence>
+ </xsd:complexType>
+
+ <xsd:element name="RetrieveCustomerContactTypesResponse"
+              type="RetrieveCustomerContactTypesResponseType"/>
+ 
+ 
+ <xsd:complexType name="RetrieveISOLanguagesRequestType"/>
+ <xsd:element name="RetrieveISOLanguagesRequest" type="RetrieveISOLanguagesRequestType"/>
+
+ <xsd:complexType name="RetrieveISOLanguagesResponseType">
+  <xsd:sequence>
+   <xsd:element name="ReferenceData" type="ReferenceDataStructure" minOccurs="0"
+                maxOccurs="unbounded"/>
+  </xsd:sequence>
+ </xsd:complexType>
+<xsd:element name="RetrieveISOLanguagesResponse"
+              type="RetrieveISOLanguagesResponseType"/>
+
+<xsd:complexType name="RetrieveInvoiceISOLanguagesRequestType">
+<xsd:sequence>
+			<xsd:element name="Country" type="ISOCountryStructure" minOccurs="0"/>
+		</xsd:sequence>
+ </xsd:complexType>
+
+ <xsd:element name="RetrieveInvoiceISOLanguagesRequest" type="RetrieveInvoiceISOLanguagesRequestType"/>
+
+ <xsd:complexType name="RetrieveInvoiceISOLanguagesResponseType">
+  <xsd:sequence>
+   <xsd:element name="ReferenceData" type="ReferenceDataStructure" minOccurs="0"
+                maxOccurs="unbounded"/>
+  </xsd:sequence>
+ </xsd:complexType>
+<xsd:element name="RetrieveInvoiceISOLanguagesResponse"
+              type="RetrieveInvoiceISOLanguagesResponseType"/>
+
+<xsd:complexType name="RetrieveRegionsRequestType">
+	<xsd:sequence>
+		<xsd:element name="Country" type="ISOCountryStructure" minOccurs="0"/>
+	</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="RetrieveRegionsRequest" type="RetrieveRegionsRequestType"/>
+
+ <xsd:complexType name="RetrieveRegionsResponseType">
+  <xsd:sequence>
+   <xsd:element name="ReferenceData" type="ReferenceDataStructure" minOccurs="0"
+                maxOccurs="unbounded"/>
+  </xsd:sequence>
+ </xsd:complexType>
+<xsd:element name="RetrieveRegionsResponse"
+              type="RetrieveRegionsResponseType"/>
+              
+              
+<xsd:complexType name="RetrieveSegmentTypesRequestType"/>
+ <xsd:element name="RetrieveSegmentTypesRequest" type="RetrieveSegmentTypesRequestType"/>
+
+ <xsd:complexType name="RetrieveSegmentTypesResponseType">
+  <xsd:sequence>
+   <xsd:element name="ReferenceData" type="ReferenceDataStructure" minOccurs="0"
+                maxOccurs="unbounded"/>
+  </xsd:sequence>
+ </xsd:complexType>
+<xsd:element name="RetrieveSegmentTypesResponse"
+              type="RetrieveSegmentTypesResponseType"/>
+             
+              
+
+	<xsd:element name="AssignCustomerSegmentsResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="CustomerCode" type="AMM:String50Type"
+					maxOccurs="1" minOccurs="0">
+				</xsd:element>
+				<xsd:element name="AssignCustomerSegmentsStatus" type="CustomerSearchStatusStructure"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="AssignCustomerSegmentsRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:choice>
+					<xsd:element name="CustomerCode" type="AMM:String50Type"></xsd:element>
+					<xsd:element name="SCVCode" type="AMM:String50Type"></xsd:element>
+				</xsd:choice>
+				<xsd:element name="CustomerSegments" type="SegmentationsStructure"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+                  
+                          
+    <xsd:element name="AssignCustomerRelationsResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="AssignCustomerRelationsStatus" type="CustomerSearchStatusStructure"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="AssignCustomerRelationsRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="CustomerRelations" type="CustomerRelationshipsType"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:complexType name="CustomerRelationshipsType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="CustomerRelationship"
+        type="CustomerRelationshipType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="CustomerRelationshipType">
+    <xsd:sequence>
+      <xsd:element name="ParentCustomerCode"   minOccurs="0"   type="AMM:String50Type"/>
+      <xsd:element name="ParentSCVCode"      minOccurs="0" type="AMM:String50Type"/>
+      <xsd:element name="ChildCustomerCode"   minOccurs="0" type="AMM:String50Type"/>
+      <xsd:element name="ChildSCVCode"     minOccurs="0" type="AMM:String50Type"/>
+      <xsd:element name="RelationshipType"      type="AMM:String100Type"/>
+      <xsd:element name="RelationshipTypeName" minOccurs="0"   type="AMM:String200Type"/>
+      <xsd:element name="ValidFromDate" minOccurs="0" type="AMM:DateType" />
+	  <xsd:element name="ValidThruDate" minOccurs="0" type="AMM:DateType" />
+      <xsd:element minOccurs="0" name="DeleteFlag"  type="xsd:boolean"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:element name="RetrieveRelationshipsRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:choice>
+					<xsd:element name="CustomerCode" type="AMM:String50Type"></xsd:element>
+					<xsd:element name="SCVCode" type="AMM:String50Type"></xsd:element>
+				</xsd:choice>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="RetrieveRelationshipsResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element minOccurs="0" maxOccurs="unbounded" ref="RelationshipTypeInfo" />
+				<xsd:element name="RetrieveRelationshipsStatusResponse" minOccurs="0" type="CustomerSearchStatusStructure" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="RelationshipTypeInfo">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="ParentCustomer" minOccurs="0"
+					type="CustomerInfo" />
+				<xsd:element name="ChildCustomer" minOccurs="0" type="CustomerInfo" />
+				<xsd:element name="RelationshipTypeCd" minOccurs="0"
+					type="AMM:String50Type" />
+				<xsd:element name="RelationshipTypeName" minOccurs="0"
+					type="AMM:String200Type" />
+				<xsd:element name="ValidFromDate" minOccurs="0" type="AMM:DateType" />
+				<xsd:element name="ValidThruDate" minOccurs="0" type="AMM:DateType" />
+				
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:complexType name="CustomerInfo">
+		<xsd:annotation>
+			<xsd:documentation>Customer for Relationship</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="CustomerCode" minOccurs="0" type="AMM:String50Type" />
+			<xsd:element name="SCVCode" minOccurs="0" type="AMM:String50Type" />
+			<xsd:element name="CustomerName" minOccurs="0" type="AMM:String200Type" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:element name="RetrieveConcernCodesRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+					<xsd:element name="ConcernCode" type="AMM:String50Type" />
+					<xsd:element name="RetrieveConcernCustomerFlag" type="xsd:boolean" />
+					<xsd:element name="RetrieveConcernMemberFlag" type="xsd:boolean" minOccurs="0" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="RetrieveConcernCodesResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element minOccurs="0" ref="ConcernCodes" />
+				<xsd:element name="RetrieveConcernCodesStatusResponse"
+					type="CustomerSearchStatusStructure" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="ConcernCodes">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="ConcernCode" type="ConcernCodeType"
+					minOccurs="0" maxOccurs="unbounded" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+
+	<xsd:complexType name="ConcernCodeType">
+		<xsd:sequence>
+			<xsd:element name="Code" type="AMM:String50Type" />
+			<xsd:element name="Name" type="AMM:String200Type" />
+			<xsd:element name="Status" type="AMM:String100Type" />
+			<xsd:element name="Country" type="ISOCountryCode" />
+			<xsd:element name="CustomerEntity" type="CustomerComboStructure" minOccurs="0"/>
+			<!--<xsd:element name="SCVCompatibility" minOccurs="0" type="SCVCompatibilityType" /> -->
+			<xsd:element ref="ConcernMembers" maxOccurs="unbounded" minOccurs="0"/> 
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:element name="ConcernMembers">
+		<xsd:complexType>
+			
+			<xsd:sequence>
+				<xsd:element name="CustomerCode" type="AMM:String50Type" minOccurs="0"/>
+				<xsd:element name="SCVCode" type="AMM:String50Type" minOccurs="0"/>
+				<xsd:element name="Name" type="AMM:String200Type"  minOccurs="0"/>
+				<xsd:element name="Status" type="AMM:String200Type"  minOccurs="0"/>
+				<xsd:element name="Country" type="AMM:String50Type"  minOccurs="0"/>
+				<xsd:element name="RelationshipType" type="AMM:String200Type"  minOccurs="0"/>
+				<xsd:element name="RelationshipStatus" type="AMM:String200Type"  minOccurs="0"/>
+				<xsd:element name="ValidFromDate" type="AMM:DateType"  minOccurs="0"/>
+				<xsd:element name="ValidThroughDate" type="AMM:DateType"  minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+
+	<xsd:complexType name="SCVCompatibilityType">
+		<xsd:sequence>
+			<xsd:element name="LocationCd" minOccurs="0" type="AMM:String50Type" />
+			<xsd:element name="StreetName" minOccurs="0" type="AMM:String200Type" />
+			<xsd:element name="Suburb"  minOccurs="0" type="AMM:String100Type" />
+			<xsd:element name="City"  minOccurs="0" type="ISOCountryCode" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+<xsd:complexType name="RetrieveInternationalDiallingPrefixRequestType"/>
+ <xsd:element name="RetrieveInternationalDiallingPrefixRequest" type="RetrieveInternationalDiallingPrefixRequestType"/>
+
+ <xsd:complexType name="RetrieveInternationalDiallingPrefixResponseType">
+  <xsd:sequence>
+   <xsd:element name="ReferenceData" type="ReferenceDataStructure" minOccurs="0"
+                maxOccurs="unbounded"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:element name="RetrieveInternationalDiallingPrefixResponse"
+              type="RetrieveInternationalDiallingPrefixResponseType"/>
+
+              
+<xsd:complexType name="RetrieveBrandsRequestType"/>
+ <xsd:element name="RetrieveBrandsRequest" type="RetrieveBrandsRequestType"/>
+
+ <xsd:complexType name="RetrieveBrandsResponseType">
+  <xsd:sequence>
+   <xsd:element name="ReferenceData" type="ReferenceDataStructure" minOccurs="0"
+                maxOccurs="unbounded"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:element name="RetrieveBrandsResponse"
+              type="RetrieveBrandsResponseType"/>
+
+
+<xsd:complexType name="RetrieveCommPrefTypesRequestType"/>
+ <xsd:element name="RetrieveCommPrefTypesRequest" type="RetrieveCommPrefTypesRequestType"/>
+
+ <xsd:complexType name="RetrieveCommPrefTypesResponseType">
+  <xsd:sequence>
+   <xsd:element name="ReferenceData" type="ReferenceDataStructure" minOccurs="0"
+                maxOccurs="unbounded"/>
+  </xsd:sequence>
+ </xsd:complexType>
+<xsd:element name="RetrieveCommPrefTypesResponse"
+              type="RetrieveCommPrefTypesResponseType"/>
+
+
+
+<xsd:complexType name="RetrieveDocumentTypesRequestType"/>
+ <xsd:element name="RetrieveDocumentTypesRequest" type="RetrieveDocumentTypesRequestType"/>
+
+ <xsd:complexType name="RetrieveDocumentTypesResponseType">
+  <xsd:sequence>
+   <xsd:element name="ReferenceData" type="ReferenceDataStructure" minOccurs="0"
+                maxOccurs="unbounded"/>
+  </xsd:sequence>
+ </xsd:complexType>
+<xsd:element name="RetrieveDocumentTypesResponse"
+              type="RetrieveDocumentTypesResponseType"/>
+
+
+<xsd:complexType name="RetrieveRelationshipTypesRequestType"/>
+ <xsd:element name="RetrieveRelationshipTypesRequest" type="RetrieveRelationshipTypesRequestType"/>
+
+ <xsd:complexType name="RetrieveRelationshipTypesResponseType">
+  <xsd:sequence>
+   <xsd:element name="ReferenceData" type="ReferenceDataStructure" minOccurs="0"
+                maxOccurs="unbounded"/>
+  </xsd:sequence>
+ </xsd:complexType>
+<xsd:element name="RetrieveRelationshipTypesResponse"
+              type="RetrieveRelationshipTypesResponseType"/>              
+              
+	
+	<!-- ValidateTaxnumber -->
+	
+	<xsd:element name="ValidateTaxNumberRequest" type="TaxInputType" />
+	<xsd:element name="ValidateTaxNumberResponse" type="TaxOutputType" />
+	
+	<xsd:complexType name="TaxInputType">
+    <xsd:annotation>
+      <xsd:documentation>Standard Status Response with code and description </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="VatNumber" type="TaxInformationType" /> 
+      <xsd:element name="TraderName" type="CustomerTradingNameString" minOccurs="0"/>
+      <xsd:element name="TradeCompanyType" type="AMM:String100Type" minOccurs="0"/>
+      <xsd:element ref="StreetName" minOccurs="0"/>
+      <xsd:element ref="PostalCode" minOccurs="0"/>
+      <xsd:element ref="City" minOccurs="0"/>
+      <xsd:element name="SoleProprietor" type="xsd:boolean" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Sole proprietor flag</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+     </xsd:sequence>
+  </xsd:complexType>
+    <xsd:complexType name="TaxOutputType">
+    <xsd:annotation>
+      <xsd:documentation>EU and Non eu tax validation output type</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="Code" type="AMM:String50NonNullType" minOccurs="1"/>
+       <xsd:element name="Status" type="AMM:String100NonNullType" minOccurs="1"/>
+      <xsd:element name="TraderName" type="AMM:String100Type" minOccurs="0"/>
+      <xsd:element name="TraderCompanyType" type="AMM:String100Type" minOccurs="0"/>
+      <xsd:element name="TraderAddress" type="AMM:String4000Type" minOccurs="0"/>
+      <xsd:element name="RequestId" type="AMM:String100Type" minOccurs="0"/>
+      <xsd:element name="RequestTs" type="AMM:String100Type" minOccurs="0"/>
+      <xsd:element name="ISOCountryCode" type="ISOCountryCode" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="TaxInformationType">
+		<xsd:annotation>
+			<xsd:documentation> Country specific tax number(s) per customer
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="TaxNo" type="AMM:String100NonNullType" />
+			<xsd:element name="TaxType" type="TaxNumberTypeEnum" />
+			<xsd:element name="ISOCountryCode" type="ISOCountryCode" />
+			<xsd:element name="TaxTypeLocalName" type="AMM:String100Type" maxOccurs="1" minOccurs="0"/>			 
+			<xsd:element ref="DeleteFlag" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Set to 1 to completly delete the tax number
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:element name="CustomerTradingName" type="CustomerTradingNameString">
+		<xsd:annotation>
+			<xsd:documentation> Trading name of the customer </xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	
+	
+	<xsd:simpleType name="CustomerTradingNameString">
+		<xsd:annotation>
+			<xsd:documentation>Trading name validation
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="([a-zA-Z0-9.,:;&quot;$%^&amp;*\-&apos;( )/]+){3,}"/>
+			<xsd:maxLength value="128"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:element name="StreetName">
+		<xsd:annotation>
+			<xsd:documentation>
+				Streetname to be used in address type and
+				searchCustomer
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:maxLength value="45" />
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	
+	<xsd:element name="PostalCode">
+		<xsd:annotation>
+			<xsd:documentation>
+				PostalCode to be used in address type and
+				searchCustomer
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:maxLength value="10" />
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	
+	<xsd:element name="City" type="StringMinLen1">
+		<xsd:annotation>
+			<xsd:documentation>
+				City to be used in address type and searchCustomer
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	
+	<xsd:simpleType name="TaxNumberTypeEnum">
+		<xsd:annotation>
+			<xsd:documentation>
+				TAXNO1 Tax Number 1 TAXNO2 Tax Number 2 TAXNO3 Tax Number 3 TAXNO4 Tax Number 4 VATALT Foreign VAT Reg. Number VATREG VAT Registration Number. ALTREG Alternate Registration Number
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="TAXNO1"/>
+			<xsd:enumeration value="TAXNO2"/>
+			<xsd:enumeration value="TAXNO3"/>
+			<xsd:enumeration value="TAXNO4"/>
+			<xsd:enumeration value="VATALT"/>
+			<xsd:enumeration value="VATREG"/>
+			<xsd:enumeration value="ALTREG"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="ReferenceTypeEnum">
+    <xsd:annotation>
+      <xsd:documentation> EOR EORI Economic Operator Identification and Registration DOD DODAC_ID US
+        Government Location code SAN Shipping Association Number Shipping Association Number COR
+        Customer Own Reference Customer's Own Reference FOF FOFMCD_ID Federal Maritime Commission
+        Code SIR SIREN SIREN APM AMPS Trading Partner ID AMPS Trading Partner ID BVD BvD ID Number
+        Bureau van Dijk Identification Number DUN D.U.N.S Dun &amp; Bradstreet Identification Number
+        BRN Business Registration number Business Registeration Number TCO Tax Collection Office
+        Name Tax Collection Office Name CUS Customer Reference Customer Reference
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="EOR"/>
+      <xsd:enumeration value="DOD"/>
+      <xsd:enumeration value="SAN"/>
+      <xsd:enumeration value="COR"/>
+      <xsd:enumeration value="FOF"/>
+      <xsd:enumeration value="SIR"/>
+      <xsd:enumeration value="APM"/>
+      <xsd:enumeration value="BVD"/>
+      <xsd:enumeration value="DUN"/>
+      <xsd:enumeration value="BRN"/>
+      <xsd:enumeration value="TCO"/>
+      <xsd:enumeration value="CUS"/>
+      <xsd:enumeration value="BVD_GUO"/>
+      <xsd:enumeration value="BVD_HQ"/>
+      <xsd:enumeration value="ED1"/>
+      <xsd:enumeration value="ED2"/>
+      <xsd:enumeration value="ED3"/>
+      <xsd:enumeration value="SFDC"/>
+      <!--xsd:enumeration value="CUSTOMS_ID" /> -->
+    </xsd:restriction>
+  </xsd:simpleType>
+	
+	<xsd:simpleType name="OperatorTypeEnum">
+    	<xsd:restriction base="xsd:string">
+      		<xsd:enumeration value="MAEU"> <xsd:annotation><xsd:appinfo>MAERSK LINES</xsd:appinfo></xsd:annotation></xsd:enumeration>
+      		<xsd:enumeration value="SAFM"> <xsd:annotation><xsd:appinfo>SAFMARINE</xsd:appinfo></xsd:annotation></xsd:enumeration>
+      		<xsd:enumeration value="SEJJ"> <xsd:annotation><xsd:appinfo>SEAGO LINE</xsd:appinfo></xsd:annotation></xsd:enumeration>
+      		<xsd:enumeration value="SEAU"> <xsd:annotation><xsd:appinfo>SEA-LAND SERVICE</xsd:appinfo></xsd:annotation></xsd:enumeration>
+      		<xsd:enumeration value="MCCQ"> <xsd:annotation><xsd:appinfo>MCC TRANSPORT</xsd:appinfo></xsd:annotation></xsd:enumeration>
+			<xsd:enumeration value="MCPU"> <xsd:annotation><xsd:appinfo>MCCQ REPLACEMENT</xsd:appinfo></xsd:annotation></xsd:enumeration>
+    	</xsd:restriction>
+  </xsd:simpleType>
+	<xsd:simpleType name="PhoneNumberTypeEnum">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="MOB" />
+			<xsd:enumeration value="TEL" />
+			<xsd:enumeration value="FAX" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="SegmentClassificationString">
+		<xsd:annotation>
+			<xsd:documentation>Trading name validation </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="([a-zA-Z0-9]+){1,4}"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="SegmentClassificationValueString">
+		<xsd:annotation>
+			<xsd:documentation>Trading name validation </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="([a-zA-Z0-9]+){1,4}"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:element name="DeleteFlag" type="xsd:boolean">
+		<xsd:annotation>
+			<xsd:documentation>
+				Indicator if an entity or a relation should be
+				deleted (DeleteFlag = 1).
+				Will set the entity or relationship to
+				inactive in the MDM-Hub.
+				Only to be used if there is no separate flag
+				to set the status of the
+				entity.
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:simpleType name="StringMinLen1">
+		<xsd:annotation>
+			<xsd:documentation>Values of the match score of Address Doctor
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="(.+){1,}" />
+			<xsd:maxLength value="35" />
+		</xsd:restriction>  
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="ISOCountryCode">  
+		<xsd:annotation>
+			<xsd:documentation>Country code in ISO 2-digit format
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">  
+			<xsd:pattern value="[A-Z]{2}" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<!-- RetrieveTaxTypeLocalNameRequest- -->
+  
+	<xsd:element name="RetrieveTaxTypeLocalNameRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Country" type="ISOCountryStructure" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="RetrieveTaxTypeLocalNameResponse">
+		<xsd:complexType>
+			<xsd:annotation>
+				<xsd:documentation>
+					Response for retrieve tax type local name
+				</xsd:documentation>
+			</xsd:annotation>
+			<xsd:sequence>
+				<xsd:element name="TaxType" type="TaxLocalNameType"
+					minOccurs="0" maxOccurs="unbounded" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	
+	
+	<xsd:complexType name="TaxLocalNameType">
+		<xsd:annotation>
+			<xsd:documentation> Country specific tax number(s) per customer
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>			
+			<xsd:element name="TaxType" type="TaxNumberTypeEnum" />
+			<xsd:element name="ISOCountryCode" type="ISOCountryCode" />
+			<xsd:element name="TaxTypeLocalName" type="AMM:String100Type" maxOccurs="1" minOccurs="0"/>			 
+			<xsd:element ref="DeleteFlag" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Set to 1 to completly delete the tax number
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="Contact" type="RetrieveCustomerContactResponseType" />
+	<xsd:element name="Customer">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="CustomerDetails" minOccurs="1" maxOccurs="1" type="RetrieveCustomerResponseType" />
+				<xsd:element  minOccurs="1" maxOccurs="1"
+					ref="RetrieveRelationshipsResponse" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Concern">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="ConcernCodeType" minOccurs="1" maxOccurs="1" type="ConcernCodeType" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

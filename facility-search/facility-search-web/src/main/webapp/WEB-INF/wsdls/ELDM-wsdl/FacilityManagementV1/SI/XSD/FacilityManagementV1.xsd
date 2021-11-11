@@ -1,0 +1,2487 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://services.apmoller.net/AMM/FacilityManagement/v1"
+	xmlns:AMM="http://services.apmoller.net/AMM/v4" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://services.apmoller.net/AMM/FacilityManagement/v1"
+	elementFormDefault="qualified" attributeFormDefault="unqualified"
+	version="1.0.18">
+	<xsd:annotation>
+		<xsd:appinfo>
+			<Metadata xmlns="http://services.apmoller.net/AMM/v2/meta">
+				<Audience/>
+				<Creator>Pettedson John			
+				</Creator>
+				<Date>
+					<Created>2014-11-20</Created>
+					<Modified>2016-12-06</Modified>
+				</Date>
+				<Description>
+					<Abstract>"DO NOT GENERATE/CHANGE THIS SCHEMA. PLEASE CONTACT ESM</Abstract>
+				</Description>
+				<Rights>
+					<Copyright>Maersk 2014</Copyright>
+				</Rights>
+				<Title>Maersk Enterprise Service Modelling (ESM) Service Schema</Title>
+			</Metadata>
+		</xsd:appinfo>
+	</xsd:annotation>
+	<!-- DON'T REMOVE -->
+	<xsd:annotation>
+		<xsd:documentation>Project Template 4</xsd:documentation>
+	</xsd:annotation>
+	<xsd:import namespace="http://services.apmoller.net/AMM/v4" schemaLocation="../../../SharedInterfaceResources/XMLDataModel/Version4.0/EAMBaseTypes.xsd"/>
+	<xsd:element name="SearchContainerYardsRequest" type="SearchContainerYardsRequestType" />
+	<xsd:element name="SearchContainerYardsResponse" type="SearchContainerYardsResponseType"
+		nillable="true" />
+	<xsd:element name="GetDefaultContainerYardRequest" type="GetDefaultContainerYardRequestType" />
+	<xsd:element name="GetDefaultContainerYardResponse" type="GetDefaultContainerYardResponseType"
+		nillable="true" />
+	<xsd:element name="RetrieveFacilityOPSCategoryRequest"
+		type="RetrieveFacilityOPSCategoryRequestType" />
+	<xsd:element name="RetrieveFacilityOPSCategoryResponse"
+		type="RetrieveFacilityOPSCategoryResponseType" />
+	<xsd:element name="RetrieveFacilityStatusRequest" type="RetrieveFacilityStatusRequestType" />
+	<xsd:element name="RetrieveFacilityStatusResponse" type="RetrieveFacilityStatusResponseType" />
+	<xsd:element name="RetrieveFacilityTypeRequest" type="RetrieveFacilityTypeRequestType" />
+	<xsd:element name="RetrieveFacilityTypeResponse" type="RetrieveFacilityTypeResponseType" />
+	<xsd:element name="RetrieveOfferingGroupRequest" type="RetrieveOfferingGroupRequestType" />
+	<xsd:element name="RetrieveOfferingGroupResponse" type="RetrieveOfferingGroupResponseType" />
+	<xsd:element name="RetrieveOfferingRequest" type="RetrieveOfferingRequestType" />
+	<xsd:element name="RetrieveOfferingResponse" type="RetrieveOfferingResponseType" />
+	<xsd:element name="RetrieveFacilityCommercialTypesRequest" type="RetrieveFacilityCommercialTypesRequestType" />
+	<xsd:element name="RetrieveFacilityCommercialTypesResponse" type="RetrieveFacilityCommercialTypesResponseType" />
+	<xsd:element name="RetrieveFacilityBrandsRequest" type="RetrieveFacilityBrandsRequestType" />
+	<xsd:element name="RetrieveFacilityBrandsResponse" type="RetrieveFacilityBrandsResponseType" />
+	<xsd:element name="RetrieveFacilityFunctionsRequest" type="RetrieveFacilityFunctionsRequestType" />
+	<xsd:element name="RetrieveFacilityFunctionsResponse" type="RetrieveFacilityFunctionsResponseType" />
+	<xsd:element name="SearchFacilityRequest" type="SearchFacilityRequestStructure" />
+	<xsd:element name="SearchFacilityResponse" type="SearchFacilityResponseStructure" />
+	<xsd:element name="UpsertFacilityRequest" type="UpsertFacilityRequestStructure" />
+	<xsd:element name="UpsertFacilityResponse" type="UpsertFacilityResponseStructure" />
+	<xsd:element name="RetriveFacilityRequest" type="RetrieveFacilityRequestStructure" />
+	<xsd:element name="RetriveFacilityResponse" type="RetrieveFacilityResponseStructure" />
+	<xsd:element name="SearchFacilityContactRequest" type="SearchFacilityContactRequestStructure" />
+	<xsd:element name="SearchFacilityContactResponse" type="SearchFacilityContactResponseStructure" />
+	<xsd:element name="UpsertContactRequest" type="UpsertContactRequestStructure" />
+	<xsd:element name="UpsertContactResponse" type="UpsertContactResponseStructure" />
+	
+	
+	<xsd:complexType name="AlternativeCodeStructure">
+		<xsd:annotation>
+			<xsd:documentation>Reference table for alternative codes that objects
+				can have in other places. Examples include:
+				* UN location code (UN/LOCODE)
+				* RKST code
+				* RKTS code
+				* GEO ID
+				* IATA code
+				* Business Unit Id e.g. DZALGMSL1
+				* Unique Id
+
+				Party roles' code aliases are stored in this entity, e.g. an
+				organization' acting as a supplier which has a SCV number would be
+				stored here together with the alias type of 'SCV Code'.
+
+				Vessel code alias can also be stored in this entity, e.g.: 'Lloyd Code',
+				'Official Registration Number'</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="AlternativeCodeVal" type="AMM:String50NonNullType" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AlternativeCodeString13Type">
+		<xsd:annotation>
+			<xsd:documentation>Reference table for alternative codes that objects
+				can have in other places. Examples include:
+				* UN location code (UN/LOCODE)
+				* RKST code
+				* RKTS code
+				* GEO ID
+				* IATA code
+				* Business Unit Id e.g. DZALGMSL1
+				* Unique Id
+
+				Party roles' code aliases are stored in this entity, e.g. an
+				organization' acting as a supplier which has a SCV number would be
+				stored here together with the alias type of 'SCV Code'.
+
+				Vessel code alias can also be stored in this entity, e.g.: 'Lloyd Code',
+				'Official Registration Number'</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="AlternativeCodeVal" type="AMM:String13NonNullType"
+				maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AssetStructure">
+		<xsd:annotation>
+			<xsd:documentation>Data about items of value or usefulness owned by
+				Parties.
+				Includes items used in executing the Enterprise's business, such as Vessels
+				and Containers, and the characteristics of these items.
+				Also includes Cash, and nontangible Assets such as trademarks, patents,
+				copyrights and goodwill.
+
+				Something - either tangible (e.g. a Vessel, a Container, or a Crane) or
+				intangible (eg a service or an IT asset) - with a value to the
+				Enterprise which is owned by the Enterprise, regardless of what that
+				Asset might be.
+				This entity is used as an all-purpose link to more specific entities
+				within the Asset data domain.
+
+				An item of value or usefulness owned by a Party or Parties.
+				Asset is the supertype of all entity types that represent assets of
+				various kinds (eg Equipment, Facility...)
+
+				Example attributes include
+				- Asset Value</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="AssetId" type="AMM:Integer13Type"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>A surrogate key that can uniquely identify an
+						entry in 'Asset'.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AssetNoteDesc" type="AMM:String250Type"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="AssetTypeCd" type="AMM:String50NonNullType"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>A user/admin assigned code uniquely identifying
+						a 'Asset'.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SupplierId" type="AMM:Integer13Type"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>A surrogate key that can uniquely identify an
+						entry in 'Asset'.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ManufaturerId" type="AMM:Integer13Type"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>A surrogate key that can uniquely identify an
+						entry in 'Party Role'.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AssetOwnershipTypeCd" type="AMM:String50NonNullType"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>A user/admin assigned code uniquely identifying
+						a 'Asset'.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CityStructure">
+		<xsd:annotation>
+			<xsd:documentation>A relatively large and permanent settlement,
+				particularly a large urban settlement. Their relationship to
+				countries, other cities, states, provinces etc. are maintained via
+				the defined area realtionship.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="DefinedAreaStructure">
+				<xsd:sequence>
+					<xsd:element name="CityId" type="AMM:IntegerType"
+						minOccurs="0" maxOccurs="1" />
+					<xsd:element name="IsCapitalInd" type="AMM:BooleanType"
+						minOccurs="0" maxOccurs="1" />
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="RegionStructure">
+		<xsd:annotation>
+			<xsd:documentation>A relatively large and permanent settlement,
+				particularly a large urban settlement. Their relationship to
+				countries, other cities, states, provinces etc. are maintained via
+				the defined area realtionship.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="DefinedAreaStructure">
+				<xsd:sequence>
+					<xsd:element name="RegionId" type="AMM:IntegerType"
+						minOccurs="0" maxOccurs="1" />
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="ContactAddressStructure">
+		<xsd:annotation>
+			<xsd:documentation>Supertype contact address that has several
+				subtypes e.g.:
+				* Postal Address
+				* Electronic Address
+				* Telecommunications Number</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ContactAddressIdentifier" type="AMM:Integer13Type"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The unique identifier for a specific contact
+						address, this is a surrogate key.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ContactAddressCD" type="AMM:String50Type"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="ContactAddressTypeId" type="AMM:Integer13Type"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="Parent" type="ContactAddressStructure"
+				minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ContactAddressTypeStructure">
+		<xsd:annotation>
+			<xsd:documentation>A categorization of Contact Address. Examples
+				Include:
+				- Telecommunications Number
+				- Electronic Address
+				- Postal address
+</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ContactAddressTypeCode" type="AMM:String50NonNullType"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Uniquely identifies a type of address.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ContactAddressTypeName" type="AMM:String100Type"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Textual description of a type of address.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ContactAddress" type="ContactAddressStructure"
+				minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ContainerYardSummaryType">
+		<xsd:annotation>
+			<xsd:documentation>Facility at which containers are accepted for
+				loading onboard ships, and off-loaded containers are delivered to
+				the consignees.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="FacilitySummaryType" />
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="ContainerYardStructure">
+		<xsd:annotation>
+			<xsd:documentation>Facility at which containers are accepted for
+				loading onboard ships, and off-loaded containers are delivered to
+				the consignees.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="FacilityStructure" />
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="CountryStructure">
+		<xsd:annotation>
+			<xsd:documentation>A country. Holds attributes like country name, ISO
+				code and ISO number.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="DefinedAreaStructure">
+				<xsd:sequence>
+					<xsd:element name="IsPostalCodeMandatoryInd" type="AMM:BooleanType"
+						minOccurs="0" maxOccurs="1">
+						<xsd:annotation>
+							<xsd:documentation>A yes/no indicator of a 'Country' for the term
+								'Is Postal Code Mandatory Ind'.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="IsPostalCodePredefinedInd" type="AMM:BooleanType"
+						minOccurs="0" maxOccurs="1">
+						<xsd:annotation>
+							<xsd:documentation>A yes/no indicator of a 'Country' for the term
+								'Is Postal Code Predefined Ind'.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="IsPostalCodeUniqueInCountryInd"
+						type="AMM:BooleanType" minOccurs="0" maxOccurs="1">
+						<xsd:annotation>
+							<xsd:documentation>A yes/no indicator of a 'Country' for the term
+								'Is Postal Code Unique In Country Ind'.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="IsCapitalCityMandatoryInd" type="AMM:BooleanType"
+						minOccurs="0" maxOccurs="1">
+						<xsd:annotation>
+							<xsd:documentation>A yes/no indicator of a 'Country' for the term
+								'Is Capital City Mandatory Ind'.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="ISOCountry" type="ISOCountryStructure"
+						minOccurs="1" maxOccurs="1" />
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="DefinedAreaStructure">
+		<xsd:annotation>
+			<xsd:documentation>The supertype entity to all geographic and other
+				kinds of areas such as Business Defined Areas (which still have a
+				geographic aspect to their definition). Some areas are 'point', have
+				specific geographical coordinates (e.g. the "city Centre" point)
+				while other have a geographic boundary (defined perimeter) enclosing
+				an area such as a Continent, Country, City or Site.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="DefinedAreaId" type="AMM:Integer13Type"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Surrogate key for the defined area
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ResponsibleOrganisationUnitId" type="AMM:Integer13Type"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>A surrogate key that can uniquely identify an
+						entry in 'Defined Area'.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TimeZoneId" type="AMM:Integer13Type"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>A surrogate key that can uniquely identify an
+						entry in 'Defined Area'.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DefinedAreaName" type="AMM:String100Type"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="DefinedAreaDescription" type="AMM:String250Type"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Descriptive text of an entry in 'Defined Area'
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ValidFromDt" type="AMM:DateType"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="ValidThruDt" type="AMM:DateType"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="DaylightSavingsTimeId" type="AMM:Integer13Type"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="DefinedAreaCd" type="AMM:String50NonNullType"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="GeoIDs" type="GeoIDsStructure"
+				minOccurs="0" maxOccurs="1" />	
+			<xsd:element name="GeoCd" type="AlternativeCodeStructure"
+				minOccurs="0" maxOccurs="1" />		
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="GeoIDsStructure">
+		<xsd:sequence>
+			<xsd:element name="GeoID" type="AlternativeCodeStructure"
+				minOccurs="1" maxOccurs="unbounded" />
+		</xsd:sequence>			
+	</xsd:complexType>
+	
+
+	<xsd:complexType name="DefinedAreaEmptyType">
+		<xsd:annotation>
+			<xsd:documentation>The supertype entity to all geographic and other
+				kinds of areas such as Business Defined Areas (which still have a
+				geographic aspect to their definition). Some areas are 'point', have
+				specific geographical coordinates (e.g. the "city Centre" point)
+				while other have a geographic boundary (defined perimeter) enclosing
+				an area such as a Continent, Country, City or Site.
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:complexType>
+	<xsd:complexType name="DefinedAreaNameType">
+		<xsd:annotation>
+			<xsd:documentation>The supertype entity to all geographic and other
+				kinds of areas such as Business Defined Areas (which still have a
+				geographic aspect to their definition). Some areas are 'point', have
+				specific geographical coordinates (e.g. the "city Centre" point)
+				while other have a geographic boundary (defined perimeter) enclosing
+				an area such as a Continent, Country, City or Site.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="DefinedAreaName" type="AMM:String100NonNullType" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="TerritorialUnitStructure">
+		<xsd:annotation>
+			<xsd:documentation>A territorial unit can be a any geographic boundary that a country contains, e.g. states, provinces, counties, emirates. The relationship with the country is manged through the geographic boundary relationship entity. 
+Several territorial units within countries are having ISO standard code, e.g. the 7 emirates in UAE one of them is AE-AZ  Abu Z,aby [Abu Dhabi].	</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="DefinedAreaStructure">
+				<xsd:sequence>
+					<xsd:element name="TerritorialUnitTypeCD" type="AMM:String50NonNullType" minOccurs="0" maxOccurs="1"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="FacilityContactAddressStructure">
+		<xsd:annotation>
+			<xsd:documentation>An identifier for a Contact Address to be used to
+				contact a Facility</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="FacilityContactAddressId" type="AMM:Integer13Type"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="CommentTxt" type="AMM:String1000Type"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>A textual phrase that does not fit name or
+						description.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PostalAddress" type="PostalAddressStructure"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TelecommunicationsNumber" type="TelecommunicationsNumberStructure"
+				minOccurs="0" maxOccurs="1" />	
+			<xsd:element name="ElectronicAddress" type="ElectronicAddressStructure"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="ValidPeriod" type="ValidPeriodStructure"
+						minOccurs="0" maxOccurs="1" />
+			<xsd:element name="AuditDetails" type="AuditDataStructure"
+						minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FacilityContactAddressSummaryType">
+		<xsd:annotation>
+			<xsd:documentation>An identifier for a Contact Address to be used to
+				contact a Facility</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="PostalAddress" type="PostalAddressSummaryType"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="City" type="CityStructure" minOccurs="0"
+				maxOccurs="1" />
+			<xsd:element name="Country" type="CountryStructure"
+				minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FacilityStructure">
+		<xsd:annotation>
+			<xsd:documentation>A building, construction or installation designed
+				to serve a specific function.
+				The facilities are linked to a type that specifies the kind of facility
+				it is.
+
+				Facility can be linked to subsidiary Facilities within its hierarchy to
+				enable high-level multi-function Facilities (such as Terminals) to
+				be made up of subsidiaries such as Container Terminals, Container
+				Yards, Warehouses, Customs Buildings, Railheads and Docks.
+
+				And also Container Yard Block</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="AssetStructure">
+				<xsd:sequence>
+					<xsd:element name="GeographicCoordinate" type="GeographicCoordinateStructure"
+						minOccurs="0" maxOccurs="1" />
+					<xsd:element name="DefinedArea" type="DefinedAreaStructure"
+						minOccurs="0" maxOccurs="1" />
+					<xsd:element name="FacilityName" type="AMM:String200Type"
+						minOccurs="0" maxOccurs="1">
+						<xsd:annotation>
+							<xsd:documentation>The name of an entry in 'Facility'.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="FacilityClassificationCd" type="AMM:String50NonNullType"
+						minOccurs="0" maxOccurs="1" />
+					<xsd:element name="FacilityOwner" type="FacilityOwnerStructure"
+						minOccurs="0" maxOccurs="unbounded" />
+					<xsd:element name="FacilityAttribute" type="FacilityAttributeStructure"
+						minOccurs="0" maxOccurs="unbounded" />
+					<xsd:element name="FacilityContactAddress" type="FacilityContactAddressStructure"
+						minOccurs="0" maxOccurs="unbounded" />
+					<xsd:element name="FacilityTypes" type="FacilityTypesStructure"
+						minOccurs="0" maxOccurs="1" />
+					<xsd:element name="FacilityLifeCycleStatus" type="FacilityLifecycleStatusStructure"
+						minOccurs="0" maxOccurs="1" />
+					<xsd:element name="FacilityOfferings" type="FacilityOfferingsStructure"
+						minOccurs="0" maxOccurs="1" />
+					<xsd:element name="FacilityAvailabilitiesStructure" type="FacilityAvailabilitiesStructure"
+						minOccurs="0" maxOccurs="1" />
+					<xsd:element name="FacilityTransportAccesses" type="FacilityTransportAccessesStructure"
+						minOccurs="0" maxOccurs="1" />
+					<xsd:element name="PartyRoleFacility" type="PartyRoleFacilityStructure"
+						minOccurs="0" maxOccurs="unbounded" />
+					<xsd:element name="Region" type="RegionStructure"
+						minOccurs="0" maxOccurs="1" />	
+					<xsd:element name="City" type="CityStructure"
+						minOccurs="0" maxOccurs="1" />	
+					<xsd:element name="Country" type="CountryStructure"
+						minOccurs="0" maxOccurs="1" />			
+					<xsd:element name="MaritimeContainerTerminal" type="MaritimeContainerTerminalStructure" 
+						minOccurs="0" maxOccurs="1"/>	
+					<xsd:element name="ValidPeriod" type="ValidPeriodStructure"
+						minOccurs="0" maxOccurs="1" />
+					<xsd:element name="AuditDetails" type="AuditDataStructure"
+						minOccurs="0" maxOccurs="1" />
+					<!-- The Following Fields/FieldType are not ELDM Specific Fields and are 
+						Fields that are Required for the purpose of the Techical 
+						and State Functioning of the System -->	
+					<xsd:element name="FacilityExternalMarkerFields" type="FacilityExternalMarkerFieldsStructure"
+						minOccurs="0" maxOccurs="1"/>			
+ 	  			</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="FacilityExternalMarkerFieldsStructure">
+		<xsd:sequence>
+			<xsd:element name="ExternallyExposedFlag" type="AMM:BooleanType"
+                minOccurs="0" maxOccurs="1"/>			
+			<xsd:element name="ExternallyOwnedFlag" type="AMM:BooleanType"
+                minOccurs="0" maxOccurs="1"/>		
+            <xsd:element name="VesselAgentFlag" type="AMM:BooleanType"
+              	minOccurs="0" maxOccurs="1"/>  	
+            <xsd:element name="FacilityWorkFlowStatus" type="AMM:String50NonNullType"
+              	minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="DoDAAC" type="AMM:String100NonNullType"
+              	minOccurs="0" maxOccurs="1"/>  	  	  	
+            <xsd:element name="OceanFreightPricingFlag" type="AMM:BooleanType"
+              	minOccurs="0" maxOccurs="1"/> 
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FacilityOwnerStructure">
+		<xsd:annotation>
+			<xsd:documentation>The owner of a facility.
+				There can be multiple owners of a facility, e.g. shared ownership in
+				joint venture.
+				The Facility Owner entity provides the list of valid combinations of
+				which Facilities are owned by which Owners.
+				It is the intersection resolving the many-to-many between Facility and
+				Owner.
+</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="CommentTxt" type="AMM:String1000Type"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>A textual phrase that does not fit name or
+						description.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FacilitiesStructure">
+		<xsd:sequence>
+			<xsd:element name="Facility" type="FacilityStructure"
+				minOccurs="1" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FacilitySummaryType">
+		<xsd:annotation>
+			<xsd:documentation>A building, construction or installation designed
+				to serve a specific function.
+				The facilities are linked to a type that specifies the kind of facility
+				it is.
+
+				Facility can be linked to subsidiary Facilities within its hierarchy to
+				enable high-level multi-function Facilities (such as Terminals) to
+				be made up of subsidiaries such as Container Terminals, Container
+				Yards, Warehouses, Customs Buildings, Railheads and Docks.
+
+				And also Container Yard Block</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="AssetStructure">
+				<xsd:sequence>
+					<xsd:element name="ContainerYardCode" type="AlternativeCodeString13Type" />
+					<xsd:element name="FacilityContactAddress" type="FacilityContactAddressSummaryType" />
+					<xsd:element name="FacilityName" type="AMM:String200Type" />
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="ISOCountryStructure">
+		<xsd:annotation>
+			<xsd:documentation>International Standard Organization information
+				about a country. This is kep in seperate table as there might be
+				countries used in the enterprise which are not recognized by UN and
+				therefore not in the ISU standard list.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ISOCountryAlpha-2Cd" type="AMM:StringISOCountryAlpha-2Type" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PostalAddressAreaCityType">
+		<xsd:annotation>
+			<xsd:documentation>Allows for a postal address to be associated with
+				e.g. a Postal Code, a City and a Country.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="City" type="CityStructure" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PostalAddressAreaStateType">
+		<xsd:annotation>
+			<xsd:documentation>Allows for a postal address to be associated with
+				e.g. a Postal Code, a City and a Country.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="State" type="DefinedAreaNameType" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PostalAddressAreaCountryType">
+		<xsd:annotation>
+			<xsd:documentation>Allows for a postal address to be associated with
+				e.g. a Postal Code, a City and a Country.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Country" type="CountryStructure" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PostalAddressDetailStructure">
+		<xsd:sequence>
+			<xsd:element name="PostalAddressAreaCity" type="PostalAddressAreaCityType" />
+			<xsd:element name="PostalAddressAreaState" type="PostalAddressAreaStateType"
+				minOccurs="0" />
+			<xsd:element name="PostalAddressAreaCountry" type="PostalAddressAreaCountryType" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PostalAddressStructure">
+		<xsd:annotation>
+			<xsd:documentation>Holds information about postal addresses. Street
+				name and number, directions etc. will be stored here.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="ContactAddressStructure">
+				<xsd:sequence>
+					<xsd:element name="CityIdentifier"
+                      type="AMM:Integer13Type"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+         <xsd:element name="Country"
+                      type="CountryStructure"
+                      minOccurs="0"
+                      maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation>A surrogate key that can uniquely identify an entry in 'Postal Address'.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:element>
+         <xsd:element name="GeographicCoordinateIdentifier"
+                      type="AMM:Integer13Type"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+         <xsd:element name="PostalAddressTypeIdentifier"
+                      type="AMM:Integer13Type"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+         <xsd:element name="PostalCodeIdentifier"
+                      type="AMM:Integer13Type"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+         <xsd:element name="TaxJurisdictionCode"
+                      type="AMM:String50NonNullType"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+         <xsd:element name="TerritorialUnit"
+                      type="TerritorialUnitStructure"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+         <xsd:element name="HouseNumber"
+                      type="AMM:String50NonNullType"
+                      minOccurs="0"
+                      maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation>A number representing a specific location on a street. Example: the '1373' in 1373 E. Street S.E.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:element>
+         <xsd:element name="LatitudeMeasure"
+                      type="AMM:Decimal18d4Type"
+                      minOccurs="0"
+                      maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation>The navigational coordinate represented by the address and recorded as an angular distance (degrees) north or south of the earth's equator.
+
+Typically generated by GPS (Global Positioning System) applications, and enables the usage of Geography Information System applications.
+
+Note: combine the Latitude and Longitude measures for Teradata Geospatial processing analysis.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:element>
+         <xsd:element name="Line1Address"
+                      type="AMM:String250Type"
+                      minOccurs="0"
+                      maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation>The first line of text containing all or
+part of a physical site address
+excluding city name, state, and
+postal (zip) code and country.
+This line typically contains
+additional recipient information such
+as "in care of" (c/o), department
+names or "Attention:" names.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:element>
+         <xsd:element name="Line2Address"
+                      type="AMM:String250Type"
+                      minOccurs="0"
+                      maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation>The second line of text containing all
+or part of a physical site address
+excluding city name, state, and
+postal (zip) code and country.
+This line typically contains street
+numbers and street names. (Street,
+Avenue, Road, Boulevard, Parkway,
+Highway, etc.)</xsd:documentation>
+            </xsd:annotation>
+         </xsd:element>
+         <xsd:element name="Line3Address"
+                      type="AMM:String250Type"
+                      minOccurs="0"
+                      maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation>The third line of text containing all
+or part of a physical site address
+excluding city name, state, and
+postal (zip) code and country.
+This line typically contains
+additional location numbers such as
+apartment numbers or business suite
+numbers.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:element>
+         <xsd:element name="LongitudeMeasure"
+                      type="AMM:Decimal18d4Type"
+                      minOccurs="0"
+                      maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation>The navigational coordinate measured as a meridian that passes through each of the earth's poles (N/S) and the physical site represented by the address. It is recorded as an angular distance (degrees), as measured from the zero or prime meridian that passes from the north and south poles through Greenwich, England.
+
+Typically generated by GPS (Global Positioning System) applications, and enables the usage of Geography Information System applications.
+
+Note: combine the Latitude and Longitude measures for Teradata Geospatial processing analysis.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:element>
+         <xsd:element name="PostalAddressCode"
+                      type="AMM:String50NonNullType"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="PostalAddressSummaryType">
+		<xsd:annotation>
+			<xsd:documentation>Holds information about postal addresses. Street
+				name and number, directions etc. will be stored here.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="ContactAddressStructure">
+				<xsd:sequence>
+					<xsd:element name="AddressLine1" type="AMM:String100NonNullType"
+						minOccurs="0" />
+					<xsd:element name="AddressLine2" type="AMM:String100NonNullType"
+						minOccurs="0" />
+					<xsd:element name="AddressLine3" type="AMM:String100NonNullType"
+						minOccurs="0" />
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="PostalCodeStructure">
+		<xsd:annotation>
+			<xsd:documentation>Postal codes and their prefix and/or suffixes are
+				maintained in this entity. Also known in some countries as a
+				Zip-code. Can be to different levels of granularity, referring to a
+				whole town, or to small areas within a town, down to an individual
+				property.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="DefinedAreaEmptyType">
+				<xsd:sequence>
+					<xsd:element name="PostalCd" type="AMM:String13NonNullType" />
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="SearchContainerYardsInputType"
+		abstract="true">
+		<xsd:annotation>
+			<xsd:documentation>abstract tyope for SearchContainerYards Input
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:complexType>
+	<xsd:complexType name="SearchContainerYardsInputCityType">
+		<xsd:annotation>
+			<xsd:documentation>SearchContainerYards input with mandatory City
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="SearchContainerYardsInputType">
+				<xsd:sequence>
+					<xsd:element name="CityCode" type="AlternativeCodeString13Type"
+						minOccurs="1" maxOccurs="1" />
+					<xsd:element name="ISOCountry" type="ISOCountryStructure"
+						minOccurs="0" maxOccurs="1" />
+					<xsd:element name="PostalCode" type="PostalCodeStructure"
+						minOccurs="0" maxOccurs="1" />
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="SearchContainerYardsInputCountryType">
+		<xsd:annotation>
+			<xsd:documentation>SearchContainerYards input with mandatory
+				ISOCountry</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="SearchContainerYardsInputType">
+				<xsd:sequence>
+					<xsd:element name="CityCode" type="AlternativeCodeString13Type"
+						minOccurs="0" maxOccurs="1" />
+					<xsd:element name="ISOCountry" type="ISOCountryStructure"
+						minOccurs="1" maxOccurs="1" />
+					<xsd:element name="PostalCode" type="PostalCodeStructure"
+						minOccurs="0" maxOccurs="1" />
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="SearchContainerYardsInputPostCdType">
+		<xsd:annotation>
+			<xsd:documentation>SearchContainerYards input with mandatory
+				PostalCode</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="SearchContainerYardsInputType">
+				<xsd:sequence>
+					<xsd:element name="CityCode" type="AlternativeCodeString13Type"
+						minOccurs="0" maxOccurs="1" />
+					<xsd:element name="ISOCountry" type="ISOCountryStructure"
+						minOccurs="0" maxOccurs="1" />
+					<xsd:element name="PostalCode" type="PostalCodeStructure"
+						minOccurs="1" maxOccurs="1" />
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="SearchContainerYardsRequestType">
+		<xsd:sequence>
+			<xsd:element name="SearchContainerYardsInput" type="SearchContainerYardsInputType"
+				minOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>SearchContainerYardsInputType abstract have
+						three possible defintions as below
+						SearchContainerYardsInputCityType - Mandatory city with optional
+						country and postal code
+						SearchContainerYardsInputCountryType - Mandatory Country with optional city and postal code
+						SearchContainerYardsInputPostCdType - Mandatory postal code with
+						optional country and city
+			 </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SearchContainerYardsResponseType">
+		<xsd:sequence>
+			<xsd:element name="ContainerYard" type="ContainerYardStructure"
+				minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="GetDefaultContainerYardRequestType">
+		<xsd:sequence>
+			<xsd:element name="PlaceOfReceipt" type="DefinedAreaNameType" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="GetDefaultContainerYardResponseType">
+		<xsd:sequence>
+			<xsd:element name="ContainerYard" type="ContainerYardSummaryType"
+				minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="RetrieveFacilityOPSCategoryRequestType" />
+	<xsd:complexType name="RetrieveFacilityOPSCategoryResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="ReferenceDataResponseType" />
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="RetrieveFacilityStatusRequestType" />
+	<xsd:complexType name="RetrieveFacilityStatusResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="ReferenceDataResponseType" />
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="RetrieveFacilityTypeRequestType" />
+	<xsd:complexType name="RetrieveFacilityTypeResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="ReferenceDataResponseType" />
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="RetrieveOfferingGroupRequestType" />
+	<xsd:complexType name="RetrieveOfferingGroupResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="ReferenceDataResponseType" />
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="RetrieveFacilityCommercialTypesRequestType" />
+	<xsd:complexType name="RetrieveFacilityCommercialTypesResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="ReferenceDataResponseType" />
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<xsd:complexType name="RetrieveFacilityBrandsRequestType" />
+	<xsd:complexType name="RetrieveFacilityBrandsResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="ReferenceDataResponseType" />
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<xsd:complexType name="RetrieveFacilityFunctionsRequestType" />
+	<xsd:complexType name="RetrieveFacilityFunctionsResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="ReferenceDataResponseType" />
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="RetrieveOfferingRequestType" />
+	<xsd:complexType name="RetrieveOfferingResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="ReferenceDataResponseType" />
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="ReferenceDataResponseType">
+		<xsd:sequence>
+			<xsd:element name="ReferenceDataDetails" type="ReferenceDataDetailsStructure"
+				minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="ReferenceDataDetailsStructure">
+		<xsd:sequence>
+			<xsd:element name="ReferenceDataDetail" type="ReferenceDataStructure"
+				minOccurs="1" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="ReferenceDataStructure">
+		<xsd:sequence>
+			<xsd:element name="Code" type="AMM:String50Type"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="Name" type="AMM:String300NonNullType"
+				minOccurs="1" maxOccurs="1" />
+			<xsd:element name="Description" type="AMM:String300NonNullType"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="AdditionalGenericDataBlock" type="AdditionalGenericDataBlockStructure"
+				minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="AdditionalGenericDataBlockStructure">
+		<xsd:sequence>
+			<xsd:element name="AdditionalGenericData" type="AMM:String4000NonNullType"
+				minOccurs="1" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="UpsertFacilityRequestStructure">
+		<xsd:sequence>
+		
+			<xsd:element name="Facility" type="FacilityStructure"
+				minOccurs="0" maxOccurs="1" />
+				<!-- 
+				The values of House Number,StreetName,Building,Suburb,District,
+				City,Region,PostalCode and Other Relevant Geod Id's would actually be
+				encapsulated in the Facility Address Structure and mainly should be 
+				linked to the Site ID or the Facility Geo ID.   
+				-->
+			<!-- The Fields of AddressWorkFlowIndicator,AddressMailabilityScore and 
+				AddressMatchScore are encapsulated in this Field (This is a Non ELDM Field Structure) -->		
+			<xsd:element name ="AddressIndicator" type="AddressIndicatorStructure" 
+				minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+
+	<xsd:complexType name="SearchFacilityRequestStructure">
+		<xsd:sequence>
+			<xsd:element name="FacilityName" type="AMM:String1000NonNullType"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="FacilityClassificationCD" type="AMM:String50NonNullType"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="FacilityTypes" type="FacilityTypesStructure"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="FacilityLifeCycleStatus" type="FacilityLifecycleStatusStructure"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="FacilityOfferingCodes" type="FacilityOfferingsStructure"
+				minOccurs="0" maxOccurs="1" />	
+			<xsd:element name="HouseNo" type="AMM:String50NonNullType"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="StreetName" type="AMM:String100NonNullType"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="FacilityAddress" type="FacilityContactAddressStructure"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="City" type="CityStructure" minOccurs="0"
+				maxOccurs="1" />
+			<xsd:element name="Region" type="RegionStructure"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="Country" type="CountryStructure"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="PostalCode" type="PostalCodeStructure"
+				minOccurs="0" maxOccurs="1" />	
+			<xsd:element name="GeographicCoordinate" type="AlternativeCodeStructure"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="AuditData" type="AuditDataStructure"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="AddressIndicatorStructure" type="AuditDataStructure"
+				minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="OfferingCodesStructure">
+		<xsd:sequence>
+			<xsd:element name="OfferingCodeDetail" type="OfferingCodeDetailStructure"
+				minOccurs="1" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="OfferingCodeDetailStructure">
+		<xsd:sequence>
+			<xsd:element name="OfferingCodeName" type="AMM:String100Type"
+				minOccurs="1" maxOccurs="1" />
+			<xsd:element name="OfferingCodeDescription" type="AMM:String1000Type"
+				minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="SearchFacilityResponseStructure">
+		<xsd:sequence>
+			<xsd:element name="ServiceProcessingStatus" type="ServiceProcessingStatusStructure"
+				minOccurs="1" maxOccurs="1" />
+			<xsd:element name="Facilities" type="FacilitiesStructure"
+				minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="ServiceProcessingStatusStructure">
+		<xsd:sequence>
+			<xsd:element name="Code" type="AMM:String100Type"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="Status" type="AMM:String100Type"
+				minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="GeographicCoordinateStructure">
+		<xsd:annotation>
+			<xsd:documentation>Longitude and latitude of a geographic point. This
+				may define a specific point in a city or site. A city's geographic
+				coordinate normally stipulates its city centre.
+
+				Each Geographic Coordinate is specific a Defined Area, there is no
+				sharing of a particular Geographic Coordinate between two Defined
+				Areas - to take the unlikely event of a Country having a GC for its
+				centre which coincides with the GC of its capital city, that city
+				would have its own GC and the country would have its own GC - even
+				though the data (longitude/latitude pair) would be identical for the
+				two Defined Areas.
+
+				Note that although both this entity AND the (nominally similar) "RCD GPS
+				Position" entity contain a Latitude/Longitude pair, the two entities
+				are not convergent and do not overlap - neither is there any
+				relationship from one to the other.
+				This entity holds data which might be created once and stored forever,
+				since it is always related to a specified Defined Area somewhere on
+				the earth's surface (possibly as one element in a Geofence), whereas
+				the "GPS Position" entity holds large amounts of highly volatile
+				rapidly-changing (and perhaps often discarded) data plotting the
+				path of an RCD device as its Reefer moves around the globe.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="GeographicCoordinateId" type="AMM:Integer13Type"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>A surrogate key that can uniquely identify an
+						entry in 'Geographic Coordinate'.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LongitudeGeosptl" type="AMM:String200Type"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Decimal value of longitude.
+
+						The navigational coordinate measured as a meridian that passes
+						through each of the earth's poles (N/S). It is recorded as an
+						angular distance (degrees), as measured from the zero or prime
+						meridian that passes from the north and south poles through
+						Greenwich, England.
+						Typically generated by GPS (Global Positioning System) applications, and
+						enables the usage of Geography Information System applications.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LatitudeGeosptl" type="AMM:String200Type"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Decimal value of latitude.
+
+						The navigational coordinate recorded as an angular distance (degrees)
+						north or south of the earth's equator. Typically generated by GPS
+						(Global Positioning System) applications, and enables the usage of
+						Geography Information System applications.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ElevationMeas" type="AMM:Integer10Type"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>A physical height measured above sea level for .
+						In the U.S., this measurement is typically in feet, such as 5000
+						feet above sea level. In the rest of the world, it is measured in
+						meters. A unit of measurement is associated with the elevation.
+
+						Elevation could become a need to know when transporting dangerous
+						goods inland, where ld not be taken above a certain elevation.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ElevationMeasUnitId" type="AMM:Integer13Type"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>A surrogate key that can uniquely identify an
+						entry in 'Geographic Coordinate'.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="GeographicCoordinateType" type="GeographicCoordinateTypeStructure"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>A surrogate key that can uniquely identify an
+						entry in 'Geographic Coordinate'.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<xsd:element name="PostalAddress" type="PostalAddressStructure"
+				minOccurs="0" maxOccurs="unbounded"/>
+				
+			<xsd:element name="GPSFlag" type="AMM:String50NonNullType"
+				minOccurs="0" maxOccurs="1"/>
+				
+			<xsd:element name="GSMFlag" type="AMM:String50NonNullType"
+				minOccurs="0" maxOccurs="1"/>	
+					
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="GeographicCoordinateTypeStructure">
+		<xsd:annotation>
+			<xsd:documentation>"Geographic Coordinate Type" is a very simple
+				piece of reference data, having only two instances: "Point" and
+				"Perimeter".
+				A Geographic Coordinate of type "Point" is a pair of
+				latitude/longitude value for a single point.
+				A Geographic Coordinate of type "Perimeter" is part of a collection
+				of coordinates which together define the boundary of (typically) a
+				Site (though of course any kind of Defined Area can be referenced).
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="GeographicCoordinateTypeCd" type="AMM:String50NonNullType"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>A user/admin assigned code uniquely identifying
+						a 'Geographic Coordinate Type'.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="GeographicCoordinateTypeName" type="AMM:String100Type"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The name of an entry in 'Geographic Coordinate
+						Type'.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="GeographicCoordinate" type="GeographicCoordinateStructure"
+				minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="ValidPeriodStructure">
+		<xsd:sequence>
+			<xsd:element name="ValidFrom" type="AMM:DateType"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="ValidTo" type="AMM:DateType"
+				minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="AuditDataStructure">
+		<xsd:sequence>
+			<xsd:element name="CreationDetails" type="DateUserDataStructure"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="LastUpdatedDetails" type="DateUserDataStructure"
+				minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="DateUserDataStructure">
+		<xsd:sequence>
+			<xsd:element name="DateTime" type="AMM:DateTimeType" minOccurs="0"
+				maxOccurs="1" />
+			<xsd:element name="User" type="AMM:String100Type"
+				minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="AddressIndicatorStructure">
+		<xsd:sequence>
+			<xsd:element name="AddressWorkflowStatus" type="AMM:String50NonNullType"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="AddressMailabiltyScore" type="AMM:String10Type"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="AddressMatchScore" type="AMM:String10Type"
+				minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="UpsertFacilityResponseStructure">
+		<xsd:sequence>
+			<xsd:element name="FacilityIdentifier"
+				type="FacilityIDStructure" minOccurs="0"
+				maxOccurs="1" />	
+			<xsd:element name="UpsertFacilityFieldValidationStatuses" type="UpsertFacilityFieldValidationStatusesStructure"
+				minOccurs="0" maxOccurs="1" />	
+			<xsd:element name="ServiceProcessingStatus" type="ServiceProcessingStatusStructure"
+				minOccurs="1" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="UpsertFacilityFieldValidationStatusesStructure">
+		<xsd:sequence>
+			<xsd:element name="UpsertFacilityFieldValidationStatus"
+				type="UpsertFacilityFieldValidationStatusStructure" minOccurs="1"
+				maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="UpsertFacilityContactFieldValidationStatusesStructure">
+		<xsd:sequence>
+			<xsd:element name="UpsertFacilityContactFieldValidationStatus"
+				type="UpsertFacilityFieldValidationStatusStructure" minOccurs="1"
+				maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="FacilityIDStructure">
+		<xsd:sequence>
+			<xsd:element name="FacilityGeoID" type="AlternativeCodeStructure"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="FacilityRKSTCode" type="AMM:String10NonNullType"
+				minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="ContactIDStructure">
+		<xsd:sequence>
+			<xsd:element name="ContactID" type="AMM:String50NonNullType"
+				minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+
+	<xsd:complexType name="UpsertFacilityFieldValidationStatusStructure">
+		<xsd:sequence>
+			<xsd:element name="FieldName" type="AMM:String100Type"
+				minOccurs="1" maxOccurs="1" />
+			<xsd:element name="ValidationErrorDetail" type="AMM:String1000Type"
+				minOccurs="1" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="FacilityTypesStructure">
+		<xsd:sequence>
+			<xsd:element name="FacilityType" type="FacilityTypeStructure"
+				minOccurs="1" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="FacilityLifecycleStatusStructure">
+		<xsd:sequence>
+			<xsd:element name="FacilityLifecycleStatusId" type="AMM:Integer13Type"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="FacilityStatusCD" type="AMM:String50NonNullType"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="FacilityStatusValue" type="AMM:String250Type"
+				minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="FacilityTypeStructure">
+		<xsd:annotation>
+			<xsd:documentation>Reference data listing all of the types of
+				Facility that can exist, such as:
+				Maritime Container Terminal
+				Container Yard
+				Gate
+				Customs Warehouse
+				Transfer Facility (eg Railhead)
+				Rail Ramp
+				Maintenance Yard
+				Feeder Port
+				Ocean Port
+				Berth
+				Office</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="FacilityTypeCd" type="AMM:String50NonNullType"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="FacilityTypeDesc" type="AMM:String250Type"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="FacilityTypeName" type="AMM:String100Type"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="ValidPeriod" type="ValidPeriodStructure"	
+				minOccurs="0" maxOccurs="1" />	
+		</xsd:sequence>
+	</xsd:complexType>
+	
+		
+	<xsd:complexType name="CommercialFacilityStructure">
+		<xsd:complexContent>
+			<xsd:extension base="FacilityStructure">
+				<xsd:sequence>
+					<xsd:element name="Operator" type="OperatorStructure"
+							minOccurs="0" maxOccurs="1" />
+				</xsd:sequence>			
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+
+	<xsd:complexType name="FacilityOfferingStructure">
+      <xsd:annotation>
+         <xsd:documentation>A Facility offering is any kind of tangible or intangible service/offering/utility particular to a specified Facility.
+Includes typically services such as crane-lifting, spreader utilisation, provision of internet access, wi-fi, utility-provision such as water, electricity, telephone.
+
+Some kinds of Facility Offering may relate directly to a tangible asset, for example a Facility Offering entitled "Crane Lifting service" may be related to a specific crane, having a deriveable owner (or owners), and located at a specific Facility.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="IsAvailableInd"
+                      type="AMM:BooleanType"
+                      minOccurs="0"
+                      maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation>A yes/no indicator of 'Facility Offering' for the attribute 'Is Available Ind'.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:element>
+         <xsd:element name="ParentOfferingCode"
+                      type="AMM:String50NonNullType"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+         <xsd:element name="FacilityGroup"
+                      type="FacilityOfferingStructure"
+                      minOccurs="0"
+                      maxOccurs="unbounded"/>
+         <!-- Offering Code and Offer Name are non ELDM fields made up only for the December the 6th BR6 release..-->             
+         <xsd:element name="OfferingCode"
+                      type="AMM:String50NonNullType"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+         <xsd:element name="OfferingName"
+                      type="AMM:String100NonNullType"
+                      minOccurs="0"
+                      maxOccurs="1"/>                          
+
+         <xsd:element name="FacilityOfferingType"
+                      type="FacilityOfferingTypeStructure"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+         <xsd:element name="ValidPeriod"
+                      type="ValidPeriodStructure"
+                      minOccurs="0"
+                      maxOccurs="1"/>                         </xsd:sequence>
+   </xsd:complexType>
+		<xsd:complexType name="FacilityOfferingTypeStructure">
+		<xsd:annotation>
+			<xsd:documentation>Reference data listing all of the types of
+				Facility Offering that can exist, eg Crane-moving,
+				Container-storage, Printing, Internet Access, Cargo Consolidation
+				etc.
+				Note - it is possible that for example "Crane-moving" might be segmented
+				into multiples with specific weight-handling capacity, such as
+				"Crane-moving, less than 10 tonnes", "Crane-moving, 10-20 tonnes"
+				etc.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="FacilityOfferingCode" type="AMM:String50NonNullType"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="FacilityOfferingName" type="AMM:String100Type"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The name of an entry in 'Facility Offering
+						Type'.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FacilityOfferingDesc" type="AMM:String250Type"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Descriptive text of an entry in 'Facility
+						Offering Type'</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ValidPeriod" type="ValidPeriodStructure"	
+				minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="FacilityAttributeStructure">
+		<xsd:annotation>
+			<xsd:documentation>Facilities can be of numerous types - and those
+				types dictate that certain "properties" (attributes) need to be
+				captured, those properties being specific to the type.
+				For example, if a particular facility is of type "Gate", then it may
+				need to capture specific data about that gate, such as the number of
+				inbound (and outbound) lanes and the number of those inbound lanes
+				which have weighbridge ability.
+				Those attributes will be different from the attributes needed for
+				facilities of other types, such as a Container Yard (where we would
+				probably be interested in capturing the available area in square
+				meters and the number of Reefer Plugs available) or a Berth (where
+				we would be interested in capturing the total length and maximum
+				draft etc).</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="FacilityAttribute" type="AMM:String50NonNullType"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="FacitlityTypeValue" type="AMM:BooleanType"
+				minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ElectronicAddressStructure">
+		<xsd:annotation>
+			<xsd:documentation>An address that can be used for contact through
+				the Internet or other electronic service. Examples include:
+				Email address (Internet or otherwise)
+				Web address (URL). Can be Internet or Intranet
+				EDI Address</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="ContactAddressStructure">
+				<xsd:sequence>
+					<xsd:element name="DomainName" type="AMM:String100Type"
+						minOccurs="0" maxOccurs="1">
+						<xsd:annotation>
+							<xsd:documentation>The name of the registered InterNIC domain
+								such as: aol, microsoft, earthlink, etc.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="DomainRootCode" type="AMM:String50NonNullType"
+						minOccurs="0" maxOccurs="1" />
+					<xsd:element name="ElectronicAddressName" type="AMM:String100Type"
+						minOccurs="0" maxOccurs="1" />
+					<xsd:element name="ElectronicAddressText" type="AMM:String1000Type"
+						minOccurs="0" maxOccurs="1">
+						<xsd:annotation>
+							<xsd:documentation>The entire electronic address text string.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="ElectronicAddressValue" type="AMM:String100Type"
+						minOccurs="0" maxOccurs="1" />
+					<xsd:element name="EmailTextFormatIndicator" type="AMM:BooleanType"
+						minOccurs="0" maxOccurs="1">
+						<xsd:annotation>
+							<xsd:documentation>Indicates that emails send to this email
+								address should be in text format (not HTML format).
+
+								"Y" = text format</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="IsAcknowledgmentRequiredIndicator"
+						type="AMM:BooleanType" minOccurs="0" maxOccurs="1" />
+
+					<xsd:element name="ElectronicAddressSubtype" type="ElectronicAddressSubtypeStructure"
+						minOccurs="0" maxOccurs="1" />
+				</xsd:sequence>
+
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="ElectronicAddressSubtypeStructure">
+		<xsd:annotation>
+			<xsd:documentation>Within the Electronic Address type, subtypes
+				include, but might not forever be limited to:
+				- Uniform Resource Locator (URL) address
+				- Electronic Mail (email) address</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ElectronicAddressSubtypeCode" type="AMM:String50NonNullType"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>A user/admin assigned code uniquely identifying
+						a 'Electronic Address Subtype'.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ElectronicAddressSubtypeName" type="AMM:String100Type"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="Describes" type="ElectronicAddressStructure"
+				minOccurs="1" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="FacilityOfferingsStructure">	
+		<xsd:sequence>
+			<xsd:element name="FacilityOffering" type="FacilityOfferingStructure"
+				minOccurs="1" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="RetrieveFacilityRequestStructure">
+		<xsd:sequence>
+			<xsd:choice>
+				<xsd:element name="FacilityGeographicID" type="AlternativeCodeStructure"
+					minOccurs="0" maxOccurs="1" />
+				<xsd:element name ="FacilityRKSTCD" type="DefinedAreaStructure" 
+					minOccurs="0" maxOccurs="1"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="RetrieveFacilityResponseStructure">
+		<xsd:sequence>
+			<xsd:element name="ServiceProcessingStatus" type="ServiceProcessingStatusStructure"
+				minOccurs="1" maxOccurs="1" />
+			<xsd:choice minOccurs="1" maxOccurs="1">	
+				<xsd:element name="Facility" type="FacilityStructure" minOccurs="0" maxOccurs="1" />
+				<xsd:element name="CommercialFacility" type="CommercialFacilityStructure" minOccurs="0" maxOccurs="1" />
+			</xsd:choice>
+			<xsd:element name="AddressIndicator" type="AddressIndicatorStructure" minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="SearchFacilityContactRequestStructure">
+		<xsd:sequence>
+			<xsd:choice minOccurs="1" maxOccurs="1">
+				<xsd:element name="ContactAddressIdentifier" type="AMM:IntegerType" minOccurs="0" maxOccurs="1" />
+				<xsd:sequence>
+					<xsd:element name="FacilityGeographicID" type="AlternativeCodeStructure"
+						minOccurs="0" maxOccurs="1" />
+					<xsd:element name ="FacilityRKSTCD" type="DefinedAreaStructure" 
+						minOccurs="0" maxOccurs="1"/>
+				</xsd:sequence>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="SearchFacilityContactResponseStructure">
+		<xsd:sequence>
+			<xsd:choice minOccurs="1" maxOccurs="1">
+				<xsd:sequence>
+					<xsd:element name="FacilityGeographicID" type="AlternativeCodeStructure"
+						minOccurs="0" maxOccurs="1" />
+					<xsd:element name ="FacilityRKSTCD" type="DefinedAreaStructure" 
+						minOccurs="0" maxOccurs="1"/>
+				</xsd:sequence>
+			</xsd:choice>			
+			<xsd:element name="PartyRoleFacilities" type="PartyRoleFacilitiesStructure"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="ServiceProcessingStatus" type="ServiceProcessingStatusStructure"
+				minOccurs="1" maxOccurs="1" />	
+		</xsd:sequence>
+		
+	</xsd:complexType>
+	
+	<xsd:complexType name="UpsertContactRequestStructure">
+		<xsd:sequence>
+		<xsd:element name="FacilityDefinedArea" type="DefinedAreaStructure"
+				minOccurs="0" maxOccurs="1" />				
+		<xsd:element name="PartyRoleFacilities" type="PartyRoleFacilitiesStructure"
+				minOccurs="0" maxOccurs="1" />				
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="UpsertContactResponseStructure">
+		<xsd:sequence>
+		<xsd:element name="ContactIdentifier" type="ContactIDStructure" 
+				minOccurs="0" maxOccurs="1" />	
+		<xsd:element name="UpsertFacilityContactFieldValidationStatuses" type="UpsertFacilityContactFieldValidationStatusesStructure"
+				minOccurs="1" maxOccurs="1" />
+		<xsd:element name="ServiceProcessingStatus" type="ServiceProcessingStatusStructure"
+				minOccurs="1" maxOccurs="1" />	
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="FacilityContactsStructure">
+		<xsd:sequence>
+			<xsd:element name="FacilityContact" type="FacilityContactStructure" minOccurs="1" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="FacilityContactStructure">
+		<xsd:sequence>
+			<xsd:choice minOccurs="0" maxOccurs="1">
+				<xsd:element name="FacilityId" type="AMM:IntegerType" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="FacilityGeographicCordinateId" type="AlternativeCodeStructure" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="FacilityDefinedAreaCd" type="AMM:String20NonNullType" minOccurs="0" maxOccurs="1"/>
+			</xsd:choice>
+			<xsd:element name="FacilityContactAddress" type="FacilityContactAddressStructure" minOccurs="1" maxOccurs="unbounded"/>
+			<xsd:element name="PartyRoleFacility" type="PartyRoleFacilityStructure" minOccurs="1" maxOccurs="unbounded"/>		
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="NumberTypeStructure">
+		<xsd:sequence>
+			<xsd:element name="DialingCountryCodeNumber" type="AMM:String50Type" minOccurs="1" maxOccurs="1" />
+			<xsd:element name="TelecommunicationsAreaCodeNumber" type="AMM:String50Type" minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TelecommunicationsExtensionNumber" type="AMM:String50Type" minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TelecommunicationsLineNumber" type="AMM:String50Type" minOccurs="1" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+	 <xsd:complexType name="FacilityAvailabilitiesStructure">
+   	<xsd:sequence>
+   		<xsd:element name="FacilityAvailability" type="FacilityAvailabilityStructure" minOccurs="1" maxOccurs="unbounded"/>
+   	</xsd:sequence>	
+   	</xsd:complexType>
+	<xsd:complexType name="FacilityAvailabilityStructure">
+      <xsd:annotation>
+         <xsd:documentation>Opening or closing hours for a specified day for a specified Facility, linking a specified Facility to a set of Time Periods and setting Start and End times to allow creation of rosters showing the regular times when a facility opens and closes during the working week.
+Candidate attributes:
+- Start Time
+- End Time
+- Specific Date</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="FacilityAvailabilityIdentifier"
+                      type="AMM:Integer13Type"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+         <xsd:element name="TimePeriodName"
+                      type="AMM:String50NonNullType"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+         <xsd:element name="StandardClosingTime"
+                      type="AMM:TimeType"
+                      minOccurs="0"
+                      maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation>Standard Closing Time in Local Time</xsd:documentation>
+            </xsd:annotation>
+         </xsd:element>
+         <xsd:element name="StandardOpeningTime"
+                      type="AMM:TimeType"
+                      minOccurs="0"
+                      maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation>Standard Opening  Time in Local Time</xsd:documentation>
+            </xsd:annotation>
+         </xsd:element>
+         <xsd:element name="FacilityAvailabilityType"
+                      type="FacilityAvailabilityTypeStructure"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+	  </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="FacilityAvailabilityTypeStructure">
+      <xsd:annotation>
+         <xsd:documentation>The types of availability, e.g. "Open" or "Closed"</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="FacilityAvailabilityTypeCode"
+                      type="AMM:String50NonNullType"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+         <xsd:element name="FacilityAvailabilityTypeName"
+                      type="AMM:String100Type"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="FacilityTransportAccessesStructure">
+        <xsd:sequence>
+      	<xsd:element name="FacilityTransportAccess"
+                      type="FacilityTransportAccessStructure"
+                      minOccurs="1"
+                      maxOccurs="unbounded">
+        </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="FacilityTransportAccessStructure">
+      <xsd:annotation>
+         <xsd:documentation>Lists the various trnasport access path to a facility.
+E.g. A Port can be accessed by Ocean Vessel, Rail and Truck.
+</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+      	<xsd:element name="TransportModeCode"
+                      type="AMM:String50NonNullType"
+                      minOccurs="0"
+                      maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation>A code defining a mode of transport that can be used to transport cargo.
+ E.g. 
+Ocean, Feeder, Barge, Rail, Truck.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:element>
+         <xsd:element name="ValidPeriod" type="ValidPeriodStructure" minOccurs="0" maxOccurs="1"/>
+      </xsd:sequence>
+   </xsd:complexType>
+   
+   <xsd:complexType name="PartyRoleFacilitiesStructure">
+		<xsd:sequence>
+			<xsd:element name="PartyRoleFacility" type="PartyRoleFacilityStructure" minOccurs="1" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+   
+   <xsd:complexType name="PartyRoleFacilityStructure">
+      <xsd:annotation>
+         <xsd:documentation>Maintains what Party Roles are playing what Facility Role Types at which Facilities.
+				E.g. specifies which party roles are represented in the facility, i.e. which carriers are present (MAEU, SAFM, MCPU ) as facility role type 'Carrier Office' or which organisation units 'Use' an office. (Front Office, GSC or LOC Head Office).
+				
+				E.g. the owner of a facility. There can be multiple owners of a facility, e.g. shared ownership in joint venture.
+				
+				In case of storing data about offices at e.g. terminals one would associate the party role, this could forexample be terminal operator, to the facility that is the office and assign the facility role type of Administration, Vessel Operations, Rail Operations, or whichever might be relevant.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="PartyRoleFacilityIdentifier"
+                      type="AMM:Integer13Type"
+                      minOccurs="0"
+                      maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation>A surrogate key that can uniquely identify an entry in Party Role Facility.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:element>
+         <xsd:element name="FunctionTypeCode"
+                      type="AMM:String50NonNullType"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+         <xsd:element name="FunctionType"
+                      type="FunctionTypeStructure"
+                      minOccurs="0"
+                      maxOccurs="unbounded"/>
+         <xsd:element name="PartyRoleFacilityResponsibility"
+                      type="PartyRoleFacilityResponsibilityStructure"
+                      minOccurs="0"
+                      maxOccurs="unbounded"/>
+         <xsd:element name="ContactPerson"
+                      type="PersonStructure"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+         <xsd:element name="AuditDataForContactPerson"
+                      type="AuditDataStructure"
+                      minOccurs="0"
+                      maxOccurs="1"/>             
+         <xsd:element name="ContactGroup"
+                      type="OrganisationStructure"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+         <xsd:element name="AuditDataForContactGroup"
+                      type="AuditDataStructure"
+                      minOccurs="0"
+                      maxOccurs="1"/>                          
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="FunctionTypeStructure">
+      <xsd:annotation>
+         <xsd:documentation>E.g. below (Name - Code):
+				Terminal Main Carrier - TMC
+				Carrier Office - COF
+				Front Office - FOF
+				LOC Head Office - LOC
+				Administration - ADM
+				Vessel Operations - VOP
+				Rail Operations - ROP
+				Use - USE
+				Lease - LEA
+				Rent - REN</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="FunctionTypeCode"
+                      type="AMM:String50NonNullType"
+                      minOccurs="0"
+                      maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation>A user/admin assigned code uniquely identifying a Function Type.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:element>
+         <xsd:element name="FunctionTypeName"
+                      type="AMM:String100Type"
+                      minOccurs="0"
+                      maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation>The name of an entry in Function Type.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="PartyRoleFacilityResponsibilityStructure">
+      <xsd:annotation>
+         <xsd:documentation>Allows the Party Role Facility, e.g. a carrier office, to be responsible for any number of other Party Roles, e.g. Customers.
+
+The 'Function Type' of the 'Party Role Facility' will indicate that e.g. a certain carrier at a certain office is the 'Carrier Office' (this is the Function Type) for a certain customer.
+
+The 'Party Role Facility Responsibility Type' stipulates what kind of responsibility the Party Role Facility has towards the child party role. In case of multiple responsibility types, multiple entries will be made in this entity for the same child party role with diferent responsibilty types.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="PartyRoleFacilityResponsibilityIdentifier"
+                      type="AMM:Integer13Type"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+         <xsd:element name="ChildPartyRoleIdentifier"
+                      type="AMM:Integer13Type"
+                      minOccurs="0"
+                      maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation>A surrogate key that can uniquely identify an entry in Party Role.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:element>
+         <xsd:element name="EffectiveFromDate"
+                      type="AMM:DateType"
+                      minOccurs="0"
+                      maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation>A calendar date / point in time for Class Date.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:element>
+         <xsd:element name="EffectiveThroughDate"
+                      type="AMM:DateType"
+                      minOccurs="0"
+                      maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation>A calendar date / point in time for Class Date__6526.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:element>
+          <xsd:element name="PartyRoleResponsibilityType"
+                      type="PartyRoleFacilityResponsibilityTypeStructure"
+                      minOccurs="1"
+                      maxOccurs="1"/>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="PartyRoleFacilityResponsibilityTypeStructure">
+      <xsd:annotation>
+         <xsd:documentation>The responsibility that the party role facility carries, this for example be that the carrier office is responsible for a customer's import goods.
+
+E.g.:
+IMP - Import
+EXP - Export
+INT - Internal
+EXT - External</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="PartyRoleFacilityResponsibilityTypeCode"
+                      type="AMM:String50NonNullType"
+                      minOccurs="0"
+                      maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation>A user/admin assigned code uniquely identifying a Party Role Facility Responsibility Type.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:element>
+         <xsd:element name="PartyRoleFacilityResponsibilityTypeName"
+                      type="AMM:String100Type"
+                      minOccurs="0"
+                      maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation>The name of an entry in Party Role Facility Responsibility Type.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+   
+   <xsd:complexType name="PartyRoleStructure">
+      <xsd:annotation>
+         <xsd:documentation>A role that a particular Party may play in the context of the Enterprise's business environment. Party Role defines how a Party can act in this environment.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="PartyRoleIdentifier"
+                      type="AMM:Integer13Type"
+                      minOccurs="0"
+                      maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation>Unique identification for a particular Party in a particular role in the context of the Enterprise's business environment. Party Role defines how a Party can act in this environment.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:element>
+         <xsd:element name="PartyIdentifier"
+                      type="AMM:Integer13Type"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+         <xsd:element name="PartyRoleTypeCode"
+                      type="AMM:String50NonNullType"
+                      minOccurs="0"
+                      maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation>A user/admin assigned code uniquely identifying a 'Party Role Type'.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:element>
+         <xsd:element name="ISOLanguage639-3Code" type="AMM:String8NonNullType" minOccurs="0" maxOccurs="1"/>
+         <xsd:element name="PartyRoleFacility"
+                      type="PartyRoleFacilityStructure"
+                      minOccurs="0"
+                      maxOccurs="unbounded"/>
+         <xsd:element name="PartyRoleFacilityResponsibility"
+                      type="PartyRoleFacilityResponsibilityStructure"
+                      minOccurs="0"
+                      maxOccurs="unbounded"/>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="PersonStructure">
+      <xsd:annotation>
+         <xsd:documentation>A person in which the Enterprise has an interest. Examples includes:- 
+i)    Individuals acting on behalf of Customer Organisations, Suppliers or Statutory Authorities
+ii)  Individuals that are part of the Enterprise</xsd:documentation>
+      </xsd:annotation>
+      <xsd:complexContent>
+			<xsd:extension base="PartyStructure">
+	      <xsd:sequence>
+	         <xsd:element name="PersonIdentifier"
+	                      type="AMM:Integer13Type"
+	                      minOccurs="0"
+	                      maxOccurs="1"/>
+	         <xsd:element name="GenderCode"
+	                      type="AMM:String50NonNullType"
+	                      minOccurs="0"
+	                      maxOccurs="1"/>
+	         <xsd:element name="ReligionCode"
+	                      type="AMM:String50NonNullType"
+	                      minOccurs="0"
+	                      maxOccurs="1"/>
+	         <xsd:element name="MaritalStatusCode"
+	                      type="AMM:String50NonNullType"
+	                      minOccurs="0"
+	                      maxOccurs="1"/>
+	         <xsd:element name="HonorificDetails"
+	                      type="HonorificStructure"
+	                      minOccurs="0"
+	                      maxOccurs="1"/>
+	         <xsd:element name="NameFormatIdentifier"
+	                      type="AMM:Integer13Type"
+	                      minOccurs="0"
+	                      maxOccurs="1"/>
+	         <xsd:element name="NamePrefixCode"
+	                      type="AMM:String50NonNullType"
+	                      minOccurs="0"
+	                      maxOccurs="1"/>
+	         <xsd:element name="NameSuffixCode"
+	                      type="AMM:String50NonNullType"
+	                      minOccurs="0"
+	                      maxOccurs="1">
+	            <xsd:annotation>
+	               <xsd:documentation>A user/admin assigned identifier that can be 'decoded' or translated to make the code meaningful for an entry in 'Name Suffix'.</xsd:documentation>
+	            </xsd:annotation>
+	         </xsd:element>
+	         <xsd:element name="BirthDate"
+	                      type="AMM:DateType"
+	                      minOccurs="0"
+	                      maxOccurs="1"/>
+	         <xsd:element name="BirthName"
+	                      type="AMM:String100Type"
+	                      minOccurs="0"
+	                      maxOccurs="1">
+	            <xsd:annotation>
+	               <xsd:documentation>Employee's birth or maiden name.</xsd:documentation>
+	            </xsd:annotation>
+	         </xsd:element>
+	         <xsd:element name="BirthPlaceName"
+	                      type="AMM:String100Type"
+	                      minOccurs="0"
+	                      maxOccurs="1"/>
+	         <xsd:element name="ChildrenCountNumber"
+	                      type="AMM:String50NonNullType"
+	                      minOccurs="0"
+	                      maxOccurs="1"/>
+	         <xsd:element name="CommentText" type="AMM:String1024NonNullType" minOccurs="0" maxOccurs="1"/>
+	         <xsd:element name="FirstName" type="AMM:String100NonNullType" minOccurs="0" maxOccurs="1"/>
+	         <xsd:element name="InitialsValue"
+	                      type="AMM:String100Type"
+	                      minOccurs="0"
+	                      maxOccurs="1"/>
+	         <xsd:element name="NickName"
+	                      type="AMM:String100Type"
+	                      minOccurs="0"
+	                      maxOccurs="1"/>
+	         <xsd:element name="LastName" type="AMM:String100NonNullType" minOccurs="0" maxOccurs="1"/>
+	         <xsd:element name="MaritalStatusSinceDate"
+	                      type="AMM:DateType"
+	                      minOccurs="0"
+	                      maxOccurs="1"/>
+	         <xsd:element name="MiddleName"
+	                      type="AMM:String100Type"
+	                      minOccurs="0"
+	                      maxOccurs="1"/>
+	         <xsd:element name="PersonCode"
+	                      type="AMM:String50NonNullType"
+	                      minOccurs="0"
+	                      maxOccurs="1"/>
+	         <xsd:element name="PersonalTitleValue"
+	                      type="AMM:String100Type"
+	                      minOccurs="0"
+	                      maxOccurs="1"/>
+	         <xsd:element name="SecondLastName"
+	                      type="AMM:String100Type"
+	                      minOccurs="0"
+	                      maxOccurs="1">
+	            <xsd:annotation>
+	               <xsd:documentation>Employee's second last name primary used in Spain and Latin America countries</xsd:documentation>
+	            </xsd:annotation>
+	         </xsd:element>
+	         <xsd:element name="PartyRole"
+	                      type="PartyRoleStructure"
+	                      minOccurs="0"
+	                      maxOccurs="unbounded"/>
+	      </xsd:sequence>
+	      </xsd:extension>
+	      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType name="HonorificStructure">
+         <xsd:sequence>
+         <xsd:element name="CountryIdentifier"
+                      type="AMM:IntegerType"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+         <xsd:element name="HonorificCode"
+                      type="AMM:String50NonNullType"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+         <xsd:element name="HonorificName"
+                      type="AMM:String50NonNullType"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+         <xsd:element name="ISOLanguageCode"
+                      type="AMM:String3Type"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+         <xsd:element name="ISOLanguageCode639-3"
+                      type="AMM:String3Type"
+                      minOccurs="0"
+                      maxOccurs="1"/>                                       
+         </xsd:sequence>
+    </xsd:complexType>     
+    <xsd:complexType name="MaritimeContainerTerminalStructure">
+      <xsd:annotation>
+         <xsd:documentation>A port facility with attributes explaining the ports capabilities, e.g.:
+-number of berths
+- number of cranes
+- main carriers using this port
+- stacking equipment
+- size of pre-stacking area
+- number of reefer plugs</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="OperationalFacilityIdentifier"
+                      type="AMM:Integer13Type"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+         <xsd:element name="AreaCapacityMeasure"
+                      type="AMM:Decimal18d4Type"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+         <xsd:element name="BerthCountNumber"
+                      type="AMM:String50NonNullType"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+         <xsd:element name="BerthTotalLengthMeasure"
+                      type="AMM:Decimal18d4Type"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+         <xsd:element name="DraftMaximumAlongsideMeasure"
+                      type="AMM:Decimal18d4Type"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+         <xsd:element name="HeightMeasure"
+                      type="AMM:Decimal18d4Type"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+         <xsd:element name="MaritimeContainerTerminalCode"
+                      type="AMM:String50NonNullType"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+         <xsd:element name="QuayLengthMeasure"
+                      type="AMM:Decimal18d4Type"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+         <xsd:element name="TidalMaximumVariationMeasure"
+                      type="AMM:Decimal18d4Type"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+         <xsd:element name="TidalMinimumVariationMeasure"
+                      type="AMM:Decimal18d4Type"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+         <xsd:element name="TurningBasinDiameterMeasure"
+                      type="AMM:Decimal18d4Type"
+                      minOccurs="0"
+                      maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation>The measure value for Turning Basin Diameter Meas</xsd:documentation>
+            </xsd:annotation>
+         </xsd:element>
+         <xsd:element name="VelocityMaximumInTerminalMeasure"
+                      type="AMM:Decimal18d4Type"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+         <xsd:element name="VesselLengthMaximumMeasure"
+                      type="AMM:Decimal18d4Type"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+         <xsd:element name="WaterDepthMeasure"
+                      type="AMM:Decimal18d4Type"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+          <xsd:element name="WeightLimitInYardMeasure"
+                      type="AMM:Decimal18d4Type"
+                      minOccurs="0"
+                      maxOccurs="1"/>             
+         <xsd:element name="Cranes" type="CranesStructure" minOccurs="0" maxOccurs="1"/>
+         <xsd:element name="Operator" type="OperatorStructure" minOccurs="0" maxOccurs="1"/>
+      </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CraneStructure">
+      <xsd:annotation>
+         <xsd:documentation>A crane is a type of machine used for lifting, generally equipped with a hoist (device) or winder wire ropes or chains and sheaves, that can be used both to lift and lower materials and to move them horizontally.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="CraneIdentifier"
+                      type="AMM:Integer13Type"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+         <xsd:element name="CraneTypeCode"
+                      type="AMM:String50NonNullType"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+         <xsd:element name="LengthUnitIdentifier"
+                      type="AMM:Integer13Type"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+         <xsd:element name="MassUnitIdentifier"
+                      type="AMM:Integer13Type"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+         <xsd:element name="WeightCapacityMeasure"
+                      type="UnitOfMeasurementStructure"
+                      minOccurs="0"
+                      maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation>The maximum weight that the crane can lift.</xsd:documentation>
+            </xsd:annotation>
+         </xsd:element>             
+       </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="CranesStructure">
+   	<xsd:sequence>
+   		<xsd:element name="Crane" type="CraneStructure" minOccurs="1" maxOccurs="unbounded"/>
+   	</xsd:sequence>
+    </xsd:complexType>
+     <xsd:complexType name="UnitOfMeasurementStructure">
+      <xsd:annotation>
+         <xsd:documentation>The metric by which a Measured Property is measured. Example instances are: 
+ 
+    Second / Hour / Day / Year,
+    Micron / Centimetre / Metre / Kilometer / Nautical Mile,
+    Inch / Foot / Yard / Fathom / Mile / Nautical Mile,
+    Litre,
+    US Gallon,
+    Gram / Kilogram / Tonne,
+    Pound / Ton,
+    Knot,
+    Kilometres Per Hour,
+    Degrees Celcius,
+    Centipoise,
+    Voltage,
+    Ampere,
+    TEU,
+    FFE,
+    ......</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="UnitOfMeasurementId"
+                      type="AMM:Integer13Type"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+         <xsd:element name="UnitOfMeasurementName"
+                      type="AMM:String100Type"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+         <xsd:element name="UnitOfMeasurementAbbreviationVal"
+                      type="AMM:String1000Type"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+         <xsd:element name="UnitOfMeasurementDesc"
+                      type="AMM:String250Type"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+         <xsd:element name="UnitOfMeasurementSymbolVal"
+                      type="AMM:String1000Type"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+         <xsd:element name="MeasurementSystemCd"
+                      type="AMM:String50NonNullType"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="TelecommunicationsNumberStructure">
+      <xsd:annotation>
+         <xsd:documentation>A number that can be used for contact via a telecommunications system. Examples include:-
+ * Phone number (land line)
+ * Mobile or cell phone number
+* Fax number
+* Pager number</xsd:documentation>
+      </xsd:annotation>
+      <xsd:complexContent>
+		<xsd:extension base="ContactAddressStructure">
+		<xsd:sequence>
+		         <xsd:element name="TelecommunicationsNumberIdentifier"
+		                      type="AMM:Integer13Type"
+		                      minOccurs="0"
+		                      maxOccurs="1"/>
+		         <xsd:element name="CountryCodeNumber"
+		                      type="AMM:String50NonNullType"
+		                      minOccurs="0"
+		                      maxOccurs="1"/>
+		         <xsd:element name="AreaCodeNumber"
+		                      type="AMM:String50NonNullType"
+		                      minOccurs="0"
+		                      maxOccurs="1">
+		            <xsd:annotation>
+		               <xsd:documentation>A set of digits in a telephone number
+											that represent the area code. The
+											number of digits may vary by
+											country.
+						</xsd:documentation>
+		            </xsd:annotation>
+		         </xsd:element>
+		         <xsd:element name="TelephoneNumber"
+		                      type="AMM:String50NonNullType"
+		                      minOccurs="0"
+		                      maxOccurs="1">
+		         </xsd:element>
+		         <xsd:element name="ExtensionNumber"
+		                      type="AMM:String50NonNullType"
+		                      minOccurs="0"
+		                      maxOccurs="1">
+		            <xsd:annotation>
+		               <xsd:documentation>The extension for the phone. This
+		may be null if no extension applies
+		to this number.</xsd:documentation>
+		            </xsd:annotation>
+		         </xsd:element>
+		         <xsd:element name="ExchangeNumber"
+		                      type="AMM:String50NonNullType"
+		                      minOccurs="0"
+		                      maxOccurs="1">
+		            <xsd:annotation>
+		               <xsd:documentation>A set of digits in a telephone number
+		that represent a central office
+		exchange. The number of digits may
+		vary by country.</xsd:documentation>
+		            </xsd:annotation>
+		         </xsd:element>
+		         <xsd:element name="IsHomeNumberIndicator"
+		                      type="AMM:BooleanType"
+		                      minOccurs="0"
+		                      maxOccurs="1">
+		            <xsd:annotation>
+		               <xsd:documentation>Indicator for whether the Telephone
+		is a Home number.</xsd:documentation>
+		            </xsd:annotation>
+		         </xsd:element>
+		         <xsd:element name="LineNumber"
+		                      type="AMM:String50NonNullType"
+		                      minOccurs="0"
+		                      maxOccurs="1">
+		            <xsd:annotation>
+		               <xsd:documentation>A set of digits in a telephone number
+		that represent the line number from
+		the central office. The number of
+		digits may vary by country.</xsd:documentation>
+		            </xsd:annotation>
+		         </xsd:element>
+		         <xsd:element name="IsWireLineIndicator"
+		                      type="AMM:BooleanType"
+		                      minOccurs="0"
+		                      maxOccurs="1">
+		            <xsd:annotation>
+		               <xsd:documentation>elements of a ported number no
+		longer identify an area or an
+		exchange.</xsd:documentation>
+		            </xsd:annotation>
+		         </xsd:element>
+		         <xsd:element name="InOfficeHoursIndicator"
+		                      type="AMM:BooleanType"
+		                      minOccurs="0"
+		                      maxOccurs="1"/>
+		                  <xsd:element name="TelecommunicationNumberSubTypeCd"
+		                      type="TelecommunicationNumberSubTypeCdStructure"
+		                      minOccurs="0"
+		                      maxOccurs="1">
+		                      <xsd:annotation>
+			               <xsd:documentation>
+			               	             A code classifying a telecommunication number. 
+										Examples include:-
+										* Phone number (land line)
+										* Mobile or cell phone number
+										* Fax number
+										* Pager number
+			               </xsd:documentation>
+		            </xsd:annotation>
+		         </xsd:element>
+		         <!-- This is a Non ELDM Aligned Field that is requested by the project -->
+		         <xsd:element name="Country" type="CountryStructure" minOccurs="0" maxOccurs="1" />
+       </xsd:sequence>
+       </xsd:extension>
+       </xsd:complexContent>
+   </xsd:complexType>
+   
+   <xsd:simpleType name="TelecommunicationNumberSubTypeCdStructure">
+    <xsd:restriction base="AMM:String3NonNullType">
+        <xsd:enumeration value="TEL" />
+        <xsd:enumeration value="MOB" />
+        <xsd:enumeration value="FAX" />
+        <xsd:enumeration value="PAG" />
+    </xsd:restriction>
+	</xsd:simpleType>
+   
+   <xsd:complexType name="PartyStructure">
+         <xsd:sequence>
+         <xsd:element name="PartyIdentifier"
+                      type="AMM:Integer10Type"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+          <xsd:element name="PartyType"
+                      type="PartyTypeStructure"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+          <xsd:element name="PartyContactAddresses"
+                      type="PartyContactAddressesStructure"
+                      minOccurs="0"
+                      maxOccurs="unbounded"/>                        
+         </xsd:sequence>
+    </xsd:complexType> 
+   <xsd:complexType name="PartyTypeStructure">
+         <xsd:sequence>
+         <xsd:element name="PartyType"
+                      type="AMM:String30NonNullType"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+         <xsd:element name="PartyCode"
+                      type="AMM:String50NonNullType"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+         <xsd:element name="PartyDescription"
+                      type="AMM:String250Type"
+                      minOccurs="0"
+                      maxOccurs="1"/>                          
+         <xsd:element name="PartyTypeCode"
+                      type="AMM:String30NonNullType"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+         </xsd:sequence>
+         </xsd:complexType>
+       <xsd:complexType name="PartyContactAddressesStructure">
+         <xsd:sequence>
+         	  <xsd:element name="PartyContactAddress"
+                      type="PartyContactAddressStructure"
+                      minOccurs="1"
+                      maxOccurs="unbounded"/>
+         </xsd:sequence>
+       </xsd:complexType> 
+       <xsd:complexType name="PartyContactAddressStructure">
+         <xsd:sequence>
+         <xsd:element name="DefaultIndicator"
+                      type="AMM:String10Type"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+         <xsd:element name="EffectiveFromDate"
+                      type="AMM:DateTimeType"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+         <xsd:element name="EffectiveToDate"
+                      type="AMM:DateTimeType"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+         <xsd:element name="AuditDataForPartyContactAddress"
+                      type="AuditDataStructure"
+                      minOccurs="0"
+                      maxOccurs="1"/> 
+        <xsd:element name="ElectronicAddress"
+                      type="ElectronicAddressStructure"
+                      minOccurs="0"
+                      maxOccurs="1"/>                          
+         <xsd:choice minOccurs="1" maxOccurs="1">
+         	<xsd:element name="PostalAddress"
+                      type="PostalAddressStructure"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+            <xsd:element name="TelecommunicationsAddress"
+                      type="TelecommunicationsNumberStructure"
+                      minOccurs="0"
+                      maxOccurs="1"/>                              
+         </xsd:choice>                                      
+         </xsd:sequence>
+    </xsd:complexType>  
+    
+	<xsd:complexType name="OperatorStructure">
+		<xsd:sequence>
+			<xsd:element name="OperatorIdentifier" type="AMM:IntegerType"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="OperatorCode" type="AMM:String50NonNullType"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="OperatorName" type="AMM:String100NonNullType"
+				minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ContactPersonStructure">
+		<xsd:complexContent>
+			<xsd:extension base="PartyRoleStructure"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="OrganisationalUnitStructure">
+		<xsd:complexContent>
+			<xsd:extension base="PartyRoleStructure">
+				<xsd:sequence>
+					<xsd:element name="OrganisationalUnitTypeCd" type="AMM:String50NonNullType" minOccurs="0" maxOccurs="1"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="OrganisationStructure">
+      <xsd:annotation>
+         <xsd:documentation>A person in which the Enterprise has an interest. Examples includes:- 
+i)    Individuals acting on behalf of Customer Organisations, Suppliers or Statutory Authorities
+ii)  Individuals that are part of the Enterprise</xsd:documentation>
+      </xsd:annotation>
+      <xsd:complexContent>
+      <xsd:extension base="PartyStructure">
+      <xsd:sequence>
+         <xsd:element name="OrganisationIdentifier"
+                      type="AMM:IntegerType"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+         <xsd:element name="OrganisationAbbreviatedName"
+                      type="AMM:String100NonNullType"
+                      minOccurs="0"
+                      maxOccurs="1"/>
+         <xsd:element name="OrganisationClassification"
+                      type="OrganisationClassificationStructure"
+                      minOccurs="0"
+                      maxOccurs="unbounded"/>                          
+      </xsd:sequence>
+	  </xsd:extension>
+	  </xsd:complexContent>
+	  </xsd:complexType>
+	  <xsd:complexType name="OrganisationClassificationStructure">
+	  	<xsd:sequence>
+	  		<xsd:element name="OrgainsationClassificationSystemCode" type="AMM:String50Type" minOccurs="0" maxOccurs="1"/>
+	  		<xsd:element name="OrgainsationClassificationName" type="AMM:String100Type" minOccurs="0" maxOccurs="1"/>
+	  		<xsd:element name="OrgainsationClassificationSubName" type="AMM:String100Type" minOccurs="0" maxOccurs="1"/>
+	  	</xsd:sequence>
+      </xsd:complexType>
+</xsd:schema>

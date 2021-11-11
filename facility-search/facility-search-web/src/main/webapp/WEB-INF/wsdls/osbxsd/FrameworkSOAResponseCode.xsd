@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="http://www.maerskline.com/SOA/1.0/FrameworkSOAResponseCode" 
+xmlns="http://www.maerskline.com/SOA/1.0/FrameworkSOAResponseCode" elementFormDefault="qualified">
+	<xs:element name="response">
+		<xs:complexType>
+			<xs:attribute name="soaCode" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="category" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="SYSTEM"/>
+						<xs:enumeration value="APPLICATION"/>
+						<xs:enumeration value="BUSINESS"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="soaDescription" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SOAResponseCode">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="response" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

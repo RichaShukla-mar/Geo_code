@@ -1,0 +1,245 @@
+<xsd:schema xmlns="http://services.apmoller.net/AMM/v4" xmlns:AMM="http://services.apmoller.net/AMM/v4" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://services.apmoller.net/AMM/v4" elementFormDefault="qualified" attributeFormDefault="unqualified" version="4.3.0" id="EAMSimpleTypes">
+	<xsd:annotation>
+		<xsd:appinfo>
+			<Metadata xmlns="http://services.apmoller.net/AMM/v2/meta">
+				<Audience/>
+				<Creator/>
+				<Date>
+					<Created>2011-03-31</Created>
+					<Modified>2014-06-02</Modified>
+				</Date>
+				<Description>
+					<Abstract/>
+				</Description>
+				<Format>
+					<Medium scheme="IMT"/>
+				</Format>
+				<Identifier/>
+				<Language>[ISO 639-2/T] ENG</Language>
+				<Publisher/>
+				<Relation>
+					<IsPartOf/>
+				</Relation>
+				<Rights>
+					<Copyright>Maersk 2013</Copyright>
+					<ProtectiveMarking>Not Protectively Marked</ProtectiveMarking>
+				</Rights>
+				<Subject>
+					<Category/>
+					<Project/>
+				</Subject>
+				<Title>Maersk Enterprise Service Modelling (ESM) Simple Types Schema</Title>
+				<Type>W3C XML Schema</Type>
+				<SchemaElementStatistics>
+					<complexType/>
+					<annotation>1</annotation>
+					<include>2</include>
+					<element/>
+					<group>1</group>
+					<simpleType/>
+				</SchemaElementStatistics>
+			</Metadata>
+		</xsd:appinfo>
+	</xsd:annotation>
+	<xsd:include schemaLocation="EAMBaseTypes.xsd"/>
+	<xsd:simpleType name="CreateDateTimeType">
+		<xsd:annotation>
+			<xsd:documentation>.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="DateTimeType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="CreateUserType">
+		<xsd:annotation>
+			<xsd:documentation>.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="String50Type"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="GeoCoverageIndicator">
+		<xsd:annotation>
+			<xsd:documentation>A field indicating whether the site has GSM/GPS coverage</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="true"/>
+			<xsd:enumeration value="false"/>
+			<xsd:enumeration value="unknown"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:element name="EmailAddress" type="EmailAddressType">
+		<xsd:annotation>
+			<xsd:documentation> A valid w3c email address construct. </xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:simpleType name="IssueIdType">
+		<xsd:annotation>
+			<xsd:documentation>.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="Integer13Type"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="LastUpdateDateTimeType">
+		<xsd:annotation>
+			<xsd:documentation>.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="DateTimeType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="MarsCommodityCodeType">
+		<xsd:annotation>
+			<xsd:documentation>MARS Commodity 2-6 number Commodity Code.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="String10Type"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="MarsCommodityNameType">
+		<xsd:annotation>
+			<xsd:documentation>Descriptive Name of a MARS Commodity.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="String10Type"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="UpdateDateTimeType">
+		<xsd:annotation>
+			<xsd:documentation>.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="DateTimeType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="UpdateUserType">
+		<xsd:annotation>
+			<xsd:documentation>.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="String50Type"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="SuperClassURNMetadataSType">
+		<xsd:annotation>
+			<xsd:documentation>The referencable ID element for all class objects</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="URNType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="URNType">
+		<xsd:restriction base="RestrictedStringType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="DeliveryAgreementCodeType">
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="FD"/>
+			<xsd:enumeration value="DW"/>
+			<xsd:enumeration value="DM"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="SiteIdType">
+		<xsd:restriction base="String13NonNullType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="SiteCodeType">
+		<xsd:restriction base="String12NonNullType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="SiteNameType">
+		<xsd:restriction base="String50NonNullType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="VesselCodeType">
+		<xsd:restriction base="String3NonNullType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="DirectionType">
+		<xsd:restriction base="String2NonNullType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="ServiceType">
+		<xsd:restriction base="String3NonNullType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="VoyageNumberType">
+		<xsd:restriction base="String4NonNullType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="LocationCodeType">
+		<xsd:restriction base="String8NonNullType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="CustomerNumberType">
+		<xsd:restriction base="String11NonNullType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="CountryCodeType">
+		<xsd:restriction base="String2FixedLengthType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="CountryIdType">
+		<xsd:restriction base="String13NonNullType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="CountryNameType">
+		<xsd:restriction base="String50NonNullType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="UsernameType">
+		<xsd:restriction base="String50NonNullType"/>
+	</xsd:simpleType>
+	<xsd:element name="SearchName" type="String3ToInfinityNonNullType"/>
+	<xsd:element name="SearchCode" type="String2ToInfinityNonNullType"/>
+	<xsd:simpleType name="UserIdType">
+		<xsd:annotation>
+			<xsd:documentation>An Maersk Line user id e.g. hwj003</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="[a-z][a-z][a-z][0-9][0-9][0-9]"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="VesselNameType">
+		<xsd:restriction base="String18NonNullType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="VesselOperatorType">
+		<xsd:restriction base="String30NonNullType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="YesOrNoType">
+		<xsd:restriction base="xsd:token">
+			<xsd:pattern value="Yes|yes|No|no"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="FaxNumberType">
+		<xsd:restriction base="xsd:token">
+			<xsd:pattern value="[0-9][0-9][\-]([0-9])*"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="DocBrokerDeliveryType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="print"/>
+			<xsd:enumeration value="mail"/>
+			<xsd:enumeration value="facsimile"/>
+			<xsd:enumeration value="preview"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="DocBrokerFormatType">
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="JPG"/>
+			<xsd:enumeration value="TXT"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="DocBrokerResponseType">
+		<xsd:restriction base="UnRestrictedStringType">
+			<xsd:enumeration value="db_extract"/>
+			<xsd:enumeration value="db_archive_query"/>
+			<xsd:enumeration value="db_pdf_preview"/>
+			<xsd:enumeration value="db_recall_pdf_unique"/>
+			<xsd:enumeration value="db_recall_pdf_last"/>
+			<xsd:enumeration value="db_request_serverconfig"/>
+			<xsd:enumeration value="db_subscribe_server"/>
+			<xsd:enumeration value="db_request_printers"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- Element Definitions (Reuse Candidates) -->
+	<xsd:element name="CreateTime" type="CreateDateTimeType"/>
+	<xsd:element name="CreateUser" type="CreateUserType"/>
+	<xsd:element name="IssueId" type="IssueIdType"/>
+	<xsd:element name="LastUpdateDate" type="LastUpdateDateTimeType" nillable="true"/>
+	<xsd:element name="MarsCommodityCode" type="MarsCommodityCodeType"/>
+	<xsd:element name="MarsCommodityName" type="MarsCommodityNameType"/>
+	<xsd:element name="UpdateTime" type="UpdateDateTimeType" nillable="true"/>
+	<xsd:element name="UpdateUser" type="UpdateUserType" nillable="true"/>
+	<xsd:element name="DeliveryAgreementCode" type="DeliveryAgreementCodeType" nillable="true"/>
+	<xsd:element name="SiteId" type="SiteIdType"/>
+	<xsd:element name="SiteCode" type="SiteCodeType"/>
+	<xsd:element name="SiteName" type="SiteNameType"/>
+	<xsd:element name="VesselCode" type="SiteIdType"/>
+	<xsd:element name="Direction" type="DirectionType"/>
+	<xsd:element name="Service" type="ServiceType"/>
+	<xsd:element name="VoyageNumber" type="VoyageNumberType"/>
+	<xsd:element name="LocationCode" type="LocationCodeType"/>
+	<xsd:element name="CustomerNumber" type="CustomerNumberType"/>
+	<xsd:element name="CountryCode" type="CountryCodeType"/>
+	<xsd:element name="CountryId" type="CountryIdType"/>
+	<xsd:element name="CountryName" type="CountryNameType"/>
+	<xsd:element name="Username" type="UsernameType"/>
+	<xsd:element name="VesselName" type="VesselNameType"/>
+	<xsd:element name="VesselOperator" type="VesselOperatorType"/>
+	<xsd:element name="SuperClassURNMetadata" type="SuperClassURNMetadataSType">
+		<xsd:annotation>
+			<xsd:documentation>The referencable ID element for all class objects</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+</xsd:schema>

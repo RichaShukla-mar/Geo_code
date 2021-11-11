@@ -1,0 +1,179 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:cmd="http://services.apmoller.net/cmd/schemas"
+	elementFormDefault="qualified" targetNamespace="http://services.apmoller.net/cmd/schemas">
+	<xs:include schemaLocation="SMDS-CommonTypes.xsd" />
+	<xs:include schemaLocation="SMDS-ReferenceDataTypes.xsd" />   
+	
+	<xs:complexType name="OfferingsResponseType">   
+		<xs:annotation>
+			<xs:documentation> Reference data response for Offerings reference
+				data types
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Code" type="xs:string" minOccurs="0"/>
+			<xs:element name="Name" type="xs:string" />
+			<xs:element name="Description" type="xs:string" minOccurs="0" />
+			<xs:element name="GenericData1" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="GenericData2" type="xs:string"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="RetrieveOfferingRequest">
+		<xs:complexType>
+			<xs:sequence />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RetrieveOfferingGroupRequest">
+		<xs:complexType>
+			<xs:sequence />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RetrieveFacilityTypeRequest">
+		<xs:complexType>
+			<xs:sequence />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RetrieveFacilityStatusRequest">
+		<xs:complexType>
+			<xs:sequence />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RetrieveFacilityOPSCategoryRequest">
+		<xs:complexType>            
+			<xs:sequence />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RetrieveFacilitycommercialTypesRequest">
+		<xs:complexType>            
+			<xs:sequence />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RetrieveFacilityFunctionsRequest">
+		<xs:complexType>            
+			<xs:sequence />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RetrieveFacilityBrandsRequest">
+		<xs:complexType>            
+			<xs:sequence />
+		</xs:complexType>
+	</xs:element>
+	
+	
+	<xs:element name="RetrieveOfferingResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation> Generic Response for all kinds of reference Data
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="ReferenceData" type="cmd:OfferingsResponseType"
+					minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RetrieveOfferingGroupResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation> Generic Response for all kinds of reference Data
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="ReferenceData" type="cmd:ReferenceDataResponseType"
+					minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RetrieveFacilityTypeResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation> Generic Response for all kinds of reference Data
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="ReferenceData" type="cmd:ReferenceDataResponseType"
+					minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RetrieveFacilityStatusResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation> Generic Response for all kinds of reference Data
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="ReferenceData" type="cmd:ReferenceDataResponseType"
+					minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="RetrieveFacilityOPSCategoryResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Generic Response for all kinds of reference Data
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="ReferenceData" type="cmd:ReferenceDataResponseType"
+					minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="RetrieveFacilityBrandsResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Generic Response for all kinds of reference Data
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="ReferenceData" type="cmd:ReferenceDataResponseType"
+					minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RetrieveFacilitycommercialTypesResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Generic Response for all kinds of reference Data
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="ReferenceData" type="cmd:ReferenceDataResponseType"
+					minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RetrieveFacilityFunctionsResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Generic Response for all kinds of reference Data
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="ReferenceData" type="cmd:ReferenceDataResponseType"
+					minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="RetrieveOfferingFault" type="cmd:ServiceFaultType" />    
+	<xs:element name="RetrieveOfferingGroupFault" type="cmd:ServiceFaultType" />
+	<xs:element name="RetrieveFacilityTypeFault" type="cmd:ServiceFaultType" />
+	<xs:element name="RetrieveFacilityStatusFault" type="cmd:ServiceFaultType" />
+	<xs:element name="RetrieveFacilityOPSCategoryFault" type="cmd:ServiceFaultType" />
+	<xs:element name="RetrieveFacilitycommercialTypesFault" type="cmd:ServiceFaultType" />
+	<xs:element name="RetrieveFacilityFunctionsFault" type="cmd:ServiceFaultType" />
+	<xs:element name="RetrieveFacilityBrandsFault" type="cmd:ServiceFaultType" />
+	
+
+
+</xs:schema>

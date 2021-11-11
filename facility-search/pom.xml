@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>net.apmoller</groupId>
+	<artifactId>facility-search</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>facility-search</name>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.version>3.7.0</maven.compiler.version>
+		<aspectj.maven.plugin.version>1.9</aspectj.maven.plugin.version>
+		<aspectjrt.version>1.8.9</aspectjrt.version>
+		<jamon.api.version>2.81</jamon.api.version>
+		<log4j1_2.api.version>2.7</log4j1_2.api.version>
+		<org.springframework.version>4.3.8.RELEASE</org.springframework.version>
+		<org.apache.commons.version>3.7</org.apache.commons.version>
+		<skip.aspect.compiler>true</skip.aspect.compiler>
+	</properties>
+
+	<modules>
+		<module>facility-search-client</module>
+		<module>facility-search-ejb</module>
+		<module>facility-search-web</module>
+		<module>facility-search-ear</module>
+		<module>facility-search-aop</module>
+	</modules>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>net.apmoller</groupId>
+				<artifactId>facility-search-aop</artifactId>
+				<version>1.0-SNAPSHOT</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>aspectj-maven-plugin</artifactId>
+					<version>${aspectj.maven.plugin.version}</version>
+					<executions>
+						<execution>
+							<!-- <phase>process-sources</phase> -->
+							<goals>
+								<goal>compile</goal>
+								<goal>test-compile</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<source>${maven.compiler.source}</source>
+						<target>${maven.compiler.target}</target>
+						<complianceLevel>1.8</complianceLevel>
+					</configuration>
+					<!-- <skip>${skip.aspect.compiler}</skip> -->
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+</project>

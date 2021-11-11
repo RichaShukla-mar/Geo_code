@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://services.apmoller.net/cmd/definitions"
+	xmlns:schema="http://services.apmoller.net/cmd/schemas"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://services.apmoller.net/cmd/definitions"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:import namespace="http://services.apmoller.net/cmd/schemas"
+				schemaLocation="./cmdsmdsxsd/FCT-ReferenceDataTypes.xsd" />
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="retrieveOfferingRequest">    
+		<wsdl:part name="parameters" element="schema:RetrieveOfferingRequest" />
+	</wsdl:message>
+	<wsdl:message name="retrieveOfferingResponse">
+		<wsdl:part name="parameters" element="schema:RetrieveOfferingResponse" />
+	</wsdl:message>
+	<wsdl:message name="retrieveOfferingFault">
+		<wsdl:part name="parameters" element="schema:RetrieveOfferingFault"></wsdl:part>
+	</wsdl:message>
+	
+	<wsdl:message name="retrieveOfferingGroupRequest">
+		<wsdl:part name="parameters" element="schema:RetrieveOfferingGroupRequest" />
+	</wsdl:message>
+	<wsdl:message name="retrieveOfferingGroupResponse">
+		<wsdl:part name="parameters" element="schema:RetrieveOfferingGroupResponse" />
+	</wsdl:message>
+	<wsdl:message name="retrieveOfferingGroupFault">
+		<wsdl:part name="parameters" element="schema:RetrieveOfferingGroupFault"></wsdl:part>
+	</wsdl:message>
+	
+	<wsdl:message name="retrieveFacilityTypeRequest">
+		<wsdl:part name="parameters" element="schema:RetrieveFacilityTypeRequest" />
+	</wsdl:message>
+	<wsdl:message name="retrieveFacilityTypeResponse">
+		<wsdl:part name="parameters" element="schema:RetrieveFacilityTypeResponse" />
+	</wsdl:message>
+	<wsdl:message name="retrieveFacilityTypeFault">
+		<wsdl:part name="parameters" element="schema:RetrieveFacilityTypeFault"></wsdl:part>
+	</wsdl:message>
+	
+	<wsdl:message name="retrieveFacilityStatusRequest">
+		<wsdl:part name="parameters" element="schema:RetrieveFacilityStatusRequest" />
+	</wsdl:message>
+	<wsdl:message name="retrieveFacilityStatusResponse">
+		<wsdl:part name="parameters" element="schema:RetrieveFacilityStatusResponse" />
+	</wsdl:message>
+	<wsdl:message name="retrieveFacilityStatusFault">
+		<wsdl:part name="parameters" element="schema:RetrieveFacilityStatusFault"></wsdl:part>
+	</wsdl:message>   
+	
+	<wsdl:message name="retrieveFacilityOPSCategoryRequest">
+		<wsdl:part name="parameters" element="schema:RetrieveFacilityOPSCategoryRequest" />
+	</wsdl:message>
+	<wsdl:message name="retrieveFacilityOPSCategoryResponse">
+		<wsdl:part name="parameters" element="schema:RetrieveFacilityOPSCategoryResponse" />
+	</wsdl:message>
+	<wsdl:message name="retrieveFacilityOPSCategoryFault">
+		<wsdl:part name="parameters" element="schema:RetrieveFacilityOPSCategoryFault"></wsdl:part>
+	</wsdl:message> 
+	
+	<wsdl:message name="retrieveFacilitycommercialTypesRequest">
+		<wsdl:part name="parameters" element="schema:RetrieveFacilitycommercialTypesRequest" />
+	</wsdl:message>
+	<wsdl:message name="retrieveFacilitycommercialTypesResponse">
+		<wsdl:part name="parameters" element="schema:RetrieveFacilitycommercialTypesResponse" />
+	</wsdl:message>
+	<wsdl:message name="retrieveFacilitycommercialTypesFault">
+		<wsdl:part name="parameters" element="schema:RetrieveFacilitycommercialTypesFault"></wsdl:part>
+	</wsdl:message> 
+	
+	<wsdl:message name="retrieveFacilityFunctionsRequest">
+		<wsdl:part name="parameters" element="schema:RetrieveFacilityFunctionsRequest" />
+	</wsdl:message>
+	<wsdl:message name="retrieveFacilityFunctionsResponse">
+		<wsdl:part name="parameters" element="schema:RetrieveFacilityFunctionsResponse" />
+	</wsdl:message>
+	<wsdl:message name="retrieveFacilityFunctionsFault">
+		<wsdl:part name="parameters" element="schema:RetrieveFacilityFunctionsFault"></wsdl:part>
+	</wsdl:message>
+	
+	<wsdl:message name="retrieveFacilityBrandsRequest">
+		<wsdl:part name="parameters" element="schema:RetrieveFacilityBrandsRequest" />
+	</wsdl:message>
+	<wsdl:message name="retrieveFacilityBrandsResponse">
+		<wsdl:part name="parameters" element="schema:RetrieveFacilityBrandsResponse" />  
+	</wsdl:message>
+	<wsdl:message name="retrieveFacilityBrandsFault">
+		<wsdl:part name="parameters" element="schema:RetrieveFacilityBrandsFault"></wsdl:part>
+	</wsdl:message>
+	
+	<wsdl:portType name="FCTReferenceData">   
+	        		<wsdl:operation name="retrieveOfferings">
+			<wsdl:input message="tns:retrieveOfferingRequest"></wsdl:input>
+			<wsdl:output message="tns:retrieveOfferingResponse">    
+			</wsdl:output>
+			<wsdl:fault name="fault" message="tns:retrieveOfferingFault"></wsdl:fault>
+		</wsdl:operation>
+		
+		<wsdl:operation name="retrieveOfferingGroups">
+			<wsdl:input message="tns:retrieveOfferingGroupRequest"></wsdl:input>
+			<wsdl:output message="tns:retrieveOfferingGroupResponse">    
+			</wsdl:output>
+			<wsdl:fault name="fault" message="tns:retrieveOfferingGroupFault"></wsdl:fault>
+		</wsdl:operation>
+		
+		<wsdl:operation name="retrieveFacilityTypes">
+			<wsdl:input message="tns:retrieveFacilityTypeRequest"></wsdl:input>
+			<wsdl:output message="tns:retrieveFacilityTypeResponse">    
+			</wsdl:output>
+			<wsdl:fault name="fault" message="tns:retrieveFacilityTypeFault"></wsdl:fault>
+		</wsdl:operation>
+		
+		<wsdl:operation name="retrieveFacilityStatus">
+			<wsdl:input message="tns:retrieveFacilityStatusRequest"></wsdl:input>
+			<wsdl:output message="tns:retrieveFacilityStatusResponse">    
+			</wsdl:output>
+			<wsdl:fault name="fault" message="tns:retrieveFacilityStatusFault"></wsdl:fault>
+		</wsdl:operation>
+		
+		<wsdl:operation name="retrieveFacilityOPSCategories">     
+			<wsdl:input message="tns:retrieveFacilityOPSCategoryRequest"></wsdl:input>
+			<wsdl:output message="tns:retrieveFacilityOPSCategoryResponse">    
+			</wsdl:output>
+			<wsdl:fault name="fault" message="tns:retrieveFacilityOPSCategoryFault"></wsdl:fault>
+		</wsdl:operation>
+		
+		<wsdl:operation name="retrieveFacilityFunctions">     
+			<wsdl:input message="tns:retrieveFacilityFunctionsRequest"></wsdl:input>
+			<wsdl:output message="tns:retrieveFacilityFunctionsResponse">    
+			</wsdl:output>
+			<wsdl:fault name="fault" message="tns:retrieveFacilityFunctionsFault"></wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="retrieveFacilityBrands">     
+			<wsdl:input message="tns:retrieveFacilityBrandsRequest"></wsdl:input>
+			<wsdl:output message="tns:retrieveFacilityBrandsResponse">    
+			</wsdl:output>
+			<wsdl:fault name="fault" message="tns:retrieveFacilityBrandsFault"></wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="retrieveFacilitycommercialTypes">     
+			<wsdl:input message="tns:retrieveFacilitycommercialTypesRequest"></wsdl:input>
+			<wsdl:output message="tns:retrieveFacilitycommercialTypesResponse">    
+			</wsdl:output>
+			<wsdl:fault name="fault" message="tns:retrieveFacilitycommercialTypesFault"></wsdl:fault>
+		</wsdl:operation>
+		
+</wsdl:portType>	
+</wsdl:definitions>

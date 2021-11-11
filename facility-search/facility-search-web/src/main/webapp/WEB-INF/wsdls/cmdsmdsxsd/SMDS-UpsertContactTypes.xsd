@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:cmd="http://services.apmoller.net/cmd/schemas"
+	elementFormDefault="qualified"
+	targetNamespace="http://services.apmoller.net/cmd/schemas">
+	<xs:include schemaLocation="SMDS-CommonContactTypes.xsd" />
+	 <xs:include schemaLocation="SMDS-SearchContactTypes.xsd"/>
+	
+	<xs:element name="UpsertCustomerContact">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Message for creating a customer with a main address
+					only.
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" minOccurs="0"
+					name="CustomerContact" type="cmd:CustomerContactEntity" />
+				<!--  <xs:element maxOccurs="unbounded" minOccurs="0" name="ContactGroup"
+					type="cmd:DepartmentEntity"/> -->
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UpsertFacilityContact">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Message for creating a customer with a main address
+					only.
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" minOccurs="0"
+					name="FacilityContact" type="cmd:FacilityContactEntity" />
+
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UpsertCustomerCommunicationPreference">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Message for creating or updating communication
+					preferences on a customer.
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element ref="cmd:CustomerCode" />
+				<xs:element maxOccurs="unbounded" minOccurs="1"
+					name="CommunicationPreference"
+					type="cmd:CommunicationPreferenceType" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UpsertCustomerContactResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Return message for all asynchronous upsert
+					operations, containing the code
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element maxOccurs="1" minOccurs="0"
+					name="UpsertCustomerContactResponseType"
+					type="cmd:UpsertContactResponseType" />
+
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UpsertFacilityContactResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Return message for all asynchronous upsert
+					operations, containing the code
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:element minOccurs="0" ref="cmd:ContactCode" />
+				<xs:element maxOccurs="unbounded" minOccurs="0"
+					name="UpsertContactValidationStatus"
+					type="cmd:ValidationResponseType" />
+				<xs:element name="UpsertContactStatus"
+					type="cmd:StatusResponseType" minOccurs="0" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UpsertContactFault" type="cmd:ServiceFaultType" />
+	<xs:element name="InactivateCustomerContactRequest">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					This request is invoked from the workflow/IDD to
+					deactivate a customer contact using contact code/scv
+					code
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element ref="cmd:SCVCode" minOccurs="0" />
+				<xs:element ref="cmd:ContactCode" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="InactivateCustomerContactResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Status message is returned to the workflow/IDD
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="InactivateCustomerContactStatus"
+					type="cmd:StatusResponseType" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="UpsertContactResponseType">
+		<xs:annotation>
+			<xs:documentation>
+				Return message for all asynchronous upsert operations,
+				containing the code
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence maxOccurs="unbounded">
+			<xs:element maxOccurs="unbounded" minOccurs="0"
+				name="ContactIDs" type="cmd:ContactIDsType">
+			</xs:element>
+			<xs:element name="Contact"
+				type="cmd:SearchDuplicateContactResponseType" minOccurs="0"
+				maxOccurs="unbounded">
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0"
+				name="UpsertContactValidationStatus"
+				type="cmd:ValidationResponseType" />
+			<xs:element name="UpsertContactStatus"
+				type="cmd:StatusResponseType" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="InactivateCustomerContactFault"
+		type="cmd:ServiceFaultType" />
+</xs:schema>

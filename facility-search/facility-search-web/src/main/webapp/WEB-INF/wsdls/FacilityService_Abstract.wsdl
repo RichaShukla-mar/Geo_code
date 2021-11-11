@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://services.apmoller.net/cmd/definitions"
+	xmlns:schema="http://services.apmoller.net/cmd/schemas"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://services.apmoller.net/cmd/definitions"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:osb="http://services.apmoller.net/ManagementFramework/CommonIdentifier/v2">
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:import namespace="http://services.apmoller.net/cmd/schemas"
+				schemaLocation="./cmdsmdsxsd/FCT-UpsertFacilityTypes.xsd" />
+			<xsd:import namespace="http://services.apmoller.net/ManagementFramework/CommonIdentifier/v2"
+				schemaLocation="./osbxsd/CommonIdentifierV1.xsd" />
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="upsertFacilityHeader">
+		<wsdl:part name="header" element="osb:CommonIdentifierRequest">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="upsertFacilityRequest"> 
+		<wsdl:part name="parameters" element="schema:UpsertFacility">  
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="upsertFacilityResponse">
+		<wsdl:part name="parameters" element="schema:UpsertFacilityResponse">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="upsertFacilityFault">
+		<wsdl:part name="parameters" element="schema:UpsertFacilityFault"></wsdl:part>
+	</wsdl:message>
+		<wsdl:message name="publishFacilityFault">
+		<wsdl:part name="parameters" element="schema:PublishFacilityCodeFault"></wsdl:part>
+	</wsdl:message>  
+	
+	<wsdl:message name="publishFacilityCodeRequest">
+            <wsdl:part name="parameters" element="schema:PublishFacilityCodeRequest"></wsdl:part>
+      </wsdl:message>
+      <wsdl:message name="publishFacilityCodeResponse">
+            <wsdl:part name="parameters" element="schema:PublishFacilityCodeResponse"></wsdl:part>
+      </wsdl:message> 
+      
+      <wsdl:message name="inactivateFacilityFault">
+		<wsdl:part name="parameters" element="schema:InactivateFacilityFault"></wsdl:part>
+	</wsdl:message>  
+	<wsdl:message name="inactivateFacilityRequest">
+            <wsdl:part name="parameters" element="schema:InactivateFacilityRequest"></wsdl:part>
+      </wsdl:message>
+      <wsdl:message name="inactivateFacilityResponse">
+            <wsdl:part name="parameters" element="schema:InactivateFacilityResponse"></wsdl:part>
+      </wsdl:message> 
+      <wsdl:message name="deletePartyMatchRequest">
+            <wsdl:part name="parameters" element="schema:DeletePartyMatchRequest"></wsdl:part>
+      </wsdl:message>
+      <wsdl:message name="deletePartyMatchResponse">
+            <wsdl:part name="parameters" element="schema:DeletePartyMatchResponse"></wsdl:part>
+      </wsdl:message>
+      <wsdl:message name="deletePartyMatchFault">
+            <wsdl:part name="parameters" element="schema:SdnServiceFault"></wsdl:part>
+      </wsdl:message> 
+	<!-- <wsdl:message name="activateFacilityRequest">
+		<wsdl:part name="parameters" element="schema:ActivateFacilityRequest"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="activateFacilityResponse">
+		<wsdl:part name="parameters" element="schema:ActivateFacilityResponse"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="activateFacilityFault">
+		<wsdl:part name="parameters" element="schema:ActivateFacilityFault"></wsdl:part>
+	</wsdl:message>
+
+	<wsdl:message name="publishFacilityCodeRequest">
+		<wsdl:part name="parameters" element="schema:PublishFacilityCode"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="publishFacilityCodeResponse">
+		<wsdl:part name="parameters" element="schema:PublishFacilityCodeResponse"></wsdl:part>
+	</wsdl:message> -->
+
+	<wsdl:portType name="UpsertFacilityService">
+		<wsdl:operation name="upsertFacility">
+			<wsdl:input message="tns:upsertFacilityRequest">
+			</wsdl:input>
+			<wsdl:output message="tns:upsertFacilityResponse">
+			</wsdl:output>
+			<wsdl:fault name="fault" message="tns:upsertFacilityFault"></wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="publishFacilityCode">
+                  <wsdl:input message="tns:publishFacilityCodeRequest"></wsdl:input>
+                  <wsdl:output message="tns:publishFacilityCodeResponse"></wsdl:output>
+                  <wsdl:fault name="fault" message="tns:publishFacilityFault"></wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="inactivateFacility">
+                  <wsdl:input message="tns:inactivateFacilityRequest"></wsdl:input>
+                  <wsdl:output message="tns:inactivateFacilityResponse"></wsdl:output>
+                  <wsdl:fault name="fault" message="tns:inactivateFacilityFault"></wsdl:fault>
+        </wsdl:operation>       
+           <wsdl:operation name="deletePartyMatch">
+                  <wsdl:input message="tns:deletePartyMatchRequest"></wsdl:input>
+                  <wsdl:output message="tns:deletePartyMatchResponse"></wsdl:output>
+                  <wsdl:fault name="fault" message="tns:deletePartyMatchFault"></wsdl:fault>
+            </wsdl:operation>
+
+		<!-- <wsdl:operation name="activateFacility">
+			<wsdl:input message="tns:activateFacilityRequest"></wsdl:input>
+			<wsdl:output message="tns:activateFacilityResponse"></wsdl:output>
+			<wsdl:fault name="fault" message="tns:activateFacilityFault"></wsdl:fault>
+		</wsdl:operation> 
+		<wsdl:operation name="publishFacilityCode">
+			<wsdl:input message="tns:publishFacilityCodeRequest"></wsdl:input>
+			<wsdl:output message="tns:publishFacilityCodeResponse"></wsdl:output>
+		</wsdl:operation>-->
+	</wsdl:portType>
+	<!-- <wsdl:binding name="UpsertFacilityBinding" type="tns:UpsertFacilityService">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="upsertFacility">
+			<soap:operation
+				soapAction="http://services.apmoller.net/cmd/definitions/upsertFacility" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header use="literal" message="tns:upsertFacilityHeader"
+					part="header" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault use="literal" name="fault" />
+			</wsdl:fault>
+		</wsdl:operation>
+		</wsdl:binding> -->
+		<!-- <wsdl:operation name="activateFacility">
+			<soap:operation
+				soapAction="http://services.apmoller.net/cmd/definitions/activateFacility" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header use="literal" message="tns:upsertFacilityHeader"
+					part="header" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault use="literal" name="fault" />
+			</wsdl:fault>
+		</wsdl:operation> -->
+		<!-- <wsdl:operation name="publishFacilityCode">
+			<soap:operation
+				soapAction="http://services.apmoller.net/cmd/definitions/publishFacilityCode" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header use="literal" message="tns:upsertFacilityHeader"
+					part="header" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>  -->
+	<!-- <wsdl:service name="FacilityService">
+		<wsdl:port name="FacilityServicePort" binding="tns:UpsertFacilityBinding">
+			<soap:address location="http://scrbipcdk001152:7001/Upsert/FacilityService" />
+		</wsdl:port>
+	</wsdl:service> -->
+
+ 
+</wsdl:definitions>

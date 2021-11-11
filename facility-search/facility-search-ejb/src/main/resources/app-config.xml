@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+        http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd">  
+	<jee:jndi-lookup id="environment_properties" jndi-name="FCT_ENVIRONMENT_CONFIG_LOCATION" />
+	<jee:jndi-lookup id="business_properties" jndi-name="FCT_BUSINESS_CONFIG_LOCATION" />     
+
+	<context:annotation-config />
+	<context:component-scan base-package="net.apmoller.**" />
+	<!-- <context:property-placeholder location="classpath*:environment.properties" /> -->
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" ref="environment_properties" />
+
+	</bean>
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" ref="business_properties" />
+
+	</bean>
+
+	<bean id="springEnvironmentProperties"
+		class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="location" ref="environment_properties" />
+	</bean>
+	<bean id="springBusinessProperties"
+		class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="location" ref="business_properties" />
+	</bean>
+</beans>

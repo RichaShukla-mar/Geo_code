@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://services.apmoller.net/cmd/definitions/v2"
+	xmlns:schema="http://services.apmoller.net/cmd/schemas"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://services.apmoller.net/cmd/definitions/v2"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:import namespace="http://services.apmoller.net/cmd/schemas"
+				schemaLocation="./cmdsmdsxsd/CMD-ValidationTypes.xsd" />
+		</xsd:schema>
+	</wsdl:types>
+	
+	<wsdl:message name="validateCountryRuleRequest">
+		<wsdl:part name="parameters" element="schema:ValidateCountryRulesRequest">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="validateCountryRuleResponse">
+		<wsdl:part name="parameters" element="schema:ValidateCountryRulesResponse">
+		</wsdl:part>
+	</wsdl:message>
+
+	<wsdl:message name="retrieveCountryRulesRequest">
+		<wsdl:part name="parameters" element="schema:RetrieveCountryRulesRequest">
+		</wsdl:part>
+	</wsdl:message>
+
+	<wsdl:message name="retrieveCountryRulesResponse">
+		<wsdl:part name="parameters" element="schema:RetrieveCountryRulesResponse">
+		</wsdl:part>
+	</wsdl:message>
+	
+	<wsdl:message name="validateTaxNumberRequest">
+		<wsdl:part name="parameters" element="schema:ValidateTaxNumberRequest">
+		</wsdl:part>
+	</wsdl:message>
+
+	<wsdl:message name="validateTaxNumberResponse">
+		<wsdl:part name="parameters" element="schema:ValidateTaxNumberResponse">
+		</wsdl:part>
+	</wsdl:message>
+	
+	<wsdl:message name="validateCountryRuleFault">
+		<wsdl:part name="parameters" element="schema:ValidateCountryRuleFault"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="retrieveCountryRulesFault">
+		<wsdl:part name="parameters" element="schema:RetrieveCountryRulesFault"></wsdl:part>
+	</wsdl:message>
+	
+	<wsdl:message name="validateTaxNumberFault">
+		<wsdl:part name="parameters" element="schema:ValidateTaxNumberFault"></wsdl:part>
+	</wsdl:message>
+
+
+
+
+	<wsdl:portType name="ValidationService">
+		<wsdl:operation name="validateCountryRule">
+			<wsdl:input message="tns:validateCountryRuleRequest">
+			</wsdl:input>
+			<wsdl:output message="tns:validateCountryRuleResponse">
+			</wsdl:output>
+			<wsdl:fault name="fault" message="tns:validateCountryRuleFault"></wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="retrieveCountryRules">
+			<wsdl:input message="tns:retrieveCountryRulesRequest">
+			</wsdl:input>
+			<wsdl:output message="tns:retrieveCountryRulesResponse">
+			</wsdl:output>
+			<wsdl:fault name="fault" message="tns:retrieveCountryRulesFault"></wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="validateTaxNumber">
+			<wsdl:input message="tns:validateTaxNumberRequest">
+			</wsdl:input>
+			<wsdl:output message="tns:validateTaxNumberResponse">
+			</wsdl:output>
+			<wsdl:fault name="fault" message="tns:validateTaxNumberFault"></wsdl:fault>
+		</wsdl:operation>
+	</wsdl:portType>
+	</wsdl:definitions>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns="http://services.apmoller.net/AMM/v4" xmlns:AMM="http://services.apmoller.net/AMM/v4" xmlns:amm="http://services.apmoller.net/AMM/v4" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://services.apmoller.net/AMM/v4" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0.0" id="EAMRequestResponseTypes">
+	<xsd:annotation>
+		<xsd:appinfo>
+			<Metadata xmlns="http://services.apmoller.net/AMM/v4/meta">
+				<Identifier>EAMRequestResponseTypeStructures</Identifier>
+				<Title>Maersk Enterprise Service Modelling (ESM) Complex Types Schema</Title>
+				<Language>[ISO 639-2/T] ENG</Language>
+				<Audience/>
+				<Creator/>
+				<Publisher/>
+				<Date>
+					<Created>2014-03-10</Created>
+					<Modified>2013-03-10</Modified>
+				</Date>
+				<Description>EAM Request Response TypeSchema</Description>
+				<Relation>
+					<IsPartOf/>
+				</Relation>
+				<Rights>
+					<Copyright>Maersk Copyright 2014</Copyright>
+					<ProtectiveMarking>Not Protectively Marked</ProtectiveMarking>
+				</Rights>
+				<Subject>
+					<Category/>
+					<Project/>
+				</Subject>
+				<Type>W3C XML Schema</Type>
+			</Metadata>
+		</xsd:appinfo>
+	</xsd:annotation>
+	<!-- XSD Schema Includes -->
+	<xsd:include schemaLocation="EAMComplexTypes.xsd"/>
+	<!-- XSD Complex Type Definitions -->
+	<xsd:element name="GetCountriesByCountryCodes" type="GetCountriesByCountryCodesRequestStructure" nillable="false"/>
+    <xsd:element name="GetCountriesByCountryCodesResponse" type="GetCountriesByCountryCodesResponseStructure"/>
+    <xsd:complexType name="GetCountriesByCountryCodesRequestStructure">
+        <xsd:sequence>
+            <xsd:element ref="CountryCode" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="GetCountriesByCountryCodesResponseStructure">
+        <xsd:sequence>
+            <xsd:element name="Country" type="CountryStructure" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+</xsd:schema>

@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:cmd="http://services.apmoller.net/cmd/schemas"
+	elementFormDefault="qualified" targetNamespace="http://services.apmoller.net/cmd/schemas">
+	<xs:include schemaLocation="CMD-CommonCustomerTypes.xsd" />
+
+	<xs:element name="RetrieveCustomerRequest">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation> Request to retrieve a customer with a given
+					customer code or a
+					technical identifier
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:choice>
+					<xs:element ref="cmd:CustomerCode" />
+					<xs:element ref="cmd:SCVCode" />
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RetrieveCustomerResponse">
+        <xs:complexType>
+            <xs:annotation>
+                <xs:documentation> Response of retrieve customer (identical to create/update) for a
+					given customer code(s) </xs:documentation>
+            </xs:annotation>
+            <xs:sequence>
+                <xs:element minOccurs="0" ref="cmd:CustomerEntity"/>
+                <xs:element name="RetrieveCustomerStatus" type="cmd:StatusResponseType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+	<xs:element name="SearchDuplicateCustomerRequest">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation> Search duplicate customer by complete type of
+					data that has been
+					inserted.
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element ref="cmd:CustomerEntity" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SearchDuplicateCustomerResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation> Return results of the duplicate match - includes
+					full address
+					compared to standard search
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="SearchDuplicateCustomerStatus" type="cmd:StatusResponseType" />
+				<xs:element maxOccurs="unbounded" minOccurs="0"
+					name="DuplicateCustomer" type="cmd:SearchDuplicateCustomerResponseType" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SearchCustomerRequest">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation> Wildcard-Search active customers based on
+					different critera
+					(mainly name and address fields) When customer
+					code is given, Portal will use
+					the retrieveCustomer Method to get
+					all details of the customer directly
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element maxOccurs="1" minOccurs="0"
+					ref="cmd:CustomerLegalName" />
+				<xs:element maxOccurs="1" minOccurs="0" name="CustomerTradingName">
+					<xs:simpleType>
+						<xs:annotation>
+							<xs:documentation>Values of the match score of Address Doctor
+							</xs:documentation>
+						</xs:annotation>
+						<xs:restriction base="xs:string">
+							<xs:pattern value="(.+){1,}" />
+							<xs:maxLength value="128" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element maxOccurs="1" minOccurs="0" name="ISOCountryCode"
+					type="cmd:ISOCountryCode" />
+				<xs:element maxOccurs="1" minOccurs="0" ref="cmd:City" />
+				<xs:element maxOccurs="1" minOccurs="0"
+					ref="cmd:CustomerLifecycleStatus" />
+				<xs:element maxOccurs="1" minOccurs="0" ref="cmd:HouseNo" />
+				<xs:element maxOccurs="1" minOccurs="0" ref="cmd:StreetName" />
+				<xs:element maxOccurs="1" minOccurs="0" ref="cmd:Region" />
+				<xs:element maxOccurs="1" minOccurs="0" ref="cmd:PoBox" />
+				<xs:element maxOccurs="1" minOccurs="0" ref="cmd:PostalCode" />
+				<xs:element maxOccurs="1" minOccurs="0" name="TaxNumber"
+					type="xs:string">
+				</xs:element>
+				<xs:element maxOccurs="1" minOccurs="0" name="ReferenceNumber"
+					type="cmd:ReferenceNumberType">
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SearchCustomerResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation> Return results of the customer search (same for
+					all search
+					customer operations except searchDuplicateCustomer?)
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="SearchCustomerStatus" type="cmd:StatusResponseType" />
+				<xs:element maxOccurs="unbounded" minOccurs="0" name="Customer"
+					type="cmd:SearchCustomerResponseType" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="SearchCustomerResponseType">
+		<xs:annotation>
+			<xs:documentation> Return results of the customer search (same for
+				all search customer
+				operations except searchDuplicateCustomer?)
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="cmd:CustomerCode" />
+			<xs:element ref="cmd:SCVCode" minOccurs="0" />
+			<xs:element maxOccurs="1" minOccurs="0"
+				ref="cmd:CustomerLegalName" />
+			<xs:element ref="cmd:CustomerTradingName" />
+			<xs:element ref="cmd:CustomerLifecycleStatus" />
+			<xs:element maxOccurs="1" minOccurs="0"
+				name="CustomerStatusReasonType" type="xs:string" />
+			<xs:element ref="cmd:CustomerTypes" />
+			<xs:element minOccurs="0" ref="cmd:StreetName" />
+			<xs:element minOccurs="0" ref="cmd:HouseNo" />
+			<xs:element minOccurs="0" ref="cmd:Building" />
+			<xs:element minOccurs="0" ref="cmd:Suburb" />
+			<xs:element minOccurs="0" ref="cmd:District" />
+			<xs:element minOccurs="0" ref="cmd:PoBox" />
+			<xs:element minOccurs="0" ref="cmd:PostalCode" />
+			<xs:element minOccurs="0" ref="cmd:Region" />
+			<xs:element ref="cmd:City" />
+			<xs:element name="ISOCountryCode" type="cmd:ISOCountryCode" />
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="TaxNumber"
+				type="cmd:TaxInformationType">
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0"
+				name="ReferenceNumber" type="cmd:ReferenceNumberType">
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SearchDuplicateCustomerResponseType">
+		<xs:annotation>
+			<xs:documentation> Return results of the customer duplicate search,
+				including full
+				address details
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="cmd:CustomerCode" />
+			<xs:element ref="cmd:SCVCode" minOccurs="0" />
+			<xs:element maxOccurs="1" minOccurs="0"
+				ref="cmd:CustomerLegalName" />
+			<xs:element ref="cmd:CustomerTradingName" />
+
+			<!-- do we need that one, is it in the package? -->
+			<xs:element ref="cmd:CustomerLifecycleStatus" />
+
+			<xs:element name="Address" type="cmd:AddressType" />
+
+			<xs:element minOccurs="0" name="CustomerTaxNumbers" type="cmd:CustomerTaxNumberType">
+				<xs:annotation>
+					<xs:documentation> Country specific Tax Numbers for the customer
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+
+		</xs:sequence>
+	</xs:complexType>
+
+
+
+
+	<xs:element name="RetrieveConcernCodesRequest">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation> Request to retrieve a customer with a given
+					customer code or a
+					technical identifier
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+					<xs:element name="ConcernCode" type="xs:string" />
+					<xs:element name="RetrieveConcernCustomerFlag" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="RetrieveConcernMemberFlag" type="xs:boolean" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RetrieveConcernCodesResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation> Response of retrieve customer (identical to
+					create/update) for a
+					given customer code(s)
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element minOccurs="0" ref="cmd:ConcernCodes" />
+				<xs:element name="RetrieveConcernCodesStatusResponse"
+					type="cmd:StatusResponseType" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="RetrieveRelationshipsRequest">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation> Request to retrieve a relationship with a given
+					customer code  </xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:choice>
+					<xs:element ref="cmd:CustomerCode" />
+					<xs:element ref="cmd:SCVCode" />
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RetrieveRelationshipsResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation> Response of retrieve Relationship (identical to
+					create/update) for a
+					given customer code(s)
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element minOccurs="0" maxOccurs="unbounded" ref="cmd:RelationshipTypeInfo" />
+				<xs:element name="RetrieveRelationshipsStatusResponse"
+					type="cmd:StatusResponseType" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="RetrieveConcernCodesFault" type="cmd:ServiceFaultType" />
+	<xs:element name="SearchCustomerFault" type="cmd:ServiceFaultType" />
+	<xs:element name="SearchDuplicateCustomerFault" type="cmd:ServiceFaultType" />
+	<xs:element name="RetrieveCustomerFault" type="cmd:ServiceFaultType" />
+	<xs:element name="RetrieveRelationshipsFault" type="cmd:ServiceFaultType" />
+</xs:schema>

@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mdmavxsd="urn:informatica.mdm.av.xsd"
+  xmlns:cmd="http://services.apmoller.net/cmd/schemas" elementFormDefault="qualified"
+  targetNamespace="http://services.apmoller.net/cmd/schemas">
+  <xs:import namespace="urn:informatica.mdm.av.xsd"
+		schemaLocation="mdm_avos_schema.xsd" />
+  <xs:include schemaLocation="SMDS-CommonEnumsElements.xsd"/>
+  <xs:complexType name="ValidDatePeriodType">
+    <xs:sequence>
+      <xs:element name="ValidFrom" type="xs:date"/>
+      <xs:element name="ValidTo" type="xs:date"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="DeletePartyMatchRequest">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation> Request for deleting partymatch
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element ref="cmd:TechnicalIdentifier" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+  <xs:complexType name="AuditType">
+    <xs:sequence>
+      <xs:element name="CreationDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="CreationUser" type="xs:string"  minOccurs="0"/>
+      <xs:element name="LastUpdateDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="LastUpdateUser" type="xs:string" minOccurs="0"/>
+      <xs:element name="LastUpdateSourceSystem" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ElectronicAddressType">
+    <xs:sequence>
+      <xs:element name="EmailAddress" type="xs:string" minOccurs="0"/>
+      <!-- Currently no field value in the database available <xs:element name="URL"
+				type="xs:string" minOccurs="0"/> -->
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeletePartyMatchResponse" type="cmd:StatusResponseType" />
+  <xs:complexType name="StatusResponseType">
+    <xs:annotation>
+      <xs:documentation>Standard Status Response with code and description </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Code" type="xs:string"/>
+      <xs:element name="Status" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="TeleCommunicationType">
+    <xs:sequence>
+      <xs:element name="PhoneNumberType" type="cmd:PhoneNumberTypeEnum" default="TEL"  minOccurs="0"/>
+      <xs:element name="ISOCountryCode" type="cmd:ISOCountryCode" minOccurs="0"/>
+      <xs:element name="InternationalDialingCode">
+      <xs:simpleType>
+       <xs:restriction base="xs:string">
+     <xs:pattern value="[0-9]{1,4}"/>
+    </xs:restriction>
+    </xs:simpleType>
+      </xs:element>
+      <xs:element name="AreaCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="Extension" minOccurs="0">
+      	<xs:simpleType>
+      		<xs:restriction base="xs:string">
+      			<xs:maxLength value="10"></xs:maxLength>
+      		</xs:restriction>
+      	</xs:simpleType>
+      </xs:element>
+      <xs:element name="Number">
+      <xs:simpleType>
+    <xs:restriction base="xs:string">
+     <xs:pattern value="[0-9]{1,20}"/>
+    </xs:restriction>
+  </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AddressType">
+    <xs:annotation>
+      <xs:documentation> Postal Address. the language attribute specifies any local language and
+        defaults to EN if omitted </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element ref="cmd:HouseNo" minOccurs="0"/>
+      <xs:element ref="cmd:StreetName" minOccurs="0"/>
+      <xs:element ref="cmd:PoBox" minOccurs="0"/>
+      <xs:element ref="cmd:Building" minOccurs="0"/>
+      <xs:element ref="cmd:Suburb" minOccurs="0"/>
+      <xs:element ref="cmd:District" minOccurs="0"/>
+      <xs:element ref="cmd:City"/>
+      <xs:element ref="cmd:Region" minOccurs="0"/>
+      <xs:element name="ISOCountryCode" type="cmd:ISOCountryCode"/>
+      <xs:element ref="cmd:PostalCode" minOccurs="0"/>
+      <xs:element name="TaxJurisdictionCode" type="xs:integer" minOccurs="0"/>
+      <xs:element name="AddressAuditData" type="cmd:AuditType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Creation date and user as well as last update date and user
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="AddressWorkflowIndicator" type="cmd:WorkflowEnum" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation> Indicator if a workflow needs to be triggered from Portal Perspective
+            for the address </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="AddressMailabilityScore" type="cmd:AddressMailabilityScore" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation> Indicator of the mailability score returned by Address doctor for the
+            given address </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="AddressMatchScore" type="cmd:AddressMatchScore" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation> Indicator of the match score returned by Address doctor for the given
+            address </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="lang" type="cmd:ISOLanguageCode" default="en">
+      <xs:annotation>
+        <xs:documentation> Attribute for setting the language of language specific entities
+          (primarily address fields) Defaults to english </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:element name="EntityName" type="xs:string">
+    <xs:annotation>
+      <xs:documentation> Name of the Entity i.e Customer or Facility </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="ServiceFaultType">
+    <xs:sequence>
+      <xs:element name="Reason" type="xs:string"/>
+      <xs:element name="Code" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:element name="SdnServiceFault" type="cmd:ServiceFaultType" />
+    <xs:complexType name="ServiceFaultTypeSOAP1.2">
+      <xs:sequence>
+        <xs:element name="Code">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:string" name="Value"/>
+              <xs:element name="Subcode">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="Value"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Reason">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:string" name="Text"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Detail">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:duration" name="MaxTime"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+
+  <xs:complexType name="SdnHeaderType">
+    <xs:sequence>
+      <xs:element name="SourceSystem" type="xs:string">
+        <xs:annotation>
+          <xs:documentation> System which triggered the sdn
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:annotation>
+    <xs:documentation> Deprecated Header for each operation </xs:documentation>
+  </xs:annotation>
+  <xs:complexType name="CustomerHeaderType">
+    <xs:sequence>
+      <xs:element name="SourceSystem" type="xs:string">
+        <xs:annotation>
+          <xs:documentation> System which triggered the update
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="User" type="xs:string">
+        <xs:annotation>
+          <xs:documentation> Username who created/updated the customer record
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="Brand" type="cmd:OperatorTypeEnum"
+        minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            what brand (e.g. Portal) the request came from
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+	<xs:complexType name="BVDInformationType">
+		<xs:sequence>
+			<xs:element type="xs:string" name="MarketCap" minOccurs="0"/>
+			<xs:element type="xs:string" name="MajorSector" minOccurs="0"/>
+			<xs:element type="xs:string" name="OperatingRevenueTurnOver" minOccurs="0"/>
+			<xs:element type="xs:date" name="DateOfAccount" minOccurs="0"/>
+			<xs:element type="xs:decimal" name="ProfitMarginPercentage" minOccurs="0"/>
+			<xs:element type="xs:string" name="CreditRating" minOccurs="0"/>
+			<xs:element type="xs:decimal" name="RecommendedCreditLimit" minOccurs="0"/>
+			<xs:element type="xs:string" name="BVDGUOCustomerCode" minOccurs="0"/>
+			<xs:element type="xs:string" name="BVDGUOLegalName" minOccurs="0"/>
+			<xs:element type="xs:string" name="BVDHQCustomerCode" minOccurs="0"/>
+			<xs:element type="xs:string" name="BVDHQLegalName" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+       <xs:complexType name="CmdFctProcessType">
+		<xs:annotation>
+			<xs:documentation> Additional information required to start any of
+				the customer
+				workflows WorkflowIndicator - Indicate which kind of human task activity is
+				shown in
+				IDD CustomerCreateIndicator - Indicates if the activateCustomer
+				Operation needs to
+				be invoked once the record is accepted (only for new records)
+				WTCSInformation -
+				Information required to call the SDN-Service in case record is accepted and
+				customer
+				name or address changed
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="WorkflowIndicator"
+				type="cmd:WorkflowEnum" />
+			<xs:element name="CreateIndicator" type="cmd:UpsertEnum" />
+			<xs:element name="AdditionalOwnerUID" type="xs:string" minOccurs="0" maxOccurs="1"></xs:element>
+			<xs:element name="Code" type="xs:string" minOccurs="0" />
+			<xs:element name="SCVCode" type="xs:string" minOccurs="0" />
+			<xs:element name="WTCSInformation"
+				type="cmd:WTCSInformationType" />
+			<xs:element name="CreationUser" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="LastUpdateUser" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="CallPublish" type="xs:boolean"
+				minOccurs="0" />
+			<xs:element name="WorkflowReferenceNumbers" type="cmd:WorkflowReferenceNumberType"
+				minOccurs="0" />
+
+
+		</xs:sequence>
+       </xs:complexType>
+	<xs:complexType name="WTCSInformationType">
+		<xs:sequence>
+			<xs:element ref="cmd:EntityName" />
+			<xs:element name="Address" type="cmd:AddressType" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="StartCustomerProcessRequest">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation> The StartProcessRequest for ActiveVOS to trigger
+					a workflow
+					extended by required customer attributes
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="INFATask" type="mdmavxsd:INFATask" />
+				<xs:element name="CmdFctProcess" type="cmd:CmdFctProcessType" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+   <xs:complexType name="ReferenceNumberType">
+    <xs:sequence>
+      <xs:annotation>
+        <xs:documentation> Any types of customer reference numbers identified by the
+					reference type </xs:documentation>
+      </xs:annotation>
+      <xs:element name="ReferenceTypeCode" type="cmd:ReferenceTypeEnum"/>
+      <xs:element name="ReferenceTypeNumber" type="xs:string"/>
+      <xs:element minOccurs="0" ref="cmd:DeleteFlag"/>
+      <xs:element minOccurs="0" name="ReferenceActiveIndicator" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+
+  <xs:complexType name="WorkflowReferenceNumberType">
+    <xs:sequence>
+      <xs:annotation>
+        <xs:documentation>Reference type for workflow </xs:documentation>
+      </xs:annotation>
+      <xs:element name="WorkflowReferenceTypeElements" type="cmd:WorkflowReferenceNumberElement" minOccurs="0" maxOccurs="unbounded"/>
+
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="WorkflowReferenceNumberElement">
+    <xs:sequence>
+      <xs:annotation>
+        <xs:documentation>Reference type for workflow </xs:documentation>
+      </xs:annotation>
+      <xs:element name="WorkflowReferenceTypeCode" type="xs:string"/>
+      <xs:element name="WorkflowReferenceTypeNumber" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+
+  <xs:element name="VerifyWTCS">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation> Match given customer (given by trading name)
+					against the
+					WTCS-Lists (OFAC/EEAS). Currently only an input is required, as a workflow is
+					started in ActiveVOS from the service This also includes the
+					customer header
+					information.
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="SdnHeader" type="cmd:SdnHeaderType" />
+				<xs:element ref="cmd:TechnicalIdentifier">
+					<xs:annotation>
+						<xs:documentation> RowID of the customer or contact, who is to be
+							verified
+							against the SDN List
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="Code" type="xs:string" />
+				<xs:element name="SCVCode" type="xs:string" minOccurs="0" />
+				<xs:element name="WTCSInformation" type="cmd:WTCSInformationType" />
+			</xs:sequence>
+		</xs:complexType>
+
+	</xs:element>
+
+</xs:schema>

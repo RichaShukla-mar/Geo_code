@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://services.apmoller.net/cmd/definitions/v2"
+      xmlns:schema="http://services.apmoller.net/cmd/schemas"
+      xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://services.apmoller.net/cmd/definitions/v2"
+      xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+      xmlns:osb="http://services.apmoller.net/ManagementFramework/CommonIdentifier/v2">
+      <wsdl:types>
+            <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+                  <xsd:import namespace="http://services.apmoller.net/cmd/schemas"
+                        schemaLocation="./cmdsmdsxsd/CMD-CustomerTypes.xsd" />
+                  <xsd:import namespace="http://services.apmoller.net/ManagementFramework/CommonIdentifier/v2"
+                        schemaLocation="./osbxsd/CommonIdentifierV1.xsd" />
+            </xsd:schema>
+
+            </wsdl:types>
+
+      <wsdl:message name="upsertCustomerHeader">
+            <wsdl:part name="header" element="osb:CommonIdentifierRequest">
+            </wsdl:part>
+      </wsdl:message>
+
+      <wsdl:message name="upsertCustomerRequest">
+            <wsdl:part name="parameters" element="schema:UpsertCustomer">
+            </wsdl:part>
+      </wsdl:message>
+      <wsdl:message name="upsertCustomerResponse">
+            <wsdl:part name="parameters" element="schema:UpsertCustomerResponse">
+            </wsdl:part>
+      </wsdl:message>
+
+
+
+      <wsdl:message name="upsertCustomerFault">
+            <wsdl:part name="parameters" element="schema:UpsertCustomerFault"></wsdl:part>
+      </wsdl:message>
+      <wsdl:message name="inactivateCustomerRequest">
+            <wsdl:part name="parameters" element="schema:InactivateCustomerRequest"></wsdl:part>
+      </wsdl:message>
+      <wsdl:message name="inactivateCustomerResponse">
+            <wsdl:part name="parameters" element="schema:InactivateCustomerResponse"></wsdl:part>
+      </wsdl:message>
+      <wsdl:message name="inactivateCustomerFault">
+            <wsdl:part name="parameters" element="schema:InactivateCustomerFault"></wsdl:part>
+      </wsdl:message>
+
+      <wsdl:message name="publishCustomerCodeRequest">
+            <wsdl:part name="parameters" element="schema:PublishCustomerCode"></wsdl:part>
+      </wsdl:message>
+      <wsdl:message name="publishCustomerCodeResponse">
+            <wsdl:part name="parameters" element="schema:PublishCustomerCodeResponse"></wsdl:part>
+      </wsdl:message>
+
+      <wsdl:message name="deletePartyMatchRequest">
+            <wsdl:part name="parameters" element="schema:DeletePartyMatchRequest"></wsdl:part>
+      </wsdl:message>
+      <wsdl:message name="deletePartyMatchResponse">
+            <wsdl:part name="parameters" element="schema:DeletePartyMatchResponse"></wsdl:part>
+      </wsdl:message>
+      <wsdl:message name="deletePartyMatchFault">
+            <wsdl:part name="parameters" element="schema:SdnServiceFault"></wsdl:part>
+      </wsdl:message>
+      <wsdl:message name="assignCustomerSegmentsRequest">
+            <wsdl:part name="parameters" element="schema:AssignCustomerSegmentsRequest"></wsdl:part>
+      </wsdl:message>
+      <wsdl:message name="assignCustomerSegmentsResponse">
+            <wsdl:part name="parameters" element="schema:AssignCustomerSegmentsResponse"></wsdl:part>
+      </wsdl:message>
+      <wsdl:message name="assignCustomerSegmentsFault">
+            <wsdl:part name="parameter" element="schema:AssignCustomerSegmentationFault"></wsdl:part>
+      </wsdl:message>
+
+
+
+      <wsdl:message name="assignCustomerRelationsRequest">
+            <wsdl:part name="parameters" element="schema:AssignCustomerRelationsRequest"></wsdl:part>
+      </wsdl:message>
+      <wsdl:message name="assignCustomerRelationsResponse">
+            <wsdl:part name="parameters" element="schema:AssignCustomerRelationsResponse"></wsdl:part>
+      </wsdl:message>
+      <wsdl:message name="assignCustomerRelationsFault">
+            <wsdl:part name="parameter" element="schema:AssignCustomerRelationsFault"></wsdl:part>
+      </wsdl:message>
+
+
+
+
+      <wsdl:portType name="UpsertCustomerService">
+            <wsdl:operation name="upsertCustomer">
+                  <wsdl:input message="tns:upsertCustomerRequest">
+                  </wsdl:input>
+                  <wsdl:output message="tns:upsertCustomerResponse">
+                  </wsdl:output>
+                  <wsdl:fault name="fault" message="tns:upsertCustomerFault"></wsdl:fault>
+            </wsdl:operation>
+
+            <wsdl:operation name="inactivateCustomer">
+                  <wsdl:input message="tns:inactivateCustomerRequest"></wsdl:input>
+                  <wsdl:output message="tns:inactivateCustomerResponse"></wsdl:output>
+                  <wsdl:fault name="fault" message="tns:inactivateCustomerFault"></wsdl:fault>
+            </wsdl:operation>
+            <wsdl:operation name="publishCustomerCode">
+                  <wsdl:input message="tns:publishCustomerCodeRequest"></wsdl:input>
+                  <wsdl:output message="tns:publishCustomerCodeResponse"></wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="deletePartyMatch">
+                  <wsdl:input message="tns:deletePartyMatchRequest"></wsdl:input>
+                  <wsdl:output message="tns:deletePartyMatchResponse"></wsdl:output>
+                  <wsdl:fault name="fault" message="tns:deletePartyMatchFault"></wsdl:fault>
+            </wsdl:operation>
+            <wsdl:operation name="assignCustomerSegments">
+                  <wsdl:input message="tns:assignCustomerSegmentsRequest"></wsdl:input>
+                  <wsdl:output message="tns:assignCustomerSegmentsResponse"></wsdl:output>
+            <wsdl:fault name="fault" message="tns:assignCustomerSegmentsFault"></wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="assignCustomerRelationships">
+                  <wsdl:input message="tns:assignCustomerRelationsRequest"></wsdl:input>
+                  <wsdl:output message="tns:assignCustomerRelationsResponse"></wsdl:output>
+            <wsdl:fault name="fault" message="tns:assignCustomerRelationsFault"></wsdl:fault>
+        </wsdl:operation>
+
+      </wsdl:portType>
+
+
+
+
+
+
+
+</wsdl:definitions>
+

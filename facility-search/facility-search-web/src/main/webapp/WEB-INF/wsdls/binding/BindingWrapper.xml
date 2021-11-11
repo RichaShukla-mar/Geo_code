@@ -1,0 +1,11 @@
+<bindings
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    wsdlLocation="http://osb.dev.esb.apmoller.net:9100/CustomerEnrichmentV1/CustomerEnrichment?wsdl"
+    xmlns="http://java.sun.com/xml/ns/jaxws">
+        <!-- Disable default wrapper style -->
+        <enableWrapperStyle>false</enableWrapperStyle>
+    <bindings node="wsdl:definitions">
+       <enableWrapperStyle>false</enableWrapperStyle>
+
+    </bindings>
+</bindings>

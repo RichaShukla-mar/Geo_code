@@ -1,0 +1,66 @@
+<wsdl:definitions name="CustomerPS" 
+	targetNamespace="http://services.apmoller.net/AMM/Customer/v1" 
+	xmlns:abns="http://services.apmoller.net/AMM/Customer/v1" 
+	xmlns:service="http://services.apmoller.net/AMM/Customer/v1" 
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+	xmlns="http://schemas.xmlsoap.org/wsdl/" 
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	xmlns:frexcp="http://services.apmoller.net/ManagementFramework/ServiceException/v2" 
+	xmlns:frhead="http://services.apmoller.net/ManagementFramework/CommonIdentifier/v2" 
+	xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy">
+
+	<!-- DON'T REMOVE -->
+	<wsdl:documentation>
+		<wsdl:documentation>Concrete WSDL that is imported and used by Proxy
+			Service(s) - please replace "ServiceName" and "version" with concrete
+			values </wsdl:documentation>
+		<wsdl:documentation>Project Template 4</wsdl:documentation>
+	</wsdl:documentation>
+
+	<wsdl:import namespace="http://services.apmoller.net/AMM/Customer/v1" location="CustomerAbstract.wsdl"/>
+	<wsdl:import namespace="http://services.apmoller.net/USI/policy/v2.0" location="../../../SharedInterfaceResources/WSPolicy/USIPolicyV2.wsdl"/>
+
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://services.apmoller.net/AMM/v4">
+			<xsd:import namespace="http://services.apmoller.net/ManagementFramework/CommonIdentifier/v2" schemaLocation="../../../SharedInterfaceResources/ManagementFramework/Header/v2/CommonIdentifierV2.xsd"/>
+			<xsd:import namespace="http://services.apmoller.net/ManagementFramework/ServiceException/v2" schemaLocation="../../../SharedInterfaceResources/ManagementFramework/Fault/v2/ServiceExceptionV2.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+
+	<!-- Framework message level -->
+	<wsdl:message name="SoapHeaderInfo">
+		<wsdl:part name="commonIdentifierRequest" element="frhead:CommonIdentifierRequest"/>
+		<wsdl:part name="commonIdentifierResponse" element="frhead:CommonIdentifierResponse"/>
+		<wsdl:part name="commonIdentifierFault" element="frhead:CommonIdentifierFault"/>
+	</wsdl:message>
+	
+	<!-- Customer binding -->
+	<wsdl:binding name="CustomerBinding" type="abns:CustomerPort">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsp:Policy>
+			<wsp:PolicyReference URI="#wss_username_token_service_policy"/>
+		</wsp:Policy>
+		<wsdl:operation name="UpsertCustomer">
+			<soap:operation soapAction="UpsertCustomer"/>
+			<wsdl:input>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierRequest"/>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierResponse"/>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Fault">
+				<soap:fault use="literal" name="Fault"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+
+	<wsdl:service name="CustomerService">
+		<port name="CustomerServicePort" binding="service:CustomerBinding">
+			<soap:address location="http://www.maerskline.com/services/Customer/v1"/>
+		</port>
+	</wsdl:service>
+
+</wsdl:definitions>

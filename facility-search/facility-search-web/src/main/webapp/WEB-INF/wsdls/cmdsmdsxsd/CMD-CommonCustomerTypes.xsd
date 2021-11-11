@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:cmd="http://services.apmoller.net/cmd/schemas"
+	elementFormDefault="qualified" targetNamespace="http://services.apmoller.net/cmd/schemas">
+	<xs:include schemaLocation="SMDS-CommonTypes.xsd" />
+	<xs:element name="CustomerCode" type="xs:string">
+		<xs:annotation>
+			<xs:documentation> Unique identification of a customer via customer
+				code (party role type will
+				always be of type customer)
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="SCVCode" type="xs:string">
+		<xs:annotation>
+			<xs:documentation> SCV code for customer </xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="CustomerLegalName" type="xs:string">
+		<xs:annotation>
+			<xs:documentation> Legal name of the customer </xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="CustomerTradingName" type="cmd:CustomerTradingNameString">
+		<xs:annotation>
+			<xs:documentation> Trading name of the customer </xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<xs:element name="CustomerLifecycleStatus" type="cmd:CustomerLifeCycleStatusEnum"
+		default="A">
+		<xs:annotation>
+			<xs:documentation> Status of the customer (e.g. Active, Pending,
+				Inactive). Status is only
+				used for display in portal, therefore
+				optional
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<xs:complexType name="TaxInformationType">
+		<xs:annotation>
+			<xs:documentation> Country specific tax number(s) per customer
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="TaxNo">
+				<xs:annotation>
+					<xs:documentation>Tax number</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="120" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="TaxType" type="cmd:TaxNumberTypeEnum" />
+			<xs:element name="ISOCountryCode" type="cmd:ISOCountryCode" />
+			<xs:element name="TaxTypeLocalName" type="xs:string"
+				maxOccurs="1" minOccurs="0" />
+			<xs:element ref="cmd:DeleteFlag" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Set to 1 to completly delete the tax number
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ValidationResponseType">
+		<xs:annotation>
+			<xs:documentation>Validation Status Response with the field name and
+				detail validation message
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="FieldName" type="xs:string" />
+			<xs:element name="ValidationErrorDetail" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CustomerStatusReasonType">
+		<xs:annotation>
+			<xs:documentation> Description for the reason of a status change
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CustomerStatusReasonCode" type="cmd:CustomerStatusReasonEnum" />
+			<xs:element minOccurs="0" name="CustomerStatusReasonName"
+				type="xs:string" />
+			<xs:element minOccurs="0" name="CustomerStatusReasonDescription"
+				type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CustomerTaxNumberType">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0"
+				name="CustomerTaxNumber" type="cmd:TaxInformationType" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CustomerReferenceNumberType">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0"
+				name="CustomerReferenceNumber" type="cmd:ReferenceNumberType" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="CustomerRelationshipsType">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0"
+				name="CustomerRelationship" type="cmd:CustomerRelationshipType" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="CustomerRelationshipType">
+		<xs:sequence>
+			<xs:element name="ParentCustomerCode" minOccurs="0"
+				type="xs:string" />
+			<xs:element name="ParentSCVCode" minOccurs="0" type="xs:string" />
+			<xs:element name="ChildCustomerCode" minOccurs="0" type="xs:string" />
+			<xs:element name="ChildSCVCode" minOccurs="0" type="xs:string" />
+			<xs:element name="RelationshipType" type="xs:string" />
+			<xs:element name="RelationshipTypeName" minOccurs="0"
+				type="xs:string" />
+			<xs:element name="ValidFromDate" minOccurs="0" type="xs:date" />
+			<xs:element name="ValidThruDate" minOccurs="0" type="xs:date" />
+			<xs:element minOccurs="0" name="DeleteFlag" type="xs:boolean" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="RelationshipTypeInfo">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>Response of retrieve Relationship (identical to
+					create/update) for a
+					given customer code(s)
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="ParentCustomer" minOccurs="0"
+					type="cmd:Customer" />
+				<xs:element name="ChildCustomer" minOccurs="0" type="cmd:Customer" />
+				<xs:element name="RelationshipTypeCd" minOccurs="0"
+					type="xs:string" />
+				<xs:element name="RelationshipTypeName" minOccurs="0"
+					type="xs:string" />
+				<xs:element name="ValidFromDate" minOccurs="0" type="xs:date" />
+				<xs:element name="ValidThruDate" minOccurs="0" type="xs:date" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:element name="ConcernCodes">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation> Response of retrieve concern codes
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="ConcernCode" type="cmd:ConcernCodeType"
+					minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:complexType name="ConcernCodeType">
+		<xs:annotation>
+			<xs:documentation>Concern code type to be retrieved in retrieve
+				concerncode operation
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Code" type="xs:string" />
+			<xs:element name="Name" type="xs:string" />
+			<xs:element name="Status" type="xs:string" />
+			<xs:element name="Country" type="cmd:ISOCountryCode" />
+			<xs:element ref="cmd:CustomerEntity" minOccurs="0" />
+			<xs:element ref="cmd:ConcernMembers" maxOccurs="unbounded" minOccurs="0"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:element name="ConcernMembers">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+				Concern member element
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="CustomerCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="SCVCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="Name" type="xs:string"  minOccurs="0"/>
+				<xs:element name="Status" type="xs:string"  minOccurs="0"/>
+				<xs:element name="Country" type="cmd:ISOCountryCode"  minOccurs="0"/>
+				<xs:element name="RelationshipType" type="xs:string"  minOccurs="0"/>
+				<xs:element name="RelationshipStatus" type="xs:string"  minOccurs="0"/>
+				<xs:element name="ValidFromDate" type="xs:date"  minOccurs="0"/>
+				<xs:element name="ValidThroughDate" type="xs:date"  minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+
+	<xs:complexType name="Customer">
+		<xs:annotation>
+			<xs:documentation>Customer for Relationship</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CustomerCode" minOccurs="0" type="xs:string" />
+			<xs:element name="SCVCode" minOccurs="0" type="xs:string" />
+			<xs:element name="CustomerName" minOccurs="0" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+
+
+
+	<xs:element name="CustomerEntity">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation> Response of retrieve customer (identical to
+					create/update) for a
+					given customer code(s)
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="Customer" type="cmd:CustomerCompleteType" />
+				<xs:element name="CustomerAddress" type="cmd:AddressType" />
+				<xs:element minOccurs="0" name="IsWorkflowPending" type="xs:boolean" />
+				<xs:element minOccurs="0" name="WorkflowInformation"
+					type="xs:string">
+					<xs:annotation>
+						<xs:documentation>Workflow information field for providing
+							additional information for Customer/Address workflow
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="CustomerTaxNumbers"
+					type="cmd:CustomerTaxNumberType">
+					<xs:annotation>
+						<xs:documentation> Country specific Tax Numbers for the customer
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+
+				<xs:element minOccurs="0" name="CustomerReferenceNumbers"
+					type="cmd:CustomerReferenceNumberType">
+					<xs:annotation>
+						<xs:documentation> Different customer internal identifiers of the
+							customer
+							and also external ones. Most numbers could be retrieved
+							from EDP
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="CustomerBVDInformation" type="cmd:BVDInformationType"
+					minOccurs="0" />
+				<xs:element name="CustomerSegments" type="cmd:SegmentationsType"
+					minOccurs="0" />
+				<xs:element name="RelationShips" type="cmd:CustomerRelationshipsType"
+					minOccurs="0" />
+
+
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="CustomerCompleteType">
+		<xs:annotation>
+			<xs:documentation> Complete Customer information to be used upon
+				create/update or
+				retrieval of customer data
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="0" ref="cmd:CustomerCode">
+				<xs:annotation>
+					<xs:documentation> Unique identification of a customer can be empty
+						if a new
+						customer is created from portal, otherwise needs always to
+						be included
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" ref="cmd:SCVCode">
+				<xs:annotation>
+					<xs:documentation> Unique identification of a customer can be empty
+						if a new
+						customer is created from portal, otherwise needs always to
+						be included
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" ref="cmd:CustomerLegalName">
+				<xs:annotation>
+					<xs:documentation> Legal name and trading name is mandatory
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="cmd:CustomerTradingName">
+				<xs:annotation>
+					<xs:documentation> Trading name is one type of customer name alias
+						(will be
+						internally translated to a name alias type)
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element minOccurs="0" ref="cmd:CustomerTypes">
+				<xs:annotation>
+					<xs:documentation> ZEXC External Customer ZICC APM Owned
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element minOccurs="0" ref="cmd:CustomerLifecycleStatus">
+				<xs:annotation>
+					<xs:documentation> Status of the customer (e.g. Active, Pending,
+						Inactive).
+						Status is only used for display in portal, therefore
+						optional
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="CustomerLifecycleStatusReason"
+				type="cmd:CustomerStatusReasonType">
+				<xs:annotation>
+					<xs:documentation> Reason if there is a status changes.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<!-- Release 2: - Type and description of relationships between customers
+				(Source entity is customer within this type, target needs to be referenced
+				via a customer code) <xs:element name="CustomerToCustomerRelationship" type="cmd:RelationshipType"
+				minOccurs="0"/> -->
+
+			<xs:element minOccurs="0" name="CustomerURL">
+				<xs:annotation>
+					<xs:documentation> URL/Homepage of the customer </xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="300" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+
+			<!-- Release 2 <xs:element name="Concern" type="cmd:RelationshipType"
+				minOccurs="0"> <xs:annotation> <xs:documentation> Concern of the customer,
+				which is a relation to another customer </xs:documentation> </xs:annotation>
+				</xs:element> -->
+
+			<xs:element minOccurs="0" name="CustomerSwitchboardNumber"
+				type="cmd:TeleCommunicationType">
+				<xs:annotation>
+					<xs:documentation>Phone number for the customer, e.g. the
+						switchboard if any
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element maxOccurs="1" minOccurs="0"
+				name="InvoiceLanguagePreference" type="cmd:ISOLanguageCode">
+				<xs:annotation>
+					<xs:documentation>Language Preference of the customers (used by
+						SAP). Defaults
+						to "en" if no entry in the database is found
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element minOccurs="0" name="Brokerage" type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>Flag indicating any brokerage should be paid.
+						Applicable to
+						USA/Canada only.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element minOccurs="0" name="ForwardersCompensation"
+				type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation> Indicates if the customer is entitled to
+						forwarders
+						compensation as per the U.S.A. law, a 'Y' must be
+						entered here. Otherwise,
+						this field should be left blank. T his
+						field is used in the U.S.A. / Canada
+						only
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element minOccurs="0" name="CustomerWorkflowIndicator"
+				type="cmd:WorkflowEnum">
+				<xs:annotation>
+					<xs:documentation> Indicator if a workflow needs to be triggered
+						from Portal
+						Perspective for the customer
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+
+
+			<xs:element default="false" minOccurs="0" name="SoleProprietor"
+				type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>Sole proprietor flag</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element minOccurs="0" name="CustomerAuditData" type="cmd:AuditType">
+				<xs:annotation>
+					<xs:documentation>Creation date and user as well as last update
+						date and user
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SegmentClassificationType">
+		<xs:sequence>
+			<xs:element name="SegmentClassificationCode" type="cmd:SegmentClassificationString" />
+			<xs:element name="SegmentClassificationValue" type="cmd:SegmentClassificationValueString" />
+			<xs:element minOccurs="0" name="SegmentClassificationName"
+				type="xs:string" />
+			<xs:element minOccurs="0" name="SegmentClassificationDescription"
+				type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="SegmentType">
+		<xs:sequence maxOccurs="unbounded" minOccurs="1">
+			<xs:element name="Brand" type="cmd:OperatorTypeEnum">
+				<xs:annotation>
+					<xs:documentation> Brand for which the segmentation of the customer
+						will be
+						added
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element maxOccurs="unbounded" minOccurs="0"
+				name="SegmentClassification" type="cmd:SegmentClassificationType" />
+
+			<xs:element minOccurs="0" name="UnassignSegmentFlag" type="xs:boolean"
+				default="false" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SegmentationsType">
+		<xs:sequence maxOccurs="unbounded">
+			<xs:element name="Segements" type="cmd:SegmentType" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="TaxInputType">
+		<xs:annotation>
+			<xs:documentation>Standard Status Response with code and description
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="VatNumber" type="cmd:TaxInformationType" />
+			<xs:element name="TraderName" type="cmd:CustomerTradingNameString"
+				minOccurs="0" />
+			<xs:element name="TradeCompanyType" type="xs:string"
+				minOccurs="0" />
+			<xs:element ref="cmd:StreetName" minOccurs="0" />
+			<xs:element ref="cmd:PostalCode" minOccurs="0" />
+			<xs:element ref="cmd:City" minOccurs="0" />
+			<xs:element name="SoleProprietor" type="xs:boolean"
+				default="false" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Sole proprietor flag</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="TaxOutputType">
+		<xs:annotation>
+			<xs:documentation>Standard Status Response with code and description
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+
+			<xs:element name="ValidationStatus" type="cmd:StatusResponseType" />
+			<xs:element name="TraderName" type="xs:string" minOccurs="0" />
+			<xs:element name="TraderCompanyType" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="TraderAddress" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="RequestId" type="xs:string" minOccurs="0" />
+			<xs:element name="RequestTs" type="xs:string" minOccurs="0" />
+			<xs:element name="ISOCountryCode" type="cmd:ISOCountryCode"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:complexType name="PartyCustomUpsertRequestStructure">
+		<xs:annotation>
+			<xs:documentation>Reduced Eldm type to be used by publish customer
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CustomerCode" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="SCVCode" type="xs:string" minOccurs="0" />
+			<xs:element name="Action" type="cmd:UpsertEnum" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="TaxLocalNameType">
+		<xs:annotation>
+			<xs:documentation> Country specific tax number(s) per customer
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="TaxType" type="cmd:TaxNumberTypeEnum" />
+			<xs:element name="ISOCountryCode" type="cmd:ISOCountryCode" />
+			<xs:element name="TaxTypeLocalName" type="xs:string"
+				maxOccurs="1" minOccurs="0" />
+			<xs:element ref="cmd:DeleteFlag" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Set to 1 to completly delete the tax number
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+
+
+
+
+</xs:schema>

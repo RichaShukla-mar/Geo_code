@@ -1,0 +1,49 @@
+<wsdl:definitions name="AddressManagementAbstract" targetNamespace="http://services.apmoller.net/AMM/AddressManagementAbstract/v1" xmlns="http://services.apmoller.net/AMM/AddressManagementAbstract/v1" xmlns:service="http://services.apmoller.net/AMM/AddressManagement/v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/" xmlns:frexcp="http://services.apmoller.net/ManagementFramework/ServiceException/v2">
+
+<!-- DON'T REMOVE -->
+	<wsdl:documentation>Abstract WSDL that is imported and used by AddressManagement Proxy Service(s)</wsdl:documentation> 
+    <xsd:annotation>
+        <xsd:appinfo>
+            <Metadata xmlns="http://services.apmoller.net/AMM/v2/meta">
+                <Creator>CMD Solution Ankababu</Creator>
+                <Version>1.0.0</Version>
+                <LastUpdateDate>27/01/2016</LastUpdateDate>
+            </Metadata>
+        </xsd:appinfo>
+    </xsd:annotation>
+
+	<wsdl:types>
+		<xsd:schema>
+                <xsd:import namespace="http://services.apmoller.net/AMM/AddressManagement/v1" schemaLocation="../XSD/AddressManagementV1.xsd"/>
+              
+        </xsd:schema>
+            
+		<xsd:schema targetNamespace="http://services.apmoller.net/ManagementFramework/ServiceException/v2">
+			<xsd:include schemaLocation="../../../SharedInterfaceResources/ManagementFramework/Fault/v2/ServiceExceptionV2.xsd"/>   
+		</xsd:schema>
+		
+	</wsdl:types>
+
+	<!--AddressManagement  message -->
+	<wsdl:message name="VerifyAddressRequest">
+		<wsdl:part name="Payload" element="service:VerifyAddressRequest"/>
+	</wsdl:message>
+	<wsdl:message name="VerifyAddressResponse">
+		<wsdl:part name="Payload" element="service:VerifyAddressResponse"/>
+        </wsdl:message>
+      <wsdl:message name="FaultMessage">
+		<wsdl:part name="Payload" element="frexcp:ServiceException"/>
+	</wsdl:message>
+	
+	
+	<!-- AddressManagement portType -->
+	<wsdl:portType name="AddressManagementPort">
+		<wsdl:operation name="VerifyAddress">
+			<wsdl:input message="VerifyAddressRequest"/>
+			<wsdl:output message="VerifyAddressResponse"/>
+			<wsdl:fault name="Fault" message="FaultMessage"/>
+	</wsdl:operation>
+		
+	</wsdl:portType>
+	
+</wsdl:definitions>

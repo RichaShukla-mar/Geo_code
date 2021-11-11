@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:cmd="http://services.apmoller.net/cmd/schemas" elementFormDefault="qualified"
+  targetNamespace="http://services.apmoller.net/cmd/schemas">
+  <xs:include schemaLocation="CMD-CommonCustomerTypes.xsd"/>
+  <xs:include schemaLocation="FCT-CommonFacilityTypes.xsd"/>
+ 
+  <xs:element name="ContactCode">
+  	<xs:annotation>
+  		<xs:documentation>
+  			Unique identification of a Contact via contact code (party
+  			role type will always be of type contact)
+  		</xs:documentation>
+  	</xs:annotation>
+  	<xs:simpleType>
+  		<xs:restriction base="xs:string">
+  			<xs:minLength value="1"></xs:minLength>
+  			<xs:whiteSpace value="collapse"></xs:whiteSpace>
+  		</xs:restriction>
+  	</xs:simpleType>
+  </xs:element>
+  <xs:element name="ContactFirstName" type="cmd:ContactNameString"/>
+  <xs:element name="ContactLastName" type="cmd:ContactNameString"/>
+  <xs:element name="ContactInternationalFirstName" type="cmd:ContactInternationalNameString"/>
+  <xs:element name="ContactInternationalLastName" type="cmd:ContactInternationalNameString"/>
+  <xs:element name="InternationalSalutationCode" type="cmd:SalutationCode"/>
+  <xs:element name="PrimarySalutationCode" type="cmd:SalutationCode"/>
+  <xs:element name="MobileNo" type="cmd:TeleCommunicationType"/>
+  <xs:element name="PhoneNo" type="cmd:TeleCommunicationType"/>
+  <xs:element name="FaxNo" type="cmd:TeleCommunicationType"/>
+  <xs:element name="ContactLifeCycleStatus" type="cmd:ContactLifeCycleStatusEnum"/>
+  
+  <xs:element name="PublishContactCode">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Structure to retrieve Customer Contact for publishing
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element ref="cmd:ContactCode" />
+				<xs:element name="Action" type="cmd:UpsertEnum" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+  
+  <xs:complexType name="ContactIDsType">
+  <xs:sequence>
+  <xs:element minOccurs="0" ref="cmd:ContactCode"/>
+                <xs:element name="ContactSCVCode" type="xs:string" minOccurs="0" maxOccurs="1"/>
+  </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CustomerContactType">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="CustomerContactType"
+        type="cmd:ContactType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ContactType">
+    <xs:sequence>
+      <xs:annotation>
+        <xs:documentation> Any types of customer contact type </xs:documentation>
+      </xs:annotation>
+      <xs:element name="CustomerContactTypeName" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="CustomerContactTypeCode" type="xs:string"/>
+      <xs:element ref="cmd:DeleteFlag" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Set to 1 to completely delete the contact Type
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DocumentPreferencesType">
+    <xs:sequence>
+     
+      <xs:element name="DocumentPreferences" type="cmd:DocumentPreferenceType" minOccurs="0" maxOccurs="unbounded"/>
+      
+    </xs:sequence>
+  </xs:complexType>
+	<xs:complexType name="DocumentPreferenceType">
+    <xs:sequence>
+      <xs:element name="Brand" type="cmd:OperatorTypeEnum" minOccurs="1"/>
+      <xs:element name="DocumentType" minOccurs="1" type="xs:string">
+      
+      </xs:element>
+      <xs:element name="CommunicationPreference" type="cmd:CommunicationPreferenceValueType" minOccurs="1" maxOccurs="unbounded"/>
+      
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="CommunicationPreferenceValueType">
+    <xs:sequence>
+    <xs:choice>
+      <xs:element name="TeleCommunicationValue" type="cmd:TeleCommunicationType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Email" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      </xs:choice>
+      <xs:element ref="cmd:DeleteFlag" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Set to 1 to completely delete the contact Type
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+    </xs:sequence>
+    <xs:attribute name="PreferenceType" type="xs:string"  >
+    
+    </xs:attribute>
+  </xs:complexType>
+  	<xs:complexType name="CustomerContactEntity">
+	<xs:sequence>
+
+		<xs:element name="CustomerIDs" type="cmd:CustomerIDsType"
+			minOccurs="1" maxOccurs="1">
+			<xs:annotation>
+				<xs:documentation>
+					Unique identification of a customer can be empty if
+					a new customer is created from portal, otherwise
+					needs always to be included
+				</xs:documentation>
+			</xs:annotation>
+		</xs:element>
+		<!-- <xs:element name="FacilityIDs" type="cmd:FacilityIDsType" minOccurs="1" maxOccurs="1" /> -->
+
+		<xs:element ref="cmd:ContactCode" minOccurs="0">
+			<xs:annotation>
+				<xs:documentation>
+					Unique identification of a customer can be empty if
+					a new contact is created from portal, otherwise
+					needs always to be included
+				</xs:documentation>
+			</xs:annotation>
+		</xs:element>
+		<xs:element name="ContactSCVCode" type="xs:string" minOccurs="0"
+			maxOccurs="1" />
+
+		<!-- <xs:element ref="cmd:ContactFullName">
+			<xs:annotation>
+			<xs:documentation> Contact full name is one type of contact name which is concatenation of Contact first name and last name
+			</xs:documentation>
+			</xs:annotation>
+			</xs:element> -->
+		<xs:element ref="cmd:ContactFirstName" minOccurs="0"
+			maxOccurs="1"/>
+		<xs:element ref="cmd:ContactLastName" minOccurs="0"
+			maxOccurs="1"/>
+		<xs:element ref="cmd:ContactInternationalFirstName" minOccurs="0"
+			maxOccurs="1"/>
+		
+		<xs:element ref="cmd:ContactInternationalLastName" minOccurs="0"
+			maxOccurs="1"/>
+		
+		<xs:element name="PrimaryEmailAddress" minOccurs="0"
+			maxOccurs="1">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<!-- <xs:pattern value="[^@]+@[^\.]+\..+"></xs:pattern> -->
+					<xs:maxLength value="300"></xs:maxLength>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:element>
+		<xs:element name="SecondaryEmailAddress" minOccurs="0"
+			maxOccurs="1">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<!-- <xs:pattern value="[^@]+@[^\.]+\..+"></xs:pattern> -->
+					<xs:maxLength value="300"></xs:maxLength>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:element>
+		<xs:element name="GroupContactIndicator" type="xs:boolean"
+			minOccurs="1" default="false" />
+		<xs:element ref="cmd:ContactLifeCycleStatus" maxOccurs="1"
+			minOccurs="0">
+		</xs:element>
+		<xs:element ref="cmd:InternationalSalutationCode" maxOccurs="1"
+			minOccurs="0">
+		</xs:element>
+		<xs:element ref="cmd:PrimarySalutationCode" maxOccurs="1"
+			minOccurs="0">
+		</xs:element>
+		<xs:element ref="cmd:PhoneNo" minOccurs="0" maxOccurs="1">
+		</xs:element>
+		<xs:element ref="cmd:MobileNo" minOccurs="0" maxOccurs="1">
+
+		</xs:element>
+		<!-- <xs:element name="MobileValidationRequestTimeStamp"
+			type="xs:dateTime" minOccurs="0" />
+			<xs:element name="MobileValidationReferenceIndicator"
+			type="xs:string" minOccurs="0" /> -->
+
+
+		<xs:element ref="cmd:FaxNo" minOccurs="0" maxOccurs="1"></xs:element>
+		<xs:element name="ContactJobTitle" minOccurs="0"
+			maxOccurs="1">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:maxLength value="50"></xs:maxLength>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:element>
+		<xs:element name="ContactDepartment" minOccurs="0"
+			maxOccurs="1">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:maxLength value="128"></xs:maxLength>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:element>
+		<xs:element name="ContactRole" minOccurs="0" maxOccurs="1">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:maxLength value="20"></xs:maxLength>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:element>
+		<xs:element name="LanguagePreference" type="cmd:ISOLanguageCode"
+			minOccurs="0" maxOccurs="1">
+		</xs:element>
+		<xs:element name="ContactType" minOccurs="0" maxOccurs="1"
+			type="cmd:CustomerContactType" />
+		<xs:element name="DocumentPreference" type="cmd:DocumentPreferencesType" minOccurs="0" maxOccurs="1"></xs:element>
+		<xs:element name="ContactAuditData" type="cmd:AuditType"
+			minOccurs="0">
+			<xs:annotation>
+				<xs:documentation>
+					Creation date and user as well as last update date
+					and user
+				</xs:documentation>
+			</xs:annotation>
+		</xs:element>
+	</xs:sequence>
+
+  	</xs:complexType>
+  <xs:complexType name="FacilityContactEntity">
+	<xs:sequence>
+	
+	<!-- <xs:element name="CustomerIDs" type="cmd:CustomerIDsType" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Unique identification of a customer can be empty if a new customer is
+						created from portal,
+						otherwise needs always to be included
+					</xs:documentation>
+				</xs:annotation>
+	</xs:element> -->
+	<xs:element name="FacilityIDs" type="cmd:FacilityIDsType" minOccurs="1" maxOccurs="1" />
+	
+			<xs:element ref="cmd:ContactCode" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>
+						Unique identification of a customer can be empty if a new contact is
+						created from portal,
+						otherwise needs always to be included
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+	<!-- <xs:element ref="cmd:ContactFullName">
+				<xs:annotation>
+					<xs:documentation> Contact full name is one type of contact name which is concatenation of Contact first name and last name
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element> -->
+		<xs:element ref="cmd:ContactFirstName" minOccurs="1"
+			maxOccurs="1">
+		</xs:element>
+		<xs:element ref="cmd:ContactLastName" minOccurs="1"
+			maxOccurs="1">
+		</xs:element>
+		<xs:element name="EmailAddress" minOccurs="0" maxOccurs="1">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<!-- <xs:pattern value="[^@]+@[^\.]+\..+"></xs:pattern> -->
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:element>
+		<!-- <xs:element ref="cmd:ContactLifeCycleStatus" maxOccurs="1"
+			minOccurs="0"></xs:element> -->
+		<xs:element ref="cmd:PhoneNo" minOccurs="0" maxOccurs="1">
+		</xs:element>
+		<xs:element ref="cmd:MobileNo" minOccurs="0" maxOccurs="1">
+			
+		</xs:element>
+		<xs:element ref="cmd:FaxNo" minOccurs="0" maxOccurs="1"></xs:element>
+		<xs:element name="ContactJobTitle" minOccurs="0"
+			maxOccurs="1">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:maxLength value="50"></xs:maxLength>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:element>
+		<xs:element name="ContactDepartment" minOccurs="0"
+			maxOccurs="1">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:maxLength value="128"></xs:maxLength>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:element>
+		<!-- <xs:element name="ContactRole" minOccurs="0" maxOccurs="1">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:maxLength value="20"></xs:maxLength>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:element> -->
+		<!-- <xs:element name="PhoneNo" type="cmd:TeleCommunicationType"
+			minOccurs="0" maxOccurs="1">
+		</xs:element>
+		<xs:element name="Extension" type="cmd:TeleCommunicationType"
+			minOccurs="0" maxOccurs="1">
+		</xs:element>
+		<xs:element name="MobileNo" type="cmd:TeleCommunicationType"
+			minOccurs="0" maxOccurs="1">
+		</xs:element>
+		<xs:element name="FaxNo" type="cmd:TeleCommunicationType"
+			minOccurs="0" maxOccurs="1"> 
+		</xs:element> -->
+		
+		
+			
+			<xs:element name="ContactAuditData" type="cmd:AuditType"
+				minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Creation date and user as well as last update
+						date and user</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+	</xs:sequence>
+
+	</xs:complexType>
+  
+  <xs:complexType name="DepartmentEntity">
+    <xs:annotation>
+      <xs:documentation> Group of contacts, as opposed to a single contact. Has no relation to the
+        field "DepartmentName" in the ContactType </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="CustomerIDs" type="cmd:CustomerIDsType" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Unique identification of a customer can be empty if a new customer is
+						created from portal,
+						otherwise needs always to be included
+					</xs:documentation>
+				</xs:annotation>
+	</xs:element>
+      <xs:element ref="cmd:ContactCode" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation> Unique identification of a customer can be empty if a new customer is
+            created from portal, otherwise needs always to be included </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DepartmentType" minOccurs="1" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="4"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <!-- <xs:element name="DepartmentName" minOccurs="1" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="40"></xs:maxLength>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element> -->
+      <xs:element name="SubDepartmentName" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="35"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="EmailAddress" minOccurs="1" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <!-- <xs:pattern value="[^@]+@[^\.]+\..+"></xs:pattern> --> </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="SearchReference" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="35"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <!-- <xs:element name="Brand" type="cmd:OperatorTypeEnum">
+				<xs:annotation>
+					<xs:documentation> Brand to whom the department is assigned to
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element> -->
+      <xs:element name="TelephoneNo" type="cmd:TeleCommunicationType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="FaxNo" type="cmd:TeleCommunicationType" minOccurs="0" maxOccurs="1"/>
+      <!-- <xs:element name="LanguagePreference" type="cmd:ISOLanguageCode" /> -->
+      <xs:element name="DepartmentAuditData" type="cmd:AuditType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Creation date and user as well as last update date and
+            user</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CommunicationPreferenceType">
+    <xs:annotation>
+      <xs:documentation> Communication Preference for different documents for various roles of a
+        contact </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="CustomerRole" type="xs:string">
+        <xs:annotation>
+          <xs:documentation> Customer Role for which to create a comm. pref. (e.g. Consignee) - TBD
+            enums? </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DocumentGroup" type="xs:string">
+        <xs:annotation>
+          <xs:documentation> Group the document type belongs too - TBD enums? </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DocumentType" type="cmd:DocumentTypeEnum">
+        <xs:annotation>
+          <xs:documentation> Document Types for the specified channel - TBD enums?
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:choice>
+        <xs:annotation>
+          <xs:documentation> Contact or Department who the communication preference is set for - TBD
+            complete contact or just reference needed? </xs:documentation>
+        </xs:annotation>
+        <xs:element name="Department" type="cmd:DepartmentEntity"/>
+        <xs:element name="Contact" type="cmd:CustomerContactEntity"/>
+      </xs:choice>
+      <xs:element name="CommunicationMeans" type="cmd:CommunicationMeansEnum">
+        <xs:annotation>
+          <xs:documentation> Preferred communication for document and contact </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

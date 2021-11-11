@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:cmd="http://services.apmoller.net/cmd/schemas" elementFormDefault="qualified"
+  targetNamespace="http://services.apmoller.net/cmd/schemas">
+  <xs:include schemaLocation="SMDS-CommonTypes.xsd"/>
+  <xs:element name="FacilityName">
+		<xs:simpleType>
+			<xs:annotation>
+				<xs:documentation>Name of the facility
+				</xs:documentation>
+			</xs:annotation>
+			<xs:restriction base="xs:string">
+			<xs:pattern value="([\p{L}\p{P}\p{N} ]+){3,}"/>
+            <xs:maxLength value="128"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="DODAAC">
+		<xs:simpleType>
+			<xs:annotation>
+				<xs:documentation>DODAAC
+				</xs:documentation>
+			</xs:annotation>
+			<xs:restriction base="xs:string">
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:simpleType name="TransportMode">
+			<xs:annotation>
+				<xs:documentation>TransportMode supported by Facility
+				</xs:documentation>
+			</xs:annotation>
+			<xs:restriction base="xs:string">
+			</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="FacilityRKSTCode" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>Facility RKSTcode
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="FacilityBusinessUnitId" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>Facility Business Unit Id
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="OfferingName">
+		<xs:simpleType>
+			<xs:annotation>
+				<xs:documentation>Facility Offering Name
+				</xs:documentation>
+			</xs:annotation>
+			<xs:restriction base="xs:string">
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+
+	<xs:element name="FacilityOfferingGroupCode">
+		<xs:simpleType>
+			<xs:annotation>
+				<xs:documentation>Offering Groups supported by Facility
+				</xs:documentation>
+			</xs:annotation>
+			<xs:restriction base="xs:string">
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="VesselOperator">
+		<xs:simpleType>
+			<xs:annotation>
+				<xs:documentation>Vessel Operator
+				</xs:documentation>
+			</xs:annotation>
+			<xs:restriction base="xs:string"></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:simpleType name="OfferingCode">
+	<xs:annotation>
+			<xs:documentation>
+				Code of the facility offering
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="FacilityOperationalType">
+	<xs:annotation>
+			<xs:documentation>
+				Facility operational type.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:element name="FacilityGEOId">
+		<xs:simpleType>
+			<xs:annotation>
+				<xs:documentation>GEOId of a facility
+				</xs:documentation>
+			</xs:annotation>
+			<xs:restriction base="xs:string"></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="WeightLimitOnCranes">
+		<xs:simpleType>
+			<xs:annotation>
+				<xs:documentation>Weight Limitation on cranes
+				</xs:documentation>
+			</xs:annotation>
+			<xs:restriction base="xs:string"></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="WeightLimitInYard">
+		<xs:simpleType>
+			<xs:annotation>
+				<xs:documentation>Weight Limitation in Yard
+				</xs:documentation>
+			</xs:annotation>
+			<xs:restriction base="xs:string"></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="OfficeWorkingDay">
+		<xs:simpleType>
+			<xs:annotation>
+				<xs:documentation>Working days of the Facility
+				</xs:documentation>
+			</xs:annotation>
+			<xs:restriction base="xs:string"></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="OfficeOpeningHours">
+		<xs:simpleType>
+			<xs:annotation>
+				<xs:documentation>Opening hours of the Facility
+				</xs:documentation>
+			</xs:annotation>
+			<xs:restriction base="xs:time"></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="OfficeClosingHours">
+		<xs:simpleType>
+			<xs:annotation>
+				<xs:documentation>Opening hours of the Facility
+				</xs:documentation>
+			</xs:annotation>
+			<xs:restriction base="xs:time"></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="FacilityStatus">
+		<xs:simpleType>
+			<xs:annotation>
+				<xs:documentation>Status of Facility
+				</xs:documentation>
+			</xs:annotation>
+			<xs:restriction base="xs:string"></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+
+	 <xs:complexType name="RetrieveRequestFacilityIDsType" >
+	   <xs:sequence>
+	   <xs:choice>
+				<xs:element ref="cmd:FacilityGEOId" />
+				<xs:element ref="cmd:FacilityRKSTCode"/>
+				<xs:element ref="cmd:FacilityBusinessUnitId"/>
+	   </xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FacilityIDsType" >
+	   <xs:sequence>
+				<xs:element ref="cmd:FacilityGEOId" minOccurs="0"/>
+				<xs:element ref="cmd:FacilityRKSTCode" minOccurs="0"/>
+				<xs:element ref="cmd:FacilityBusinessUnitId" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CustomerIDsType" >
+	   <xs:sequence>
+				<xs:element name="CustomerCode" type ="xs:string" minOccurs="0"/>
+				<xs:element name="SCVCode" type ="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FacilityDetailsType">
+		<xs:sequence>
+				<xs:element name="FacilityIDs" type="cmd:FacilityIDsType" minOccurs="1" maxOccurs="1" />
+				<xs:element ref="cmd:FacilityName" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="FacilityCategory" type="cmd:FacilityCategoryEnum" minOccurs="1" maxOccurs="1" />
+				<xs:element name="FacilityTypes" type="cmd:FacilityCategoryType" minOccurs="0" maxOccurs="1" />
+				<!-- <xs:element name="FacilityTypes" type="cmd:FacilityCategoryOperationalType" minOccurs="0" maxOccurs="unbounded" /> -->
+				<xs:element ref="cmd:FacilityLifecycleStatus" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="cmd:URL" minOccurs="0" />
+				<xs:element ref="cmd:DODAAC" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="FacilityAuditData" type="cmd:AuditType" minOccurs="0">
+        		<xs:annotation>
+         		 <xs:documentation>Creation date and user as well as last update date and user
+        		 </xs:documentation>
+        		</xs:annotation>
+      </xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="FacilityCategoryType">
+	<xs:sequence>
+	<xs:element name="FacilityTypeDetails" type="cmd:FacilityCategoryOperationalType"
+				minOccurs="0" maxOccurs="unbounded" />
+	</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="FacilityCategoryTypeForSearch">
+	<xs:sequence>
+	<xs:element name="FacilityType" type="cmd:FacilityOperationalType"
+				minOccurs="0" maxOccurs="unbounded" />
+	</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="FacilityCategoryOperationalType">
+	<xs:sequence>
+	<xs:element name="FacilityType" type="cmd:FacilityOperationalType"
+				minOccurs="0" maxOccurs="1" />
+	<xs:element name="ValidDatePeriod" type="cmd:ValidDatePeriodType" minOccurs="0" />
+	</xs:sequence>
+	</xs:complexType>
+
+
+	 <xs:complexType name="OperationalFacilityDetailsType">
+		<xs:sequence>
+				<xs:element ref="cmd:WeightLimitOnCranes" minOccurs="0" />
+				<xs:element ref="cmd:VesselAgent" minOccurs="0" />
+				<xs:element ref="cmd:WeightLimitInYard" minOccurs="0" />
+				<xs:element ref="cmd:OceanFreightPricing" minOccurs="0" />
+				<xs:element ref="cmd:ExternallyExposed" minOccurs="0" />
+				<xs:element ref="cmd:ExternallyOwned" minOccurs="0" />
+				<xs:element ref="cmd:GPSFlag" minOccurs="0" />
+				<xs:element ref="cmd:GSMFlag" minOccurs="0" />
+				<xs:element name="OpeningHours" type="cmd:OpeningHoursType" minOccurs="0" />
+				<xs:element name="TransportModes" type="cmd:TransportModes" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="FacilityOfferingGroups" type="cmd:FacilityOfferingGroups" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+    <xs:complexType name="CommercialFacilityDetailsType">
+		<xs:sequence>
+		<xs:element name="FacilityType" type="xs:string"/>
+		<xs:element name="Brand" type="xs:string" minOccurs="0"/>
+		<xs:element name="Function" type="xs:string" />
+		<xs:element name="ImportMail" minOccurs="0" type="xs:string"/>
+		<xs:element name="ExportMail" minOccurs="0" type="xs:string"/>
+		<xs:element name="TelephoneDetails" minOccurs="0" type="cmd:TeleCommunicationType"/>
+		<xs:element ref="cmd:ExternallyExposed" minOccurs="0" />
+		<xs:element ref="cmd:ExternallyOwned" minOccurs="0" />
+		<xs:element name="OpeningHours" type="cmd:OpeningHoursType" minOccurs="0" />
+		<xs:element name="FacilityOfferingGroups" type="cmd:FacilityOfferingGroups" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+
+
+
+
+	<xs:complexType name="OpeningHoursType">
+		<xs:sequence>
+			   <xs:element name="DaySchedule" type="cmd:DaySchedule" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="DaySchedule">
+	<xs:sequence>
+	<xs:element ref="cmd:OfficeWorkingDay" minOccurs="1" maxOccurs="1"/>
+	<xs:element ref="cmd:OfficeOpeningHours" minOccurs="0" maxOccurs="unbounded"/>
+	<xs:element ref="cmd:OfficeClosingHours" minOccurs="0" maxOccurs="unbounded"/>
+	</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="FacilityOfferingType">
+	<xs:sequence>
+	<xs:element name="OfferingCode" type="cmd:OfferingCode" minOccurs="0"/>
+	<xs:element ref="cmd:OfferingName"/>
+	<xs:element name="ValidDatePeriod" type="cmd:ValidDatePeriodType" minOccurs="0" />
+	</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="FacilityOfferingTypeForSearch">
+	<xs:sequence>
+	<xs:element name="OfferingCode" type="cmd:OfferingCode" minOccurs="0"/>
+	<xs:element ref="cmd:OfferingName"/>
+	</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FacilityOfferingGroupType">
+		<xs:sequence>
+				<xs:element ref="cmd:FacilityOfferingGroupCode" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="FacilityOfferings" type="cmd:FacilityOfferingType" maxOccurs="unbounded" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="FacilityOfferingGroupTypeForSearch">
+		<xs:sequence>
+				<xs:element ref="cmd:FacilityOfferingGroupCode" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="FacilityOfferings" type="cmd:FacilityOfferingTypeForSearch" maxOccurs="unbounded" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="FacilityOfferings">
+	<xs:sequence>
+		<xs:element name="FacilityOffering" type="cmd:FacilityOfferingTypeForSearch" minOccurs="0" maxOccurs="unbounded" />
+	</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:complexType name="Offerings">
+	<xs:sequence>
+		<xs:element ref="cmd:OfferingName" minOccurs="0" maxOccurs="unbounded" />
+	</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="FacilityOfferingGroups">
+	<xs:sequence>
+	<xs:element name="FacilityOfferingGroup" type="cmd:FacilityOfferingGroupType" maxOccurs="unbounded" minOccurs="0"/>
+	</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:complexType name="FacilityOfferingGroupsForSearch">
+	<xs:sequence>
+	<xs:element name="FacilityOfferingGroup" type="cmd:FacilityOfferingGroupTypeForSearch" maxOccurs="unbounded" minOccurs="0"/>
+	</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TransportModes">
+	<xs:sequence>
+	<xs:element name="TransportModeDetails" type="cmd:TransportModeDetails" maxOccurs="unbounded" minOccurs="1"/>
+	</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="TransportModeDetails">
+	<xs:sequence>
+	<xs:element name="TransportMode" type="xs:string"
+				minOccurs="0" maxOccurs="1" />
+	<xs:element name="ValidDatePeriod" type="cmd:ValidDatePeriodType" minOccurs="0" />
+	</xs:sequence>
+	</xs:complexType>
+
+
+	   <xs:complexType name="CityDetails">
+	   	<xs:sequence>
+	   		<xs:element ref="cmd:City"/>
+      		<xs:element ref="cmd:CityGeoID" minOccurs="0"/>
+      	</xs:sequence>
+	   </xs:complexType>
+	   <xs:complexType name="CityDetailsForSearch">
+	   	<xs:sequence>
+	   		<xs:element ref="cmd:City" minOccurs="0"/>
+      		<xs:element ref="cmd:CityGeoID" minOccurs="0"/>
+      	</xs:sequence>
+	   </xs:complexType>
+	   <xs:complexType name="RegionDetails">
+	   	<xs:sequence>
+	   	<xs:element ref="cmd:Region" minOccurs="0"/>
+	   		<xs:element ref="cmd:RegionGeoID" minOccurs="0"/>
+      	</xs:sequence>
+	   </xs:complexType>
+	   <xs:complexType name="CountryDetailsForSearch">
+	   	<xs:sequence>
+	   		 <xs:element name="ISOCountryCode" type="cmd:ISOCountryCode" minOccurs="0"/>
+      		 <xs:element ref="cmd:CountryGeoID" minOccurs="0"/>
+      	</xs:sequence>
+	   </xs:complexType>
+	   <xs:complexType name="CountryDetails">
+	   	<xs:sequence>
+	   		 <xs:element name="ISOCountryCode" type="cmd:ISOCountryCode" />
+      		 <xs:element ref="cmd:CountryGeoID" minOccurs="0"/>
+      	</xs:sequence>
+	   </xs:complexType>
+
+
+	<xs:complexType name="FacilityAddressType">
+		<xs:sequence>
+				<xs:element name="ISOCountryCode" type="cmd:ISOCountryCode" maxOccurs="1" minOccurs="0"/>
+                <xs:element ref="cmd:City"  minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="cmd:HouseNo" minOccurs="0" maxOccurs="1" />
+                <xs:element ref="cmd:StreetName" minOccurs="0" maxOccurs="1" />
+                <xs:element ref="cmd:Region" minOccurs="0" maxOccurs="1" />
+                <xs:element ref="cmd:PostalCode" minOccurs="0" maxOccurs="1" />
+                <xs:element name="Latitude" type="cmd:latitudeType" minOccurs="0" />
+				<xs:element name="Longitude" type="cmd:longitudeType" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FacilityAddressForSearchType">
+		<xs:sequence>
+				<xs:element name="CountryDetails" type="cmd:CountryDetails" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="CityDetails" type="cmd:CityDetails" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="cmd:HouseNo" minOccurs="0" maxOccurs="1" />
+                <xs:element ref="cmd:StreetName" minOccurs="0" maxOccurs="1" />
+                <xs:element name="RegionDetails" type="cmd:RegionDetails" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="cmd:PostalCode" minOccurs="0" maxOccurs="1" />
+                <xs:element name="Latitude" type="cmd:latitudeType" minOccurs="0" />
+				<xs:element name="Longitude" type="cmd:longitudeType" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	 <xs:complexType name="FCTAddressType">
+    <xs:annotation>
+      <xs:documentation> Postal Address. the language attribute specifies any local language and
+        defaults to EN if omitted </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element ref="cmd:HouseNo" minOccurs="0"/>
+      <xs:element ref="cmd:StreetName" minOccurs="0"/>
+      <xs:element ref="cmd:Building" minOccurs="0"/>
+      <xs:element ref="cmd:Suburb" minOccurs="0"/>
+      <xs:element ref="cmd:District" minOccurs="0"/>
+      <xs:element ref="cmd:PostalCode" minOccurs="0"/>
+      <xs:element name="CityDetails" type="cmd:CityDetails" />
+      <xs:element name="RegionDetails" type="cmd:RegionDetails" minOccurs="0"/>
+      <xs:element name="CountryDetails" type="cmd:CountryDetails" />
+      <xs:element name="Latitude" type="cmd:latitudeType" minOccurs="0" />
+	  <xs:element name="Longitude" type="cmd:longitudeType" minOccurs="0" />
+	  <xs:element name="ValidDatePeriod" type="cmd:ValidDatePeriodType" minOccurs="0" />
+      <xs:element name="AddressAuditData" type="cmd:AuditType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Creation date and user as well as last update date and user
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="AddressWorkflowIndicator" type="cmd:WorkflowEnum" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation> Indicator if a workflow needs to be triggered from Portal Perspective
+            for the address </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="AddressMailabilityScore" type="cmd:AddressMailabilityScore" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation> Indicator of the mailability score returned by Address doctor for the
+            given address </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="AddressMatchScore" type="cmd:AddressMatchScore" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation> Indicator of the match score returned by Address doctor for the given
+            address </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="RegionGeoID">
+    <xs:annotation>
+      <xs:documentation> Region to be used in address type   </xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="CountryGeoID">
+    <xs:annotation>
+      <xs:documentation> Country to be used in address type   </xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="CityGeoID">
+    <xs:annotation>
+      <xs:documentation> City to be used in address type   </xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="ExternallyExposed">
+		<xs:simpleType>
+			<xs:annotation>
+				<xs:documentation>Externally exposed
+				</xs:documentation>
+			</xs:annotation>
+			<xs:restriction base="xs:boolean"></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="ExternallyOwned">
+		<xs:simpleType>
+			<xs:annotation>
+				<xs:documentation>Externally Owned</xs:documentation>
+			</xs:annotation>
+			<xs:restriction base="xs:boolean"></xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+  <xs:element name="GPSFlag">
+    <xs:annotation>
+      <xs:documentation> facility row id used for GEO write Back  </xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:boolean">
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="VesselAgent">
+    <xs:simpleType>
+      <xs:restriction base="xs:boolean">
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="OceanFreightPricing">
+    <xs:simpleType>
+      <xs:restriction base="xs:boolean">
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="GSMFlag">
+    <xs:annotation>
+      <xs:documentation> facility row id used for GEO write Back  </xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:boolean">
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+
+	 <!-- All CommonTypes for Facility Starts-->
+	<!-- <xs:complexType name="ValidationResponseType">
+		<xs:annotation>
+			<xs:documentation>Validation Status Response with the field name and
+				detail validation message
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="FieldName" type="xs:string" />
+			<xs:element name="ValidationErrorDetail" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>   -->
+	<!-- All Common types for Facility Ends-->
+
+	</xs:schema>

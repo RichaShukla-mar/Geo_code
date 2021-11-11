@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="http://www.maerskline.com/SOA/1.0/FrameworkOriginatingResponseCode"
+xmlns="http://www.maerskline.com/SOA/1.0/FrameworkOriginatingResponseCode" elementFormDefault="qualified">
+	<xs:element name="translatedCode">
+		<xs:complexType>
+			<xs:choice>
+				<xs:element name="originatingCodeExactMatch"
+					type="xs:string">
+				</xs:element>
+				<xs:element name="originatingCodeRegex" type="xs:string"></xs:element>
+			</xs:choice>
+			<xs:attribute name="soaCode" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"></xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="originatingDescription"
+				use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"></xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<!-- 
+				<xs:attribute name="originatingCode" use="required">
+				<xs:simpleType>
+				<xs:restriction base="xs:string">
+				</xs:restriction>
+				</xs:simpleType>
+				</xs:attribute>
+			-->
+		</xs:complexType>
+
+	</xs:element>
+	<xs:element name="resource">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="method" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="resourceType" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="BUSINESS"/>
+						<xs:enumeration value="PROXY"/>
+						<xs:enumeration value="STOREDPROC"/>
+						<xs:enumeration value="SQLQUERY"/>
+						<xs:enumeration value="BUSERROR"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="resourceName" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="method">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="translatedCode" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="name" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="OriginatingResponseCode">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="resource" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

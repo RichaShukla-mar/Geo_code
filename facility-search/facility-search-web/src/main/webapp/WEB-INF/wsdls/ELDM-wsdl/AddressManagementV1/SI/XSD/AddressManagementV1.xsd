@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://services.apmoller.net/AMM/AddressManagement/v1" xmlns:AMM="http://services.apmoller.net/AMM/v4" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://services.apmoller.net/AMM/AddressManagement/v1" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0.0">
+	<xsd:annotation>
+		<xsd:appinfo>
+			<Metadata xmlns="http://services.apmoller.net/AMM/v2/meta">
+				<Audience/>
+				<Creator>Srikant Telikepalli			
+				</Creator>
+				<Date>
+					<Created>2016-01-12</Created>
+					<Modified>2016-01-12</Modified>
+				</Date>
+				<Description>
+					<Abstract>"DO NOT GENERATE/CHANGE THIS SCHEMA. PLEASE CONTACT ESM</Abstract>
+				</Description>
+				<Rights>
+					<Copyright>Maersk 2015</Copyright>
+				</Rights>
+				<Title>Maersk Enterprise Service Modelling (ESM) Service Schema</Title>
+			</Metadata>
+		</xsd:appinfo>
+	</xsd:annotation>
+	<!-- DON'T REMOVE -->
+	<xsd:annotation>
+		<xsd:documentation>Project Template 4</xsd:documentation>
+	</xsd:annotation>
+	<xsd:import namespace="http://services.apmoller.net/AMM/v4" schemaLocation="../../../SharedInterfaceResources/XMLDataModel/Version4.0/EAMBaseTypes.xsd"/>
+	<xsd:complexType name="AlternativeCodeStructure">
+		<xsd:annotation>
+			<xsd:documentation>Reference table for alternative codes that objects can have in other places. Examples include:
+* UN location code (UN/LOCODE)
+* RKST code
+* RKTS code
+* GEO ID
+* IATA code
+* Business Unit Id e.g. DZALGMSL1
+
+Party roles' code aliases are stored in this entity, e.g. an organization' acting as a supplier which has a SCV number would be stored here together with the alias type of 'SCV Code'.
+
+Vessel code alias can also be stored in this entity, e.g.: 'Lloyd Code', 'Official Registration Number'</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="AlternativeCodeVal" type="AMM:String50NonNullType" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ContactAddressStructure">
+		<xsd:annotation>
+			<xsd:documentation>Supertype contact mechanism that has several subtypes e.g.:
+Postal Address
+Electronic Address
+Telecommunications Number</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ContactAddressType" type="ContactAddressTypeStructure" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ContactAddressTypeStructure">
+		<xsd:annotation>
+			<xsd:documentation>A Type of Contact Address. Examples Include:
+Phone number (land line)
+Phone number (mobile)
+Email address
+Web URL
+Postal address
+</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ContactAddressTypeName" type="AMM:String100Type" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CustomerAddressStructure">
+		<xsd:sequence>
+			<xsd:element name="PostalAddressDetailHouseNum" type="AMM:String50NonNullType"/>
+			<xsd:element name="PostalAddressDetailStreetName" type="AMM:String100Type"/>
+			<xsd:element name="PostalAddressDetailMailBoxNum" type="AMM:String50NonNullType"/>
+			<xsd:element name="PostalAddressDetailBuildingNum" type="AMM:String50NonNullType"/>
+			<xsd:element name="Suburb" type="AMM:String50NonNullType"/>
+			<xsd:element name="District" type="AMM:String50NonNullType"/>
+			<xsd:element name="City" type="AMM:String50NonNullType"/>
+			<xsd:element name="Region" type="AMM:String50NonNullType"/>
+			<xsd:element name="ISOCountry" type="ISOCountryStructure"/>
+			<xsd:element name="PostalCd" type="AMM:String50NonNullType"/>
+			<xsd:element name="TaxJurisdictionCode" type="AMM:Integer10Type"/>
+			<xsd:element name="AddressAuditData" type="CustomerAuditDataStructure" minOccurs="0"/>
+			<xsd:element name="AddressWorkflowIndicator" type="AMM:String50NonNullType"/>
+			<xsd:element name="Language" type="AMM:String50NonNullType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CustomerAuditDataStructure">
+		<xsd:sequence>
+			<xsd:element name="CreationDate" type="AMM:DateType"/>
+			<xsd:element name="CreationUser" type="AMM:String200Type"/>
+			<xsd:element name="LastUpdateDate" type="AMM:DateType"/>
+			<xsd:element name="LastUpdateUser" type="AMM:String200Type"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CustomerComboStructure">
+		<xsd:sequence>
+			<xsd:element name="Customer" type="PartyCustomDuplicateSearchRequestStructure"/>
+			<xsd:element name="CustomerTaxNumbers" type="CustomerTaxNumbersStructure" minOccurs="0"/>
+			<xsd:element name="CustomerReferenceNumbers" type="CustomerReferenceNumbersStructure" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CustomerReferenceNumbersStructure">
+		<xsd:sequence>
+			<xsd:element name="CustomerReferenceNumber" type="CustomerReferenceNumberStructure" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CustomerReferenceNumberStructure">
+		<xsd:sequence>
+			<xsd:element name="ReferenceTypeCd" type="AMM:String50NonNullType"/>
+			<xsd:element name="ReferenceTypeNumber" type="AMM:String50NonNullType" minOccurs="0"/>
+			<xsd:element name="AddressMailabilityScore" type="AMM:String50NonNullType"/>
+			<xsd:element name="AddressMatchScore" type="AMM:String50NonNullType"/>
+			<xsd:element name="DeleteFlag" type="AMM:Integer10Type"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CustomerSearchStatusStructure">
+		<xsd:sequence>
+			<xsd:element name="Cd" type="AMM:String50NonNullType"/>
+			<xsd:element name="Status" type="AMM:String3NonNullType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CustomerStatusStructure">
+		<xsd:sequence>
+			<xsd:element name="Cd" type="AMM:String50NonNullType"/>
+			<xsd:element name="ReasonTypeCd" type="AMM:String50NonNullType" minOccurs="0"/>
+			<xsd:element name="ReasonCd" type="AMM:String50NonNullType"/>
+			<xsd:element name="ReasonName" type="AMM:String50NonNullType" minOccurs="0"/>
+			<xsd:element name="ReasonDescription" type="AMM:String50NonNullType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CustomerStructure">
+		<xsd:annotation>
+			<xsd:documentation>A buyer (or potential buyer) of a Product offered by the Enterprise. A Customer may be an Organisation or a Person acting on behalf of an Organisation.
+Exclusion: A buyer of an Asset is not a Customer</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="PartyRoleStructure"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="DefinedAreaStructure">
+		<xsd:annotation>
+			<xsd:documentation>The supertype entity to all geographic and other kinds of areas such as Business Defined Areas (which still have a geographic aspect to their definition).  Some areas are 'point', have specific geographical coordinates (e.g. the "city Centre" point) while other have a geographic boundary (defined perimeter) enclosing an area such as a Continent, Country, City or Site.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="DefinedAreaName" type="AMM:String100Type" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CustomerTaxNumbersStructure">
+		<xsd:sequence>
+			<xsd:element name="CustomerTaxNumber" type="CustomerTaxNumberStructure" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CustomerTaxNumberStructure">
+		<xsd:sequence>
+			<xsd:element name="TaxNumber" type="AMM:String50NonNullType"/>
+			<xsd:element name="TaxTypeCd" type="AMM:String50NonNullType"/>
+			<xsd:element name="ISOCountry" type="ISOCountryStructure"/>
+			<xsd:element name="DeleteFlag" type="AMM:Integer10Type"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ElectronicAddressStructure">
+		<xsd:annotation>
+			<xsd:documentation>An address that can be used for contact through the Internet or other electronic service. Examples include:
+Email address (Internet or otherwise)
+Web address (URL). Can be Internet or Intranet
+EDI Address</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="ContactAddressStructure">
+				<xsd:sequence>
+					<xsd:element name="ElectronicAddressName" type="AMM:String100Type" minOccurs="0" maxOccurs="1"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="ISOCountryStructure">
+		<xsd:annotation>
+			<xsd:documentation>International Standard Organization information about a country. 
+This is kep in seperate table as there might be countries used in the enterprise which are not recognized by UN and therefore not in the ISU standard list.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ISOCountryFullName" type="AMM:String100Type" minOccurs="0"/>
+			<xsd:element name="ISOCountryAlpha-2Cd" type="AMM:String50Type" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PartyRoleClassStructure">
+		<xsd:annotation>
+			<xsd:documentation>A category into which the Enterprise classifies Parties. Includes market segments such as 'Key Client' 'Direct Sales'</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="PartyRoleClassCd" type="AMM:String50NonNullType" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PartyRoleClassificationStructure">
+		<xsd:sequence>
+			<xsd:element name="PartyRoleClass" type="PartyRoleClassStructure" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PartyRoleContactAddressStructure">
+		<xsd:sequence>
+			<xsd:element name="CommentTxt" type="AMM:String1000Type" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="ValidFromDt" type="AMM:DateType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="ValidThruDt" type="AMM:DateType" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PartyRoleRelationshipStructure">
+		<xsd:sequence>
+			<xsd:element name="PartyRoleClassification" type="PartyRoleClassificationStructure" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PartyRoleStructure">
+		<xsd:annotation>
+			<xsd:documentation>A role that a particular Party may play in the context of the Enterprise's business environment. Party Role defines how a Party can act in this environment.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="CustomerCode" type="AlternativeCodeStructure" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="CustomerRoleRelationship" type="PartyRoleRelationshipStructure" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PartyRoleTypeStructure">
+		<xsd:annotation>
+			<xsd:documentation>A type of role that a Party may play in the context of the Enterprise's business environment. Examples include:
+* Customer
+* Supplier
+* Statutory Authority
+* Owner
+
+Party Roles can also apply to internal Maersk organisations or people, such as:
+* Cost Centre
+* Profit Centre
+* String Manager
+* Team
+* Department
+
+Party Roles can also exist at a more granular level. Examples include:
+* Booked By Customer
+* Contractual Customer
+* Shipper
+* Consignee
+* Notify Party
+* Invoice Party
+* Credit Party
+* Dangerous Cargo Emergency Contact Person
+* NVOCC
+* Carrier
+* Freight Forwarder</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="PartyRoleTypeCd" type="AMM:String50NonNullType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="PartyRoleTypeName" type="AMM:String100Type" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PartyCustomDuplicateSearchRequestStructure">
+		<xsd:annotation>
+			<xsd:documentation>An Organisation or Person in which the Enterprise has an interest.
+Versioned: Yes</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="LegalName" type="AMM:String100Type"/>
+			<xsd:element name="TradingName" type="AMM:String100Type"/>
+			<xsd:element name="CustomerTypes" type="AMM:String100Type"/>
+			<xsd:element name="CustomerStatus" type="CustomerStatusStructure"/>
+			<xsd:element name="Url" type="AMM:String200Type" minOccurs="0"/>
+			<xsd:element name="TelecommunicationsNumber" type="TelecommunicationsNumberStructure" minOccurs="0"/>
+			<xsd:element name="CustomerLanguagePreference" type="AMM:String200Type"/>
+			<xsd:element name="Brokerage" type="AMM:Integer10Type" minOccurs="0"/>
+			<xsd:element name="ForwardersCompensation" type="AMM:Integer10Type" minOccurs="0"/>
+			<xsd:element name="CustomerWorkflowIndicator" type="AMM:String50NonNullType"/>
+			<xsd:element name="CustomerAuditData" type="CustomerAuditDataStructure"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PartyCustomDuplicateSearchResponseStructure">
+		<xsd:annotation>
+			<xsd:documentation>An Organisation or Person in which the Enterprise has an interest.
+Versioned: Yes</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="CustomerCd" type="AlternativeCodeStructure"/>
+			<xsd:element name="LegalName" type="AMM:String100Type" minOccurs="0"/>
+			<xsd:element name="TradingName" type="AMM:String100Type"/>
+			<xsd:element name="Status" type="AMM:String50NonNullType"/>
+			<xsd:element name="Address" type="CustomerAddressStructure"/>
+			<xsd:element name="MatchScore" type="AMM:Integer10Type"/>
+			<xsd:element name="AddressMailabilityScore" type="AMM:String50NonNullType"/>
+			<xsd:element name="AddressMatchScore" type="AMM:String50NonNullType"/>
+			<xsd:element name="CustomerTaxNumbers" type="CustomerTaxNumbersStructure" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PartyCustomSearchRequestStructure">
+		<xsd:annotation>
+			<xsd:documentation>An Organisation or Person in which the Enterprise has an interest.
+Versioned: Yes</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="LegalName" type="AMM:String100Type" minOccurs="0"/>
+			<xsd:element name="TradingName" type="AMM:String100Type" minOccurs="0"/>
+			<xsd:element name="ISOCountry" type="ISOCountryStructure"/>
+			<xsd:element name="City" type="AMM:String50NonNullType"/>
+			<xsd:element name="Status" type="AMM:String3NonNullType" minOccurs="0"/>
+			<xsd:element name="PostalAddressDetailHouseNum" type="AMM:String50NonNullType" minOccurs="0"/>
+			<xsd:element name="PostalAddressDetailStreetName" type="AMM:String100Type" minOccurs="0"/>
+			<xsd:element name="Region" type="AMM:String50NonNullType" minOccurs="0"/>
+			<xsd:element name="PostalAddressDetailMailBoxNum" type="AMM:String50NonNullType" minOccurs="0"/>
+			<xsd:element name="PostalCd" type="AMM:String50NonNullType" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PartyCustomSearchResponseStructure">
+		<xsd:annotation>
+			<xsd:documentation>An Organisation or Person in which the Enterprise has an interest.
+Versioned: Yes</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="CustomerCd" type="AlternativeCodeStructure"/>
+			<xsd:element name="LegalName" type="AMM:String100Type" minOccurs="0"/>
+			<xsd:element name="TradingName" type="AMM:String100Type"/>
+			<xsd:element name="CustomerStatus" type="CustomerStatusStructure"/>
+			<xsd:element name="CustomerTypes" type="AMM:String100Type"/>
+			<xsd:element name="PostalAddressDetailStreetName" type="AMM:String100Type"/>
+			<xsd:element name="PostalAddressDetailHouseNum" type="AMM:String50NonNullType"/>
+			<xsd:element name="PostalAddressDetailBuildingNum" type="AMM:String50NonNullType" maxOccurs="1"/>
+			<xsd:element name="Suburb" type="AMM:String50NonNullType"/>
+			<xsd:element name="District" type="AMM:String50NonNullType"/>
+			<xsd:element name="PostalAddressDetailMailBoxNum" type="AMM:String50NonNullType"/>
+			<xsd:element name="PostalCd" type="AMM:String50NonNullType"/>
+			<xsd:element name="City" type="AMM:String50NonNullType"/>
+			<xsd:element name="ISOCountry" type="ISOCountryStructure"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PartyStructure">
+		<xsd:annotation>
+			<xsd:documentation>An Organisation or Person in which the Enterprise has an interest.
+Versioned: Yes</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="CustomerRole" type="PartyRoleStructure" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="PartyName" type="AMM:String100Type" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PostalAddressAreaStructure">
+		<xsd:annotation>
+			<xsd:documentation>Allows for a postal address to be associated with e.g. a Postal Code, a City and a Country.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ISOCountry" type="ISOCountryStructure" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PostalAddressDetailStructure">
+		<xsd:sequence>
+			<xsd:element name="PostalAddressArea" type="PostalAddressAreaStructure" minOccurs="1" maxOccurs="unbounded"/>
+			<xsd:element name="PostalAddressDetailBuildingNum" type="AMM:String50NonNullType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="PostalAddressDetailHouseModifierValueNum" type="AMM:String50NonNullType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="PostalAddressDetailMailBoxNum" type="AMM:String50NonNullType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="PostalAddressDetailMailDeliveryTm" type="AMM:TimeType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="PostalAddressDetailMailPickupTm" type="AMM:TimeType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="PostalAddressDetailMailStopNum" type="AMM:String50NonNullType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="PostalAddressDetailRouteNum" type="AMM:String50NonNullType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="PostalAddressDetailStreetName" type="AMM:String100Type" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="PostalAddressDetailStreetNum" type="AMM:String50NonNullType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="PostalAddressDetailStreetSuffixCd" type="AMM:String50NonNullType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="PostalAddressDetailWorkspaceNum" type="AMM:String50NonNullType" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PostalAddressStructure">
+		<xsd:annotation>
+			<xsd:documentation>Holds information about postal addresses. Street name and number, directions etc. will be stored here.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="ContactAddressStructure">
+				<xsd:sequence>
+					<xsd:element name="AddressLine1" type="AMM:String100Type" minOccurs="0" maxOccurs="1"/>
+					<xsd:element name="AddressLine2" type="AMM:String100Type" minOccurs="0" maxOccurs="1"/>
+					<xsd:element name="AddressLine3" type="AMM:String100Type" minOccurs="0" maxOccurs="1"/>
+					<xsd:element name="AddressLine4" type="AMM:String100Type" minOccurs="0" maxOccurs="1"/>
+					<xsd:element name="GeographicCoordinateId" type="AMM:Integer13Type" minOccurs="0" maxOccurs="1"/>
+					<xsd:element name="PostalAddressDetail" type="PostalAddressDetailStructure" minOccurs="0" maxOccurs="1"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="PostalCodeStructure">
+		<xsd:annotation>
+			<xsd:documentation>Postal codes and their prefix and/or suffixes are maintained in this entity. Also known in some countries as a Zip-code.  Can be to different levels of granularity, referring to a whole town, or to small areas within a town, down to an individual property.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="DefinedAreaStructure">
+				<xsd:sequence>
+					<xsd:element name="PostalCd" type="AMM:String50NonNullType" minOccurs="0" maxOccurs="1"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="TelecommunicationsNumberStructure">
+		<xsd:annotation>
+			<xsd:documentation>A number that can be used for contact via a telecommunications system. Examples include:-
+Phone number (land line)
+Mobile or cell phone number
+Fax number
+Pager number</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="InternationalDialingCode" type="AMM:String50NonNullType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="TelecommunicationAreaCode" type="AMM:String50NonNullType"/>
+			<xsd:element name="TelecommunicationExtensionNum" type="AMM:String50NonNullType"/>
+			<xsd:element name="TelecommunicationsNum" type="AMM:String50NonNullType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CustomerCodeListype">
+		<xsd:sequence>
+			<xsd:element name="CustomerCode" type="AlternativeCodeStructure" maxOccurs="100"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CustomerListType">
+		<xsd:sequence>
+			<xsd:element name="Customer" type="PartyStructure" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CustomerContactType">
+		<xsd:sequence>
+			<xsd:element name="PartyName" type="AMM:String100Type" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="CustomerNumber" type="AlternativeCodeStructure" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CustomerContactListType">
+		<xsd:sequence>
+			<xsd:element name="CustomerContact" type="CustomerContactType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="VerifyAddressRequestType">
+		<xsd:sequence>
+			<xsd:element name="AddressRequestCollection" minOccurs="0" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="PostalAddressDetailHouseNum" type="AMM:String50Type" minOccurs="0"/>
+						<xsd:element name="PostalAddressDetailStreetName" type="AMM:String100Type" minOccurs="0"/>
+						<xsd:element name="PostalAddressDetailMailBoxNum" type="AMM:String50Type" minOccurs="0"/>
+						<xsd:element name="PostalAddressDetailBuildingNum" type="AMM:String50Type" minOccurs="0"/>
+						<xsd:element name="Suburb" type="AMM:String50Type" minOccurs="0"/>
+						<xsd:element name="District" type="AMM:String50Type" minOccurs="0"/>
+						<xsd:element name="City" type="AMM:String50Type" minOccurs="0"/>
+						<xsd:element name="Region" type="AMM:String50Type" minOccurs="0"/>
+						<xsd:element name="PostalCd" type="AMM:String50Type" minOccurs="0"/>
+						<xsd:element name="ISOCountry" type="ISOCountryStructure" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="VerifyAddressRequest" type="VerifyAddressRequestType"/>
+	
+	<xsd:complexType name="VerifyAddressResponseType">
+		<xsd:sequence>
+			<xsd:element name="AddressResponseCollection" minOccurs="0" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="PostalAddressDetailHouseNum" type="AMM:String50Type" minOccurs="0"/>
+						<xsd:element name="PostalAddressDetailStreetName" type="AMM:String100Type" minOccurs="0"/>
+						<xsd:element name="PostalAddressDetailMailBoxNum" type="AMM:String50Type" minOccurs="0"/>
+						<xsd:element name="PostalAddressDetailBuildingNum" type="AMM:String50Type" minOccurs="0"/>
+						<xsd:element name="Suburb" type="AMM:String50Type" minOccurs="0"/>
+						<xsd:element name="District" type="AMM:String50Type" minOccurs="0"/>
+						<xsd:element name="City" type="AMM:String50Type" minOccurs="0"/>
+						<xsd:element name="Region" type="AMM:String50Type" minOccurs="0"/>
+						<xsd:element name="PostalCd" type="AMM:String50Type" minOccurs="0"/>
+						<xsd:element name="ISOCountry" type="ISOCountryStructure" minOccurs="0"/>
+						<xsd:element name="StatusInfoMailabilityScore" type="AMM:String50Type" minOccurs="0"/>
+						<xsd:element name="StatusInfoMatchCode" type="AMM:String50Type" minOccurs="0"/>
+						<xsd:element name="StatusInfoElementResultStatus" type="AMM:String50Type" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="VerifyAddressResponse" type="VerifyAddressResponseType"/>
+</xsd:schema>

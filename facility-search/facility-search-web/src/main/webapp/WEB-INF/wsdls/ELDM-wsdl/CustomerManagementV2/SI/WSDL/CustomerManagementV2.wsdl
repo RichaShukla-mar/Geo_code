@@ -1,0 +1,605 @@
+<wsdl:definitions name="CustomerManagementPS" 
+targetNamespace="http://services.apmoller.net/AMM/CustomerManagement/v2" 
+xmlns:abns="http://services.apmoller.net/AMM/CustomerManagementAbstract/v2"
+xmlns:service="http://services.apmoller.net/AMM/CustomerManagement/v2"
+xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+xmlns="http://schemas.xmlsoap.org/wsdl/" 
+xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+xmlns:frexcp="http://services.apmoller.net/ManagementFramework/ServiceException/v2" 
+xmlns:frhead="http://services.apmoller.net/ManagementFramework/CommonIdentifier/v2"
+xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy">
+
+<!-- DON'T REMOVE -->
+	<wsdl:documentation>Concrete WSDL that is imported and used by CustomerManagement Proxy Service(s)</wsdl:documentation> 
+    <xsd:annotation>
+        <xsd:appinfo>
+            <Metadata xmlns="http://services.apmoller.net/AMM/v2/meta">
+                <Creator>CMD Solution Ankababu</Creator>
+                <Version>1.0.1</Version>
+                <LastUpdateDate>12/10/2016</LastUpdateDate>
+            </Metadata>
+        </xsd:appinfo>
+    </xsd:annotation>
+
+
+
+	<wsdl:import namespace="http://services.apmoller.net/AMM/CustomerManagementAbstract/v2" location="CustomerManagementAbstractV2.wsdl"/>
+	<wsdl:import namespace="http://services.apmoller.net/USI/policy/v2.0" location="../../../SharedInterfaceResources/WSPolicy/USIPolicyV2.wsdl"/>
+
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://services.apmoller.net/AMM/v4">
+			<xsd:import namespace="http://services.apmoller.net/ManagementFramework/CommonIdentifier/v2" schemaLocation="../../../SharedInterfaceResources/ManagementFramework/Header/v2/CommonIdentifierV2.xsd"/>
+			<xsd:import namespace="http://services.apmoller.net/ManagementFramework/ServiceException/v2" schemaLocation="../../../SharedInterfaceResources/ManagementFramework/Fault/v2/ServiceExceptionV2.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+
+	<!-- Framework message level -->
+	<wsdl:message name="SoapHeaderInfo">
+		<wsdl:part name="commonIdentifierRequest" element="frhead:CommonIdentifierRequest"/>
+		<wsdl:part name="commonIdentifierResponse" element="frhead:CommonIdentifierResponse"/>
+		<wsdl:part name="commonIdentifierFault" element="frhead:CommonIdentifierFault"/>
+	</wsdl:message>
+	
+	<!--CustomerManagementV2 binding -->
+	
+                
+                <wsdl:binding name="CustomerManagement" type="abns:CustomerManagementPort">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+                
+		<wsp:Policy>
+			<wsp:PolicyReference URI="#wss_username_token_service_policy"/>
+		</wsp:Policy>
+                
+		<wsdl:operation name="RetrieveCountryRules">
+			<soap:operation soapAction="RetrieveCountryRules"/>
+			<wsdl:input>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierRequest"/>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierResponse"/>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Fault">
+				<soap:fault use="literal" name="Fault"/>
+			</wsdl:fault>
+		</wsdl:operation>
+                
+                <wsdl:operation name="RetrieveCustomer">
+			<soap:operation soapAction="RetrieveCustomer"/>
+			<wsdl:input>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierRequest"/>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierResponse"/>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Fault">
+				<soap:fault use="literal" name="Fault"/>
+			</wsdl:fault>
+		</wsdl:operation>
+                
+                <wsdl:operation name="RetrieveCustomerStatusReason">
+			<soap:operation soapAction="RetrieveCustomerStatusReason"/>
+			<wsdl:input>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierRequest"/>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierResponse"/>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Fault">
+				<soap:fault use="literal" name="Fault"/>
+			</wsdl:fault>
+		</wsdl:operation>
+                
+                <wsdl:operation name="RetrieveCustomerStatus">
+			<soap:operation soapAction="RetrieveCustomerStatus"/>
+			<wsdl:input>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierRequest"/>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierResponse"/>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Fault">
+				<soap:fault use="literal" name="Fault"/>
+			</wsdl:fault>
+		</wsdl:operation>
+                
+                 <wsdl:operation name="RetrieveCustomerType">
+			<soap:operation soapAction="RetrieveCustomerType"/>
+			<wsdl:input>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierRequest"/>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierResponse"/>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Fault">
+				<soap:fault use="literal" name="Fault"/>
+			</wsdl:fault>
+		</wsdl:operation>
+                
+                 <wsdl:operation name="RetrieveReferenceNumberCodes">
+			<soap:operation soapAction="RetrieveReferenceNumberCodes"/>
+			<wsdl:input>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierRequest"/>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierResponse"/>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Fault">
+				<soap:fault use="literal" name="Fault"/>
+			</wsdl:fault>
+		</wsdl:operation>
+                
+                 <wsdl:operation name="RetrieveTaxNumberCodes">
+			<soap:operation soapAction="RetrieveTaxNumberCodes"/>
+			<wsdl:input>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierRequest"/>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierResponse"/>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Fault">
+				<soap:fault use="literal" name="Fault"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		<wsdl:operation name="RetrieveCity">
+			<soap:operation soapAction="RetrieveCity"/>
+			<wsdl:input>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierRequest"/>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierResponse"/>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Fault">
+				<soap:fault use="literal" name="Fault"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		<wsdl:operation name="RetrieveCountry">
+			<soap:operation soapAction="RetrieveCountry"/>
+			<wsdl:input>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierRequest"/>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierResponse"/>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Fault">
+				<soap:fault use="literal" name="Fault"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		
+		<wsdl:operation name="RetrieveSegmentation">
+			<soap:operation soapAction="RetrieveSegmentation"/>
+			<wsdl:input>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierRequest"/>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierResponse"/>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Fault">
+				<soap:fault use="literal" name="Fault"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		<wsdl:operation name="AssignCustomerSegments">
+			<soap:operation soapAction="AssignCustomerSegments"/>
+			<wsdl:input>     
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierRequest"/>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierResponse"/>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Fault">
+				<soap:fault use="literal" name="Fault"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		<wsdl:operation name="AssignCustomerRelations">
+			<soap:operation soapAction="AssignCustomerRelations"/>
+			<wsdl:input>     
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierRequest"/>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierResponse"/>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Fault">
+				<soap:fault use="literal" name="Fault"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		<wsdl:operation name="RetrievePrimaryContactSalutation">
+			<soap:operation soapAction="RetrievePrimaryContactSalutation"/>
+			<wsdl:input>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierRequest"/>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierResponse"/>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Fault">
+				<soap:fault use="literal" name="Fault"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		<wsdl:operation name="RetrieveInternationalContactSalution">
+			<soap:operation soapAction="RetrieveInternationalContactSalution"/>
+			<wsdl:input>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierRequest"/>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierResponse"/>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Fault">
+				<soap:fault use="literal" name="Fault"/>
+			</wsdl:fault>
+		</wsdl:operation>
+                
+                 <wsdl:operation name="SearchCustomer">
+			<soap:operation soapAction="SearchCustomer"/>
+			<wsdl:input>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierRequest"/>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierResponse"/>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Fault">
+				<soap:fault use="literal" name="Fault"/>
+			</wsdl:fault>
+		</wsdl:operation>
+                
+                <wsdl:operation name="SearchDuplicateCustomer">
+			<soap:operation soapAction="SearchDuplicateCustomer"/>
+			<wsdl:input>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierRequest"/>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierResponse"/>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Fault">
+				<soap:fault use="literal" name="Fault"/>
+			</wsdl:fault>
+		</wsdl:operation>
+                
+                 <wsdl:operation name="UpsertCustomer">
+			<soap:operation soapAction="UpsertCustomer"/>
+			<wsdl:input>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierRequest"/>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierResponse"/>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Fault">
+				<soap:fault use="literal" name="Fault"/>
+			</wsdl:fault>
+		</wsdl:operation>
+                
+                 <wsdl:operation name="ValidateCountryRules">
+			<soap:operation soapAction="ValidateCountryRules"/>
+			<wsdl:input>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierRequest"/>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierResponse"/>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Fault">
+				<soap:fault use="literal" name="Fault"/>
+			</wsdl:fault>
+		</wsdl:operation>
+                
+                
+                <wsdl:operation name="ValidateTaxNumber">
+			<soap:operation soapAction="ValidateTaxNumber"/>
+			<wsdl:input>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierRequest"/>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierResponse"/>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Fault">
+				<soap:fault use="literal" name="Fault"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		
+		 <wsdl:operation name="RetrieveTaxTypeLocalNamer">
+			<soap:operation soapAction="RetrieveTaxTypeLocalNamer"/>
+			<wsdl:input>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierRequest"/>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierResponse"/>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Fault">
+				<soap:fault use="literal" name="Fault"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		<wsdl:operation name="UpsertCustomerContact">
+			<soap:operation soapAction="UpsertCustomerContact"/>
+			<wsdl:input>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierRequest"/>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierResponse"/>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Fault">
+				<soap:fault use="literal" name="Fault"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		  <wsdl:operation name="RetrieveCustomerContact">
+			<soap:operation soapAction="RetrieveCustomerContact"/>
+			<wsdl:input>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierRequest"/>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierResponse"/>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Fault">
+				<soap:fault use="literal" name="Fault"/>
+			</wsdl:fault>
+		</wsdl:operation>
+
+		<wsdl:operation name="SearchCustomerContact">
+			<soap:operation soapAction="SearchCustomerContact"/>
+			<wsdl:input>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierRequest"/>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierResponse"/>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Fault">
+				<soap:fault use="literal" name="Fault"/>
+			</wsdl:fault>
+		</wsdl:operation>
+                
+                 <wsdl:operation name="SearchDuplicateContact">
+			<soap:operation soapAction="SearchDuplicateContact"/>
+			<wsdl:input>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierRequest"/>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierResponse"/>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Fault">
+				<soap:fault use="literal" name="Fault"/>
+			</wsdl:fault>
+		</wsdl:operation>
+                
+                <wsdl:operation name="RetrieveCustomerContactTypes">
+			<soap:operation soapAction="RetrieveCustomerContactTypes"/>
+			<wsdl:input>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierRequest"/>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierResponse"/>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Fault">
+				<soap:fault use="literal" name="Fault"/>
+			</wsdl:fault>
+		</wsdl:operation>
+                
+                <wsdl:operation name="RetrieveISOLanguages">
+			<soap:operation soapAction="RetrieveISOLanguages"/>
+			<wsdl:input>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierRequest"/>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierResponse"/>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Fault">
+				<soap:fault use="literal" name="Fault"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		        <wsdl:operation name="RetrieveInvoiceISOLanguages">
+			<soap:operation soapAction="RetrieveInvoiceISOLanguages"/>
+			<wsdl:input>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierRequest"/>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierResponse"/>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Fault">
+				<soap:fault use="literal" name="Fault"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		        <wsdl:operation name="RetrieveRegions">
+			<soap:operation soapAction="RetrieveRegions"/>
+			<wsdl:input>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierRequest"/>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierResponse"/>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Fault">
+				<soap:fault use="literal" name="Fault"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		<wsdl:operation name="RetrieveSegmentTypes">
+			<soap:operation soapAction="RetrieveSegmentTypes"/>
+			<wsdl:input>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierRequest"/>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierResponse"/>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Fault">
+				<soap:fault use="literal" name="Fault"/>
+			</wsdl:fault>
+		</wsdl:operation>
+                
+                <wsdl:operation name="RetrieveInternationalDiallingPrefix">
+			<soap:operation soapAction="RetrieveInternationalDiallingPrefix"/>
+			<wsdl:input>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierRequest"/>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierResponse"/>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Fault">
+				<soap:fault use="literal" name="Fault"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		<wsdl:operation name="RetrieveRelationships">
+			<soap:operation soapAction="RetrieveRelationships"/>
+			<wsdl:input>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierRequest"/>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierResponse"/>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Fault">
+				<soap:fault use="literal" name="Fault"/>
+			</wsdl:fault>
+		</wsdl:operation>
+        
+        <wsdl:operation name="RetrieveConcern">
+			<soap:operation soapAction="RetrieveConcern"/>
+			<wsdl:input>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierRequest"/>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierResponse"/>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Fault">
+				<soap:fault use="literal" name="Fault"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		        
+        <wsdl:operation name="RetrieveBrands">
+			<soap:operation soapAction="RetrieveBrands"/>
+			<wsdl:input>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierRequest"/>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierResponse"/>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Fault">
+				<soap:fault use="literal" name="Fault"/>
+			</wsdl:fault>
+		</wsdl:operation>        
+
+        <wsdl:operation name="RetrieveCommPrefTypes">
+			<soap:operation soapAction="RetrieveCommPrefTypes"/>
+			<wsdl:input>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierRequest"/>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierResponse"/>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Fault">
+				<soap:fault use="literal" name="Fault"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		
+        <wsdl:operation name="RetrieveDocumentTypes">
+			<soap:operation soapAction="RetrieveDocumentTypes"/>
+			<wsdl:input>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierRequest"/>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierResponse"/>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Fault">
+				<soap:fault use="literal" name="Fault"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		<wsdl:operation name="RetrieveRelationshipTypes">
+			<soap:operation soapAction="RetrieveRelationshipTypes"/>
+			<wsdl:input>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierRequest"/>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header use="literal" message="service:SoapHeaderInfo" part="commonIdentifierResponse"/>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Fault">
+				<soap:fault use="literal" name="Fault"/>
+			</wsdl:fault>
+		</wsdl:operation>
+				                
+	</wsdl:binding>
+
+	<wsdl:service name="CustomerManagementService">
+		<port name="CustomerManagementServicePort" binding="service:CustomerManagement">
+			<soap:address location="http://www.maerskline.com/services/CustomerManagement/v2"/>
+		</port>
+	</wsdl:service>
+
+</wsdl:definitions>

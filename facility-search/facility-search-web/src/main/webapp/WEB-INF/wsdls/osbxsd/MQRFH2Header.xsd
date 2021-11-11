@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema 
+		xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+		elementFormDefault="unqualified" 
+		id="MQRFH2Header"
+		version="1.0">
+
+	<xs:element name="RFH2Header">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:annotation>
+					<xs:documentation>MQ RFH2 Header</xs:documentation>
+				</xs:annotation>
+				<xs:element name="usr">
+					<xs:annotation>
+						<xs:documentation>MQ USR Structure</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<!--  Allow for any name/value headers in here -->
+				<xs:any minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+</xs:schema>

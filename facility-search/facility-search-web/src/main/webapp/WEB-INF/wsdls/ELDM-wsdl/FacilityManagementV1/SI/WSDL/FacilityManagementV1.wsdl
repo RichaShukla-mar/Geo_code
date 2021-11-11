@@ -1,0 +1,300 @@
+<wsdl:definitions name="FacilityManagementPS"
+                  targetNamespace="http://services.apmoller.net/AMM/FacilityManagement/v1"
+                  xmlns:abns="http://services.apmoller.net/AMM/FacilityManagementAbstract/v1"
+                  xmlns:service="http://services.apmoller.net/AMM/FacilityManagement/v1"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns:frexcp="http://services.apmoller.net/ManagementFramework/ServiceException/v2"
+                  xmlns:frhead="http://services.apmoller.net/ManagementFramework/CommonIdentifier/v2"
+                  xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy">
+ <!-- DON'T REMOVE -->
+ <wsdl:documentation>Concrete WSDL that is imported and used by
+                     FacilityManagement Proxy Service(s)</wsdl:documentation>
+ <xsd:annotation>
+  <xsd:appinfo>
+   <Metadata xmlns="http://services.apmoller.net/AMM/v2/meta">
+    <Creator>CMD Solution Chintan</Creator>
+    <Version>1.0.0</Version>
+    <LastUpdateDate>27/04/2016</LastUpdateDate>
+   </Metadata>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <wsdl:import namespace="http://services.apmoller.net/AMM/FacilityManagementAbstract/v1"
+              location="FacilityManagementAbstractV1.wsdl"/>
+ <wsdl:import namespace="http://services.apmoller.net/USI/policy/v2.0"
+              location="../../../SharedInterfaceResources/WSPolicy/USIPolicyV2.wsdl"/>
+ <wsdl:types>
+  <xsd:schema targetNamespace="http://services.apmoller.net/AMM/v4">
+   <xsd:import namespace="http://services.apmoller.net/ManagementFramework/CommonIdentifier/v2"
+               schemaLocation="../../../SharedInterfaceResources/ManagementFramework/Header/v2/CommonIdentifierV2.xsd"/>
+   <xsd:import namespace="http://services.apmoller.net/ManagementFramework/ServiceException/v2"
+               schemaLocation="../../../SharedInterfaceResources/ManagementFramework/Fault/v2/ServiceExceptionV2.xsd"/>
+  </xsd:schema>
+ </wsdl:types>
+ <!-- Framework message level -->
+ <wsdl:message name="SoapHeaderInfo">
+  <wsdl:part name="commonIdentifierRequest"
+             element="frhead:CommonIdentifierRequest"/>
+  <wsdl:part name="commonIdentifierResponse"
+             element="frhead:CommonIdentifierResponse"/>
+  <wsdl:part name="commonIdentifierFault"
+             element="frhead:CommonIdentifierFault"/>
+ </wsdl:message>
+ <!--FacilityManagementv1 binding -->
+ <wsdl:binding name="FacilityManagement" type="abns:FacilityManagementPort">
+  <soap:binding style="document"
+                transport="http://schemas.xmlsoap.org/soap/http"/>
+  <wsp:Policy>
+   <wsp:PolicyReference URI="#wss_username_token_service_policy"/>
+  </wsp:Policy>
+
+  
+
+  <wsdl:operation name="RetrieveFacilityOPSCategories">
+   <soap:operation soapAction="RetrieveFacilityOPSCategories"/>
+   <wsdl:input>
+    <soap:header use="literal" message="service:SoapHeaderInfo"
+                 part="commonIdentifierRequest"/>
+    <soap:body use="literal"/>
+   </wsdl:input>
+   <wsdl:output>
+    <soap:header use="literal" message="service:SoapHeaderInfo"
+                 part="commonIdentifierResponse"/>
+    <soap:body use="literal"/>
+   </wsdl:output>
+   <wsdl:fault name="Fault">
+    <soap:fault use="literal" name="Fault"/>
+   </wsdl:fault>
+  </wsdl:operation>
+
+  <wsdl:operation name="RetrieveFacilityStatus">
+   <soap:operation soapAction="RetrieveFacilityStatus"/>
+   <wsdl:input>
+    <soap:header use="literal" message="service:SoapHeaderInfo"
+                 part="commonIdentifierRequest"/>
+    <soap:body use="literal"/>
+   </wsdl:input>
+   <wsdl:output>
+    <soap:header use="literal" message="service:SoapHeaderInfo"
+                 part="commonIdentifierResponse"/>
+    <soap:body use="literal"/>
+   </wsdl:output>
+   <wsdl:fault name="Fault">
+    <soap:fault use="literal" name="Fault"/>
+   </wsdl:fault>
+  </wsdl:operation>
+
+  <wsdl:operation name="RetrieveFacilityTypes">
+   <soap:operation soapAction="RetrieveFacilityTypes"/>
+   <wsdl:input>
+    <soap:header use="literal" message="service:SoapHeaderInfo"
+                 part="commonIdentifierRequest"/>
+    <soap:body use="literal"/>
+   </wsdl:input>
+   <wsdl:output>
+    <soap:header use="literal" message="service:SoapHeaderInfo"
+                 part="commonIdentifierResponse"/>
+    <soap:body use="literal"/>
+   </wsdl:output>
+   <wsdl:fault name="Fault">
+    <soap:fault use="literal" name="Fault"/>
+   </wsdl:fault>
+  </wsdl:operation>
+
+  <wsdl:operation name="RetrieveOfferingGroups">
+   <soap:operation soapAction="RetrieveOfferingGroups"/>
+   <wsdl:input>
+    <soap:header use="literal" message="service:SoapHeaderInfo"
+                 part="commonIdentifierRequest"/>
+    <soap:body use="literal"/>
+   </wsdl:input>
+   <wsdl:output>
+    <soap:header use="literal" message="service:SoapHeaderInfo"
+                 part="commonIdentifierResponse"/>
+    <soap:body use="literal"/>
+   </wsdl:output>
+   <wsdl:fault name="Fault">
+    <soap:fault use="literal" name="Fault"/>
+   </wsdl:fault>
+  </wsdl:operation>
+
+  <wsdl:operation name="RetrieveOfferings">
+   <soap:operation soapAction="RetrieveOfferings"/>
+   <wsdl:input>
+    <soap:header use="literal" message="service:SoapHeaderInfo"
+                 part="commonIdentifierRequest"/>
+    <soap:body use="literal"/>
+   </wsdl:input>
+   <wsdl:output>
+    <soap:header use="literal" message="service:SoapHeaderInfo"
+                 part="commonIdentifierResponse"/>
+    <soap:body use="literal"/>
+   </wsdl:output>
+   <wsdl:fault name="Fault">
+    <soap:fault use="literal" name="Fault"/>
+   </wsdl:fault>
+  </wsdl:operation>
+  
+  <wsdl:operation name="RetrieveFacilityCommercialTypes">
+   <soap:operation soapAction="RetrieveFacilityCommercialTypes"/>
+   <wsdl:input>
+    <soap:header use="literal" message="service:SoapHeaderInfo"
+                 part="commonIdentifierRequest"/>
+    <soap:body use="literal"/>
+   </wsdl:input>
+   <wsdl:output>
+    <soap:header use="literal" message="service:SoapHeaderInfo"
+                 part="commonIdentifierResponse"/>
+    <soap:body use="literal"/>
+   </wsdl:output>
+   <wsdl:fault name="Fault">
+    <soap:fault use="literal" name="Fault"/>
+   </wsdl:fault>
+  </wsdl:operation>
+
+  <wsdl:operation name="RetrieveFacilityBrands">
+   <soap:operation soapAction="RetrieveFacilityBrands"/>
+   <wsdl:input>
+    <soap:header use="literal" message="service:SoapHeaderInfo"
+                 part="commonIdentifierRequest"/>
+    <soap:body use="literal"/>
+   </wsdl:input>
+   <wsdl:output>
+    <soap:header use="literal" message="service:SoapHeaderInfo"
+                 part="commonIdentifierResponse"/>
+    <soap:body use="literal"/>
+   </wsdl:output>
+   <wsdl:fault name="Fault">
+    <soap:fault use="literal" name="Fault"/>
+   </wsdl:fault>
+  </wsdl:operation>
+  
+  <wsdl:operation name="RetrieveFacilityFunctions">
+   <soap:operation soapAction="RetrieveFacilityFunctions"/>
+   <wsdl:input>
+    <soap:header use="literal" message="service:SoapHeaderInfo"
+                 part="commonIdentifierRequest"/>
+    <soap:body use="literal"/>
+   </wsdl:input>
+   <wsdl:output>
+    <soap:header use="literal" message="service:SoapHeaderInfo"
+                 part="commonIdentifierResponse"/>
+    <soap:body use="literal"/>
+   </wsdl:output>
+   <wsdl:fault name="Fault">
+    <soap:fault use="literal" name="Fault"/>
+   </wsdl:fault>
+  </wsdl:operation>
+
+  <wsdl:operation name="SearchFacility">
+   <soap:operation soapAction="SearchFacility"/>
+   <wsdl:input>
+    <soap:header use="literal" message="service:SoapHeaderInfo"
+                 part="commonIdentifierRequest"/>
+    <soap:body use="literal"/>
+   </wsdl:input>
+   <wsdl:output>
+    <soap:header use="literal" message="service:SoapHeaderInfo"
+                 part="commonIdentifierResponse"/>
+    <soap:body use="literal"/>
+   </wsdl:output>
+   <wsdl:fault name="Fault">
+    <soap:fault use="literal" name="Fault"/>
+   </wsdl:fault>
+  </wsdl:operation>
+  
+    <wsdl:operation name="SearchDuplicateFacility">
+   <soap:operation soapAction="SearchDuplicateFacility"/>
+   <wsdl:input>
+    <soap:header use="literal" message="service:SoapHeaderInfo"
+                 part="commonIdentifierRequest"/>
+    <soap:body use="literal"/>
+   </wsdl:input>
+   <wsdl:output>
+    <soap:header use="literal" message="service:SoapHeaderInfo"
+                 part="commonIdentifierResponse"/>
+    <soap:body use="literal"/>
+   </wsdl:output>
+   <wsdl:fault name="Fault">
+    <soap:fault use="literal" name="Fault"/>
+   </wsdl:fault>
+  </wsdl:operation> 
+
+  <wsdl:operation name="UpsertFacility">
+   <soap:operation soapAction="UpsertFacility"/>
+   <wsdl:input>
+    <soap:header use="literal" message="service:SoapHeaderInfo"
+                 part="commonIdentifierRequest"/>
+    <soap:body use="literal"/>
+   </wsdl:input>
+   <wsdl:output>
+    <soap:header use="literal" message="service:SoapHeaderInfo"
+                 part="commonIdentifierResponse"/>
+    <soap:body use="literal"/>
+   </wsdl:output>
+   <wsdl:fault name="Fault">
+    <soap:fault use="literal" name="Fault"/>
+   </wsdl:fault>
+  </wsdl:operation>
+
+  <wsdl:operation name="RetriveFacility">
+   <soap:operation soapAction="RetriveFacility"/>
+   <wsdl:input>
+    <soap:header use="literal" message="service:SoapHeaderInfo"
+                 part="commonIdentifierRequest"/>
+    <soap:body use="literal"/>
+   </wsdl:input>
+   <wsdl:output>
+    <soap:header use="literal" message="service:SoapHeaderInfo"
+                 part="commonIdentifierResponse"/>
+    <soap:body use="literal"/>
+   </wsdl:output>
+   <wsdl:fault name="Fault">
+    <soap:fault use="literal" name="Fault"/>
+   </wsdl:fault>
+  </wsdl:operation>
+
+  <wsdl:operation name="SearchFacilityContact">
+   <soap:operation soapAction="SearchFacilityContact"/>
+   <wsdl:input>
+    <soap:header use="literal" message="service:SoapHeaderInfo"
+                 part="commonIdentifierRequest"/>
+    <soap:body use="literal"/>
+   </wsdl:input>
+   <wsdl:output>
+    <soap:header use="literal" message="service:SoapHeaderInfo"
+                 part="commonIdentifierResponse"/>
+    <soap:body use="literal"/>
+   </wsdl:output>
+   <wsdl:fault name="Fault">
+    <soap:fault use="literal" name="Fault"/>
+   </wsdl:fault>
+  </wsdl:operation>
+
+  <wsdl:operation name="UpsertContact">
+   <soap:operation soapAction="UpsertContact"/>
+   <wsdl:input>
+    <soap:header use="literal" message="service:SoapHeaderInfo"
+                 part="commonIdentifierRequest"/>
+    <soap:body use="literal"/>
+   </wsdl:input>
+   <wsdl:output>
+    <soap:header use="literal" message="service:SoapHeaderInfo"
+                 part="commonIdentifierResponse"/>
+    <soap:body use="literal"/>
+   </wsdl:output>
+   <wsdl:fault name="Fault">
+    <soap:fault use="literal" name="Fault"/>
+   </wsdl:fault>
+  </wsdl:operation>
+
+ </wsdl:binding>
+ <wsdl:service name="FacilityManagementService">
+  <port name="FacilityManagementServicePort"
+        binding="service:FacilityManagement">
+   <soap:address location="http://www.maerskline.com/services/FacilityManagement/v1"/>
+  </port>
+ </wsdl:service>
+</wsdl:definitions>

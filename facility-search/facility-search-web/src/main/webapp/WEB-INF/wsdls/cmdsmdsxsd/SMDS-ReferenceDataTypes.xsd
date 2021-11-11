@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:cmd="http://services.apmoller.net/cmd/schemas"
+	elementFormDefault="qualified" targetNamespace="http://services.apmoller.net/cmd/schemas">
+	<xs:include schemaLocation="CMD-CustomerTypes.xsd" />
+
+	<xs:complexType name="CityType">
+		<xs:sequence>
+			<xs:element ref="cmd:City" />
+			<xs:element name="RegionISOCode" type="xs:string"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element ref="cmd:Region" minOccurs="0" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ReferenceDataResponseType">
+		<xs:annotation>
+			<xs:documentation> Reference data response for all kinds of reference
+				data types
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Code" type="xs:string" />
+			<xs:element name="Name" type="xs:string" />
+			<xs:element name="Description" type="xs:string" minOccurs="0" />
+			<xs:element name="GenericData1" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="GenericData2" type="xs:string"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:element name="RetrievePrimaryContactSalutationRequest">
+		<xs:complexType>
+			<xs:sequence />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RetrieveInternationalContactSalutionRequest">
+		<xs:complexType>
+			<xs:sequence />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RetrieveCountryRequest">
+		<xs:complexType>
+			<xs:sequence />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RetrieveCityRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Country" type="cmd:ISOCountryCode" />
+				<xs:element ref="cmd:City" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="RetrieveISOLanguagesRequest">
+		<xs:complexType>
+			<xs:sequence />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RetrieveInvoiceISOLanguagesRequest">
+		<xs:complexType>
+			<xs:sequence>
+			<xs:element name="Country" type="cmd:ISOCountryCode" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RetrieveRegionsRequest">
+		<xs:complexType>
+			<xs:sequence>
+			<xs:element name="Country" type="cmd:ISOCountryCode" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="RetrieveInternationalDiallingPrefixRequest">
+		<xs:complexType>
+			<xs:sequence />
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="RetrieveCountryResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation> Generic Response for all kinds of reference Data
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="ReferenceData" type="cmd:ReferenceDataResponseType"
+					minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RetrieveCityResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation> City Response for all kinds of reference Data
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="Cities" type="cmd:CityType" minOccurs="0"
+					maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="RetrieveInternationalContactSalutionResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Generic Response for all kinds of reference Data
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="ReferenceData" type="cmd:ReferenceDataResponseType"
+					minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RetrievePrimaryContactSalutationResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Generic Response for all kinds of reference Data
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="ReferenceData" type="cmd:ReferenceDataResponseType"
+					minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="RetrieveISOLanguagesResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Generic Response for all kinds of reference Data
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="ReferenceData" type="cmd:ReferenceDataResponseType"
+					minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="RetrieveInvoiceISOLanguagesResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Generic Response for all kinds of reference Data
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="ReferenceData" type="cmd:ReferenceDataResponseType"
+					minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="RetrieveRegionsResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Generic Response for all kinds of reference Data
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="ReferenceData" type="cmd:ReferenceDataResponseType"
+					minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="RetrieveInternationalDiallingPrefixResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Generic Response for all kinds of reference Data
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="ReferenceData" type="cmd:ReferenceDataResponseType"
+					minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="RetrieveCountryFault" type="cmd:ServiceFaultType" />
+	<xs:element name="RetrieveCityFault" type="cmd:ServiceFaultType" />
+	<xs:element name="RetrievePrimaryContactSalutationFault"
+		type="cmd:ServiceFaultType" />
+	<xs:element name="RetrieveInternationalContactSalutionFault"
+		type="cmd:ServiceFaultType" />
+
+		<xs:element name="RetrieveISOLanguagesFault"
+		type="cmd:ServiceFaultType" />
+		<xs:element name="RetrieveInvoiceISOLanguagesFault"   
+		type="cmd:ServiceFaultType" />
+		<xs:element name="RetrieveRegionsFault"
+		type="cmd:ServiceFaultType" />
+		<xs:element name="RetrieveInternationalDiallingPrefixFault"
+		type="cmd:ServiceFaultType" />
+
+		
+
+
+
+</xs:schema>

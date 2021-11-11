@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:cmd="http://services.apmoller.net/cmd/schemas" elementFormDefault="qualified"
+    targetNamespace="http://services.apmoller.net/cmd/schemas">
+    <xs:include schemaLocation="SMDS-CommonContactTypes.xsd"/>
+    <xs:element name="SearchContactFault" type="cmd:ServiceFaultType"/>
+    <xs:element name="SearchDuplicateContactFault" type="cmd:ServiceFaultType"/>
+    <xs:element name="RetrieveContactFault" type="cmd:ServiceFaultType"/>
+    <xs:element name="SearchContactRequest">
+		<xs:complexType>
+		<xs:sequence>
+			
+			<xs:element name="CustomerCode" minOccurs="0" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="3"></xs:minLength>
+						<xs:whiteSpace value="collapse"></xs:whiteSpace>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="CustomerName" type="xs:string" minOccurs="0" maxOccurs="1"></xs:element>
+			<xs:element name="PrimaryEmailAddress" minOccurs="0" maxOccurs="1">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:pattern value="[^@]+@[^\.]+\..+"></xs:pattern>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:element>
+		<xs:element name="SecondEmailAddress" minOccurs="0" maxOccurs="1">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:pattern value="[^@]+@[^\.]+\..+"></xs:pattern>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:element>
+			<xs:element ref="cmd:ContactFirstName" minOccurs="0"
+				maxOccurs="1">
+			</xs:element> 
+			<xs:element ref="cmd:ContactLastName" minOccurs="0"
+				maxOccurs="1">
+			</xs:element>
+			<xs:element name="PhoneNo" type="cmd:TeleCommunicationType"
+				minOccurs="0" maxOccurs="1">
+			</xs:element>
+
+			<xs:element name="MobileNo" type="cmd:TeleCommunicationType"
+				minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element ref="cmd:ContactLifeCycleStatus" maxOccurs="1"
+			minOccurs="0"></xs:element>
+			<!-- <xs:element name="FaxNo" type="cmd:TeleCommunicationType"
+				minOccurs="0" maxOccurs="1">
+			</xs:element> -->
+			
+		</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+    <xs:element name="SearchContactResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="SearchContactStatus" type="cmd:StatusResponseType"/>
+                <xs:element name="Contact" type="cmd:SearchContactResponseType" minOccurs="0"
+                    maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="SearchFacilityContactResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="SearchContactStatus" type="cmd:StatusResponseType"/>
+                <xs:element name="Contact" type="cmd:FacilityContactEntity" minOccurs="0" maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="SearchDuplicateContactRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="cmd:ContactFirstName" minOccurs="0" maxOccurs="1"> </xs:element>
+                <xs:element ref="cmd:ContactLastName" minOccurs="0" maxOccurs="1"> </xs:element>
+                <xs:element name="PhoneNo" type="cmd:TeleCommunicationType" minOccurs="0"
+                    maxOccurs="1"> </xs:element>
+                <xs:element name="MobileNo" type="cmd:TeleCommunicationType" minOccurs="0"
+                    maxOccurs="1"> </xs:element>
+
+                <xs:element name="PrimaryEmailAddress" minOccurs="0" maxOccurs="1">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:pattern value="[^@]+@[^\.]+\..+"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="SecondaryEmailAddress" minOccurs="0" maxOccurs="1">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:pattern value="[^@]+@[^\.]+\..+"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="SearchDuplicateContactResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="SearchDuplicateContactStatus" type="cmd:StatusResponseType"/>
+                <xs:element name="Contact" type="cmd:SearchDuplicateContactResponseType" minOccurs="0" maxOccurs="unbounded"></xs:element>
+            </xs:sequence>
+    	</xs:complexType>
+    </xs:element>
+    <xs:complexType name="SearchDuplicateContactResponseType">
+    <xs:sequence>
+                <!-- <xs:element ref="cmd:ContactFullName">
+				<xs:annotation>
+					<xs:documentation>
+						Contact full name is one type of contact name
+						which is concatenation of Contact first name and
+						last name
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element> -->
+                <xs:element ref="cmd:ContactCode" minOccurs="0"/>
+                <xs:element name="ContactSCVCode" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="cmd:CustomerCode" minOccurs="0"/>
+                <xs:element ref="cmd:ContactFirstName" minOccurs="0" maxOccurs="1"> </xs:element>
+                <xs:element ref="cmd:ContactLastName" minOccurs="0" maxOccurs="1"> </xs:element>
+                <xs:element name="PhoneNo" type="cmd:TeleCommunicationType" minOccurs="0"
+                    maxOccurs="1"> </xs:element>
+                <xs:element name="MobileNo" type="cmd:TeleCommunicationType" minOccurs="0"
+                    maxOccurs="1"> </xs:element>
+
+                <xs:element name="PrimaryEmailAddress" minOccurs="0" maxOccurs="1">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:pattern value="[^@]+@[^\.]+\..+"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="SecondaryEmailAddress" minOccurs="0" maxOccurs="1">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:pattern value="[^@]+@[^\.]+\..+"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    
+    <xs:element name="RetrieveContactRequest">
+        <xs:complexType>
+            <xs:annotation>
+                <xs:documentation>
+                    Release 2 scope:Request
+                    to retrieve all contacts
+                    of
+                    a customer with a given customer code
+                </xs:documentation>
+            </xs:annotation>
+            <xs:sequence>
+            <xs:choice>
+            	<xs:element ref="cmd:ContactCode" minOccurs="1"
+            		maxOccurs="unbounded" />
+            	<xs:element name="SCVCode" type="xs:string"
+            		minOccurs="1" maxOccurs="unbounded" />
+            </xs:choice>
+            <xs:element name="RetrieveDocPrefFlag" type="xs:boolean" minOccurs="0" maxOccurs="1"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="RetrieveContactResponse">
+        <xs:complexType>
+            <xs:annotation>
+                <xs:documentation>
+                    Release 2 scope: Response
+                    of retrieve
+                    customerContact or Departments (identical to
+                    create/update) for
+                    a
+                    given customer code
+                </xs:documentation>
+            </xs:annotation>
+            <xs:sequence>
+                <xs:element name="RetrieveContactStatus" type="cmd:StatusResponseType"/>
+                <xs:element name="Contact" type="cmd:CustomerContactEntity" minOccurs="0" maxOccurs="unbounded" />
+                <!-- <xs:element name="ContactGroup" type="cmd:DepartmentEntity" minOccurs="0"
+                    maxOccurs="unbounded"/> -->
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="SearchContactResponseType">
+        <xs:sequence>
+        	<xs:element maxOccurs="1" minOccurs="0"
+        		name="PrimaryEmailAddress">
+        		<xs:simpleType>
+        			<xs:restriction base="xs:string">
+        				<xs:pattern value="[^@]+@[^\.]+\..+" />
+        			</xs:restriction>
+        		</xs:simpleType>
+        	</xs:element>
+        	<xs:element maxOccurs="1" minOccurs="0"
+        		name="SecondaryEmailAddress">
+        		<xs:simpleType>
+        			<xs:restriction base="xs:string">
+        				<xs:pattern value="[^@]+@[^\.]+\..+" />
+        			</xs:restriction>
+        		</xs:simpleType>
+        	</xs:element>
+        	<xs:element ref="cmd:ContactLastName" minOccurs="0" />
+        	<xs:element maxOccurs="1" minOccurs="0"
+        		ref="cmd:ContactFirstName">
+        	</xs:element>
+
+        	<xs:element maxOccurs="1" minOccurs="0" name="PhoneNo"
+        		type="cmd:TeleCommunicationType">
+        	</xs:element>
+        	<!-- <xs:element maxOccurs="1" minOccurs="0" name="FaxNo" type="cmd:TeleCommunicationType"> </xs:element> -->
+        	<xs:element maxOccurs="1" minOccurs="0" name="MobileNo"
+        		type="cmd:TeleCommunicationType">
+        	</xs:element>
+        	<xs:element ref="cmd:ContactLifeCycleStatus" minOccurs="0" />
+        	<xs:element minOccurs="1" ref="cmd:ContactCode" />
+        	<xs:element name="ContactSCVCode" type="xs:string" minOccurs="0" maxOccurs="1"/>
+        	<xs:element minOccurs="1" ref="cmd:CustomerCode" />
+        	<!-- <xs:element name="ContactRole" minOccurs="0" maxOccurs="1">
+        		<xs:simpleType>
+        		<xs:restriction base="xs:string">
+        		<xs:maxLength value="20"></xs:maxLength>
+        		</xs:restriction>
+        		</xs:simpleType>
+        		</xs:element> -->
+        	<!-- <xs:element name="ContactLinks" type="cmd:ContactLink" maxOccurs="unbounded" minOccurs="0"></xs:element> -->
+        	<xs:element name="CustomerName" type="xs:string" minOccurs="0" maxOccurs="1"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+	<xs:element name="SearchFacilityContactRequest">
+	    <xs:complexType >
+		    <xs:sequence>
+			    <xs:choice>
+				    <xs:element ref="cmd:ContactCode"/>
+				    <xs:element name="FacilityIDs" type="cmd:FacilityIDsType" minOccurs="1" maxOccurs="1" />
+			    </xs:choice>
+		    </xs:sequence>
+	    
+	    </xs:complexType>
+    </xs:element>
+</xs:schema>

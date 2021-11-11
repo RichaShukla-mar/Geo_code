@@ -1,0 +1,95 @@
+<xsd:schema targetNamespace="http://services.apmoller.net/AMM/ServiceName/version" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns="http://services.apmoller.net/AMM/ServiceName/version" xmlns:AMM="http://services.apmoller.net/AMM/v4" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	
+	<xsd:annotation>
+		<xsd:appinfo>
+			<Metadata xmlns="http://services.apmoller.net/AMM/v2/meta">
+				<Audience/>
+				<Creator>Michael Larsen			
+				</Creator>
+				<Date>
+					<Created>2013-10-18</Created>
+					<Modified>2013-10-18</Modified>
+				</Date>
+				<Description>
+					<Abstract>"DO NOT GENERATE/CHANGE THIS SCHEMA. PLEASE CONTACT ESM</Abstract>
+				</Description>
+				<Rights>
+					<Copyright>Maersk 2013</Copyright>
+				</Rights>
+				<Title>Maersk Enterprise Service Modelling (ESM) Service Schema</Title>
+			</Metadata>
+		</xsd:appinfo>
+	</xsd:annotation>
+
+	<!-- DON'T REMOVE -->
+	<xsd:annotation>
+		<xsd:documentation>Project Template 4</xsd:documentation>
+	</xsd:annotation>	
+	
+	<xsd:import namespace="http://services.apmoller.net/AMM/v4" schemaLocation="../../../SharedInterfaceResources/XMLDataModel/Version4.0/EAMComplexTypes.xsd"/>
+	<xsd:import namespace="http://services.apmoller.net/AMM/v4" schemaLocation="../../../SharedInterfaceResources/XMLDataModel/Version4.0/EAMSimpleTypes.xsd"/>
+	<xsd:import namespace="http://services.apmoller.net/AMM/v4" schemaLocation="../../../SharedInterfaceResources/XMLDataModel/Version4.0/EAMBaseTypes.xsd"/>
+
+	<xsd:element name="ServiceTypeName" type="ServiceType"/>
+	<xsd:complexType name="ServiceType">
+		<xsd:sequence>
+			<!-- Use of ESM Base Type -->
+			<xsd:element name="Attribute1" type="AMM:String13NonNullType" nillable="true"/>
+			<!-- Use of ESM Simple Type -->
+			<xsd:element name="Attribute2" type="AMM:LastUpdateDateTimeType" minOccurs="0"/>
+			<!-- Use of ESM Complex Type -->
+			<xsd:element name="Attribute3" type="AMM:CountryStructure" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+		
+	<xsd:element name="TableNameCollection" type="TableNameCollectionStructure"/>
+	<xsd:complexType name="TableNameCollectionStructure">
+		<xsd:sequence>
+			<xsd:element ref="TableName" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="TableName" type="ServiceType"/>
+	
+	<xsd:element name="TableNamePKCollection" type="TableNamePKCollectionStructure"/>
+	<xsd:complexType name="TableNamePKCollectionStructure">
+		<xsd:sequence>
+			<xsd:element ref="TableNamePK" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="TableNamePK" type="TableNamePKStructure"/>
+	<xsd:complexType name="TableNamePKStructure">
+		<xsd:sequence>
+			<xsd:element name="EntityUid" type="AMM:String13NonNullType" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	
+	<xsd:element name="QueryName1" type="ServiceType"/>
+	<xsd:element name="QueryName1Response" type="ServiceType"/>
+	
+	<xsd:element name="QueryName2" type="ServiceType"/>
+	<xsd:element name="QueryName2Response" type="ServiceType"/>
+
+	<xsd:element name="QueryName3" type="ServiceType"/>
+
+	<xsd:element name="InputValidator" type="InputValidatorStructure"/>
+	<xsd:complexType name="InputValidatorStructure">
+		<xsd:choice>
+			<xsd:element ref="QueryName1"/>
+			<xsd:element ref="QueryName2"/>
+			<xsd:element ref="QueryName3"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="InputValidatorRestrictionStructure">
+		<xsd:complexContent>
+			<xsd:restriction base="InputValidatorStructure">
+				<xsd:sequence>
+					<xsd:element ref="QueryName1"/>
+				</xsd:sequence>
+			</xsd:restriction>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	
+</xsd:schema>

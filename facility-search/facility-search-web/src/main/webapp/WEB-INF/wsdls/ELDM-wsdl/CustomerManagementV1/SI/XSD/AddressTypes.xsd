@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema elementFormDefault="qualified" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	targetNamespace="http://www.informatica.com/dis/ws/">
+         <xsd:element name="CMD_Address_Service_Operation">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element maxOccurs="unbounded" minOccurs="0" name="Group">
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element minOccurs="0" name="HouseNo" type="xsd:string"/>
+                           <xsd:element minOccurs="0" name="StreetName" type="xsd:string"/>
+                           <xsd:element minOccurs="0" name="PoBox" type="xsd:string"/>
+                           <xsd:element minOccurs="0" name="Building" type="xsd:string"/>
+                           <xsd:element minOccurs="0" name="Suburb" type="xsd:string"/>
+                           <xsd:element minOccurs="0" name="District" type="xsd:string"/>
+                           <xsd:element minOccurs="0" name="City" type="xsd:string"/>
+                           <xsd:element minOccurs="0" name="Region" type="xsd:string"/>
+                           <xsd:element minOccurs="0" name="PostalCode" type="xsd:string"/>
+                           <xsd:element minOccurs="0" name="Country" type="xsd:string"/>
+                           <xsd:element minOccurs="0" name="CountryCode" type="xsd:string"/>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="CMD_Address_Service_OperationResponse">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element maxOccurs="unbounded" minOccurs="0" name="NEWOUTPUT">
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element minOccurs="0" name="HouseNo" type="xsd:string"/>
+                           <xsd:element minOccurs="0" name="StreetName" type="xsd:string"/>
+                           <xsd:element minOccurs="0" name="PoBox" type="xsd:string"/>
+                           <xsd:element minOccurs="0" name="Building" type="xsd:string"/>
+                           <xsd:element minOccurs="0" name="Suburb" type="xsd:string"/>
+                           <xsd:element minOccurs="0" name="District" type="xsd:string"/>
+                           <xsd:element minOccurs="0" name="City" type="xsd:string"/>
+                           <xsd:element minOccurs="0" name="Region" type="xsd:string"/>
+                           <xsd:element minOccurs="0" name="PostalCode" type="xsd:string"/>
+                           <xsd:element minOccurs="0" name="Country" type="xsd:string"/>
+                           <xsd:element minOccurs="0" name="CountryCode" type="xsd:string"/>
+                           <xsd:element minOccurs="0" name="StatusInfoMailabilityScore" type="xsd:string"/>
+                           <xsd:element minOccurs="0" name="StatusInfoMatchCode" type="xsd:string"/>
+                           <xsd:element minOccurs="0" name="StatusInfoElementResultStatus" type="xsd:string"/>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:schema>
+

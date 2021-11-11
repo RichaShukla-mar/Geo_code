@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://services.apmoller.net/cmd/definitions"
+	xmlns:p="http://www.w3.org/2001/XMLSchema" xmlns:schema="http://services.apmoller.net/cmd/schemas"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://services.apmoller.net/cmd/definitions"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:osb="http://services.apmoller.net/ManagementFramework/CommonIdentifier/v2">
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:import namespace="http://services.apmoller.net/cmd/schemas"
+				schemaLocation="./cmdsmdsxsd/SMDS-UpsertContactTypes.xsd" />
+			<xsd:import namespace="http://services.apmoller.net/ManagementFramework/CommonIdentifier/v2"
+				schemaLocation="./osbxsd/CommonIdentifierV1.xsd" />
+		</xsd:schema>
+
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://services.apmoller.net/cmd/definitions">
+        	<xsd:element name="inactivateCustomerContact">
+        		<xsd:complexType>
+        			<xsd:sequence>
+        				<xsd:element name="in" type="xsd:string"></xsd:element>
+        			</xsd:sequence>
+        		</xsd:complexType>
+        	</xsd:element>
+        	<xsd:element name="inactivateCustomerContactResponse">
+        		<xsd:complexType>
+        			<xsd:sequence>
+
+        				<xsd:element name="out" type="xsd:string"></xsd:element>
+        			</xsd:sequence>
+        		</xsd:complexType>
+        	</xsd:element>
+        	<xsd:element name="inactivateCustomerContactFault">
+        		<xsd:complexType>
+        			<xsd:sequence>
+
+        				<xsd:element
+        					name="inactivateCustomerContactFault" type="xsd:string">
+        				</xsd:element>
+        			</xsd:sequence>
+        		</xsd:complexType>
+        	</xsd:element></xsd:schema>
+    </wsdl:types>
+
+	<wsdl:message name="upsertContactHeader">
+		<wsdl:part name="header" element="osb:CommonIdentifierRequest">
+		</wsdl:part>
+	</wsdl:message>
+
+	<wsdl:message name="upsertContactRequest">
+		<wsdl:part name="parameters" element="schema:UpsertCustomerContact">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="upsertContactResponse">
+		<wsdl:part name="parameters" element="schema:UpsertCustomerContactResponse">
+		</wsdl:part>
+	</wsdl:message>
+
+
+
+	<wsdl:message name="upsertContactFault">
+		<wsdl:part name="parameters" element="schema:UpsertContactFault"></wsdl:part>
+	</wsdl:message>
+
+
+
+
+
+	<wsdl:message name="inactivateCustomerContactRequest">
+		<wsdl:part name="parameters" element="schema:InactivateCustomerContactRequest"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="inactivateCustomerContactResponse">
+		<wsdl:part name="parameters" element="schema:InactivateCustomerContactResponse"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="inactivateCustomerContactFault">
+		<wsdl:part name="parameters" element="schema:InactivateCustomerContactFault"></wsdl:part>
+	</wsdl:message>
+	<wsdl:portType name="UpsertContactService">
+		<wsdl:operation name="upsertContact">
+			<wsdl:input message="tns:upsertContactRequest">
+			</wsdl:input>
+			<wsdl:output message="tns:upsertContactResponse">
+			</wsdl:output>
+			<wsdl:fault name="fault" message="tns:upsertContactFault"></wsdl:fault>
+		</wsdl:operation>
+
+        <!-- <wsdl:operation name="activateContact">
+			<wsdl:input message="tns:activateContactRequest"></wsdl:input>
+			<wsdl:output message="tns:activateContactResponse"></wsdl:output>
+			<wsdl:fault name="fault" message="tns:activateContactFault"></wsdl:fault>
+		</wsdl:operation> 
+		<wsdl:operation name="publishContactCode">
+			<wsdl:input message="tns:publishContactCodeRequest"></wsdl:input>
+			<wsdl:output message="tns:publishContactCodeResponse"></wsdl:output>
+		</wsdl:operation>-->
+        <wsdl:operation name="inactivateCustomerContact">
+        	<wsdl:input message="tns:inactivateCustomerContactRequest"></wsdl:input>
+        	<wsdl:output message="tns:inactivateCustomerContactResponse"></wsdl:output>
+            <wsdl:fault name="fault" message="tns:inactivateCustomerContactFault"></wsdl:fault>
+        </wsdl:operation>
+	</wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://services.apmoller.net/cmd/definitions/v2"
+	xmlns:schema="http://services.apmoller.net/cmd/schemas" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:tns="http://services.apmoller.net/cmd/definitions/v2" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:osb="http://services.apmoller.net/ManagementFramework/CommonIdentifier/v2">
+	<wsdl:types> 
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:import namespace="http://services.apmoller.net/cmd/schemas"
+				schemaLocation="./cmdsmdsxsd/CMD-ReferenceDataTypes.xsd" />
+			<xsd:import
+				namespace="http://services.apmoller.net/ManagementFramework/CommonIdentifier/v2"
+				schemaLocation="./osbxsd/CommonIdentifierV1.xsd" />
+		</xsd:schema>
+	</wsdl:types>
+
+	<wsdl:message name="referenceDataHeader">
+		<wsdl:part name="header" element="osb:CommonIdentifierRequest">
+		</wsdl:part>
+	</wsdl:message>
+
+
+
+	<wsdl:message name="retrieveCustomerTypeRequest">
+		<wsdl:part name="parameters" element="schema:RetrieveCustomerTypeRequest" />
+	</wsdl:message>
+	<wsdl:message name="retrieveCustomerStatusRequest">
+		<wsdl:part name="parameters" element="schema:RetrieveCustomerStatusRequest" />
+	</wsdl:message>
+	<wsdl:message name="retrieveCustomerStatusReasonRequest">
+		<wsdl:part name="parameters" element="schema:RetrieveCustomerStatusReasonRequest" />
+	</wsdl:message>
+	<wsdl:message name="retrieveReferenceNumberCodesRequest">
+		<wsdl:part name="parameters" element="schema:RetrieveReferenceNumberCodesRequest" />
+	</wsdl:message>
+	<wsdl:message name="retrieveTaxNumberCodesRequest">
+		<wsdl:part name="parameters" element="schema:RetrieveTaxNumberCodesRequest" />
+	</wsdl:message>
+	<wsdl:message name="retrieveCustomerTypeResponse">
+		<wsdl:part name="parameters" element="schema:RetrieveCustomerTypeResponse"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="retrieveCustomerStatusResponse">
+		<wsdl:part name="parameters" element="schema:RetrieveCustomerStatusResponse"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="retrieveCustomerStatusReasonResponse">
+		<wsdl:part name="parameters"
+			element="schema:RetrieveCustomerStatusReasonResponse"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="retrieveReferenceNumberCodesResponse">
+		<wsdl:part name="parameters"
+			element="schema:RetrieveReferenceNumberCodesResponse"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="retrieveTaxNumberCodesResponse">
+		<wsdl:part name="parameters" element="schema:RetrieveTaxNumberCodesResponse"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="retrieveCustomerTypeFault">
+		<wsdl:part name="parameters" element="schema:RetrieveCustomerTypeFault"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="retrieveCustomerStatusFault">
+		<wsdl:part name="parameters" element="schema:RetrieveCustomerStatusFault"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="retrieveCustomerStatusReasonFault">
+		<wsdl:part name="parameters" element="schema:RetrieveCustomerStatusReasonFault"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="retrieveReferenceNumberCodesFault">
+		<wsdl:part name="parameters" element="schema:RetrieveReferenceNumberCodesFault"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="retrieveTaxNumberCodesFault">
+		<wsdl:part name="parameters" element="schema:RetrieveTaxNumberCodesFault"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="retrieveTaxTypeLocalNameRequest">
+		<wsdl:part name="parameters" element="schema:RetrieveTaxTypeLocalNameRequest"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="retrieveTaxTypeLocalNameResponse">
+		<wsdl:part name="parameters" element="schema:RetrieveTaxTypeLocalNameResponse"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="retrieveTaxTypeLocalNameFault">
+		<wsdl:part name="parameters" element="schema:RetrieveTaxTypeLocalNameFault"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="retrieveSegmentationRequest">
+		<wsdl:part name="parameters" element="schema:RetrieveSegmentationRequest"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="retrieveSegmentationResponse">
+		<wsdl:part name="parameters" element="schema:RetrieveSegmentationResponse"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="retrieveSegmentationFault">
+		<wsdl:part name="parameters" element="schema:RetrieveSegmentationFault"></wsdl:part>
+	</wsdl:message>
+	
+	<wsdl:message name="retrieveSegmentTypesRequest"> 
+		<wsdl:part name="parameters" element="schema:RetrieveSegmentTypesRequest"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="retrieveSegmentTypesResponse">
+		<wsdl:part name="parameters" element="schema:RetrieveSegmentTypesResponse"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="retrieveSegmentTypesFault">
+		<wsdl:part name="parameters" element="schema:RetrieveSegmentTypesFault"></wsdl:part>
+	</wsdl:message>
+	
+	<wsdl:message name="retrieveCustomerContactTypesRequest">
+		<wsdl:part name="parameters" element="schema:RetrieveCustomerContactTypesRequest"></wsdl:part>
+	</wsdl:message>   
+	<wsdl:message name="retrieveCustomerContactTypesResponse">
+		<wsdl:part name="parameters" element="schema:RetrieveCustomerContactTypesResponse"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="retrieveCustomerContactTypesFault">
+		<wsdl:part name="parameters" element="schema:RetrieveCustomerContactTypesFault"></wsdl:part>
+	</wsdl:message>
+	
+	<wsdl:message name="retrieveDocumentTypesRequest">
+		<wsdl:part name="parameters" element="schema:RetrieveDocumentTypesRequest"></wsdl:part>
+	</wsdl:message>   
+	<wsdl:message name="retrieveDocumentTypesResponse">
+		<wsdl:part name="parameters" element="schema:RetrieveDocumentTypesResponse"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="retrieveDocumentTypesFault">
+		<wsdl:part name="parameters" element="schema:RetrieveDocumentTypesFault"></wsdl:part>
+	</wsdl:message>
+	
+	<wsdl:message name="retrieveCommPrefTypesRequest">
+		<wsdl:part name="parameters" element="schema:RetrieveCommPrefTypesRequest"></wsdl:part>
+	</wsdl:message>   
+	<wsdl:message name="retrieveCommPrefTypesResponse">
+		<wsdl:part name="parameters" element="schema:RetrieveCommPrefTypesResponse"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="retrieveCommPrefTypesFault">
+		<wsdl:part name="parameters" element="schema:RetrieveCommPrefTypesFault"></wsdl:part>
+	</wsdl:message>
+	
+	<wsdl:message name="retrieveBrandsRequest">
+		<wsdl:part name="parameters" element="schema:RetrieveBrandsRequest"></wsdl:part>
+	</wsdl:message>   
+	<wsdl:message name="retrieveBrandsResponse">
+		<wsdl:part name="parameters" element="schema:RetrieveBrandsResponse"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="retrieveBrandsFault">
+		<wsdl:part name="parameters" element="schema:RetrieveBrandsFault"></wsdl:part>
+	</wsdl:message>
+	
+	<wsdl:message name="retrieveRelationshipTypesRequest">
+		<wsdl:part name="parameters" element="schema:RetrieveRelationshipTypesRequest"></wsdl:part>
+	</wsdl:message>   
+	<wsdl:message name="retrieveRelationshipTypesResponse">
+		<wsdl:part name="parameters" element="schema:RetrieveRelationshipTypesResponse"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="retrieveRelationshipTypesFault">
+		<wsdl:part name="parameters" element="schema:RetrieveRelationshipTypesFault"></wsdl:part>
+	</wsdl:message>
+
+	<wsdl:portType name="CMDReferenceData">
+		<wsdl:operation name="retrieveCustomerType">
+			<wsdl:input message="tns:retrieveCustomerTypeRequest"></wsdl:input>
+			<wsdl:output message="tns:retrieveCustomerTypeResponse"></wsdl:output>
+			<wsdl:fault name="fault" message="tns:retrieveCustomerTypeFault"></wsdl:fault>
+		</wsdl:operation>
+
+		<wsdl:operation name="retrieveCustomerStatus">
+			<wsdl:input message="tns:retrieveCustomerStatusRequest"></wsdl:input>
+			<wsdl:output message="tns:retrieveCustomerStatusResponse">
+			</wsdl:output>
+			<wsdl:fault name="fault" message="tns:retrieveCustomerStatusFault"></wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="retrieveCustomerStatusReason">
+			<wsdl:input message="tns:retrieveCustomerStatusReasonRequest">
+			</wsdl:input>
+			<wsdl:output message="tns:retrieveCustomerStatusReasonResponse">
+			</wsdl:output>
+			<wsdl:fault name="fault" message="tns:retrieveCustomerStatusReasonFault"></wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="retrieveReferenceNumberCodes">
+			<wsdl:input message="tns:retrieveReferenceNumberCodesRequest">
+			</wsdl:input>
+			<wsdl:output message="tns:retrieveReferenceNumberCodesResponse">
+			</wsdl:output>
+			<wsdl:fault name="fault" message="tns:retrieveReferenceNumberCodesFault"></wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="retrieveTaxNumberCodes">
+			<wsdl:input message="tns:retrieveTaxNumberCodesRequest"></wsdl:input>
+			<wsdl:output message="tns:retrieveTaxNumberCodesResponse">
+			</wsdl:output>
+			<wsdl:fault name="fault" message="tns:retrieveTaxNumberCodesFault"></wsdl:fault>
+		</wsdl:operation>
+
+		<wsdl:operation name="retrieveTaxTypeLocalName">
+			<wsdl:input message="tns:retrieveTaxTypeLocalNameRequest"></wsdl:input>
+			<wsdl:output message="tns:retrieveTaxTypeLocalNameResponse"></wsdl:output>
+			<wsdl:fault name="fault" message="tns:retrieveTaxTypeLocalNameFault"></wsdl:fault>
+		</wsdl:operation>
+
+
+
+		<wsdl:operation name="retrieveSegmentation">
+			<wsdl:input message="tns:retrieveSegmentationRequest"></wsdl:input>
+			<wsdl:output message="tns:retrieveSegmentationResponse"></wsdl:output>
+			<wsdl:fault name="fault" message="tns:retrieveSegmentationFault"></wsdl:fault>
+		</wsdl:operation>
+		
+		<wsdl:operation name="retrieveSegmentTypes">
+			<wsdl:input message="tns:retrieveSegmentTypesRequest"></wsdl:input>
+			<wsdl:output message="tns:retrieveSegmentTypesResponse"></wsdl:output>
+			<wsdl:fault name="fault" message="tns:retrieveSegmentTypesFault"></wsdl:fault>
+		</wsdl:operation>
+		
+		<wsdl:operation name="retrieveCustomerContactTypes">
+			<wsdl:input message="tns:retrieveCustomerContactTypesRequest"></wsdl:input>
+			<wsdl:output message="tns:retrieveCustomerContactTypesResponse"></wsdl:output>
+			<wsdl:fault name="fault" message="tns:retrieveCustomerContactTypesFault"></wsdl:fault>
+		</wsdl:operation>
+		
+		<wsdl:operation name="retrieveDocumentTypes">
+			<wsdl:input message="tns:retrieveDocumentTypesRequest"></wsdl:input>
+			<wsdl:output message="tns:retrieveDocumentTypesResponse"></wsdl:output>
+			<wsdl:fault name="fault" message="tns:retrieveDocumentTypesFault"></wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="retrieveCommPrefTypes">
+			<wsdl:input message="tns:retrieveCommPrefTypesRequest"></wsdl:input>
+			<wsdl:output message="tns:retrieveCommPrefTypesResponse"></wsdl:output>
+			<wsdl:fault name="fault" message="tns:retrieveCommPrefTypesFault"></wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="retrieveBrands">
+			<wsdl:input message="tns:retrieveBrandsRequest"></wsdl:input>
+			<wsdl:output message="tns:retrieveBrandsResponse"></wsdl:output>
+			<wsdl:fault name="fault" message="tns:retrieveBrandsFault"></wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="retrieveRelationshipTypes">
+			<wsdl:input message="tns:retrieveRelationshipTypesRequest"></wsdl:input>
+			<wsdl:output message="tns:retrieveRelationshipTypesResponse"></wsdl:output>
+			<wsdl:fault name="fault" message="tns:retrieveRelationshipTypesFault"></wsdl:fault>
+		</wsdl:operation>
+	</wsdl:portType>
+
+</wsdl:definitions>

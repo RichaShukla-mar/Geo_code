@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:cmd="http://services.apmoller.net/cmd/schemas" elementFormDefault="qualified"
+  targetNamespace="http://services.apmoller.net/cmd/schemas">
+  <xs:include schemaLocation="CMD-CustomerTypes.xsd"/>
+  
+  <xs:complexType name="CountryRuleValidationFieldType">
+    <xs:annotation>
+      <xs:documentation> Country and Fieldname for which the country rules validation should happen.
+        Fielvalue is optional to accomodate for mandatory checks only (which don't supply a field
+        value) </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Country" type="cmd:ISOCountryCode"/>
+      <xs:element name="FieldName" type="xs:string"/>
+      <xs:element name="FieldValue" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CountryRuleValidationResultType">
+    <xs:annotation>
+      <xs:documentation> Response of the validation success or failure code with message, for the
+        country and field in question </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ValidationField" type="cmd:CountryRuleValidationFieldType"/>
+      <xs:element name="ValidationStatus" type="cmd:StatusResponseType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CountryRuleType">
+    <xs:annotation>
+      <xs:documentation> Country Rules for caching </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Country" type="cmd:ISOCountryCode"/>
+      <xs:element name="FieldName" type="xs:string"/>
+      <!-- TODO: Change to Enum -->
+      <xs:element name="RegularExpression" type="xs:string" minOccurs="0"/>
+      <xs:element name="MandatoryIndicator" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="ValidationMessage" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ValidateCountryRulesRequest">
+    <xs:complexType>
+      <xs:annotation>
+        <xs:documentation> Request to Validate a field for a specific country using the
+          CountryPrefixCode </xs:documentation>
+      </xs:annotation>
+      <xs:sequence maxOccurs="unbounded">
+        <xs:element name="CountryRulesRequest" type="cmd:CountryRuleValidationFieldType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateCountryRulesResponse">
+    <xs:complexType>
+      <xs:annotation>
+        <xs:documentation> Response of the validation success or failure code with message, for the
+          country and field in question </xs:documentation>
+      </xs:annotation>
+      <xs:sequence maxOccurs="unbounded">
+        <xs:element name="CountryRuleValidationResult" type="cmd:CountryRuleValidationResultType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveCountryRulesRequest">
+    <xs:complexType>
+      <xs:annotation>
+        <xs:documentation> Retrieve country rules for caching of a specific country
+        </xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+        <xs:element name="Country" type="cmd:ISOCountryCode"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveCountryRulesResponse">
+    <xs:complexType>
+      <xs:annotation>
+        <xs:documentation> all country validation rules for the requested country
+        </xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+        <xs:element name="CountryRule" type="cmd:CountryRuleType" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateTaxNumberRequest" type="cmd:TaxInputType"/>
+  <xs:element name="ValidateTaxNumberResponse" type="cmd:TaxOutputType"/>
+  <xs:element name="ValidateCountryRuleFault" type="cmd:ServiceFaultType"/>
+  <xs:element name="RetrieveCountryRulesFault" type="cmd:ServiceFaultType"/>
+  <xs:element name="ValidateTaxNumberFault" type="cmd:ServiceFaultType"/>
+</xs:schema>

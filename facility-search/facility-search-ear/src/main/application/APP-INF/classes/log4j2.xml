@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="info" name="SearchFacility" packages="net.apmoller.*">
+  <appenders>
+    <RollingRandomAccessFile  name="RollingFile" fileName="logs/SearchFacility.log"
+                 filePattern="logs/backup/$${date:dd-MM-yyyy}/SearchFacility-%d{dd-MM-yyyy}-%i.log.gz">
+      <PatternLayout>
+        <pattern>%d %p %c{1.} [%t] %m%n</pattern>
+      </PatternLayout>
+      <Policies>
+        <TimeBasedTriggeringPolicy />
+        <SizeBasedTriggeringPolicy size="10MB"/>
+      </Policies>
+    </RollingRandomAccessFile>
+  
+  </appenders>
+  <loggers>
+    <root level="info">
+      <appender-ref ref="RollingFile"/>
+    </root>
+  </loggers>
+</configuration>

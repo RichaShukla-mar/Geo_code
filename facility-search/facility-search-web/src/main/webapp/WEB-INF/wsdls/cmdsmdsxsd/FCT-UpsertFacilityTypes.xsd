@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:cmd="http://services.apmoller.net/cmd/schemas"
+	elementFormDefault="qualified" targetNamespace="http://services.apmoller.net/cmd/schemas">
+	<xs:include schemaLocation="FCT-CommonFacilityTypes.xsd" />
+	<xs:include schemaLocation="CMD-CommonCustomerTypes.xsd" />
+	<xs:element name="UpsertFacility">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Facility" type="cmd:UpsertFacilityDetailsType"
+					minOccurs="0" />
+				<!-- <xs:element name="OperationalFacilityDetails" type="cmd:OperationalFacilityDetailsType"
+					minOccurs="0" /> -->
+				<xs:element name="FacilityAddress" type="cmd:FCTAddressType" 
+					minOccurs="1" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UpsertFacilityResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Return message for all asynchronous upsert
+					operations, containing the
+					code
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:element name="FacilityID" type="cmd:FacilityIDsType"
+					minOccurs="0" maxOccurs="1" />
+				<xs:element name="UpsertFacilityValidationStatus" type="cmd:ValidationResponseType"
+					minOccurs="0" maxOccurs="unbounded" />
+				<xs:element name="UpsertFacilityStatus" type="cmd:StatusResponseType" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="PublishFacilityCode">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Request to retrieve a facility with a given
+					facility code or a technical
+					identifier
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="FacilityID" type="cmd:FacilityIDsType"/>     
+				<xs:element name="Action" type="cmd:UpsertEnum" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>   
+
+	<xs:complexType name="PublishFacilityCodeResponse">
+		<xs:annotation>
+			<xs:documentation>
+				Publish facility response type
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Status" type="cmd:StatusResponseType" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="InactivateFacilityResponse">
+		<xs:annotation>
+			<xs:documentation>
+				Inactivate  response type
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Status" type="cmd:StatusResponseType" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="UpsertFacilityDetailsType">         
+		<xs:sequence>
+				<xs:element name="FacilityIDs" type="cmd:FacilityIDsType" minOccurs="0" maxOccurs="1" /> 
+				<xs:element ref="cmd:FacilityName" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="FacilityCategory" type="cmd:FacilityCategoryEnum" minOccurs="1" maxOccurs="1" /> 
+				<xs:element ref="cmd:FacilityLifecycleStatus" minOccurs="0" maxOccurs="1" />               
+				<xs:element ref="cmd:URL" minOccurs="0" /> 
+				<xs:element ref="cmd:DODAAC" minOccurs="0" maxOccurs="1"/>
+				<xs:element maxOccurs="1" minOccurs="0" name="FacilityWorkflowIndicator"
+      			type="cmd:WorkflowEnum">  
+      		  	<xs:annotation>
+          		<xs:documentation> Indicator if a workflow needs to be triggered from Portal
+						Perspective for the facility </xs:documentation>   
+        </xs:annotation>
+      </xs:element>    
+		</xs:sequence>  
+	</xs:complexType>
+
+	<xs:complexType name="PublishFacilityCodeRequest">
+		<xs:annotation>
+			<xs:documentation>
+				Request to retrieve a customer with a given
+				customer code or a technical
+				identifier
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="FacilityCode" type="cmd:FacilityIDsType" />
+			<xs:element name="Action" type="cmd:UpsertEnum" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:element name="PublishFacilityCodeResponse" type="cmd:PublishFacilityCodeResponse" />
+	<xs:element name="PublishFacilityCodeRequest" type="cmd:PublishFacilityCodeRequest" />
+	<xs:element name="UpsertFacilityFault" type="cmd:ServiceFaultType" />
+	<xs:element name="PublishFacilityCodeFault" type="cmd:ServiceFaultType" />
+	
+	<xs:complexType name="InactivateFacilityRequest">
+		<xs:annotation>
+			<xs:documentation>
+				Request to retrieve a customer with a given
+				customer code or a technical
+				identifier
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="cmd:TechnicalIdentifier" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="InactivateFacilityResponse" type="cmd:InactivateFacilityResponse" />
+	<xs:element name="InactivateFacilityRequest" type="cmd:InactivateFacilityRequest" />
+	<xs:element name="InactivateFacilityFault" type="cmd:ServiceFaultType" />
+</xs:schema>

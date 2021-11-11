@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:cmd="http://services.apmoller.net/cmd/schemas" xmlns:mdmavxsd="urn:informatica.mdm.av.xsd"
+	xmlns:v2="http://services.apmoller.net/ManagementFramework/CommonIdentifier/v2"
+	elementFormDefault="qualified" targetNamespace="http://services.apmoller.net/cmd/schemas">
+	<xs:include schemaLocation="CMD-CommonCustomerTypes.xsd" />
+	<xs:import namespace="urn:informatica.mdm.av.xsd"
+		schemaLocation="mdm_avos_schema.xsd" />
+	<xs:import
+		namespace="http://services.apmoller.net/ManagementFramework/CommonIdentifier/v2"
+		schemaLocation="../osbxsd/CommonIdentifierV1.xsd" />
+
+
+	<xs:element name="UpsertCustomerOutbound">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>Message customer entity with application header to
+					outbound messagingservice.
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element ref="v2:CommonIdentifierRequest" />
+				<xs:element ref="cmd:CustomerEntity" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="CustomerNameAliasType">
+		<xs:annotation>
+			<xs:documentation> Possible aliases of a customer, which may be in a
+				local language
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CustomerNameAliasTypeCode" type="xs:string" />
+			<xs:element name="CustomerNameAliasName" type="xs:string" />
+			<xs:element name="CustomerNameAliasISOLanguage" type="cmd:ISOLanguageCode" />
+			<xs:element name="CustomerNameAliasDescription" type="xs:string" />
+			<xs:element ref="cmd:DeleteFlag" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Set to 1 to completly delete a customer name
+						alias
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RelationshipType">
+		<xs:annotation>
+			<xs:documentation> Relationship between any entity and a customer
+				(e.g. contact ->
+				customer). Source Relation would be the entity where
+				the type is referenced,
+				target
+				relation the customer referenced by
+				unique id (e.g. customer code)
+				Activation and
+				deactivation of periods
+				through validity period assumed.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="RelationshipTypeCode" type="xs:string" />
+			<xs:element name="RelationshipDescription" type="xs:string" />
+			<xs:element name="RelationshipTarget" type="xs:string" />
+			<xs:element name="RelationshipValidityPeriod" type="cmd:ValidDatePeriodType" />
+		</xs:sequence>
+	</xs:complexType>
+
+
+
+	<xs:element name="UpsertCustomerFault" type="cmd:ServiceFaultType" />
+	<xs:element name="UpsertCustomerAddressFault" type="cmd:ServiceFaultType" />
+	<xs:element name="ActivateCustomerFault" type="cmd:ServiceFaultType" />
+	<xs:element name="AssignCustomerSegmentationFault" type="cmd:ServiceFaultType" />
+	<xs:element name="AssignCustomerRelationsFault" type="cmd:ServiceFaultType" />
+	<xs:element name="DeactivateCustomerFault" type="cmd:ServiceFaultType" />
+	<xs:element name="InactivateCustomerFault" type="cmd:ServiceFaultType" />
+	<xs:element name="PublishCustomerCodeResponse" type="cmd:StatusResponseType" />
+	<xs:element name="UpsertCustomer">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation> Message for creating a customer with a main
+					address only.
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element ref="cmd:CustomerEntity" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<!-- Assign customer segmentation repeating -->
+	<!-- <xs:element name="AssignCustomerSegmentation"> -->
+	<!-- <xs:complexType> -->
+	<!-- <xs:annotation> -->
+	<!-- <xs:documentation> Release 2 scope: Message for creating or updating -->
+	<!-- the customer -->
+	<!-- segmentation. -->
+	<!-- </xs:documentation> -->
+	<!-- </xs:annotation> -->
+	<!-- <xs:all> -->
+	<!-- <xs:element ref="cmd:CustomerCode" /> -->
+	<!-- <xs:element ref="cmd:SCVCode" /> -->
+	<!-- <xs:element name="Segmentations" type="cmd:SegmentationsType" /> -->
+	<!-- </xs:all> -->
+	<!-- </xs:complexType> -->
+	<!-- </xs:element> -->
+	<xs:element name="UpsertCustomerResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation> Return message for all asynchronous upsert
+					operations, containing
+					the customer code
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:element ref="cmd:CustomerCode" minOccurs="0" />
+				<xs:element name="SCVCode" type="xs:string" minOccurs="0" />
+				<xs:element name="UpsertCustomerValidationStatus" type="cmd:ValidationResponseType"
+					minOccurs="0" maxOccurs="unbounded" />
+				<xs:element name="UpsertCustomerStatus" type="cmd:StatusResponseType" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ActivateCustomerRequest">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation> This operation is invoked from the workflow to
+					activate a new by
+					creating a customer code and update the pending
+					XREFS. Input is the RowID
+					(TechnicalIdentifier) and the country
+					(required to create a
+					customer code)
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element ref="cmd:TechnicalIdentifier" />
+				<xs:element name="Country" type="cmd:ISOCountryCode" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ActivateCustomerResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation> Status message is returned to the workflow
+					including the newly
+					created customer number (fact code) if there is
+					an error (E.g. invalid
+					country)
+					only an error message is returned
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="ActivateCustomerStatus" type="cmd:StatusResponseType" />
+				<xs:element ref="cmd:CustomerCode" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+
+
+	<xs:element name="InactivateCustomerRequest">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation> This request is invoked from the workflow/IDD to
+					inactivate a customer using customer code/scv code
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element ref="cmd:SCVCode" minOccurs="0" />
+				<xs:element ref="cmd:CustomerCode" minOccurs="0" />
+				<xs:element name="CustomerStatusReasonCode" type="cmd:CustomerStatusReasonEnum" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="InactivateCustomerResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation> Status message is returned to the workflow/IDD
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="InactivateCustomerStatus" type="cmd:StatusResponseType" />
+				<xs:element ref="cmd:CustomerCode" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+
+
+	<xs:element name="AssignCustomerSegmentsResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="CustomerCode" type="xs:string"
+					maxOccurs="1" minOccurs="0">
+				</xs:element>
+				<xs:element name="AssignCustomerSegmentsStatus" type="cmd:StatusResponseType"></xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+
+	<xs:element name="AssignCustomerSegmentsRequest">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation> Release 2 scope: Message for creating or updating
+					the customer
+					segmentation.
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:choice>
+					<xs:element name="CustomerCode" type="xs:string"></xs:element>
+					<xs:element name="SCVCode" type="xs:string"></xs:element>
+				</xs:choice>
+				<xs:element name="CustomerSegments" type="cmd:SegmentationsType"></xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+
+	<!-- ###################Assign customer relations block -->
+	<xs:element name="AssignCustomerRelationsResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="AssignCustomerRelationsStatus" type="cmd:StatusResponseType"></xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+
+	<xs:element name="AssignCustomerRelationsRequest">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation> Assign relations request </xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="CustomerRelations" type="cmd:CustomerRelationshipsType"></xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<!-- ######## End assign customer relations block -->
+	<xs:element name="PublishCustomerCode">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Request to retrieve a customer with a given
+					customer code or a technical
+					identifier
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element ref="cmd:CustomerCode"/>
+				<xs:element ref="cmd:SCVCode" minOccurs="0"/>
+				<xs:element name="Action" type="cmd:UpsertEnum"
+					minOccurs="0" maxOccurs="unbounded" />
+				<xs:element name="Enrich" type="xs:boolean" default="false"
+					maxOccurs="1" minOccurs="0" />
+				<xs:element name="EnrichComplete" type="xs:boolean"
+					default="false" maxOccurs="1" minOccurs="0" />
+				<xs:element name="CustomerReferenceNumbers" type="cmd:CustomerReferenceNumberType"
+					minOccurs="0" />
+
+
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="PublishConcernCode">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Request to publish concern with a given
+					customer code or a technical
+					identifier
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="ConcernCode" type="xs:string"/>
+				<xs:element name="Action" type="cmd:UpsertEnum"
+					minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="CMDSCVGeoCityMap">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Incoming message format for Geo City Sync
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element ref="cmd:CustomerCode" />
+				<xs:element name="Action" type="xs:string" />
+				<xs:element name="PostalCode" type="xs:string" />
+				<xs:element name="CMDCityName" type="xs:string" />
+				<xs:element name="GEOCityID" type="xs:string" />
+				<xs:element name="GEOStateID" type="xs:string" />
+				<xs:element name="GEOCountryID" type="xs:string" />
+				<xs:element name="Status" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+
+
+</xs:schema>
+

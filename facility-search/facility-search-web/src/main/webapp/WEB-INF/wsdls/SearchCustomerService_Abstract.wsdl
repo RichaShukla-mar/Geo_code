@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://services.apmoller.net/cmd/definitions/v2"
+	xmlns:schema="http://services.apmoller.net/cmd/schemas"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://services.apmoller.net/cmd/definitions/v2"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:osb="http://services.apmoller.net/ManagementFramework/CommonIdentifier/v2" xmlns:p="http://www.w3.org/2001/XMLSchema">
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:import namespace="http://services.apmoller.net/cmd/schemas"
+				schemaLocation="./cmdsmdsxsd/CMD-SearchCustomerTypes.xsd" />
+				<xsd:import namespace="http://services.apmoller.net/ManagementFramework/CommonIdentifier/v2"
+				schemaLocation="./osbxsd/CommonIdentifierV1.xsd" />
+		</xsd:schema>
+    </wsdl:types>
+
+
+	<wsdl:message name="searchCustomerHeader">
+		<wsdl:part name="header" element="osb:CommonIdentifierRequest">
+		</wsdl:part>
+	</wsdl:message>
+
+	<wsdl:message name="searchCustomerRequest">
+		<wsdl:part name="parameters" element="schema:SearchCustomerRequest">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="searchCustomerResponse">
+		<wsdl:part name="parameters" element="schema:SearchCustomerResponse">
+		</wsdl:part>
+	</wsdl:message>
+
+	<wsdl:message name="searchDuplicateCustomerRequest">
+		<wsdl:part name="parameters" element="schema:SearchDuplicateCustomerRequest">
+		</wsdl:part>
+	</wsdl:message>
+
+	<wsdl:message name="searchDuplicateCustomerResponse">
+		<wsdl:part name="parameters" element="schema:SearchDuplicateCustomerResponse">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="retrieveCustomerRequest">
+		<wsdl:part name="parameters" element="schema:RetrieveCustomerRequest"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="retrieveCustomerResponse">
+		<wsdl:part name="parameters" element="schema:RetrieveCustomerResponse"></wsdl:part>
+	</wsdl:message>
+
+
+
+	<wsdl:message name="searchCustomerFault">
+		<wsdl:part name="parameters" element="schema:SearchCustomerFault"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="searchDuplicateCustomerFault">
+		<wsdl:part name="parameters" element="schema:SearchDuplicateCustomerFault"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="retrieveCustomerFault">
+		<wsdl:part name="parameters" element="schema:RetrieveCustomerFault"></wsdl:part>
+	</wsdl:message>
+
+
+
+
+
+	<wsdl:message name="retrieveConcernRequest">
+		<wsdl:part name="parameters" element="schema:RetrieveConcernCodesRequest"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="retrieveConcernResponse">
+		<wsdl:part name="parameters" element="schema:RetrieveConcernCodesResponse"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="retrieveConcernFault">
+		<wsdl:part name="fault" element="schema:RetrieveConcernCodesFault"></wsdl:part>
+	</wsdl:message>
+	
+	<wsdl:message name="retrieveRelationshipsRequest">
+		<wsdl:part name="parameters" element="schema:RetrieveRelationshipsRequest"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="retrieveRelationshipsResponse">
+		<wsdl:part name="parameters" element="schema:RetrieveRelationshipsResponse"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="retrieveRelationshipsFault">
+		<wsdl:part name="fault" element="schema:RetrieveRelationshipsFault"></wsdl:part>
+	</wsdl:message>
+
+
+	<wsdl:portType name="SearchCustomer">
+		<wsdl:operation name="searchCustomer">
+			<wsdl:documentation></wsdl:documentation>
+			<wsdl:input message="tns:searchCustomerRequest">
+			</wsdl:input>
+			<wsdl:output message="tns:searchCustomerResponse">
+			</wsdl:output>
+			<wsdl:fault name="fault" message="tns:searchCustomerFault"></wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="searchDuplicateCustomer">
+			<wsdl:input message="tns:searchDuplicateCustomerRequest">
+			</wsdl:input>
+			<wsdl:output message="tns:searchDuplicateCustomerResponse">
+			</wsdl:output>
+			<wsdl:fault name="fault" message="tns:searchDuplicateCustomerFault"></wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="retrieveCustomer">
+			<wsdl:input message="tns:retrieveCustomerRequest"></wsdl:input>
+			<wsdl:output message="tns:retrieveCustomerResponse"></wsdl:output>
+			<wsdl:fault name="fault" message="tns:retrieveCustomerFault"></wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="retrieveConcern">
+			<wsdl:input message="tns:retrieveConcernRequest"></wsdl:input>
+			<wsdl:output message="tns:retrieveConcernResponse"></wsdl:output>
+            <wsdl:fault name="fault" message="tns:retrieveConcernFault"></wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="retrieveRelationships">
+			<wsdl:input message="tns:retrieveRelationshipsRequest"></wsdl:input>
+			<wsdl:output message="tns:retrieveRelationshipsResponse"></wsdl:output>
+            <wsdl:fault name="fault" message="tns:retrieveRelationshipsFault"></wsdl:fault>
+        </wsdl:operation>
+	</wsdl:portType>
+
+</wsdl:definitions>

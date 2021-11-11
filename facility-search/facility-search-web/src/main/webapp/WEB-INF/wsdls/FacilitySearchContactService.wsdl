@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://services.apmoller.net/cmd/definitions"
+	xmlns:p="http://www.w3.org/2001/XMLSchema" xmlns:schema="http://services.apmoller.net/cmd/schemas"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://services.apmoller.net/cmd/definitions"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:osb="http://services.apmoller.net/ManagementFramework/CommonIdentifier/v2">
+	<wsdl:import location="./FacilitySearchContactService_Abstract.wsdl" namespace="http://services.apmoller.net/cmd/definitions"/>
+	<wsdl:binding name="FacilitySearchContactBinding" type="tns:FacilitySearchContact">
+
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="searchContact">
+
+			<soap:operation
+				soapAction="http://services.apmoller.net/cmd/definitions/searchContact" />
+			<wsdl:input>
+
+				<soap:body use="literal" />
+				<soap:header use="literal"
+					message="tns:searchContactHeader" part="header" />
+			</wsdl:input>
+			<wsdl:output>
+
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+
+				<soap:fault use="literal" name="fault" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<!-- <wsdl:operation name="searchDuplicateContact">
+
+			<soap:operation
+				soapAction="http://services.apmoller.net/cmd/definitions/searchDuplicateContact" />
+			<wsdl:input>
+
+				<soap:body use="literal" />
+				<soap:header use="literal"
+					message="tns:searchContactHeader" part="header" />
+			</wsdl:input>
+			<wsdl:output>
+
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+
+				<soap:fault use="literal" name="fault" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="retrieveContact">
+
+			<soap:operation
+				soapAction="http://services.apmoller.net/cmd/definitions/retrieveContact" />
+			<wsdl:input>
+
+				<soap:body use="literal" />
+				<soap:header use="literal"
+					message="tns:searchContactHeader" part="header" />
+			</wsdl:input>
+			<wsdl:output>
+
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+
+				<soap:fault use="literal" name="fault" />
+			</wsdl:fault>
+		</wsdl:operation> -->
+	</wsdl:binding>
+	<wsdl:service name="FacilityContactSearchService">
+		<wsdl:port name="FacilitySearchContactPort" binding="tns:FacilitySearchContactBinding">
+			<soap:address
+				location="http://scrbipcdk001152:7001/Search/FacilityContactSearchService" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

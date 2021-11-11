@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ejb-jar xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/ejb-jar_3_0.xsd"
+	version="3.0">
+	<display-name>DaoEjbs</display-name>
+
+	<enterprise-beans>
+		<session>
+			<ejb-name>SearchFacilityDAO</ejb-name>
+			<mapped-name>SearchFacilityDAO</mapped-name>
+			<business-local>net.apmoller.services.cmd.searchfacility.dao.SearchFacilityDAOLocal</business-local>
+			<business-remote>net.apmoller.services.cmd.searchfacility.dao.SearchFacilityDAORemote</business-remote>
+			<ejb-class>net.apmoller.services.cmd.searchfacility.dao.SearchFacilityDAO</ejb-class>  
+			<session-type>Stateless</session-type>
+			<transaction-type>Container</transaction-type>
+			<ejb-local-ref>   
+				<ejb-ref-name>SearchFacilityDAO</ejb-ref-name>
+				<local>net.apmoller.services.cmd.searchfacility.dao.SearchFacilityDAOLocal</local>
+				<ejb-link>SearchFacilityDAO</ejb-link>
+			</ejb-local-ref>
+			
+			
+			
+			<resource-ref>
+				<res-ref-name>SMDS_FCT_DATASOURCE</res-ref-name>
+				<res-auth>Container</res-auth> 
+				<mapped-name>jdbc/SMDS-WEB-SERVICES</mapped-name>   
+			</resource-ref>
+
+		</session>
+		
+		
+		
+		<session>
+			<ejb-name>SearchDuplicateFacilityDAO</ejb-name>
+			<mapped-name>SearchDuplicateFacilityDAO</mapped-name>
+			<business-local>net.apmoller.services.cmd.searchfacility.dao.SearchDuplicateFacilityDAOLocal</business-local>
+			<business-remote>net.apmoller.services.cmd.searchfacility.dao.SearchDuplicateFacilityDAORemote</business-remote>
+			<ejb-class>net.apmoller.services.cmd.searchfacility.dao.SearchDuplicateFacilityDAO</ejb-class>
+			<session-type>Stateless</session-type>
+			<transaction-type>Container</transaction-type>
+			<ejb-local-ref>
+				<ejb-ref-name>SearchDuplicateFacilityDAO</ejb-ref-name>
+				<local>net.apmoller.services.cmd.searchfacility.dao.SearchDuplicateFacilityDAOLocal</local>          
+				<ejb-link>SearchDuplicateFacilityDAO</ejb-link>
+			</ejb-local-ref>
+			
+			
+			
+			<resource-ref>
+				<res-ref-name>MDM_DATASOURCE1</res-ref-name>
+				<res-auth>Container</res-auth>
+				<mapped-name>jdbc/SMDS-WEB-SERVICES</mapped-name>  
+			</resource-ref>
+
+		</session>
+		
+	</enterprise-beans>
+
+
+
+	<ejb-client-jar>DaoEjbsClient.jar</ejb-client-jar>
+
+
+
+</ejb-jar>

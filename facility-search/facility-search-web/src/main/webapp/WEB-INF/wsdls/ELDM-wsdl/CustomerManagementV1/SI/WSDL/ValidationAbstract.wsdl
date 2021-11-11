@@ -1,0 +1,66 @@
+<wsdl:definitions name="ValidationAbstract"
+	targetNamespace="http://services.apmoller.net/AMM/Validation/v1" 
+	xmlns="http://services.apmoller.net/AMM/Validation/v1"
+	xmlns:service="http://services.apmoller.net/AMM/Validation/v1"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	xmlns:schema="http://services.apmoller.net/cmd/schemas"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+	xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+	xmlns:frexcp="http://services.apmoller.net/ManagementFramework/ServiceException/v2">
+
+	<!-- DON'T REMOVE -->
+	<wsdl:documentation>
+		<wsdl:documentation>Abstract WSDL that is used/imported by Business
+			Service(s) and Proxy Service(s) - please replace "ServiceName" and
+			"version" with concrete values</wsdl:documentation>
+		<wsdl:documentation>Project Template 4</wsdl:documentation>
+	</wsdl:documentation>
+
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://services.apmoller.net/AMM/Validation/v1">
+			<xsd:import namespace="http://services.apmoller.net/cmd/schemas"
+				schemaLocation="../XSD/AllComplexTypes.xsd" />
+		</xsd:schema>
+		<xsd:schema
+			targetNamespace="http://services.apmoller.net/ManagementFramework/ServiceException/v2">
+			<xsd:include
+				schemaLocation="../../../SharedInterfaceResources/ManagementFramework/Fault/v2/ServiceExceptionV2.xsd" />
+		</xsd:schema>
+	</wsdl:types>
+
+	<!-- Validation message -->
+	<wsdl:message name="ValidateCountryRuleRequest">
+		<wsdl:part name="Payload" element="schema:ValidateCountryRulesRequest" />
+	</wsdl:message>
+	<wsdl:message name="ValidateCountryRuleResponse">
+		<wsdl:part name="Payload" element="schema:ValidateCountryRulesResponse" />
+	</wsdl:message>
+	<wsdl:message name="ValidateCountryRuleFault">
+		<wsdl:part name="Payload" element="schema:ValidateCountryRuleFault" />
+	</wsdl:message>
+
+	<wsdl:message name="RetrieveCountryRulesRequest">
+		<wsdl:part name="Payload" element="schema:RetrieveCountryRulesRequest" />
+	</wsdl:message>
+	<wsdl:message name="RetrieveCountryRulesResponse">
+		<wsdl:part name="Payload" element="schema:RetrieveCountryRulesResponse" />
+	</wsdl:message>
+	<wsdl:message name="RetrieveCountryRulesFault">
+		<wsdl:part name="Payload" element="schema:RetrieveCountryRulesFault" />
+	</wsdl:message>
+
+	<!-- Validation portType -->
+	<wsdl:portType name="ValidationPort">
+		<wsdl:operation name="ValidateCountryRule">
+			<wsdl:input message="ValidateCountryRuleRequest" />
+			<wsdl:output message="ValidateCountryRuleResponse" />
+			<wsdl:fault name="Fault" message="ValidateCountryRuleFault" />
+		</wsdl:operation>
+		<wsdl:operation name="RetrieveCountryRules">
+			<wsdl:input message="RetrieveCountryRulesRequest" />
+			<wsdl:output message="RetrieveCountryRulesResponse" />
+			<wsdl:fault name="Fault" message="RetrieveCountryRulesFault" />
+		</wsdl:operation>
+	</wsdl:portType>
+
+</wsdl:definitions>

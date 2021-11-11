@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/facility-search.iml" filepath="$PROJECT_DIR$/facility-search.iml" />
+      <module fileurl="file://$PROJECT_DIR$/facility-search-aop/facility-search-aop.iml" filepath="$PROJECT_DIR$/facility-search-aop/facility-search-aop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/facility-search-client/facility-search-client.iml" filepath="$PROJECT_DIR$/facility-search-client/facility-search-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/facility-search-ear/facility-search-ear.iml" filepath="$PROJECT_DIR$/facility-search-ear/facility-search-ear.iml" />
+      <module fileurl="file://$PROJECT_DIR$/facility-search-ejb/facility-search-ejb.iml" filepath="$PROJECT_DIR$/facility-search-ejb/facility-search-ejb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/facility-search-web/facility-search-web.iml" filepath="$PROJECT_DIR$/facility-search-web/facility-search-web.iml" />
+    </modules>
+  </component>
+</project>

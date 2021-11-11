@@ -1,0 +1,141 @@
+<wsdl:definitions name="ReferenceDataAbstract"
+	targetNamespace="http://services.apmoller.net/AMM/ReferenceData/v1" 
+	xmlns="http://services.apmoller.net/AMM/ReferenceData/v1"
+	xmlns:service="http://services.apmoller.net/AMM/ReferenceData/v1"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	xmlns:schema="http://services.apmoller.net/cmd/schemas"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+	xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+	xmlns:frexcp="http://services.apmoller.net/ManagementFramework/ServiceException/v2">
+
+	<!-- DON'T REMOVE -->
+	<wsdl:documentation>
+		<wsdl:documentation>Abstract WSDL that is used/imported by Business
+			Service(s) and Proxy Service(s) - please replace "ServiceName" and
+			"version" with concrete values</wsdl:documentation>
+		<wsdl:documentation>Project Template 4</wsdl:documentation>
+	</wsdl:documentation>
+
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://services.apmoller.net/AMM/ReferenceData/v1">
+			<xsd:import namespace="http://services.apmoller.net/cmd/schemas"
+				schemaLocation="../XSD/AllComplexTypes.xsd" />
+		</xsd:schema>
+		<xsd:schema
+			targetNamespace="http://services.apmoller.net/ManagementFramework/ServiceException/v2">
+			<xsd:include
+				schemaLocation="../../../SharedInterfaceResources/ManagementFramework/Fault/v2/ServiceExceptionV2.xsd" />
+		</xsd:schema>
+	</wsdl:types>
+
+	<!-- ReferenceData message -->
+	<wsdl:message name="RetrieveCustomerTypeRequest">
+		<wsdl:part name="Payload" element="schema:CustomerTypeRequest" />
+	</wsdl:message>
+	<wsdl:message name="RetrieveCustomerTypeResponse">
+		<wsdl:part name="Payload" element="schema:RetrieveCustomerTypeResponse" />
+	</wsdl:message>
+	<wsdl:message name="RetrieveCustomerTypeFault">
+		<wsdl:part name="Payload" element="schema:RetrieveCustomerTypeFault" />
+	</wsdl:message>
+
+	<wsdl:message name="RetrieveCustomerStatusRequest">
+		<wsdl:part name="Payload" element="schema:CustomerStatusRequest" />
+	</wsdl:message>
+	<wsdl:message name="RetrieveCustomerStatusResponse">
+		<wsdl:part name="Payload" element="schema:RetrieveCustomerStatusResponse" />
+	</wsdl:message>
+	<wsdl:message name="RetrieveCustomerStatusFault">
+		<wsdl:part name="Payload" element="schema:RetrieveCustomerStatusFault" />
+	</wsdl:message>
+
+	<wsdl:message name="RetrieveCustomerStatusReasonRequest">
+		<wsdl:part name="Payload" element="schema:CustomerStatusReasonRequest" />
+	</wsdl:message>
+	<wsdl:message name="RetrieveCustomerStatusReasonResponse">
+		<wsdl:part name="Payload" element="schema:RetrieveCustomerStatusReasonResponse" />
+	</wsdl:message>
+	<wsdl:message name="RetrieveCustomerStatusReasonFault">
+		<wsdl:part name="Payload" element="schema:RetrieveCustomerStatusReasonFault" />
+	</wsdl:message>
+
+	<wsdl:message name="RetrieveReferenceNumberCodesRequest">
+		<wsdl:part name="Payload" element="schema:ReferenceNumberCodesRequest" />
+	</wsdl:message>
+	<wsdl:message name="RetrieveReferenceNumberCodesResponse">
+		<wsdl:part name="Payload" element="schema:RetrieveReferenceNumberCodesResponse" />
+	</wsdl:message>
+	<wsdl:message name="RetrieveReferenceNumberCodesFault">
+		<wsdl:part name="Payload" element="schema:RetrieveReferenceNumberCodesFault" />
+	</wsdl:message>
+
+	<wsdl:message name="RetrieveTaxNumberCodesRequest">
+		<wsdl:part name="Payload" element="schema:TaxNumberCodesRequest" />
+	</wsdl:message>
+	<wsdl:message name="RetrieveTaxNumberCodesResponse">
+		<wsdl:part name="Payload" element="schema:RetrieveTaxNumberCodesResponse" />
+	</wsdl:message>
+	<wsdl:message name="RetrieveTaxNumberCodesFault">
+		<wsdl:part name="Payload" element="schema:RetrieveTaxNumberCodesFault" />
+	</wsdl:message>
+	
+	<wsdl:message name="RetrieveCountryRequest">
+		<wsdl:part name="Payload" element="schema:RetrieveCountryRequest" />
+	</wsdl:message>
+	<wsdl:message name="RetrieveCountryResponse">
+		<wsdl:part name="Payload" element="schema:RetrieveCountryResponse" />
+	</wsdl:message>
+	<wsdl:message name="RetrieveCountryFault">
+		<wsdl:part name="Payload" element="schema:RetrieveCountryFault" />
+	</wsdl:message>
+	
+	<wsdl:message name="RetrieveCityRequest">
+		<wsdl:part name="Payload" element="schema:RetrieveCityRequest" />
+	</wsdl:message>
+	<wsdl:message name="RetrieveCityResponse">
+		<wsdl:part name="Payload" element="schema:RetrieveCityResponse" />
+	</wsdl:message>
+	<wsdl:message name="RetrieveCityFault">
+		<wsdl:part name="Payload" element="schema:RetrieveCityFault" />
+	</wsdl:message>
+	
+	<!-- ReferenceData portType -->
+	<wsdl:portType name="ReferenceDataPort">
+		<wsdl:operation name="RetrieveCustomerType">
+			<wsdl:input message="RetrieveCustomerTypeRequest" />
+			<wsdl:output message="RetrieveCustomerTypeResponse" />
+			<wsdl:fault name="Fault" message="RetrieveCustomerTypeFault" />
+		</wsdl:operation>
+		<wsdl:operation name="RetrieveCustomerStatus">
+			<wsdl:input message="RetrieveCustomerStatusRequest" />
+			<wsdl:output message="RetrieveCustomerStatusResponse" />
+			<wsdl:fault name="Fault" message="RetrieveCustomerStatusFault" />
+		</wsdl:operation>
+		<wsdl:operation name="RetrieveCustomerStatusReason">
+			<wsdl:input message="RetrieveCustomerStatusReasonRequest" />
+			<wsdl:output message="RetrieveCustomerStatusReasonResponse" />
+			<wsdl:fault name="Fault" message="RetrieveCustomerStatusReasonFault" />
+		</wsdl:operation>
+		<wsdl:operation name="RetrieveReferenceNumberCodes">
+			<wsdl:input message="RetrieveReferenceNumberCodesRequest" />
+			<wsdl:output message="RetrieveReferenceNumberCodesResponse" />
+			<wsdl:fault name="Fault" message="RetrieveReferenceNumberCodesFault" />
+		</wsdl:operation>
+		<wsdl:operation name="RetrieveTaxNumberCodes">
+			<wsdl:input message="RetrieveTaxNumberCodesRequest" />
+			<wsdl:output message="RetrieveTaxNumberCodesResponse" />
+			<wsdl:fault name="Fault" message="RetrieveTaxNumberCodesFault" />
+		</wsdl:operation>
+		<wsdl:operation name="RetrieveCountry">
+			<wsdl:input message="RetrieveCountryRequest" />
+			<wsdl:output message="RetrieveCountryResponse" />
+			<wsdl:fault name="Fault" message="RetrieveCountryFault" />
+		</wsdl:operation>
+		<wsdl:operation name="RetrieveCity">
+			<wsdl:input message="RetrieveCityRequest" />
+			<wsdl:output message="RetrieveCityResponse" />
+			<wsdl:fault name="Fault" message="RetrieveCityFault" />
+		</wsdl:operation>
+	</wsdl:portType>
+	
+</wsdl:definitions>

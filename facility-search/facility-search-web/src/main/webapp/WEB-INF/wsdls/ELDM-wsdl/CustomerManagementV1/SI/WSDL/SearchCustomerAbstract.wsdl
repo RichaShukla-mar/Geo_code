@@ -1,0 +1,81 @@
+<wsdl:definitions name="SearchCustomerAbstract"
+	targetNamespace="http://services.apmoller.net/AMM/SearchCustomer/v1" 
+	xmlns="http://services.apmoller.net/AMM/SearchCustomer/v1"
+	xmlns:service="http://services.apmoller.net/AMM/SearchCustomer/v1"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	xmlns:schema="http://services.apmoller.net/cmd/schemas"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+	xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+	xmlns:frexcp="http://services.apmoller.net/ManagementFramework/ServiceException/v2">
+
+	<!-- DON'T REMOVE -->
+	<wsdl:documentation>
+		<wsdl:documentation>Abstract WSDL that is used/imported by Business
+			Service(s) and Proxy Service(s) - please replace "ServiceName" and
+			"version" with concrete values</wsdl:documentation>
+		<wsdl:documentation>Project Template 4</wsdl:documentation>
+	</wsdl:documentation>
+
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://services.apmoller.net/AMM/SearchCustomer/v1">
+			<xsd:import namespace="http://services.apmoller.net/cmd/schemas"
+				schemaLocation="../XSD/AllComplexTypes.xsd" />
+		</xsd:schema>
+		<xsd:schema
+			targetNamespace="http://services.apmoller.net/ManagementFramework/ServiceException/v2">
+			<xsd:include
+				schemaLocation="../../../SharedInterfaceResources/ManagementFramework/Fault/v2/ServiceExceptionV2.xsd" />
+		</xsd:schema>
+	</wsdl:types>
+
+	<!-- SearchCustomer message -->
+	<wsdl:message name="SearchCustomerRequest">
+		<wsdl:part name="Payload" element="schema:SearchCustomerRequest" />
+	</wsdl:message>
+	<wsdl:message name="SearchCustomerResponse">
+		<wsdl:part name="Payload" element="schema:SearchCustomerResponse" />
+	</wsdl:message>
+	<wsdl:message name="SearchCustomerFault">
+		<wsdl:part name="Payload" element="schema:SearchCustomerFault" />
+	</wsdl:message>
+
+	<wsdl:message name="SearchDuplicateCustomerRequest">
+		<wsdl:part name="Payload" element="schema:SearchDuplicateCustomerRequest" />
+	</wsdl:message>
+	<wsdl:message name="SearchDuplicateCustomerResponse">
+		<wsdl:part name="Payload" element="schema:SearchDuplicateCustomerResponse" />
+	</wsdl:message>
+	<wsdl:message name="SearchDuplicateCustomerFault">
+		<wsdl:part name="Payload" element="schema:SearchDuplicateCustomerFault" />
+	</wsdl:message>
+
+	<wsdl:message name="RetrieveCustomerRequest">
+		<wsdl:part name="Payload" element="schema:RetrieveCustomerRequest" />
+	</wsdl:message>
+	<wsdl:message name="RetrieveCustomerResponse">
+		<wsdl:part name="Payload" element="schema:RetrieveCustomerResponse" />
+	</wsdl:message>
+	<wsdl:message name="RetrieveCustomerFault">
+		<wsdl:part name="Payload" element="schema:RetrieveCustomerFault" />
+	</wsdl:message>
+
+	<!-- SearchCustomer portType -->
+	<wsdl:portType name="SearchCustomerPort">
+		<wsdl:operation name="SearchCustomer">
+			<wsdl:input message="SearchCustomerRequest" />
+			<wsdl:output message="SearchCustomerResponse" />
+			<wsdl:fault name="Fault" message="SearchCustomerFault" />
+		</wsdl:operation>
+		<wsdl:operation name="SearchDuplicateCustomer">
+			<wsdl:input message="SearchDuplicateCustomerRequest" />
+			<wsdl:output message="SearchDuplicateCustomerResponse" />
+			<wsdl:fault name="Fault" message="SearchDuplicateCustomerFault" />
+		</wsdl:operation>
+		<wsdl:operation name="RetrieveCustomer">
+			<wsdl:input message="RetrieveCustomerRequest" />
+			<wsdl:output message="RetrieveCustomerResponse" />
+			<wsdl:fault name="Fault" message="RetrieveCustomerFault" />
+		</wsdl:operation>
+	</wsdl:portType>
+
+</wsdl:definitions>

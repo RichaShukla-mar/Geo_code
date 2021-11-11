@@ -1,0 +1,867 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:cmd="http://services.apmoller.net/cmd/schemas" xmlns:mdmavxsd="urn:informatica.mdm.av.xsd"
+	elementFormDefault="qualified" targetNamespace="http://services.apmoller.net/cmd/schemas">
+	<xs:include schemaLocation="SimpleTypes.xsd" />
+	<xs:import namespace="urn:informatica.mdm.av.xsd"
+		schemaLocation="mdm_avos_schema.xsd" />
+
+
+	<xs:element name="CustomerHeader" type="cmd:CustomerHeaderType" />
+
+	<xs:element name="CustomerEntity">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Response of retrieve customer (identical to
+					create/update) for a given
+					customer code(s)
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="Customer" type="cmd:CustomerCompleteType" />
+				<xs:element name="CustomerAddress" type="cmd:AddressType" />
+
+				<xs:element name="CustomerTaxNumbers" type="cmd:CustomerTaxNumberType"
+					minOccurs="0">
+					<xs:annotation>
+						<xs:documentation> Country specific Tax Numbers for the customer
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+
+				<xs:element name="CustomerReferenceNumbers" type="cmd:CustomerReferenceNumberType"
+					minOccurs="0">
+					<xs:annotation>
+						<xs:documentation> Different customer internal identifiers of the
+							customer and also external ones. Most numbers could be retrieved
+							from EDP
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<!-- Messages for asynchronous operations - Input -->
+	<xs:element name="UpsertCustomer">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Message for creating a customer with a main
+					address only.
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element ref="cmd:CustomerEntity" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<!-- Local Addresses are release 2 scope -->
+	<xs:element name="UpsertCustomerAddress">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Message for adding or
+					updating any number of local
+					addresses to a customer.
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element ref="cmd:CustomerCode" />
+				<xs:element name="Address" type="cmd:AddressType"
+					minOccurs="1" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<!-- Release 2 scope: -->
+	<xs:element name="UpsertCustomerCommunicationPreference">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Message for creating
+					or updating communication
+					preferences on a customer.
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element ref="cmd:CustomerCode" />
+				<xs:element name="CommunicationPreference" type="cmd:CommunicationPreferenceType"
+					minOccurs="1" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<!-- Release 2 scope: -->
+	<xs:element name="UpsertCustomerContactOrDepartment">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Message for creating
+					or updating either a contact
+					or a department (contact group).
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element ref="cmd:CustomerCode" />
+				<xs:choice>
+					<xs:element name="Contact" type="cmd:ContactType" />
+					<xs:element name="Department" type="cmd:DepartmentType" />
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<!-- Release 2 scope: -->
+	<xs:element name="AssignCustomerSegmentation">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Release 2 scope: Message for creating
+					or updating
+					the customer segmentation.
+				</xs:documentation>
+			</xs:annotation>
+			<xs:all>
+				<xs:element ref="cmd:CustomerCode" />
+				<xs:element name="Segmentation" type="cmd:SegmentationType" />
+			</xs:all>
+		</xs:complexType>
+	</xs:element>
+
+	<!-- Messages for asynchronous operations - Output -->
+	<xs:element name="UpsertCustomerResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Return message for all asynchronous upsert
+					operations, containing the
+					customer code
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:element ref="cmd:CustomerCode" minOccurs="0" />
+				<xs:element name="UpsertCustomerValidationStatus" type="cmd:ValidationResponseType"
+					minOccurs="0" maxOccurs="unbounded" />
+				<xs:element name="UpsertCustomerStatus" type="cmd:StatusResponseType" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="VerifyWTCSCustomer">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Match given customer (given by trading name)
+					against the
+					WTCS-Lists (OFAC/EEAS). Currently only an input is
+					required, as a
+					workflow is started in ActiveVOS from the service
+					This also includes the customer header information.
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="CustomerHeader" type="cmd:CustomerHeaderType" />
+
+				<xs:element ref="cmd:TechnicalIdentifier">
+					<xs:annotation>
+						<xs:documentation>
+							RowID of the customer or contact, who is to be
+							verified against the SDN List
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="WTCSInformation" type="cmd:WTCSInformationType" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<!-- Messages for retrieve operations - Requests and Responses -->
+	<xs:element name="RetrieveCustomerRequest">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Request to retrieve a customer with a given
+					customer code or a technical
+					identifier
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element ref="cmd:CustomerCode" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="RetrieveCustomerResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Response of retrieve customer (identical to
+					create/update) for a given
+					customer code(s)
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element ref="cmd:CustomerEntity" minOccurs="0" />
+				<xs:element name="RetrieveCustomerStatus" type="cmd:StatusResponseType" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="CustomerTaxNumberType">
+		<xs:sequence>
+			<xs:element name="CustomerTaxNumber" type="cmd:TaxInformationType"
+				minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CustomerReferenceNumberType">
+		<xs:sequence>
+			<xs:element name="CustomerReferenceNumber" type="cmd:ReferenceNumberType"
+				minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="RetrieveCustomerTypeResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Generic Response for all kinds of reference Data
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="ReferenceData" type="cmd:ReferenceDataResponseType"
+					minOccurs="1" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="RetrieveCustomerStatusResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Generic Response for all kinds of reference Data
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="ReferenceData" type="cmd:ReferenceDataResponseType"
+					minOccurs="1" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="RetrieveCustomerStatusReasonResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Generic Response for all kinds of reference Data
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="ReferenceData" type="cmd:ReferenceDataResponseType"
+					minOccurs="1" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="RetrieveReferenceNumberCodesResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Generic Response for all kinds of reference Data
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="ReferenceData" type="cmd:ReferenceDataResponseType"
+					minOccurs="1" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="RetrieveTaxNumberCodesResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Generic Response for all kinds of reference Data
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="ReferenceData" type="cmd:ReferenceDataResponseType"
+					minOccurs="1" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+	<!-- Release 2 scope: -->
+	<xs:element name="RetrieveCustomerContactRequest">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Release 2 scope:Request
+					to retrieve all contacts
+					of
+					a customer with a given customer code
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element ref="cmd:CustomerCode" minOccurs="1"
+					maxOccurs="1" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<!-- Release 2 scope: -->
+	<xs:element name="RetrieveCustomerContactResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Release 2 scope: Response
+					of retrieve
+					customerContact or Departments (identical to
+					create/update) for
+					a
+					given customer code
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="Contacts" type="cmd:ContactType"
+					minOccurs="0" maxOccurs="unbounded" />
+				<xs:element name="Departments" type="cmd:DepartmentType"
+					minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<!-- Release 2 scope: -->
+	<xs:element name="RetrieveCustomerCommunicationPreferencesRequest">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Release 2 scope: Request
+					to retrieve all
+					communication preferences for a customer and his
+					contacts
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element ref="cmd:CustomerCode" minOccurs="1"
+					maxOccurs="1" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<!-- Release 2 scope: -->
+	<xs:element name="RetrieveCustomerCommunicationPreferencesResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Release 2 scope: Response
+					of retrieve customer
+					communication preferences for the customer and
+					all his
+					contacts
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="CommunicationPreferences" type="cmd:CommunicationPreferenceType"
+					minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<!-- Messages for synchronous search operations - Requests and Responses -->
+	<xs:element name="SearchDuplicateCustomerRequest">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Search duplicate customer by complete type of data
+					that has been
+					inserted.
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element ref="cmd:CustomerEntity" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="SearchDuplicateCustomerResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Return results of the duplicate match - includes
+					full address compared to
+					standard search
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="SearchDuplicateCustomerStatus" type="cmd:StatusResponseType" />
+				<xs:element name="DuplicateCustomer"
+					type="cmd:SearchDuplicateCustomerResponseType" minOccurs="0"
+					maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="SearchCustomerRequest">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Wildcard-Search active customers based on
+					different critera (mainly name and
+					address fields)
+					When customer code
+					is given, Portal will use the retrieveCustomer
+					Method to get all
+					details of the customer directly
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element ref="cmd:CustomerLegalName" minOccurs="0"
+					maxOccurs="1" />
+				<xs:element ref="cmd:CustomerTradingName" minOccurs="0"
+					maxOccurs="1" />
+				<xs:element ref="cmd:Country" />
+				<xs:element ref="cmd:City" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="cmd:CustomerLifecycleStatus" minOccurs="0"
+					maxOccurs="1" />
+				<xs:element ref="cmd:HouseNo" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="cmd:StreetName" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="cmd:Region" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="cmd:PoBox" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="cmd:PostalCode" minOccurs="0" maxOccurs="1" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="SearchCustomerResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Return results of the customer search (same for
+					all search customer
+					operations except searchDuplicateCustomer?)
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="SearchCustomerStatus" type="cmd:StatusResponseType" />
+				<xs:element name="Customer" type="cmd:SearchCustomerResponseType"
+					minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="SearchCustomerResponseType">
+		<xs:annotation>
+			<xs:documentation>
+				Return results of the customer search (same for all
+				search customer
+				operations except searchDuplicateCustomer?)
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="cmd:CustomerCode" />
+			<xs:element ref="cmd:CustomerLegalName" minOccurs="0"
+				maxOccurs="1" />
+				
+			<xs:element ref="cmd:CustomerTradingName" />
+			<xs:element ref="cmd:CustomerLifecycleStatus" />
+			<xs:element name="CustomerStatusReasonType" type="xs:string"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element ref="cmd:CustomerTypes" />
+			<xs:element ref="cmd:StreetName" minOccurs="0" />
+			<xs:element ref="cmd:HouseNo" minOccurs="0" />
+			<xs:element ref="cmd:Building" minOccurs="0" />
+			<xs:element ref="cmd:Suburb" minOccurs="0" />
+			<xs:element ref="cmd:District" minOccurs="0" />
+			<xs:element ref="cmd:PoBox" minOccurs="0" />
+			<xs:element ref="cmd:PostalCode" minOccurs="0" />
+			<xs:element ref="cmd:Region" minOccurs="0" />
+			<xs:element ref="cmd:City" />
+			<xs:element ref="cmd:Country" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="SearchDuplicateCustomerResponseType">
+		<xs:annotation>
+			<xs:documentation>
+				Return results of the customer duplicate search,
+				including full address
+				details
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="cmd:CustomerCode" />
+			<xs:element ref="cmd:CustomerLegalName" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element ref="cmd:CustomerTradingName" />
+
+			<!-- do we need that one, is it in the package? -->
+			<xs:element ref="cmd:CustomerLifecycleStatus" />
+
+			<xs:element name="Address" type="cmd:AddressType" />
+
+			<xs:element name="CustomerTaxNumbers" type="cmd:CustomerTaxNumberType"
+				minOccurs="0">
+				<xs:annotation>
+					<xs:documentation> Country specific Tax Numbers for the customer
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="MatchScore" type="xs:int" />
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:complexType name="CountryRuleValidationFieldType">
+		<xs:annotation>
+			<xs:documentation>
+				Country and Fieldname for which the country rules
+				validation should happen. Fielvalue is optional to accomodate for
+				mandatory
+				checks only (which don't supply a field value)
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Country" type="cmd:CountryType" />
+			<xs:element name="FieldName" type="xs:string" />
+			<xs:element name="FieldValue" type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="CountryRuleValidationResultType">
+		<xs:annotation>
+			<xs:documentation>
+				Response of the validation success or failure code
+				with message, for the
+				country and field in question
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ValidationField" type="cmd:CountryRuleValidationFieldType" />
+			<xs:element name="ValidationStatus" type="cmd:StatusResponseType" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="CountryRuleType">
+		<xs:annotation>
+			<xs:documentation>
+				Country Rules for caching
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Country" type="cmd:CountryType" />
+			<xs:element name="FieldName" type="xs:string" />
+			<!-- TODO: Change to Enum -->
+			<xs:element name="RegularExpression" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="MandatoryIndicator" type="xs:boolean"
+				minOccurs="0" />
+			<xs:element name="ValidationMessage" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="ValidateCountryRulesRequest">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Request to Validate a field for a specific country
+					using the
+					CountryPrefixCode
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:element name="CountryRulesRequest" type="cmd:CountryRuleValidationFieldType" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="ValidateCountryRulesResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Response of the validation success or failure code
+					with message, for the
+					country and field in question
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:element name="CountryRuleValidationResult" type="cmd:CountryRuleValidationResultType" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="RetrieveCountryRulesRequest">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Retrieve country rules for caching of a specific
+					country
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="Country" type="cmd:CountryType" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="RetrieveCountryRulesResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					all country validation rules for the requested
+					country
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="CountryRule" type="cmd:CountryRuleType"
+					maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="StartCustomerProcessRequest">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					The StartProcessRequest for ActiveVOS to trigger a
+					workflow extended
+					by required customer attributes
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="INFATask" type="mdmavxsd:INFATask" />
+				<xs:element name="CustomerProcess" type="cmd:CustomerProcessType" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="CustomerProcessType">
+		<xs:annotation>
+			<xs:documentation>
+				Additional information required to start any of the
+				customer workflows
+				WorkflowIndicator - Indicate which kind of human
+				task activity is
+				shown in IDD
+				CustomerCreateIndicator - Indicates if
+				the activateCustomer Operation needs to be invoked
+				once the record is
+				accepted (only for new records)
+				WTCSInformation - Information
+				required to call the SDN-Service in case record is
+				accepted and
+				customer name or address changed
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="WorkflowIndicator" type="cmd:WorkflowEnum" />
+			<xs:element name="CustomerCreateIndicator" type="cmd:UpsertEnum" />
+			<xs:element ref="cmd:CustomerCode" minOccurs="0" />
+			<xs:element name="WTCSInformation" type="cmd:WTCSInformationType" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="ActivateCustomerRequest">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					This operation is invoked from the workflow to
+					activate a new by
+					creating a customer code and update
+					the pending
+					XREFS. Input is the RowID (TechnicalIdentifier) and the
+					country
+					(required to create a customer code)
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element ref="cmd:TechnicalIdentifier" />
+				<xs:element name="Country" type="cmd:CountryType" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="RetrieveCountryResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Generic Response for all kinds of reference Data
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="ReferenceData" type="cmd:ReferenceDataResponseType"
+					minOccurs="1" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RetrieveCityResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					City Response for all kinds of reference Data
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="Cities" type="cmd:CityType"
+					minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ActivateCustomerResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Status message is returned to the workflow
+					including the newly created
+					customer number (fact code)
+					if there is
+					an error (E.g. invalid country) only an error message is
+					returned
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="ActivateCustomerStatus" type="cmd:StatusResponseType" />
+				<xs:element ref="cmd:CustomerCode" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="DeactivateCustomerRequest">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					This operation is invoked from the workflow to
+					deactivate a customer by
+					deleting it.
+					Input is the RowID
+					(TechnicalIdentifier) and the indicator if a new or
+					already existing
+					customer should be deleted.
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element ref="cmd:TechnicalIdentifier" />
+				<xs:element name="UpsertIndicator" type="cmd:UpsertEnum" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="DeactivateCustomerResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Status message is returned to the workflow
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="DeactivateCustomerStatus" type="cmd:StatusResponseType" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="PublishCustomerCode">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Request to retrieve a customer with a given
+					customer code or a technical
+					identifier
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element ref="cmd:CustomerCode" />
+				<xs:element name="Action" type="cmd:UpsertEnum" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CustomerTypeRequest">
+		<xs:complexType>
+			<xs:sequence />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CustomerStatusRequest">
+		<xs:complexType>
+			<xs:sequence />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CustomerStatusReasonRequest">
+		<xs:complexType>
+			<xs:sequence />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ReferenceNumberCodesRequest">
+		<xs:complexType>
+			<xs:sequence />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="TaxNumberCodesRequest">
+		<xs:complexType>
+			<xs:sequence />
+		</xs:complexType>
+	</xs:element>
+
+
+
+
+	<xs:element name="DeletePartyMatchRequest">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Request for deleting partymatch
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element ref="cmd:TechnicalIdentifier" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="RetrieveCountryRequest">
+		<xs:complexType>
+			<xs:sequence />
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="RetrieveCityRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Country" type="cmd:CountryType" />
+				<xs:element ref="cmd:City" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+
+	<xs:element name="PublishCustomerCodeResponse" type="cmd:StatusResponseType" />
+	<xs:element name="DeletePartyMatchResponse" type="cmd:StatusResponseType" />
+	<xs:element name="SearchCustomerFault" type="cmd:ServiceFaultType" />
+	<xs:element name="SearchDuplicateCustomerFault" type="cmd:ServiceFaultType" />
+	<xs:element name="RetrieveCustomerFault" type="cmd:ServiceFaultType" />
+
+	<xs:element name="RetrieveCustomerTypeFault" type="cmd:ServiceFaultType" />
+	<xs:element name="RetrieveCustomerStatusFault" type="cmd:ServiceFaultType" />
+	<xs:element name="RetrieveCustomerStatusReasonFault" type="cmd:ServiceFaultType" />
+	<xs:element name="RetrieveReferenceNumberCodesFault" type="cmd:ServiceFaultType" />
+	<xs:element name="RetrieveTaxNumberCodesFault" type="cmd:ServiceFaultType" />
+	<xs:element name="RetrieveCountryFault" type="cmd:ServiceFaultType" />
+	<xs:element name="RetrieveCityFault" type="cmd:ServiceFaultType" />
+
+	<xs:element name="ValidateCountryRuleFault" type="cmd:ServiceFaultType" />
+	<xs:element name="RetrieveCountryRulesFault" type="cmd:ServiceFaultType" />
+
+	<xs:element name="UpsertCustomerFault" type="cmd:ServiceFaultType" />
+	<xs:element name="UpsertCustomerAddressFault" type="cmd:ServiceFaultType" />
+	<xs:element name="AssignCustomerSegmentationFault" type="cmd:ServiceFaultType" />
+
+	<xs:element name="RetrieveCountriesFault" type="cmd:ServiceFaultType" />
+	<xs:element name="RetrieveCitiesFault" type="cmd:ServiceFaultType" />
+
+	<xs:element name="ActivateCustomerFault" type="cmd:ServiceFaultType" />
+	<xs:element name="DeactivateCustomerFault" type="cmd:ServiceFaultType" />
+	<xs:element name="SdnServiceFault" type="cmd:ServiceFaultType" />
+</xs:schema>

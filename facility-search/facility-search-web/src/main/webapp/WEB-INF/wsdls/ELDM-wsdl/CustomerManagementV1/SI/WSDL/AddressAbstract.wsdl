@@ -1,0 +1,49 @@
+<wsdl:definitions name="AddressAbstract"
+	targetNamespace="http://services.apmoller.net/AMM/Address/v1" 
+	xmlns="http://services.apmoller.net/AMM/Address/v1"
+	xmlns:service="http://services.apmoller.net/AMM/Address/v1"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:schema="http://www.informatica.com/dis/ws/" 
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+	xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+	xmlns:frexcp="http://services.apmoller.net/ManagementFramework/ServiceException/v2">
+
+	<!-- DON'T REMOVE -->
+	<wsdl:documentation>
+		<wsdl:documentation>Abstract WSDL that is used/imported by Business
+			Service(s) and Proxy Service(s) - please replace "ServiceName" and
+			"version" with concrete values</wsdl:documentation>
+		<wsdl:documentation>Project Template 4</wsdl:documentation>
+	</wsdl:documentation>
+
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://services.apmoller.net/AMM/Address/v1">
+			<xsd:import namespace="http://www.informatica.com/dis/ws/" 
+				schemaLocation="../XSD/AddressTypes.xsd" />
+		</xsd:schema>
+		<xsd:schema targetNamespace="http://services.apmoller.net/ManagementFramework/ServiceException/v2">
+			<xsd:include schemaLocation="../../../SharedInterfaceResources/ManagementFramework/Fault/v2/ServiceExceptionV2.xsd" />
+		</xsd:schema>
+	</wsdl:types>
+
+	<!-- Address message -->
+	<wsdl:message name="AddressOperationRequest">
+		<wsdl:part name="Payload" element="schema:CMD_Address_Service_Operation" />
+	</wsdl:message>
+	<wsdl:message name="AddressOperationResponse">
+		<wsdl:part name="Payload" element="schema:CMD_Address_Service_OperationResponse" />
+	</wsdl:message>
+	<wsdl:message name="FaultMessage">
+        <wsdl:part name="Payload" element="frexcp:ServiceException"/>
+    </wsdl:message>
+	
+	<!-- Address portType -->
+	<wsdl:portType name="AddressPort">
+		<wsdl:operation name="AddressOperation">
+			<wsdl:input message="AddressOperationRequest" />
+			<wsdl:output message="AddressOperationResponse" />
+			<wsdl:fault name="Fault" message="FaultMessage"/>
+		</wsdl:operation>
+	</wsdl:portType>
+
+</wsdl:definitions>

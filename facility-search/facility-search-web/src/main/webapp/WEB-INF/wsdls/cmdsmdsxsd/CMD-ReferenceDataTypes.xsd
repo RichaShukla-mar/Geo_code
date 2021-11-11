@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:cmd="http://services.apmoller.net/cmd/schemas"
+	elementFormDefault="qualified" targetNamespace="http://services.apmoller.net/cmd/schemas">
+	<xs:include schemaLocation="CMD-CommonCustomerTypes.xsd" />
+	<xs:include schemaLocation="SMDS-ReferenceDataTypes.xsd" />
+	
+	<xs:element name="RetrieveRelationshipTypesRequest">
+		<xs:complexType>
+			<xs:sequence />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RetrieveSegmentationRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="SegmentTypeCode" type="xs:string"
+					minOccurs="0" maxOccurs="1" />
+			</xs:sequence>	
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RetrieveSegmentTypesRequest">
+		<xs:complexType>
+			<xs:sequence/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RetrieveCustomerTypeRequest">
+		<xs:complexType>
+			<xs:sequence />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RetrieveCustomerContactTypesRequest">
+		<xs:complexType>
+			<xs:sequence />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RetrieveCustomerStatusRequest">
+		<xs:complexType>
+			<xs:sequence />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RetrieveCustomerStatusReasonRequest">
+		<xs:complexType>
+			<xs:sequence />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RetrieveReferenceNumberCodesRequest">
+		<xs:complexType>
+			<xs:sequence />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RetrieveTaxNumberCodesRequest">
+		<xs:complexType>
+			<xs:sequence />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RetrieveDocumentTypesRequest">
+		<xs:complexType>
+			<xs:sequence />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RetrieveCommPrefTypesRequest">
+		<xs:complexType>
+			<xs:sequence />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RetrieveBrandsRequest">
+		<xs:complexType>
+			<xs:sequence />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RetrieveCustomerTypeResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation> Generic Response for all kinds of reference Data
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="ReferenceData" type="cmd:ReferenceDataResponseType"
+					minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RetrieveCustomerStatusResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation> Generic Response for all kinds of reference Data
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="ReferenceData" type="cmd:ReferenceDataResponseType"
+					minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RetrieveReferenceNumberCodesResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation> Generic Response for all kinds of reference Data
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="ReferenceData" type="cmd:ReferenceDataResponseType"
+					minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="RetrieveCustomerContactTypesResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation> Generic Response for all kinds of reference Data
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="ReferenceData" type="cmd:ReferenceDataResponseType"
+					minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="RetrieveTaxNumberCodesResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation> Generic Response for all kinds of reference Data
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="ReferenceData" type="cmd:ReferenceDataResponseType"
+					minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="RetrieveTaxTypeLocalNameRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Country" type="cmd:ISOCountryCode"
+					minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="RetrieveTaxTypeLocalNameResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Response for retrieve tax type local name
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="TaxType" type="cmd:TaxLocalNameType"
+					minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="RetrieveCustomerStatusReasonResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Generic Response for all kinds of reference Data
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="ReferenceData" type="cmd:ReferenceDataResponseType"
+					minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RetrieveSegmentationResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Generic Response for all kinds of reference Data
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="ReferenceData" type="cmd:ReferenceDataResponseType"
+					minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="RetrieveSegmentTypesResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Generic Response for all kinds of reference Data
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="ReferenceData" type="cmd:ReferenceDataResponseType"
+					minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="RetrieveDocumentTypesResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Generic Response for all kinds of reference Data
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="ReferenceData" type="cmd:ReferenceDataResponseType"
+					minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RetrieveCommPrefTypesResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Generic Response for all kinds of reference Data
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="ReferenceData" type="cmd:ReferenceDataResponseType"
+					minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RetrieveBrandsResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>
+					Generic Response for all kinds of reference Data
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="ReferenceData" type="cmd:ReferenceDataResponseType"
+					minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RetrieveRelationshipTypesResponse">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation> Generic Response for all kinds of reference Data
+				</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="ReferenceData" type="cmd:ReferenceDataResponseType"
+					minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="RetrieveCustomerTypeFault" type="cmd:ServiceFaultType" />
+	<xs:element name="RetrieveCustomerStatusFault" type="cmd:ServiceFaultType" />
+	<xs:element name="RetrieveCustomerStatusReasonFault" type="cmd:ServiceFaultType" />
+	<xs:element name="RetrieveReferenceNumberCodesFault" type="cmd:ServiceFaultType" />
+	<xs:element name="RetrieveTaxNumberCodesFault" type="cmd:ServiceFaultType" />
+	<xs:element name="RetrieveTaxTypeLocalNameFault" type="cmd:ServiceFaultType" />
+	<xs:element name="RetrieveSegmentationFault" type="cmd:ServiceFaultType" />
+	<xs:element name="RetrieveCustomerContactTypesFault" type="cmd:ServiceFaultType" />
+	<xs:element name="RetrieveSegmentTypesFault" type="cmd:ServiceFaultType" />
+	
+	<xs:element name="RetrieveDocumentTypesFault" type="cmd:ServiceFaultType" />
+	<xs:element name="RetrieveCommPrefTypesFault" type="cmd:ServiceFaultType" />
+	<xs:element name="RetrieveBrandsFault" type="cmd:ServiceFaultType" />
+	<xs:element name="RetrieveRelationshipTypesFault"
+		type="cmd:ServiceFaultType" />
+
+</xs:schema>

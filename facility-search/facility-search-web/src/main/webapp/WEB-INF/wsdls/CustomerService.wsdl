@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://services.apmoller.net/cmd/definitions/v2"
+	xmlns:schema="http://services.apmoller.net/cmd/schemas"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://services.apmoller.net/cmd/definitions/v2"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+
+	<wsdl:import location="./CustomerService_Abstract.wsdl" namespace="http://services.apmoller.net/cmd/definitions/v2"/>
+
+
+	<wsdl:binding name="UpsertCustomerBinding"
+		type="tns:UpsertCustomerService">
+
+
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="upsertCustomer">
+
+
+			<soap:operation
+				soapAction="http://services.apmoller.net/cmd/definitions/v2/upsertCustomer" />
+			<wsdl:input>
+
+
+
+
+				<soap:body use="literal" />
+				<soap:header use="literal" message="tns:upsertCustomerHeader"
+					part="header" />
+			</wsdl:input>
+			<wsdl:output>
+
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+
+				<soap:fault use="literal" name="fault" />
+			</wsdl:fault>
+		</wsdl:operation>
+
+		<wsdl:operation name="publishCustomerCode">
+
+			<soap:operation
+				soapAction="http://services.apmoller.net/cmd/definitions/v2/publishCustomerCode" />
+			<wsdl:input>
+
+
+
+
+
+
+				<soap:body use="literal" />
+				<soap:header use="literal" message="tns:upsertCustomerHeader"
+					part="header" />
+				
+			</wsdl:input>
+			<wsdl:output>
+
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+
+		<wsdl:operation name="deletePartyMatch">
+
+			<soap:operation
+				soapAction="http://services.apmoller.net/cmd/definitions/v2/deletePartyMatch" />
+			<wsdl:input>
+
+
+				<soap:body use="literal" />
+				<soap:header use="literal" message="tns:upsertCustomerHeader"
+					part="header" />
+			</wsdl:input>
+			<wsdl:output>
+
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+
+				<soap:fault use="literal" name="fault" />
+			</wsdl:fault>
+		</wsdl:operation>
+
+
+
+
+
+
+
+		<wsdl:operation name="assignCustomerSegments">
+
+			<soap:operation
+				soapAction="http://services.apmoller.net/cmd/definitions/v2/assignCustomerSegments" />
+			<wsdl:input>
+
+
+				<soap:body use="literal" />
+				<soap:header use="literal" message="tns:upsertCustomerHeader"
+					part="header" />
+			</wsdl:input>
+			<wsdl:output>
+
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+
+				<soap:fault use="literal" name="fault" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="inactivateCustomer">
+
+			<soap:operation
+				soapAction="http://services.apmoller.net/cmd/definitions/v2/inactivateCustomer" />
+			<wsdl:input>
+
+
+				<soap:body use="literal" />
+				<soap:header use="literal" message="tns:upsertCustomerHeader"
+					part="header" />
+			</wsdl:input>
+			<wsdl:output>
+
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+
+				<soap:fault use="literal" name="fault" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="assignCustomerRelationships">
+
+			<soap:operation
+				soapAction="http://services.apmoller.net/cmd/definitions/v2/assignCustomerRelationships" />
+			<wsdl:input>
+
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+
+				<soap:fault use="literal" name="fault" />
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+
+
+	<wsdl:service name="CustomerService">
+		<wsdl:port name="CustomerServicePort" binding="tns:UpsertCustomerBinding">
+			<soap:address location="http://scrbipcdk001152:37801/CustomerManagement/v2/CustomerService" />
+		</wsdl:port>
+	</wsdl:service>
+
+
+
+
+</wsdl:definitions>
+

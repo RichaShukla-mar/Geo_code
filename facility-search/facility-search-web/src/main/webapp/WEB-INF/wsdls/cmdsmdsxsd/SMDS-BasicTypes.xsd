@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:cmd="http://services.apmoller.net/cmd/schemas" elementFormDefault="qualified"
+	targetNamespace="http://services.apmoller.net/cmd/schemas">
+
+	<xs:element name="PWCCompatibility" type="xs:string">
+		<xs:annotation>
+			<xs:documentation> Required element for PowerCenter compatibility </xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<xs:simpleType name="ISOCountryCode">
+		<xs:annotation>
+			<xs:documentation>Country code in ISO 2-digit format </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[A-Z]{2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ISOCurrencyCode">
+		<xs:annotation>
+			<xs:documentation>Currency code in ISO 3-digit format </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[A-Z]{3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ISOLanguageCode">
+		<xs:annotation>
+			<xs:documentation>Language code in ISO 2-digit format (ISO 639-1) </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[a-zA-Z0-9]{2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AddressMailabilityScore">
+		<xs:annotation>
+			<xs:documentation>Values of the mailabilitiy score of Address Doctor </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:int">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="5"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AddressMatchScore">
+		<xs:annotation>
+			<xs:documentation>Values of the match score of Address Doctor </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[A-Z][A-Z0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="StringMinLen1">
+		<xs:annotation>
+			<xs:documentation>Values of the match score of Address Doctor </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="(.+){1,}"/>
+			<xs:maxLength value="35"/>
+		</xs:restriction>
+	</xs:simpleType>
+		<xs:simpleType name="StringMinLen1MaxLen100">
+		<xs:annotation>
+			<xs:documentation>Values of the match score of Address Doctor </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="(.+){1,}"/>
+			<xs:maxLength value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
+			<xs:simpleType name="StringMinLen1MaxLen35">
+		<xs:annotation>
+			<xs:documentation>Values of the match score of Address Doctor </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="(.+){1,}"/>
+			<xs:maxLength value="35"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="StringMinLen2">
+		<xs:annotation>
+			<xs:documentation>Values of the match score of Address Doctor </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="(.+){1,}"/>
+			<xs:maxLength value="35"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CustomerTradingNameString">
+		<xs:annotation>
+			<xs:documentation>Trading name validation </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="([a-zA-Z0-9.,\+:;&quot;$%^&amp;*\-&apos;( )/]+){2,}"/>
+			<xs:maxLength value="128"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ContactFullNameString">
+		<xs:annotation>
+			<xs:documentation>Contact Full Name </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="(.+){3,}"/>
+			<xs:maxLength value="257"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+
+	<xs:simpleType name="ContactNameString">
+		<xs:annotation>
+			<xs:documentation>Contact First / Last name </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+	<!-- 	<xs:pattern value="([a-zA-Z0-9.,\+:;&quot;$%^&amp;*\-&apos;( )/]+){3,}"/> -->
+			<xs:maxLength value="128"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ContactInternationalNameString">
+		<xs:annotation>
+			<xs:documentation>Contact First / Last name </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+	<!-- 	<xs:pattern value="([a-zA-Z0-9.,\+:;&quot;$%^&amp;*\-&apos;( )/]+){3,}"/> -->
+			<xs:maxLength value="200"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="SalutationCode">
+		<xs:restriction base="xs:string">
+
+			<xs:minLength value="1"/>
+			<xs:maxLength value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- All Basic for SMDS-Facility Starts-->
+
+	<xs:element name="URL">
+				<xs:annotation>
+					<xs:documentation> URL/Homepage of the customer	</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="300" />
+					</xs:restriction>
+				</xs:simpleType>
+	</xs:element>
+
+	<xs:simpleType name="SegmentClassificationString">
+		<xs:annotation>
+			<xs:documentation>Trading name validation </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="([a-zA-Z0-9]+){1,4}"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="SegmentClassificationValueString">
+		<xs:annotation>
+			<xs:documentation>Trading name validation </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="([a-zA-Z0-9]+){1,4}"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+
+
+<!--All Basic Types for SMDS-Facility Ends-->
+</xs:schema>

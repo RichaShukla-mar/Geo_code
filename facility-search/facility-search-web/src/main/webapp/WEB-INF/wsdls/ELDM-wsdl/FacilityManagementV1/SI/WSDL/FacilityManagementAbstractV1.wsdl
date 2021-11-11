@@ -1,0 +1,248 @@
+<wsdl:definitions name="FacilityManagementAbstract"
+                  targetNamespace="http://services.apmoller.net/AMM/FacilityManagementAbstract/v1"
+                  xmlns:service="http://services.apmoller.net/AMM/FacilityManagement/v1"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns="http://services.apmoller.net/AMM/FacilityManagementAbstract/v1"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+                  xmlns:frexcp="http://services.apmoller.net/ManagementFramework/ServiceException/v2">
+ <!-- DON'T REMOVE -->
+ <wsdl:documentation>Abstract WSDL that is used/imported by Business Service(s)
+                     and Proxy Service(s)</wsdl:documentation>
+ <xsd:annotation>
+  <xsd:appinfo>
+   <Metadata xmlns="http://services.apmoller.net/AMM/v2/meta">
+    <Creator>CMD Solution Chintan</Creator>
+    <Version>1.0.0</Version>
+    <LastUpdateDate>27/04/2016</LastUpdateDate>
+   </Metadata>
+  </xsd:appinfo>
+ </xsd:annotation>
+ <wsdl:types>
+  <xsd:schema>
+   <xsd:import namespace="http://services.apmoller.net/AMM/FacilityManagement/v1"
+               schemaLocation="../XSD/FacilityManagementV1.xsd"/>
+  </xsd:schema>
+  <xsd:schema targetNamespace="http://services.apmoller.net/ManagementFramework/ServiceException/v2">
+   <xsd:include schemaLocation="../../../SharedInterfaceResources/ManagementFramework/Fault/v2/ServiceExceptionV2.xsd"/>
+  </xsd:schema>
+ </wsdl:types>
+ 
+ 
+ 
+ 
+ <wsdl:message name="RetrieveFacilityOPSCategoryRequest">
+  <wsdl:part name="Payload" element="service:RetrieveFacilityOPSCategoryRequest"/>
+ </wsdl:message>
+ <wsdl:message name="RetrieveFacilityOPSCategoryResponse">
+  <wsdl:part name="Payload" element="service:RetrieveFacilityOPSCategoryResponse"/>
+ </wsdl:message>
+ <wsdl:message name="RetrieveFacilityOPSCategoryFaultMessage">
+  <wsdl:part name="Payload" element="frexcp:ServiceException"/>
+ </wsdl:message>
+ 
+ <wsdl:message name="RetrieveFacilityStatusRequest">
+  <wsdl:part name="Payload" element="service:RetrieveFacilityStatusRequest"/>
+ </wsdl:message>
+ <wsdl:message name="RetrieveFacilityStatusResponse">
+  <wsdl:part name="Payload" element="service:RetrieveFacilityStatusResponse"/>
+ </wsdl:message>
+ <wsdl:message name="RetrieveFacilityStatusFaultMessage">
+  <wsdl:part name="Payload" element="frexcp:ServiceException"/>
+ </wsdl:message>
+ 
+ <wsdl:message name="RetrieveFacilityTypeRequest">
+  <wsdl:part name="Payload" element="service:RetrieveFacilityTypeRequest"/>
+ </wsdl:message>
+ <wsdl:message name="RetrieveFacilityTypeResponse">
+  <wsdl:part name="Payload" element="service:RetrieveFacilityTypeResponse"/>
+ </wsdl:message>
+ <wsdl:message name="RetrieveFacilityTypeFaultMessage">
+  <wsdl:part name="Payload" element="frexcp:ServiceException"/>
+ </wsdl:message>
+ 
+ <wsdl:message name="RetrieveOfferingGroupRequest">
+  <wsdl:part name="Payload" element="service:RetrieveOfferingGroupRequest"/>
+ </wsdl:message>
+ <wsdl:message name="RetrieveOfferingGroupResponse">
+  <wsdl:part name="Payload" element="service:RetrieveOfferingGroupResponse"/>
+ </wsdl:message>
+ <wsdl:message name="RetrieveOfferingGroupFaultMessage">
+  <wsdl:part name="Payload" element="frexcp:ServiceException"/>
+ </wsdl:message>
+ 
+ <wsdl:message name="RetrieveOfferingRequest">
+  <wsdl:part name="Payload" element="service:RetrieveOfferingRequest"/>
+ </wsdl:message>
+ <wsdl:message name="RetrieveOfferingResponse">
+  <wsdl:part name="Payload" element="service:RetrieveOfferingResponse"/>
+ </wsdl:message>
+ <wsdl:message name="RetrieveOfferingFaultMessage">
+  <wsdl:part name="Payload" element="frexcp:ServiceException"/>
+ </wsdl:message>
+ 
+ <wsdl:message name="RetrieveFacilityCommercialTypesRequest">
+  <wsdl:part name="Payload" element="service:RetrieveFacilityCommercialTypesRequest"/>
+ </wsdl:message>
+ <wsdl:message name="RetrieveFacilityCommercialTypesResponse">
+  <wsdl:part name="Payload" element="service:RetrieveFacilityCommercialTypesResponse"/>
+ </wsdl:message>
+ <wsdl:message name="RetrieveFacilityCommercialTypesFaultMessage">
+  <wsdl:part name="Payload" element="frexcp:ServiceException"/>
+ </wsdl:message>
+
+ <wsdl:message name="RetrieveFacilityBrandsRequest">
+  <wsdl:part name="Payload" element="service:RetrieveFacilityBrandsRequest"/>
+ </wsdl:message>
+ <wsdl:message name="RetrieveFacilityBrandsResponse">
+  <wsdl:part name="Payload" element="service:RetrieveFacilityBrandsResponse"/>
+ </wsdl:message>
+ <wsdl:message name="RetrieveFacilityBrandsFaultMessage">
+  <wsdl:part name="Payload" element="frexcp:ServiceException"/>
+ </wsdl:message>
+ 
+  <wsdl:message name="RetrieveFacilityFunctionsRequest">
+  <wsdl:part name="Payload" element="service:RetrieveFacilityFunctionsRequest"/>
+ </wsdl:message>
+ <wsdl:message name="RetrieveFacilityFunctionsResponse">
+  <wsdl:part name="Payload" element="service:RetrieveFacilityFunctionsResponse"/>
+ </wsdl:message>
+ <wsdl:message name="RetrieveFacilityFunctionsFaultMessage">
+  <wsdl:part name="Payload" element="frexcp:ServiceException"/>
+ </wsdl:message>  
+  
+ <wsdl:message name="SearchFacilityRequest">
+  <wsdl:part name="Payload" element="service:SearchFacilityRequest"/>
+ </wsdl:message>
+ <wsdl:message name="SearchFacilityResponse">
+  <wsdl:part name="Payload" element="service:SearchFacilityResponse"/>
+ </wsdl:message>
+ <wsdl:message name="SearchFacilityFaultMessage">
+  <wsdl:part name="Payload" element="frexcp:ServiceException"/>
+ </wsdl:message>
+
+ <!--  <wsdl:message name="SearchDuplicateFacilityRequest">
+  <wsdl:part name="Payload" element="service:SearchFacilityRequest"/>
+ </wsdl:message>
+ <wsdl:message name="SearchDuplicateFacilityResponse">
+  <wsdl:part name="Payload" element="service:SearchFacilityResponse"/>
+ </wsdl:message>
+ <wsdl:message name="SearchDuplicateFacilityFaultMessage">
+  <wsdl:part name="Payload" element="frexcp:ServiceException"/>
+ </wsdl:message>  
+  -->
+ <wsdl:message name="UpsertFacilityRequest">
+  <wsdl:part name="Payload" element="service:UpsertFacilityRequest"/>
+ </wsdl:message>
+ <wsdl:message name="UpsertFacilityResponse">
+  <wsdl:part name="Payload" element="service:UpsertFacilityResponse"/>
+ </wsdl:message>
+ <wsdl:message name="UpsertFacilityFaultMessage">
+  <wsdl:part name="Payload" element="frexcp:ServiceException"/>
+ </wsdl:message>
+ 
+ 
+ <wsdl:message name="RetriveFacilityRequest">
+  <wsdl:part name="Payload" element="service:RetriveFacilityRequest"/>
+ </wsdl:message>
+ <wsdl:message name="RetriveFacilityResponse">
+  <wsdl:part name="Payload" element="service:RetriveFacilityResponse"/>
+ </wsdl:message>
+ <wsdl:message name="RetriveFacilityFaultMessage">
+  <wsdl:part name="Payload" element="frexcp:ServiceException"/>
+ </wsdl:message>
+ 
+ <wsdl:message name="SearchFacilityContactRequest">
+  <wsdl:part name="Payload" element="service:SearchFacilityContactRequest"/>
+ </wsdl:message>
+ <wsdl:message name="SearchFacilityContactResponse">
+  <wsdl:part name="Payload" element="service:SearchFacilityContactResponse"/>
+ </wsdl:message>
+ <wsdl:message name="SearchFacilityContactFaultMessage">
+  <wsdl:part name="Payload" element="frexcp:ServiceException"/>
+ </wsdl:message>
+ 
+ <wsdl:message name="UpsertContactRequest">
+  <wsdl:part name="Payload" element="service:UpsertContactRequest"/>
+ </wsdl:message>
+ <wsdl:message name="UpsertContactResponse">
+  <wsdl:part name="Payload" element="service:UpsertContactResponse"/>
+ </wsdl:message>
+ <wsdl:message name="UpsertContactFaultMessage">
+  <wsdl:part name="Payload" element="frexcp:ServiceException"/>
+ </wsdl:message>
+ 
+ <wsdl:portType name="FacilityManagementPort">
+  
+  <wsdl:operation name="RetrieveFacilityOPSCategories">
+   <wsdl:input message="RetrieveFacilityOPSCategoryRequest"/>
+   <wsdl:output message="RetrieveFacilityOPSCategoryResponse"/>
+   <wsdl:fault name="Fault" message="RetrieveFacilityOPSCategoryFaultMessage"/>
+  </wsdl:operation>
+  <wsdl:operation name="RetrieveFacilityStatus">
+   <wsdl:input message="RetrieveFacilityStatusRequest"/>
+   <wsdl:output message="RetrieveFacilityStatusResponse"/>
+   <wsdl:fault name="Fault" message="RetrieveFacilityStatusFaultMessage"/>
+  </wsdl:operation>
+  <wsdl:operation name="RetrieveFacilityTypes">
+   <wsdl:input message="RetrieveFacilityTypeRequest"/>
+   <wsdl:output message="RetrieveFacilityTypeResponse"/>
+   <wsdl:fault name="Fault" message="RetrieveFacilityTypeFaultMessage"/>
+  </wsdl:operation>
+  <wsdl:operation name="RetrieveOfferingGroups">
+   <wsdl:input message="RetrieveOfferingGroupRequest"/>
+   <wsdl:output message="RetrieveOfferingGroupResponse"/>
+   <wsdl:fault name="Fault" message="RetrieveOfferingGroupFaultMessage"/>
+  </wsdl:operation>
+  <wsdl:operation name="RetrieveOfferings">
+   <wsdl:input message="RetrieveOfferingRequest"/>
+   <wsdl:output message="RetrieveOfferingResponse"/>
+   <wsdl:fault name="Fault" message="RetrieveOfferingFaultMessage"/>
+  </wsdl:operation>
+  <wsdl:operation name="RetrieveFacilityCommercialTypes">
+   <wsdl:input message="RetrieveFacilityCommercialTypesRequest"/>
+   <wsdl:output message="RetrieveFacilityCommercialTypesResponse"/>
+   <wsdl:fault name="Fault" message="RetrieveFacilityCommercialTypesFaultMessage"/>
+  </wsdl:operation>
+  <wsdl:operation name="RetrieveFacilityBrands">
+   <wsdl:input message="RetrieveFacilityBrandsRequest"/>
+   <wsdl:output message="RetrieveFacilityBrandsResponse"/>
+   <wsdl:fault name="Fault" message="RetrieveFacilityBrandsFaultMessage"/>
+  </wsdl:operation>
+  <wsdl:operation name="RetrieveFacilityFunctions">
+   <wsdl:input message="RetrieveFacilityFunctionsRequest"/>
+   <wsdl:output message="RetrieveFacilityFunctionsResponse"/>
+   <wsdl:fault name="Fault" message="RetrieveFacilityFunctionsFaultMessage"/>
+  </wsdl:operation>
+  <wsdl:operation name="SearchFacility">
+   <wsdl:input message="SearchFacilityRequest"/>
+   <wsdl:output message="SearchFacilityResponse"/>
+   <wsdl:fault name="Fault" message="SearchFacilityFaultMessage"/>
+  </wsdl:operation>
+   <wsdl:operation name="SearchDuplicateFacility">
+   <wsdl:input message="SearchFacilityRequest"/>
+   <wsdl:output message="SearchFacilityResponse"/>
+   <wsdl:fault name="Fault" message="SearchFacilityFaultMessage"/>
+  </wsdl:operation> 
+  <wsdl:operation name="UpsertFacility">
+   <wsdl:input message="UpsertFacilityRequest"/>
+   <wsdl:output message="UpsertFacilityResponse"/>
+   <wsdl:fault name="Fault" message="UpsertFacilityFaultMessage"/>
+  </wsdl:operation>
+  <wsdl:operation name="RetriveFacility">
+   <wsdl:input message="RetriveFacilityRequest"/>
+   <wsdl:output message="RetriveFacilityResponse"/>
+   <wsdl:fault name="Fault" message="RetriveFacilityFaultMessage"/>
+  </wsdl:operation>
+  <wsdl:operation name="SearchFacilityContact">
+   <wsdl:input message="SearchFacilityContactRequest"/>
+   <wsdl:output message="SearchFacilityContactResponse"/>
+   <wsdl:fault name="Fault" message="SearchFacilityContactFaultMessage"/>
+  </wsdl:operation>
+  <wsdl:operation name="UpsertContact">
+   <wsdl:input message="UpsertContactRequest"/>
+   <wsdl:output message="UpsertContactResponse"/>
+   <wsdl:fault name="Fault" message="SearchFacilityContactFaultMessage"/>
+  </wsdl:operation>
+ </wsdl:portType>
+</wsdl:definitions>

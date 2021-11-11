@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://services.apmoller.net/cmd/definitions"
+	xmlns:schema="http://services.apmoller.net/cmd/schemas"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://services.apmoller.net/cmd/definitions"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+	<wsdl:import location="FCT-ReferenceDataService_Abstract.wsdl" namespace="http://services.apmoller.net/cmd/definitions"/>
+	<wsdl:binding name="FCTReferenceDataBinding"
+		type="tns:FCTReferenceData">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="retrieveOfferings">
+			<soap:operation
+				soapAction="http://services.apmoller.net/cmd/definitions/retrieveOfferings" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault use="literal" name="fault" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="retrieveOfferingGroups">
+			<soap:operation
+				soapAction="http://services.apmoller.net/cmd/definitions/retrieveOfferingGroups" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault use="literal" name="fault" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="retrieveFacilityTypes">
+			<soap:operation
+				soapAction="http://services.apmoller.net/cmd/definitions/retrieveFacilityTypes" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault use="literal" name="fault" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="retrieveFacilityStatus">
+			<soap:operation
+				soapAction="http://services.apmoller.net/cmd/definitions/retrieveFacilityStatus" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault use="literal" name="fault" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="retrieveFacilityOPSCategories">
+			<soap:operation
+				soapAction="http://services.apmoller.net/cmd/definitions/retrieveFacilityOPSCategories" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault use="literal" name="fault" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="retrieveFacilitycommercialTypes"> 
+			<soap:operation
+				soapAction="http://services.apmoller.net/cmd/definitions/retrieveFacilitycommercialTypes" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault use="literal" name="fault" />
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		<wsdl:operation name="retrieveFacilityBrands"> 
+			<soap:operation
+				soapAction="http://services.apmoller.net/cmd/definitions/retrieveFacilityBrands" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault use="literal" name="fault" />
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		<wsdl:operation name="retrieveFacilityFunctions">
+			<soap:operation
+				soapAction="http://services.apmoller.net/cmd/definitions/retrieveFacilityFunctions" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault use="literal" name="fault" />
+			</wsdl:fault>
+		</wsdl:operation>
+		
+	</wsdl:binding>
+	
+	<wsdl:service name="FCTReferenceDataService">
+		<wsdl:port name="FCTReferenceDataPort" binding="tns:FCTReferenceDataBinding">
+			<soap:address
+				location="http://scrbipcdk001152:37001/ReferenceDataWebservices/FCTReferenceDataService" />           
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
