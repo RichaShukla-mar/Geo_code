@@ -1,0 +1,289 @@
+{
+   "namespace": "com.maersk.Geography.smds.operations.MSK",
+   "type": "record",
+   "name": "geographyMessage",
+   "doc":"The generic avro schema used by publishers to publish events to the enterprise streaming service for Geography interface",
+   "fields":[
+
+				 {"name": "geography",
+										"type":[
+										"null",
+										{
+												 "type":"record",
+												 "doc":"Geography Entity Information Which includes AltNm,AltCd,fence,Country,Parent,BDA and BDALoc ",
+												 "name":"geography",
+												 "fields":[
+                               {"name":"geoType",  "type":"string"},
+                               {"name":"name",  "type":"string"},
+                               {"name":"status", "type":"string"},
+                               {"name":"validFrom", "type":"long", "logicalType": "timestamp-millis" },
+                               {"name":"validTo",   "type":"long", "logicalType": "timestamp-millis"},
+                               {"name":"longitude", "type":["null","string"]},
+                               {"name":"latitude", "type":["null","string"]},
+                               {"name":"timeZone", "type":["null","string"]},
+                               {"name":"daylightSavingTime", "type":["null","string"]},
+                               {"name":"utcOffsetMinutes", "type":["null","string"]},
+                               {"name":"daylightSavingStart", "type":["null","long"], "logicalType": "timestamp-millis" },
+                               {"name":"daylightSavingEnd", "type":["null","long"], "logicalType": "timestamp-millis" },
+                               {"name":"daylightSavingShiftMinutes", "type":["null","string"]},
+                               {"name":"description", "type":["null","string"]},
+                               {"name":"workaroundReason", "type":["null","string"]},
+                               {"name":"restricted", "type":["null","string"]},
+                               {"name":"postalCodeMandatoryFlag",  "type":["null","string"]},
+                               {"name":"stateProvienceMandatory",  "type":["null","string"]},
+                               {"name":"dialingCode",  "type":["null","string"]},
+                               {"name":"dialingCodedescription",  "type":["null","string"]},
+                               {"name":"portFlag", "type":["null","string"]},
+                               {"name":"olsonTimezone",  "type":["null","string"]},
+                               {"name":"bdaType", "type":["null","string"]},
+                               {"name":"hsudName", "type":["null","string"]},
+                               {"name":"alternateNames",
+																		"type":[
+																		"null",																		
+																		{
+																					"type":"array",
+																					"items":
+																					{
+																					"name":"alternateNames",
+																					"doc":"AlternateNames Details",
+																				   "type": "record",
+																					"fields":[ 
+																							   {"name":"name",       "type":["null","string"]},
+																							   {"name":"description", "type":["null","string"]},
+																							   {"name":"status",      "type":["null","string"]}
+																							  ]
+																				    }
+																				  }
+																				 	
+																				]
+															 },
+															{"name":"alternateCodes",
+																		"type":																	
+																		{
+																					"type":"array",
+																					"items":
+																					{
+																					"name":"alternateCodes",
+																					"doc":"AlternateCodes Details",
+																				   "type": "record",
+																					"fields":[ 
+																							   {"name":"codeType",  "type":["null","string"]},
+																							   {"name":"code",     "type":["null","string"]}
+																							  ]
+																				    }
+																				  }
+																				 	
+																				
+															 },
+															 	{"name":"country",
+																		"type":[
+																		"null",																		
+																		{
+																					"type":"array",
+																					"items":
+																					{
+																					"name":"country",
+																					"doc":"Country Details",
+																				   "type": "record",
+																					"fields":[ 
+																					       {"name":"name",       "type":["null","string"]},
+																							   {"name":"type",  "type":["null","string"]},
+																							   {"name":"alternateCodes",
+																		"type":[
+																		"null",																		
+																		{
+																					"type":"array",
+																					"items":
+																					{
+																					"name":"countryAlternateCodes",
+																					"doc":"Country AlternateCode Details",
+																				   "type": "record",
+																					"fields":[ 
+																							   {"name":"codeType",       "type":["null","string"]},
+																							   {"name":"code", "type":["null","string"]}
+																							  
+																							  ]
+																				    }
+																				  }
+																				 	
+																				]
+															 }																					 
+																							  ]
+																				    }
+																				  }
+																				 	
+																				]
+															 },
+															  {"name":"parent",
+																		"type":[
+																		"null",																		
+																		{
+																					"type":"array",
+																					"items":
+																					{
+																					"name":"parent",
+																					"doc":"Parent Details",
+																				   "type": "record",
+																					"fields":[
+																					       {"name":"name", "type":["null","string"]},
+																							   {"name":"type",  "type":["null","string"]},
+																							   {"name":"bdaType",  "type":["null","string"]},
+																							   {"name":"alternateCodes",
+																		"type":[
+																		"null",																		
+																		{
+																					"type":"array",
+																					"items":
+																					{
+																					"name":"parentAlternateCode",
+																					"doc":"Parent AlternateCode details",
+																				   "type": "record",
+																					"fields":[ 
+																							   {"name":"codeType",       "type":["null","string"]},
+																							   {"name":"code", "type":["null","string"]}
+																							  
+																							  ]
+																				    }
+																				  }
+																				 	
+																				]
+															 }																					 
+																							  ]
+																				    }
+																				  }
+																				 	
+																				]
+															 },
+															 {"name":"subCityParent",
+																		"type":[
+																		"null",																		
+																		{
+																					"type":"array",
+																					"items":
+																					{
+																					"name":"subCityParent",
+																					"doc":"SubCityParent details",
+																				   "type": "record",
+																					"fields":[
+																					       {"name":"name",       "type":["null","string"]},
+																							   {"name":"type",  "type":["null","string"]},
+																							   {"name":"bdaType",  "type":["null","string"]},
+																							   {"name":"alternateCodes",
+																		"type":[
+																		"null",																		
+																		{
+																					"type":"array",
+																					"items":
+																					{
+																					"name":"subCityParentAlternateCode",
+																					"doc":"SubCityParent AlternateCode details",
+																				   "type": "record",
+																					"fields":[ 
+																							   {"name":"codeType",       "type":["null","string"]},
+																							   {"name":"code", "type":["null","string"]}
+																							  
+																							  ]
+																				    }
+																				  }
+																				 	
+																				]
+															 }																					 
+																							  ]
+																				    }
+																				  }
+																				 	
+																				]
+															 },
+															 {"name":"bda",
+																		"type":[
+																		"null",																		
+																		{
+																					"type":"array",
+																					"items":
+																					{
+																					"name":"bda",
+																					"doc":"BDA Details",
+																				   "type": "record",
+																					"fields":[ 
+																					      {"name":"name", "type":["null","string"]},
+																							   {"name":"type", "type":["null","string"]},
+																							   {"name":"bdaType", "type":["null","string"]},
+																							   {"name":"alternateCodes",
+																		"type":[
+																		"null",																		
+																		{
+																					"type":"array",
+																					"items":
+																					{
+																					"name":"bdaAlternateCode",
+																					"doc":"BDA AlternateCode details",
+																				   "type": "record",
+																					"fields":[ 
+																							   {"name":"codeType",       "type":["null","string"]},
+																							   {"name":"code", "type":["null","string"]}
+																							  
+																							  ]
+																				    }
+																				  }
+																				 	
+																				]
+															 }
+																							  ]
+																				    }
+																				  }
+																				 	
+																				]
+															 },
+															  {"name":"bdaLocations",
+																		"type":[
+																		"null",																		
+																		{
+																					"type":"array",
+																					"items":
+																					{
+																					"name":"bdaLocation",
+																					"doc":"BDA Location Details",
+																				   "type": "record",
+																					"fields":[ 
+																					       {"name":"name","type":["null","string"]},
+																							   {"name":"type", "type":["null","string"]},
+																							   {"name":"status", "type":["null","string"]},
+																							   {"name":"alternateCodes",
+																		"type":[
+																		"null",																		
+																		{
+																					"type":"array",
+																					"items":
+																					{
+																					"name":"bdaLocationAlternateCode",
+																					"doc":"BDALocation AlternateCode Details",
+																				   "type": "record",
+																					"fields":[ 
+																							   {"name":"codeType",   "type":["null","string"]},
+																							   {"name":"code", "type":["null","string"]}
+																							  
+																							  ]
+																				    }
+																				  }
+																				 	
+																				]
+																				}
+																				]
+															 }
+																							
+																							  
+																				    }
+																				    ]
+																				  }
+																				 	
+																				]
+															 }
+                                                                ]
+															 }                              
+														               
+										        		    
+									  
+									  
+                
+            ]   
+}

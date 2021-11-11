@@ -1,0 +1,326 @@
+{
+   "namespace": "com.maersk.facility.smds.operations.MSK",
+   "type": "record",
+   "name": "facilityMessage",
+   "doc":"The generic avro schema used by publishers to publish events to the enterprise streaming service for Facility interface",
+   "fields":[
+                	{"name": "facility",
+										"type":{
+												 "type":"record",
+												 "doc":"Facility core Information",
+												 "name":"facility",
+												 "fields":[
+								               {"name":"name",  "type":"string"},
+                               {"name":"type",  "type":"string"},
+                               {"name":"extOwned",  "type":["null","string"]},
+                               {"name":"status", "type":"string"},
+                               {"name":"extExposed", "type":["null","string"]},
+                               {"name":"url", "type":["null","string"]},
+                               {"name":"doDAAC", "type":["null","string"]},
+                               {"name":"address",
+																		"type":																	
+																		{
+																					"type":"array",
+																					"items":
+																					{
+																					"name":"address",
+																					"doc":"Facility Address",
+																				   "type": "record",
+																					"fields":[ 
+                                                 {"name":"houseNumber",     "type":["null","string"]},
+                                                 {"name":"street",     "type":["null","string"]},
+                                                 {"name":"city",     "type":["null","string"]},
+                                                 {"name":"postalCode",     "type":["null","string"]},
+                                                 {"name":"poBox",     "type":["null","string"]},
+                                                 {"name":"district",     "type":["null","string"]},
+																							   {"name":"territory",     "type":["null","string"]},
+																							   {"name":"countryName",       "type":["null","string"]},
+																							   {"name":"countryCode",       "type":["null","string"]},
+																							   {"name":"addressLine2",    "type":["null","string"]},
+																							   {"name":"addressLine3",     "type":["null","string"]},
+																							   {"name":"latitude",     "type":["null","string"]},
+																							   {"name":"longitude",     "type":["null","string"]},
+																							   {"name":"addressQualityCheckIndicator", "type":["null","string"]}
+																							   ]
+																							   }
+																							   }
+																							   },
+																							   {"name":"parent",
+																		"type":[
+																		"null",																		
+																		{
+																					"type":"array",
+																					"items":
+																					{
+																					"name":"parent",
+																					"doc":"Facility Parent",
+																				   "type": "record",
+																					"fields":[ 
+																					       {"name":"name","type":"string"},
+																							   {"name":"type",  "type":"string"},
+																							   {"name":"alternateCodes",
+																		"type":[
+																		"null",																		
+																		{
+																					"type":"array",
+																					"items":
+																					{
+																					"name":"parentAlternateCodes",
+																					"doc":"Parent AlternateCode details",
+																				   "type": "record",
+																					"fields":[ 
+																							   {"name":"codeType", "type":["null","string"]},
+																							   {"name":"code", "type":["null","string"]}
+																							  
+																							  ]
+																				    }
+																				  }
+																				 	
+																				]
+															 }																					 
+																							  ]
+																				    }
+																				  }
+																				 	
+																				]
+															 },
+															 {"name":"facilityDetails",
+																		"type":[
+																		"null",																	
+																		{
+																					"type":"array",
+																					"items":
+																					{
+																					"name":"facilityDetail",
+																					"doc":"Facility Details",
+																				   "type": "record",
+																					"fields":[ 
+																					       {"name":"weightLimitCraneKg",     "type":["null","string"]},
+                                                 {"name":"weightLimitYardKg",     "type":["null","string"]},
+                                                 {"name":"vesselAgent",    "type":["null","string"]},
+                                                 {"name":"gpsFlag",     "type":["null","string"]},
+                                                 {"name":"gsmFlag",     "type":["null","string"]},
+                                                 {"name":"oceanFreightPricing",     "type":["null","string"]},
+                                                 {"name":"brand",     "type":["null","string"]},
+                                                 {"name":"commFacilityType",     "type":["null","string"]},
+                                                 {"name":"exportEnquiriesEmail",     "type":["null","string"]},
+                                                 {"name":"importEnquiriesEmail",     "type":["null","string"]},
+                                                 {"name":"facilityFunction",     "type":["null","string"]},
+                                                 {"name":"facilityFunctionDesc",     "type":["null","string"]},
+                                                 {"name":"internationalDialCode",     "type":["null","string"]},
+                                                 {"name":"telephoneNumber",     "type":["null","string"]},
+																							   {"name":"facilityType",
+																		"type":	[
+																		"null",																
+																		{
+																					"type":"array",
+																					"items":
+																					{
+																					"name":"OpsFacilityType",
+																					"doc":"Ops Facility Type",
+																				  "type": "record",
+																					"fields":[ 
+                                                 {"name":"code",      "type":["null","string"]},
+                                                 {"name":"name",     "type":["null","string"]},
+                                                 {"name":"masterType", "type":["null","string"]},
+                                                 {"name":"validThroughDate", "type":["null","long"], "logicalType": "timestamp-millis"}                                                
+																							   
+																							  ]
+																				    }
+																				   
+																				  }
+																				 	
+																			 ]	
+															 }
+																							   
+																							  ]
+																				    }
+																				  }
+																			]	 	
+																				
+															 },
+                              {"name":"alternateCodes",
+																		"type":																	
+																		{
+																					"type":"array",
+																					"items":
+																					{
+																					"name":"alternateCodes",
+																					"doc":"AlternateCodes Details",
+																				   "type": "record",
+																					"fields":[ 
+																							   {"name":"codeType", "type":["null","string"]},
+																							   {"name":"code", "type":["null","string"]}
+																							  ]
+																				    }
+																				  }
+																				 	
+																				
+															 },
+															  {"name":"openingHours",
+																		"type":[
+																		"null",																		
+																		{
+																					"type":"array",
+																					"items":
+																					{
+																					"name":"openingHours",
+																					"doc":"Facility OpeningHours",
+																				  "type": "record",
+																					"fields":[ 
+																					       {"name":"day",  "type":["null","string"]},
+																					       {"name":"openTimeHours",  "type":["null","string"]},	
+																							   {"name":"openTimeMinutes",  "type":["null","string"]},	
+																							   {"name":"closeTimeHours",   "type":["null","string"]},
+																							   {"name":"closeTimeMinutes",  "type":["null","string"]}
+																							   
+																							   																					 
+																							  ]
+																				    }
+																				  }
+																				 	
+																				]
+															 },
+															 {"name":"transportModes",
+																		"type":[
+																		"null",																		
+																		{
+																					"type":"array",
+																					"items":
+																					{
+																					"name":"transportModes",
+																					"doc":"Facility TransportModes",
+																				  "type": "record",
+																					"fields":[ 
+																							   {"name":"transportMode",   "type":["null","string"]},
+																							   {"name":"transportCode",  "type":["null","string"]},
+																							   {"name":"transportDescription",  "type":["null","string"]},
+																							   {"name":"validThroughDate",  "type":["null","long"], "logicalType": "timestamp-millis"}
+																							   																					 
+																							  ]
+																				    }
+																				  }
+																				 	
+																				]
+															 },
+															  {"name":"facilityServices",
+																		"type":	[
+																		"null",																
+																		{
+																					"type":"array",
+																					"items":
+																					{
+																					"name":"facilityServices",
+																					"doc":"FacilityServices Details",
+																				   "type": "record",
+																					"fields":[ 
+																							   {"name":"serviceName",       "type":["null","string"]},
+																							   {"name":"serviceCode",       "type":["null","string"]},
+																							   {"name":"serviceDescription",  "type":["null","string"]},
+																							   {"name":"validThroughDate",     "type":["null","long"], "logicalType": "timestamp-millis"}
+																							  ]
+																				    }
+																				    
+																				  }
+																			]	 	
+																				
+															 },
+															 {"name":"fence",
+                                                             																		"type":[
+                                                             																		"null",
+                                                             																		{
+                                                             																					"type":"array",
+                                                             																					"items":
+                                                             																					{
+                                                             																					"name":"fence",
+                                                             																					"doc":"Facility Fence Details",
+                                                             																				   "type": "record",
+                                                             																					"fields":[
+                                                             																							   {"name":"name",       "type":["null","string"]},
+                                                             																							   {"name":"fenceType", "type":["null","string"]}
+                                                             																							  ]
+                                                             																				    }
+                                                             																				  }
+
+                                                             																				]
+                                                             															 },
+															 {"name":"bda",
+																		"type":[
+																		"null",																		
+																		{
+																					"type":"array",
+																					"items":
+																					{
+																					"name":"bda",
+																					"doc":"BDA details",
+																				   "type": "record",
+																					"fields":[ 
+																					       {"name":"name", "type":["null","string"]},
+																							   {"name":"type", "type":["null","string"]},
+																							   {"name":"bdaType", "type":["null","string"]},
+																							   {"name":"alternateCodes",
+																		"type":[
+																		"null",																		
+																		{
+																					"type":"array",
+																					"items":
+																					{
+																					"name":"bdaAlternateCode",
+																					"doc":"BDA AlternateCode details",
+																				   "type": "record",
+																					"fields":[ 
+																							   {"name":"codeType",       "type":["null","string"]},
+																							   {"name":"code", "type":["null","string"]}
+																							  
+																							  ]
+																				    }
+																				  }
+																				 	
+																				]
+															 }
+																							  ]
+																				    }
+																				  }
+																				 	
+																				]
+															 },
+															 {"name":"contactDetails",
+																		"type":[
+																		"null",																		
+																		{
+																					"type":"array",
+																					"items":
+																					{
+																					"name":"contactDetails",
+																					"doc":"Facility Contact Details",
+																				  "type": "record",
+																					"fields":[ 
+																							   {"name":"firstName",   "type":["null","string"]},
+																							   {"name":"lastName",  "type":["null","string"]},
+																							   {"name":"jobTitle",  "type":["null","string"]},
+																							   {"name":"department",  "type":["null","string"]},	
+																							   {"name":"internationalDialingCdPhone",  "type":["null","string"]},
+																							   {"name":"extension",  "type":["null","string"]},
+																							   {"name":"phoneNumber",  "type":["null","string"]},
+																							   {"name":"internationalDialingCdMobile",  "type":["null","string"]},
+																							   {"name":"mobileNumber",  "type":["null","string"]},
+																							   {"name":"internaltionalDialingCodeFax",  "type":["null","string"]},
+																							   {"name":"faxNumber",  "type":["null","string"]},
+																							   {"name":"emailAddress",  "type":["null","string"]},
+																							   {"name":"validThroughDate",  "type":["null","long"], "logicalType": "timestamp-millis"}
+																							   																					 
+																							  ]
+																				    }
+																				  }
+																				 	
+																				]
+															 }                           
+                                  ]             
+										        }				    
+									    }				 
+                                   							
+
+                    
+                
+            ]   
+}

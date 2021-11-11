@@ -1,0 +1,71 @@
+#server.port: 7801
+#kafka:
+#  bootstrap-servers: localhost:9092
+#  topic: test
+kafka:
+  #bootstrap-servers: rp-cde-rpx-cdt.crb.apmoller.net:9093
+  #client-id: kafka-customer-producer
+  topic: MSK.geography.facility.topic.internal.any.v2
+    #username: MSK.commercial.smds.producer.v1
+    #password: NsebOsK8CB4FRTAII3tUAY1Bi3TOfhu9H6ugOFv3vsZ4MPOdiqfPGdv6s17l2zWW
+    #login-module: org.apache.kafka.common.security.scram.ScramLoginModule
+    #security-protocol: SASL_SSL
+    #sasl-mechanism: SCRAM-SHA-256
+    #schema-registry-url: https://rp-cde-rpx-cdt.crb.apmoller.net:8081
+    #consumer-group: MSK.commercial.smds.consumerGroup.v1
+    #sasl.jaas.config: org.apache.kafka.common.security.scram.ScramLoginModule required username="MSK.commercial.smds.producer.v1" password="NsebOsK8CB4FRTAII3tUAY1Bi3TOfhu9H6ugOFv3vsZ4MPOdiqfPGdv6s17l2zWW";
+    #ssl:
+    #truststore-location: C:/kafka/kafka.truststore.jks
+    #keystore-location: C:/kafka/schema-client.keystore.jks
+    #keystore-password: YzYwYWY1YzY3ZmZmZjc1ODVjMTQ4MzNk
+    #key-password: YzYwYWY1YzY3ZmZmZjc1ODVjMTQ4MzNk
+    #truststore-location: /opt/weblogic/mdmipc/config/applications/smds_ipc/WSServer/cmd/R3/deployments/deployables/Smds-EMP/cdt.truststore.jks
+  #truststore-location: /opt/weblogic/mdmint/config/applications/smds_int/servers/WSServer/cmd/R3/deployments/deployables/Smds-EMP/cdt.truststore.jks
+  #truststore-location: /opt/weblogic/mdmsit/config/applications/smds_sit/servers/WSServer/cmd/R3/deployments/deployables/Smds-EMP/cdt.truststore.jks
+  #truststore-password: kQVnZWzyjvbk2gcV
+  #client-config-id:
+  producer:
+    acks-config: all
+    linger: 1
+    timeout: 30000
+    batch-size: 16384
+    send-buffer: 131072
+    client-id: kafka-customer-producer
+  consumer:
+    concurrency: 5
+    max-poll-records: 500
+    poll-timeout: 2000
+    offset-auto-reset: earliest
+    retry:
+      max-elapsed-time: 1
+      initial-interval-secs: 1
+      max-interval-secs: 1
+      retry-topic-max-attempts: 1
+      retry-topic-fixed-interval-secs: 1
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+logging:
+  level:
+    root: DEBUG
+    org:
+      springframework:
+        jdbc:
+          core:
+            JdbcTemplate: debug
+
+maersk:
+  deployment:
+    environment: weblogic
+    #environment: local
+
+facility-event-details: '{
+  "CREATE": "Create|facilityCreated",
+  "UPDATE": "Update|facilityDataUpdated"
+}'
+
+
